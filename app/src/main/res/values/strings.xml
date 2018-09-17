@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">AfricaTopup</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">手机加油站</string>
+
+    <string name="title_recharge">充值</string>
+    <string name="title_expense">资费</string>
+    <string name="title_user">我的</string>
 </resources>

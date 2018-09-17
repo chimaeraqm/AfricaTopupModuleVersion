@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/bn_login"
+        android:background="@drawable/shape_button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="用户登录"
+        app:layout_constraintBottom_toTopOf="@+id/bn_logup"
+        app:layout_constraintEnd_toEndOf="@+id/bn_logup"
+        app:layout_constraintStart_toStartOf="@+id/bn_logup" />
+
+    <Button
+        android:id="@+id/bn_logup"
+        android:background="@drawable/shape_button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="新用户注册"
+        app:layout_constraintBottom_toTopOf="@+id/bn_bundle"
+        app:layout_constraintEnd_toEndOf="@+id/bn_bundle"
+        app:layout_constraintStart_toStartOf="@+id/bn_bundle" />
+
+    <Button
+        android:id="@+id/bn_bundle"
+        android:background="@drawable/shape_button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="批量充值"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>

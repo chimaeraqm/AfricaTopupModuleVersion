@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorOrange">
+
+    <com.crazydwarf.africatopup.view.SimpleToolBar
+        android:id="@+id/top_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:appIcon="@mipmap/ic_launcher_round"
+        app:appIconShow="false"
+        app:appIconSize="40dp"
+        app:backIcon="@drawable/ic_chevron_left_black_32dp"
+        app:backIconSize="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menuIconShow="false"
+        app:title="历史订单记录查询"
+        app:titleColor="@color/colorBlack"
+        app:titleSize="20sp" />
+
+</android.support.constraint.ConstraintLayout>
