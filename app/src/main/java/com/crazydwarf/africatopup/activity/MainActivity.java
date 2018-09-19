@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity
         fragments.add(mRechargeFragment);
         fragments.add(mQueryFragment);
         fragments.add(mUserFragment);
-        getSupportFragmentManager().beginTransaction().replace(R.id.view_fragment,mRechargeFragment).show(mRechargeFragment);
+        getSupportFragmentManager().beginTransaction().replace(R.id.view_fragment,mRechargeFragment).show(mRechargeFragment).commit();
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

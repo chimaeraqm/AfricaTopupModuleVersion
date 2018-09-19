@@ -10,7 +10,10 @@
     <color name="colorGray">#707070</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlue">#1989F9</color>
-    <color name="colorTrans">#00000000</color>
+    <color name="colorGreen">#01CF0B</color>
 
+    <color name="colorTrans">#00000000</color>
     <color name="colorTransBlack">#60000000</color>
+    <color name="colorTransOrange">#60f9ac19</color>
+    <color name="colorTransBlue">#601989F9</color>
 </resources>

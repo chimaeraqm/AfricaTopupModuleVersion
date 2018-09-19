@@ -1,23 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorWhite">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/bn_recharge"
+    <CheckBox
+        android:id="@+id/cb_localphone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="本机号码1"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cb_localphone2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="本机号码2"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/cb_localphone1"
+        app:layout_constraintTop_toBottomOf="@+id/cb_localphone1" />
+
+    <EditText
+        android:id="@+id/et_localnumber1"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorTransOrange"
+        android:ems="7"
+        android:hint="1234567"
+        android:inputType="phone"
+        android:paddingLeft="8dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_localphone1"
+        app:layout_constraintStart_toEndOf="@+id/cb_localphone1"
+        app:layout_constraintTop_toTopOf="@+id/cb_localphone1" />
+
+    <EditText
+        android:id="@+id/et_localnumber2"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:background="@color/colorTransOrange"
+        android:ems="7"
+        android:hint="7654321"
+        android:inputType="phone"
+        android:paddingLeft="8dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_localphone2"
+        app:layout_constraintStart_toStartOf="@+id/et_localnumber1"
+        app:layout_constraintTop_toTopOf="@+id/cb_localphone2" />
+
+    <TextView
+        android:id="@+id/tv_carrier1"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorTransBlack"
+        android:gravity="center"
+        android:text="运营商1"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/et_localnumber1"
+        app:layout_constraintStart_toEndOf="@+id/et_localnumber1"
+        app:layout_constraintTop_toTopOf="@+id/et_localnumber1" />
+
+    <TextView
+        android:id="@+id/tv_carrier2"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:background="@color/colorTransBlack"
+        android:gravity="center"
+        android:text="运营商2"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/et_localnumber2"
+        app:layout_constraintStart_toStartOf="@+id/tv_carrier1"
+        app:layout_constraintTop_toTopOf="@+id/et_localnumber2" />
+
+    <ImageView
+        android:id="@+id/im_flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@+id/cb_localphone2"
+        app:layout_constraintTop_toBottomOf="@+id/et_localnumber2"
+        app:srcCompat="@drawable/flag_us" />
+
+    <TextView
+        android:id="@+id/tv_postcode"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:text="+01"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/im_flag"
+        app:layout_constraintStart_toEndOf="@+id/im_flag"
+        app:layout_constraintTop_toTopOf="@+id/im_flag" />
+
+    <EditText
+        android:id="@+id/et_extranumber"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorTransBlue"
+        android:ems="7"
+        android:hint="其他手机号"
+        android:inputType="phone"
+        android:paddingLeft="8dp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_postcode"
+        app:layout_constraintStart_toEndOf="@+id/tv_postcode"
+        app:layout_constraintTop_toTopOf="@+id/tv_postcode" />
+
+    <TextView
+        android:id="@+id/tv_carrier3"
+        android:layout_width="60dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorTransBlack"
+        android:gravity="center"
+        android:text="运营商3"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/et_extranumber"
+        app:layout_constraintStart_toEndOf="@+id/et_extranumber"
+        app:layout_constraintTop_toTopOf="@+id/et_extranumber" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_extranumber"
+        app:srcCompat="@color/colorGray" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_ali"
+        app:srcCompat="@color/colorGray" />
+
+    <EditText
+        android:id="@+id/et_rechargeamount"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="输入充值金额"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorBlack"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="充值金额"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/tv_exrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前汇率：1美元=6.81rmb"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/et_rechargeamount" />
+
+    <TextView
+        android:id="@+id/tv_currencytype"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="美元"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_rechargeamount"
+        app:layout_constraintStart_toEndOf="@+id/et_rechargeamount"
+        app:layout_constraintTop_toTopOf="@+id/et_rechargeamount" />
+
+    <Button
+        android:id="@+id/bn_recharge_ali"
+        android:layout_width="144dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/shape_button1"
-        android:text="充值"
-        android:textColor="@color/colorBlack"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/shape_button2"
+        android:text="支付宝支付（推荐）"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_exrate" />
+
+    <Button
+        android:id="@+id/bn_recharge_we"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/shape_button3"
+        android:text="微信支付"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@+id/bn_recharge_ali"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/bn_recharge_ali" />
+
+    <Button
+        android:id="@+id/bn_recharge_we2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/shape_button1"
+        android:text="流量购买"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="@+id/bn_recharge_ali"
+        app:layout_constraintStart_toStartOf="@+id/bn_recharge_ali"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
+
 </android.support.constraint.ConstraintLayout>

@@ -20,7 +20,7 @@ public class RechargeFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_recharge,container,false);
-        bnRecharge = view.findViewById(R.id.bn_recharge);
+        bnRecharge = view.findViewById(R.id.bn_recharge_ali);
         return view;
     }
 
