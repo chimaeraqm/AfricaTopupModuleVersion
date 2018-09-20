@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorOrange">
+    android:layout_height="match_parent">
 
     <com.crazydwarf.africatopup.view.SimpleToolBar
         android:id="@+id/top_menu"
@@ -17,9 +16,179 @@
         app:backIconSize="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menuIconShow="false"
-        app:title="历史订单记录查询"
+        app:mentIconSize="32dp"
+        app:menuIcon="@drawable/ic_format_list_bulleted_black_32dp"
+        app:title="订单记录查询"
         app:titleColor="@color/colorBlack"
         app:titleSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="查询区间 由"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_menu" />
+
+
+    <EditText
+        android:id="@+id/et_datefrom"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorTransBlue"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="09/10/2018"
+        android:inputType="date"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="至"
+        android:textColor="@color/colorBlack"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_datefrom"
+        app:layout_constraintStart_toEndOf="@+id/et_datefrom"
+        app:layout_constraintTop_toTopOf="@+id/et_datefrom" />
+
+    <EditText
+        android:id="@+id/et_dateto"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorTransBlue"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="09/10/2018"
+        android:inputType="date"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView9"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="@+id/textView9" />
+
+    <RadioGroup
+        android:id="@+id/rg_recentdates"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_datefrom">
+
+        <RadioButton
+            android:id="@+id/rb_1month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="最近1个月" />
+
+        <RadioButton
+            android:id="@+id/rb_2month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="最近2个月" />
+
+        <RadioButton
+            android:id="@+id/rb_3month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="最近3个月" />
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rg_recentdates"
+        app:srcCompat="@color/colorGray" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        android:textColor="@color/colorBlack"
+        android:gravity="center"
+        android:text="充值日期"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/colorBlack"
+        android:text="充值金额"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/colorBlack"
+        android:text="订单号"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/textView12"/>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@color/colorBlack"
+        android:text="订单状态"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toTopOf="@+id/textView13"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="368dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" >
+
+    </android.support.v7.widget.RecyclerView>
+
 
 </android.support.constraint.ConstraintLayout>

@@ -35,7 +35,11 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.RechargeActivity"
+        <activity android:name=".activity.RechargeAliActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".activity.RechargeWeActivity"
             android:screenOrientation="portrait">
         </activity>
 

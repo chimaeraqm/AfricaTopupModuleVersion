@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/im_common"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:background="@color/colorTrans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorTrans" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_common"
@@ -26,7 +26,7 @@
         android:layout_marginStart="8dp"
         android:text="TextView"
         android:textColor="@color/colorBlack"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/im_common"
         app:layout_constraintStart_toEndOf="@+id/im_common"
         app:layout_constraintTop_toTopOf="@+id/im_common" />

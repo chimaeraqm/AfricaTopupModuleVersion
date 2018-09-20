@@ -10,17 +10,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.activity.RechargeActivity;
+import com.crazydwarf.africatopup.activity.RechargeAliActivity;
+import com.crazydwarf.africatopup.activity.RechargeWeActivity;
+import com.crazydwarf.africatopup.view.SimpleToolBar;
 
 public class RechargeFragment extends Fragment
 {
-    private Button bnRecharge;
+    private Button bnRechargeAli;
+    private Button bnRechargeWe;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_recharge,container,false);
-        bnRecharge = view.findViewById(R.id.bn_recharge_ali);
+        bnRechargeAli = view.findViewById(R.id.bn_recharge_ali);
+        bnRechargeWe = view.findViewById(R.id.bn_recharge_we);
         return view;
     }
 
@@ -32,10 +36,18 @@ public class RechargeFragment extends Fragment
     @Override
     public void onStart() {
         super.onStart();
-        bnRecharge.setOnClickListener(new View.OnClickListener() {
+        bnRechargeAli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), RechargeActivity.class);
+                Intent intent = new Intent(getActivity(), RechargeAliActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        bnRechargeWe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), RechargeWeActivity.class);
                 startActivity(intent);
             }
         });
