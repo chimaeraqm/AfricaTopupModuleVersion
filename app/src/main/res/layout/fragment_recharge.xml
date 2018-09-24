@@ -8,7 +8,7 @@
     <CheckBox
         android:id="@+id/cb_localphone1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="28dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="本机号码1"
@@ -19,8 +19,8 @@
     <CheckBox
         android:id="@+id/cb_localphone2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
         android:text="本机号码2"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/cb_localphone1"
@@ -30,7 +30,7 @@
         android:id="@+id/et_localnumber1"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:background="@color/colorTransOrange"
         android:ems="7"
         android:hint="1234567"

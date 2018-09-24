@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 
-import java.util.List;
 
 public class HistoryItemAdapter extends RecyclerView.Adapter<HistoryItemAdapter.HistoryItemHolder> implements View.OnClickListener
 {
@@ -25,6 +24,10 @@ public class HistoryItemAdapter extends RecyclerView.Adapter<HistoryItemAdapter.
         this.fees = fees;
         this.tradeIds = tradeIds;
         this.status = status;
+    }
+
+    public void setOnHistoryItemRVClickListener(onHistoryItemRVClickListener onHistoryItemRVClickListener) {
+        this.onHistoryItemRVClickListener = onHistoryItemRVClickListener;
     }
 
     @NonNull

@@ -21,8 +21,6 @@ public class RechargeAliActivity extends AppCompatActivity
         toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
             @Override
             public void OnClick() {
-                Intent intent = new Intent(RechargeAliActivity.this,MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
@@ -33,7 +31,6 @@ public class RechargeAliActivity extends AppCompatActivity
             public void onClick(View view) {
                 Intent intent = new Intent(RechargeAliActivity.this,HistoryActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

@@ -9,8 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.activity.BundleActivity;
 import com.crazydwarf.africatopup.view.CommonAdapter;
 
 public class QueryFragment extends Fragment
@@ -34,6 +36,20 @@ public class QueryFragment extends Fragment
                 R.drawable.ic_keyboard_arrow_left_black_32dp};
         CommonAdapter commonAdapter = new CommonAdapter(newTitles,ids);
         mRecyclerview.setAdapter(commonAdapter);
+
+        //TODO:添加Recycleview点击事件
+        commonAdapter.setOnCommonRVItemClickListener(new CommonAdapter.OnCommonRVItemClickListener() {
+            @Override
+            public void onItemClick(View view) {
+                Toast.makeText(getActivity(), "显示运营商资费清单", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onItemLongClick(View view) {
+
+            }
+        });
         return view;
     }
 

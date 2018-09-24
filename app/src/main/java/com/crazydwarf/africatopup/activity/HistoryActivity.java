@@ -7,8 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.dialog.HistoryDetailDialog;
 import com.crazydwarf.africatopup.view.HistoryItemAdapter;
 import com.crazydwarf.africatopup.view.SimpleToolBar;
 
@@ -23,8 +26,6 @@ public class HistoryActivity extends AppCompatActivity
         toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
             @Override
             public void OnClick() {
-                Intent intent = new Intent(HistoryActivity.this,MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
@@ -47,5 +48,15 @@ public class HistoryActivity extends AppCompatActivity
 
         HistoryItemAdapter historyItemAdapter = new HistoryItemAdapter(newdates,newfees,newids,newstatus);
         mRecyclerview.setAdapter(historyItemAdapter);
+
+        //TODO: 显示RecycleView点击事件
+        historyItemAdapter.setOnHistoryItemRVClickListener(new HistoryItemAdapter.onHistoryItemRVClickListener() {
+            @Override
+            public void onItemClick(View view) {
+                Toast.makeText(HistoryActivity.this, "打开历史充值信息详情对话框", Toast.LENGTH_SHORT).show();
+//                HistoryDetailDialog historyDetailDialog = new HistoryDetailDialog(HistoryActivity.this);
+//                historyDetailDialog.show();
+            }
+        });
     }
 }

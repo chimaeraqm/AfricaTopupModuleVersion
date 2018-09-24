@@ -24,15 +24,13 @@
         </activity>
 
         <activity android:name=".activity.BundleActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden">
         </activity>
 
         <activity android:name=".activity.HistoryActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name=".activity.LogupActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden">
         </activity>
 
         <activity android:name=".activity.RechargeAliActivity"
@@ -43,9 +41,6 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.LoginActivity"
-            android:screenOrientation="portrait">
-        </activity>
     </application>
 
 </manifest>

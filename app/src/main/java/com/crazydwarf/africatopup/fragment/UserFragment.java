@@ -8,17 +8,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.activity.BundleActivity;
-import com.crazydwarf.africatopup.activity.LoginActivity;
-import com.crazydwarf.africatopup.activity.LogupActivity;
+import com.crazydwarf.africatopup.activity.HistoryActivity;
+import com.crazydwarf.africatopup.dialog.DepositDetailDialog;
+import com.crazydwarf.africatopup.dialog.LoginDialog;
+import com.crazydwarf.africatopup.dialog.LogupDialog;
 
 public class UserFragment extends Fragment
 {
     private Button bnLogin;
     private Button bnLogup;
     private Button bnBundle;
+    private Button bnHistory;
+
+    private RadioButton rbLocalPhone1;
+    private RadioButton rbLocalPhone2;
+    private RadioButton rbOtherPhone;
 
     @Nullable
     @Override
@@ -28,6 +36,11 @@ public class UserFragment extends Fragment
         bnLogin = view.findViewById(R.id.bn_login);
         bnLogup = view.findViewById(R.id.bn_logup);
         bnBundle = view.findViewById(R.id.bn_bundle);
+        bnHistory = view.findViewById(R.id.bn_history);
+
+        rbLocalPhone1 = view.findViewById(R.id.rb_localphone1);
+        rbLocalPhone2 = view.findViewById(R.id.rb_localphone2);
+        rbOtherPhone = view.findViewById(R.id.rb_otherphone);
         return view;
     }
 
@@ -42,24 +55,57 @@ public class UserFragment extends Fragment
         bnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
+                LoginDialog loginDialog = new LoginDialog(getActivity());
+                loginDialog.show();
             }
         });
 
+        //TODO:用户注册界面
         bnLogup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), LogupActivity.class);
-                startActivity(intent);
+                LogupDialog logupDialog = new LogupDialog(getActivity());
+                logupDialog.show();
             }
         });
 
         bnBundle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), BundleActivity.class);
+                Intent intent = new Intent(getActivity(),BundleActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        bnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), HistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        rbLocalPhone1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
+                depositDetailDialog.show();
+            }
+        });
+
+        rbLocalPhone2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
+                depositDetailDialog.show();
+            }
+        });
+
+        rbOtherPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
+                depositDetailDialog.show();
             }
         });
     }
