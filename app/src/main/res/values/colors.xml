@@ -16,4 +16,7 @@
     <color name="colorTransBlack">#60000000</color>
     <color name="colorTransOrange">#60f9ac19</color>
     <color name="colorTransBlue">#601989F9</color>
+    <color name="colorTransGray">#d1403d3d</color>
+    <color name="colorTransWhite">#01707070</color>
+
 </resources>

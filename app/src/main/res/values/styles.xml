@@ -46,11 +46,15 @@
         <item name="android:dividerHeight">1dp</item>
     </style>
 
-    <style name="CurrentDialog" parent="android:Theme.Material.Dialog">
+    <style name="CurrentDialog" parent="android:style/Theme.Dialog">
         <item name="android:windowBackground">@color/colorTrans</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
         <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:padding">8dp</item>
     </style>
 
 </resources>

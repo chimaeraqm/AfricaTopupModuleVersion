@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.view.NewActivityView;
 
 public class LauncherActivity extends AppCompatActivity
 {
@@ -25,5 +28,28 @@ public class LauncherActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
+        NewActivityView newActivityView = findViewById(R.id.insert_dialog);
+        Animation animation = AnimationUtils.loadAnimation(LauncherActivity.this,R.anim.dialog_fade_in);
+        newActivityView.startAnimation(animation);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                Intent intent = new Intent(LauncherActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
     }
 }
