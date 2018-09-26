@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="300dp"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
@@ -29,8 +29,9 @@
         android:hint="输入手机号或用户名"
         android:inputType="textPersonName"
         android:textColorHint="@color/colorGray"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:padding="10dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView16"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
@@ -48,7 +49,8 @@
         android:background="@drawable/shape_button4"
         android:hint="输入密码"
         android:textColorHint="@color/colorGray"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/et_username"
         app:layout_constraintStart_toStartOf="@+id/et_username"
         app:layout_constraintTop_toBottomOf="@+id/et_username" />
@@ -59,7 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="本机号码登录"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorLightGray"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/et_password"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
@@ -99,8 +102,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="忘记密码？"
-        android:textColor="@color/colorGray"
+        android:textColor="@color/colorLightGray"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/bn_logup"
         app:layout_constraintStart_toStartOf="@+id/bn_logup"
         app:layout_constraintTop_toBottomOf="@+id/bn_logup" />
+
 </android.support.constraint.ConstraintLayout>

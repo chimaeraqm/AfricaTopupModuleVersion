@@ -54,8 +54,8 @@ public class HistoryActivity extends AppCompatActivity
             @Override
             public void onItemClick(View view) {
                 Toast.makeText(HistoryActivity.this, "打开历史充值信息详情对话框", Toast.LENGTH_SHORT).show();
-//                HistoryDetailDialog historyDetailDialog = new HistoryDetailDialog(HistoryActivity.this);
-//                historyDetailDialog.show();
+                HistoryDetailDialog historyDetailDialog = new HistoryDetailDialog(HistoryActivity.this);
+                historyDetailDialog.show();
             }
         });
     }

@@ -9,13 +9,12 @@
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center"
         android:text="余额查询"
-        android:textColor="@color/colorBlue"
+        android:textColor="@color/colorOrange"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,10 +24,10 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="查询号码"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -39,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="当前余额"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView21"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
@@ -49,13 +48,15 @@
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:background="@color/colorTransOrange"
+        android:background="@drawable/shape_button4"
         android:ems="10"
         android:hint="(243)1234567"
         android:inputType="phone"
         android:paddingLeft="8dp"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorGray"
         android:textStyle="italic"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView21"
         app:layout_constraintStart_toEndOf="@+id/textView21"
         app:layout_constraintTop_toTopOf="@+id/textView21" />
@@ -65,13 +66,14 @@
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorTransBlue"
+        android:background="@drawable/shape_textview3"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="$99.99"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="italic"
         android:paddingLeft="8dp"
+        android:textColor="@color/colorWhite"
         app:layout_constraintStart_toStartOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
@@ -79,8 +81,8 @@
         android:id="@+id/tv_exrate3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="当前汇率：1dollar = 6.81rmb"
-        android:textColor="@color/colorGray"
+        android:text="当前汇率：1美元 = 6.81人民币"
+        android:textColor="@color/colorLightGray"
         app:layout_constraintStart_toStartOf="@+id/et_current_balance"
         app:layout_constraintTop_toBottomOf="@+id/et_current_balance" />
 
@@ -91,7 +93,7 @@
         android:layout_marginTop="8dp"
         android:text="剩余流量（Mb）"
         android:textSize="16sp"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         app:layout_constraintStart_toStartOf="@+id/tv_exrate3"
         app:layout_constraintTop_toBottomOf="@+id/tv_exrate3" />
 
@@ -100,19 +102,20 @@
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorTransBlue"
+        android:background="@drawable/shape_textview3"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="99.99"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="italic"
         android:paddingLeft="8dp"
+        android:textColor="@color/colorWhite"
         app:layout_constraintStart_toStartOf="@+id/textview2"
         app:layout_constraintTop_toBottomOf="@+id/textview2" />
 
     <Button
         android:id="@+id/bn_confirm"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -120,6 +123,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/shape_button1"
         android:text="确认"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,6 +139,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_phonenumber"
-        app:srcCompat="@color/colorGray" />
+        app:srcCompat="@color/colorLightGray" />
 
 </android.support.constraint.ConstraintLayout>

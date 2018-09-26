@@ -13,13 +13,18 @@ public class AddNumberDialog extends Dialog
 {
     private Button bnConfirm;
     private Button bnExit;
+    private Button bnCountry;
+
+    private Context mContext;
 
     public AddNumberDialog(@NonNull Context context)
     {
         super(context, R.style.CurrentDialog);
+        this.mContext = context;
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_add_number,null);
         bnConfirm = view.findViewById(R.id.bn_confirm);
         bnExit = view.findViewById(R.id.bn_exit);
+        bnCountry = view.findViewById(R.id.bn_country);
         setContentView(view);
         setListener();
     }
@@ -37,6 +42,14 @@ public class AddNumberDialog extends Dialog
             @Override
             public void onClick(View view) {
                 dismiss();
+            }
+        });
+
+        bnCountry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CountrySelectDialog countrySelectDialog = new CountrySelectDialog(mContext);
+                countrySelectDialog.show();
             }
         });
     }
