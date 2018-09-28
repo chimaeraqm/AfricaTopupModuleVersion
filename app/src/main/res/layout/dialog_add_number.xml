@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="240dp"
+    android:layout_height="200dp"
     android:background="@drawable/shape_textview2">
 
     <Button
@@ -72,8 +72,8 @@
         android:inputType="numberDecimal"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorGray"
-        android:textStyle="italic"
         android:textSize="16sp"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
@@ -110,7 +110,6 @@
         android:id="@+id/bn_confirm"
         android:layout_width="132dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
@@ -118,7 +117,6 @@
         android:text="确认"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_rechargeamount" />

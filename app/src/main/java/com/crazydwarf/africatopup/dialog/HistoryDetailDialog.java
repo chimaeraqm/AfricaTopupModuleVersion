@@ -2,6 +2,7 @@ package com.crazydwarf.africatopup.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,7 +21,7 @@ public class HistoryDetailDialog extends Dialog
     {
         super(context, R.style.CurrentDialog);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_history_detail,null);
-        bnConfirm = findViewById(R.id.bn_confirm);
+        bnConfirm = view.findViewById(R.id.bn_confirm);
         setContentView(view);
         setListener();
     }

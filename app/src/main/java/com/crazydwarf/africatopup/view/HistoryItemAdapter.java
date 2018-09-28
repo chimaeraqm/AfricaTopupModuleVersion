@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 
-
 public class HistoryItemAdapter extends RecyclerView.Adapter<HistoryItemAdapter.HistoryItemHolder> implements View.OnClickListener
 {
     private String[] dates;

@@ -7,10 +7,13 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RadioButton;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.UserUtil;
 import com.crazydwarf.africatopup.activity.BundleActivity;
 import com.crazydwarf.africatopup.activity.HistoryActivity;
 import com.crazydwarf.africatopup.dialog.DepositDetailDialog;
@@ -57,6 +60,12 @@ public class UserFragment extends Fragment
             public void onClick(View view) {
                 LoginDialog loginDialog = new LoginDialog(getActivity());
                 loginDialog.show();
+
+                Window dialogWindow = loginDialog.getWindow();
+                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
+                layoutParams.width = UserUtil.dip2px(getActivity(),300);
+                layoutParams.height = UserUtil.dip2px(getActivity(),360);
+                dialogWindow.setAttributes(layoutParams);
             }
         });
 
@@ -66,6 +75,12 @@ public class UserFragment extends Fragment
             public void onClick(View view) {
                 LogupDialog logupDialog = new LogupDialog(getActivity());
                 logupDialog.show();
+
+                Window dialogWindow = logupDialog.getWindow();
+                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
+                layoutParams.width = UserUtil.dip2px(getActivity(),300);
+                layoutParams.height = UserUtil.dip2px(getActivity(),360);
+                dialogWindow.setAttributes(layoutParams);
             }
         });
 
@@ -90,6 +105,11 @@ public class UserFragment extends Fragment
             public void onClick(View view) {
                 DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
                 depositDetailDialog.show();
+                Window dialogWindow = depositDetailDialog.getWindow();
+                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
+                layoutParams.width = UserUtil.dip2px(getActivity(),300);
+                layoutParams.height = UserUtil.dip2px(getActivity(),360);
+                dialogWindow.setAttributes(layoutParams);
             }
         });
 
@@ -98,6 +118,11 @@ public class UserFragment extends Fragment
             public void onClick(View view) {
                 DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
                 depositDetailDialog.show();
+                Window dialogWindow = depositDetailDialog.getWindow();
+                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
+                layoutParams.width = UserUtil.dip2px(getActivity(),300);
+                layoutParams.height = UserUtil.dip2px(getActivity(),360);
+                dialogWindow.setAttributes(layoutParams);
             }
         });
 
@@ -106,6 +131,11 @@ public class UserFragment extends Fragment
             public void onClick(View view) {
                 DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
                 depositDetailDialog.show();
+                Window dialogWindow = depositDetailDialog.getWindow();
+                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
+                layoutParams.width = UserUtil.dip2px(getActivity(),300);
+                layoutParams.height = UserUtil.dip2px(getActivity(),360);
+                dialogWindow.setAttributes(layoutParams);
             }
         });
     }

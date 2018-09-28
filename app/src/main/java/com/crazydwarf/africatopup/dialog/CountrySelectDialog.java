@@ -17,6 +17,8 @@ import com.crazydwarf.africatopup.activity.HistoryActivity;
 import com.crazydwarf.africatopup.view.CountryItemAdapter;
 import com.crazydwarf.africatopup.view.HistoryItemAdapter;
 
+import java.util.Locale;
+
 public class CountrySelectDialog extends Dialog
 {
     public CountrySelectDialog(@NonNull final Context context)
@@ -31,13 +33,15 @@ public class CountrySelectDialog extends Dialog
         mRecyclerview.addItemDecoration(new DividerItemDecoration(context,DividerItemDecoration.VERTICAL));
 
         TypedArray countryArray = context.getResources().obtainTypedArray(R.array.select_countries);
-        TypedArray codeArray = context.getResources().obtainTypedArray(R.array.select_countries);
+        TypedArray codeArray = context.getResources().obtainTypedArray(R.array.select_codes);
         String[] countries = new String[countryArray.length()];
-        String[] codes = new String[countryArray.length()];
+        String[] codes = new String[codeArray.length()];
         for(int i=0;i<countryArray.length();i++)
         {
             countries[i] = countryArray.getString(i);
-            codes[i] = codeArray.getString(i);
+            String stringCode = codeArray.getString(i);
+            String formatCode = String.format(Locale.US,"+%S",stringCode);
+            codes[i] = formatCode;
         }
         CountryItemAdapter countryItemAdapter = new CountryItemAdapter(countries,codes);
         mRecyclerview.setAdapter(countryItemAdapter);

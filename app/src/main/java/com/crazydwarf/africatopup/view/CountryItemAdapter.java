@@ -15,6 +15,7 @@ public class CountryItemAdapter extends RecyclerView.Adapter<CountryItemAdapter.
     private String[] codes;
 
     private onCountryItemRVClickListener onCountryItemRVClickListener;
+
     public CountryItemAdapter(String[] countries, String[] codes) {
         this.countries = countries;
         this.codes = codes;
