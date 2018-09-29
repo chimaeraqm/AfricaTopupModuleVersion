@@ -4,6 +4,7 @@
         <item>埃及</item>
         <item>摩洛哥</item>
         <item>阿尔及利亚</item>
+        <item>突尼斯</item>
         <item>利比亚</item>
         <item>冈比亚</item>
         <item>塞内加尔</item>
@@ -31,7 +32,7 @@
         <item>扎伊尔</item>
         <item>安哥拉</item>
         <item>几内亚比绍</item>
-        <item>阿森松</item>
+        <!--<item>阿森松</item>-->
         <item>塞舌尔</item>
         <item>苏丹</item>
         <item>卢旺达</item>
@@ -54,64 +55,118 @@
         <item>斯威士兰</item>
         <item>科摩罗</item>
         <item>南非</item>
-        <item>圣赫勒拿</item>
-        <item>阿鲁巴岛</item>
+        <!--<item>圣赫勒拿</item>-->
+        <!--<item>阿鲁巴岛</item>-->
     </string-array>
-    <string-array name="select_codes">
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-        <item>001</item>
-    </string-array>
+    <integer-array name="select_codes">
+        <item>20</item>
+        <item>212</item>
+        <item>213</item>
+        <item>216</item>
+        <item>218</item>
+        <item>220</item>
+        <item>221</item>
+        <item>222</item>
+        <item>223</item>
+        <item>224</item>
+        <item>225</item>
+        <item>226</item>
+        <item>227</item>
+        <item>228</item>
+        <item>229</item>
+        <item>230</item>
+        <item>231</item>
+        <item>232</item>
+        <item>233</item>
+        <item>234</item>
+        <item>235</item>
+        <item>236</item>
+        <item>237</item>
+        <item>238</item>
+        <item>239</item>
+        <item>240</item>
+        <item>241</item>
+        <item>242</item>
+        <item>243</item>
+        <item>244</item>
+        <item>245</item>
+        <item>248</item>
+        <item>249</item>
+        <item>250</item>
+        <item>251</item>
+        <item>252</item>
+        <item>253</item>
+        <item>254</item>
+        <item>255</item>
+        <item>256</item>
+        <item>257</item>
+        <item>258</item>
+        <item>260</item>
+        <item>261</item>
+        <item>262</item>
+        <item>263</item>
+        <item>264</item>
+        <item>265</item>
+        <item>266</item>
+        <item>267</item>
+        <item>268</item>
+        <item>269</item>
+        <item>27</item>
+    </integer-array>
+
+    <integer-array name="select_flags">
+        <item>@drawable/flag_egypt</item>
+        <item>@drawable/flag_212</item>
+        <item>@drawable/flag_213</item>
+        <item>@drawable/flag_216</item>
+        <item>@drawable/flag_218</item>
+        <item>@drawable/flag_220</item>
+        <item>@drawable/flag_221</item>
+        <item>@drawable/flag_222</item>
+        <item>@drawable/flag_223</item>
+        <item>@drawable/flag_224</item>
+        <item>@drawable/flag_225</item>
+        <item>@drawable/flag_226</item>
+        <item>@drawable/flag_227</item>
+        <item>@drawable/flag_228</item>
+        <item>@drawable/flag_229</item>
+        <item>@drawable/flag_230</item>
+        <item>@drawable/flag_231</item>
+        <item>@drawable/flag_232</item>
+        <item>@drawable/flag_233</item>
+        <item>@drawable/flag_234</item>
+        <item>@drawable/flag_235</item>
+        <item>@drawable/flag_236</item>
+        <item>@drawable/flag_237</item>
+        <item>@drawable/flag_238</item>
+        <item>@drawable/flag_239</item>
+        <item>@drawable/flag_240</item>
+        <item>@drawable/flag_241</item>
+        <item>@drawable/flag_242</item>
+        <item>@drawable/flag_243</item>
+        <item>@drawable/flag_244</item>
+        <item>@drawable/flag_245</item>
+        <item>@drawable/flag_248</item>
+        <item>@drawable/flag_249</item>
+        <item>@drawable/flag_250</item>
+        <item>@drawable/flag_251</item>
+        <item>@drawable/flag_252</item>
+        <item>@drawable/flag_253</item>
+        <item>@drawable/flag_254</item>
+        <item>@drawable/flag_255</item>
+        <item>@drawable/flag_256</item>
+        <item>@drawable/flag_257</item>
+        <item>@drawable/flag_258</item>
+        <item>@drawable/flag_260</item>
+        <item>@drawable/flag_261</item>
+        <item>@drawable/flag_262</item>
+        <item>@drawable/flag_263</item>
+        <item>@drawable/flag_264</item>
+        <item>@drawable/flag_265</item>
+        <item>@drawable/flag_266</item>
+        <item>@drawable/flag_267</item>
+        <item>@drawable/flag_268</item>
+        <item>@drawable/flag_269</item>
+        <item>@drawable/flag_27</item>
+    </integer-array>
 </resources>

@@ -5,20 +5,25 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 
+import java.util.Locale;
+
 public class CountryItemAdapter extends RecyclerView.Adapter<CountryItemAdapter.CountryItemHolder> implements View.OnClickListener
 {
     private String[] countries;
-    private String[] codes;
+    private Integer[] codes;
+    private Integer[] flagRes;
 
     private onCountryItemRVClickListener onCountryItemRVClickListener;
 
-    public CountryItemAdapter(String[] countries, String[] codes) {
+    public CountryItemAdapter(String[] countries, Integer[] codes,Integer[] flagRes) {
         this.countries = countries;
         this.codes = codes;
+        this.flagRes = flagRes;
     }
 
     @NonNull
@@ -38,7 +43,8 @@ public class CountryItemAdapter extends RecyclerView.Adapter<CountryItemAdapter.
     @Override
     public void onBindViewHolder(@NonNull CountryItemHolder holder, int position) {
         holder.tvCountryName.setText(countries[position]);
-        holder.tvCode.setText(codes[position]);
+        holder.tvCode.setText(String.format(Locale.US,"%d",codes[position]));
+        holder.imFlag.setBackgroundResource(flagRes[position]);
     }
 
     @Override
@@ -58,11 +64,13 @@ public class CountryItemAdapter extends RecyclerView.Adapter<CountryItemAdapter.
     {
         public TextView tvCountryName;
         public TextView tvCode;
+        public ImageView imFlag;
 
         public CountryItemHolder(View itemView) {
             super(itemView);
             this.tvCountryName = itemView.findViewById(R.id.tv_countryname);
             this.tvCode = itemView.findViewById(R.id.tv_code);
+            this.imFlag = itemView.findViewById(R.id.im_flag);
         }
     }
 

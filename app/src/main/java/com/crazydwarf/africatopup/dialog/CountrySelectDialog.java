@@ -34,16 +34,17 @@ public class CountrySelectDialog extends Dialog
 
         TypedArray countryArray = context.getResources().obtainTypedArray(R.array.select_countries);
         TypedArray codeArray = context.getResources().obtainTypedArray(R.array.select_codes);
+        TypedArray flagsArray = context.getResources().obtainTypedArray(R.array.select_flags);
         String[] countries = new String[countryArray.length()];
-        String[] codes = new String[codeArray.length()];
+        Integer[] codes = new Integer[codeArray.length()];
+        Integer[] flags = new Integer[flagsArray.length()];
         for(int i=0;i<countryArray.length();i++)
         {
             countries[i] = countryArray.getString(i);
-            String stringCode = codeArray.getString(i);
-            String formatCode = String.format(Locale.US,"+%S",stringCode);
-            codes[i] = formatCode;
+            codes[i] = codeArray.getInteger(i,0);
+            flags[i] = flagsArray.getResourceId(i,0);
         }
-        CountryItemAdapter countryItemAdapter = new CountryItemAdapter(countries,codes);
+        CountryItemAdapter countryItemAdapter = new CountryItemAdapter(countries,codes,flags);
         mRecyclerview.setAdapter(countryItemAdapter);
 
         //TODO: 显示RecycleView点击事件
