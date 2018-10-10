@@ -41,8 +41,8 @@ public class HistoryActivity extends AppCompatActivity
         mRecyclerview.addItemDecoration(new DividerItemDecoration(HistoryActivity.this,DividerItemDecoration.VERTICAL));
 
 
-        String[] newdates = {"09/20/2018","09/20/2018","09/20/2018","09/20/2018","09/20/2018","09/20/2018","09/20/2018","09/20/2018",
-                "09/20/2018","09/20/2018","09/20/2018","09/20/2018","09/20/2018","09/20/2018","09/20/2018","09/20/2018"};
+        String[] newdates = {"2018/09/20","2018/09/20","2018/09/20","2018/09/20","2018/09/20","2018/09/20","2018/09/20","2018/09/20",
+                "2018/09/20","2018/09/20","2018/09/20","2018/09/20","2018/09/20","2018/09/20","2018/09/20","2018/09/20"};
         String[] newfees = {"99.99","99.99","99.99","99.99","99.99","99.99","99.99","99.99",
                 "99.99","99.99","99.99","99.99","99.99","99.99","99.99","99.99"};
         String[] newids = {"12345678","12345678","12345678","12345678","12345678","12345678","12345678","12345678",
@@ -64,7 +64,7 @@ public class HistoryActivity extends AppCompatActivity
                 Window dialogWindow = historyDetailDialog.getWindow();
                 WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
                 layoutParams.width = UserUtil.dip2px(HistoryActivity.this,300);
-                layoutParams.height = UserUtil.dip2px(HistoryActivity.this,360);;
+                layoutParams.height = UserUtil.dip2px(HistoryActivity.this,400);;
                 dialogWindow.setAttributes(layoutParams);
             }
         });

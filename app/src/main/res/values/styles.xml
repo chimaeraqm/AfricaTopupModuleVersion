@@ -56,4 +56,7 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="CostomCheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style1</item>
+    </style>
 </resources>

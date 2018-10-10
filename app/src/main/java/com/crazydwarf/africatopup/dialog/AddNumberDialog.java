@@ -12,7 +12,6 @@ import android.widget.Button;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.UserUtil;
-import com.crazydwarf.africatopup.activity.HistoryActivity;
 
 public class AddNumberDialog extends Dialog
 {
@@ -27,7 +26,7 @@ public class AddNumberDialog extends Dialog
         super(context, R.style.CurrentDialog);
         this.mContext = context;
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_add_number,null);
-        bnConfirm = view.findViewById(R.id.bn_confirm);
+        bnConfirm = view.findViewById(R.id.bn_sendtowechat);
         bnExit = view.findViewById(R.id.bn_exit);
         bnCountry = view.findViewById(R.id.bn_country);
         setContentView(view);
@@ -50,10 +49,16 @@ public class AddNumberDialog extends Dialog
             }
         });
 
+
         bnCountry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CountrySelectDialog countrySelectDialog = new CountrySelectDialog(mContext);
+                CountrySelectDialog countrySelectDialog = new CountrySelectDialog(mContext, new CountrySelectDialog.dialogItemSelectionListener() {
+                    @Override
+                    public void onClick(View view, int position) {
+
+                    }
+                });
                 countrySelectDialog.show();
 
                 Window dialogWindow = countrySelectDialog.getWindow();

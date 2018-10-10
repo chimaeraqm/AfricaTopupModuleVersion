@@ -99,18 +99,18 @@
             android:text="最近1个月" />
 
         <RadioButton
-            android:id="@+id/rb_2month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="最近2个月" />
-
-        <RadioButton
             android:id="@+id/rb_3month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="最近3个月" />
+
+        <RadioButton
+            android:id="@+id/rb_6month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="最近6个月" />
     </RadioGroup>
 
     <ImageView

@@ -16,7 +16,7 @@ public class DepositDetailDialog extends Dialog
     {
         super(context, R.style.CurrentDialog);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_deposit_detail,null);
-        bnConfirm = view.findViewById(R.id.bn_confirm);
+        bnConfirm = view.findViewById(R.id.bn_sendtowechat);
         setContentView(view);
         setListener();
     }

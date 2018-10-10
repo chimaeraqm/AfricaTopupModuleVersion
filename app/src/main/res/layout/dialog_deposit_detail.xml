@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textview2" />
 
     <Button
-        android:id="@+id/bn_confirm"
+        android:id="@+id/bn_sendtowechat"
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
@@ -127,7 +127,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_current_flow" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_expiredate" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -140,5 +140,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_phonenumber"
         app:srcCompat="@color/colorLightGray" />
+
+    <TextView
+        android:id="@+id/tv_expiredate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="流量截止：2018/12/31"
+        android:textColor="@color/colorLightGray"
+        app:layout_constraintStart_toStartOf="@+id/et_current_flow"
+        app:layout_constraintTop_toBottomOf="@+id/et_current_flow" />
 
 </android.support.constraint.ConstraintLayout>

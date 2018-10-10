@@ -63,7 +63,12 @@ public class RechargeFragment extends Fragment
         imFlag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CountrySelectDialog countrySelectDialog = new CountrySelectDialog(getActivity());
+                CountrySelectDialog countrySelectDialog = new CountrySelectDialog(getActivity(), new CountrySelectDialog.dialogItemSelectionListener() {
+                    @Override
+                    public void onClick(View view, int position) {
+
+                    }
+                });
                 countrySelectDialog.show();
 
                 Window dialogWindow = countrySelectDialog.getWindow();
@@ -72,7 +77,6 @@ public class RechargeFragment extends Fragment
                 layoutParams.height = UserUtil.dip2px(getActivity(),400);
                 layoutParams.gravity = Gravity.BOTTOM|Gravity.CENTER;
                 dialogWindow.setAttributes(layoutParams);
-
             }
         });
     }

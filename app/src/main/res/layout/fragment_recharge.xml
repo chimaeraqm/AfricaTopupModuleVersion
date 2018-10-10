@@ -249,4 +249,17 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5"/>
 
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="主界面广告显示位"
+        android:textSize="20sp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorBlue"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

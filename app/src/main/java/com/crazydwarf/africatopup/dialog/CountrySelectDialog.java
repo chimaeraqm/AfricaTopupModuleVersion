@@ -21,9 +21,12 @@ import java.util.Locale;
 
 public class CountrySelectDialog extends Dialog
 {
-    public CountrySelectDialog(@NonNull final Context context)
+    private dialogItemSelectionListener dialogItemSelectionListener;
+
+    public CountrySelectDialog(@NonNull final Context context,dialogItemSelectionListener listener)
     {
         super(context, R.style.CurrentDialog);
+        this.dialogItemSelectionListener = listener;
         View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_countries,null);
         setContentView(view);
         RecyclerView mRecyclerview = findViewById(R.id.rv_countries);
@@ -34,7 +37,7 @@ public class CountrySelectDialog extends Dialog
 
         TypedArray countryArray = context.getResources().obtainTypedArray(R.array.select_countries);
         TypedArray codeArray = context.getResources().obtainTypedArray(R.array.select_codes);
-        TypedArray flagsArray = context.getResources().obtainTypedArray(R.array.select_flags);
+        final TypedArray flagsArray = context.getResources().obtainTypedArray(R.array.select_flags);
         String[] countries = new String[countryArray.length()];
         Integer[] codes = new Integer[codeArray.length()];
         Integer[] flags = new Integer[flagsArray.length()];
@@ -50,9 +53,15 @@ public class CountrySelectDialog extends Dialog
         //TODO: 显示RecycleView点击事件
         countryItemAdapter.setOnCountryItemRVClickListener(new CountryItemAdapter.onCountryItemRVClickListener() {
             @Override
-            public void onItemClick(View view) {
+            public void onItemClick(View view, int position) {
+                Integer seleFlag = flagsArray.getResourceId(position,0);
                 dismiss();
             }
         });
     }
+
+    public interface dialogItemSelectionListener{
+        public void onClick(View view,int position);
+    }
+
 }
