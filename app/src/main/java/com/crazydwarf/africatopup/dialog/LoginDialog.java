@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.UserUtil;
+import com.mixiaoxiao.smoothcompoundbutton.SmoothCheckBox;
+import com.mixiaoxiao.smoothcompoundbutton.SmoothCompoundButton;
 
 import java.util.zip.Inflater;
 
@@ -25,7 +27,7 @@ public class LoginDialog extends Dialog
     private Button bnLogin;
     private Button bnLogup;
     private TextView tvForget;
-    private CheckBox cb_LocalPhone;
+    private SmoothCheckBox cb_LocalPhone;
     private Context mContext;
 
     public LoginDialog(@NonNull Context context)
@@ -91,12 +93,17 @@ public class LoginDialog extends Dialog
             }
         });
 
-        cb_LocalPhone.setOnClickListener(new View.OnClickListener() {
+        cb_LocalPhone.setOnCheckedChangeListener(new SmoothCompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                cb_LocalPhone.setChecked(true);
-                //TODO:获取本机号码自动填充
-                edUserName.setText("1234567");
+            public void onCheckedChanged(SmoothCompoundButton smoothCompoundButton, boolean b) {
+                if(b)
+                {
+                    edUserName.setText("1234567");
+                }
+                else
+                {
+                    edUserName.setText("");
+                }
             }
         });
     }

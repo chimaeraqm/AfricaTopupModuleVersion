@@ -55,7 +55,7 @@
         app:layout_constraintStart_toStartOf="@+id/et_username"
         app:layout_constraintTop_toBottomOf="@+id/et_username" />
 
-    <CheckBox
+    <com.mixiaoxiao.smoothcompoundbutton.SmoothCheckBox
         android:id="@+id/cb_localphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,6 +63,7 @@
         android:text="本机号码登录"
         android:textColor="@color/colorLightGray"
         android:textSize="14sp"
+        android:tint = "@color/colorOrange"
         app:layout_constraintStart_toStartOf="@+id/et_password"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
 

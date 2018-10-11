@@ -15,10 +15,12 @@ import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.UserUtil;
+import com.mixiaoxiao.smoothcompoundbutton.SmoothCheckBox;
+import com.mixiaoxiao.smoothcompoundbutton.SmoothCompoundButton;
 
 public class LogupDialog extends Dialog
 {
-    private CheckBox cb_LocalPhone;
+    private SmoothCheckBox cb_LocalPhone;
     private EditText et_UserName;
     private EditText et_Password;
     private EditText et_PassWord2;
@@ -44,14 +46,22 @@ public class LogupDialog extends Dialog
 
     void setListener()
     {
-        cb_LocalPhone.setOnClickListener(new View.OnClickListener() {
+        cb_LocalPhone.setOnCheckedChangeListener(new SmoothCompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                cb_LocalPhone.setChecked(true);
-                //TODO: 用本机号码填写，这里暂时用hard code
-                et_UserName.setText("243_1234567");
-                et_Password.setText("7654321342");
-                et_PassWord2.setText("7654321342");
+            public void onCheckedChanged(SmoothCompoundButton smoothCompoundButton, boolean b) {
+                if(b)
+                {
+                    //TODO: 用本机号码填写，这里暂时用hard code
+                    et_UserName.setText("243_1234567");
+                    et_Password.setText("7654321342");
+                    et_PassWord2.setText("7654321342");
+                }
+                else
+                {
+                    et_UserName.setText("");
+                    et_Password.setText("");
+                    et_PassWord2.setText("");
+                }
             }
         });
 
