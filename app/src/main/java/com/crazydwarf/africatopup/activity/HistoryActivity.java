@@ -1,13 +1,11 @@
 package com.crazydwarf.africatopup.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,9 +16,14 @@ import com.crazydwarf.africatopup.UserUtil;
 import com.crazydwarf.africatopup.dialog.HistoryDetailDialog;
 import com.crazydwarf.africatopup.view.HistoryItemAdapter;
 import com.crazydwarf.africatopup.view.SimpleToolBar;
+import com.crazydwarf.africatopup.view.SmoothCheckBox;
 
 public class HistoryActivity extends AppCompatActivity
 {
+    private SmoothCheckBox cb_Recent1m;
+    private SmoothCheckBox cb_Recent3m;
+    private SmoothCheckBox cb_Recent6m;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,5 +71,48 @@ public class HistoryActivity extends AppCompatActivity
                 dialogWindow.setAttributes(layoutParams);
             }
         });
+
+        cb_Recent1m = findViewById(R.id.cb_recent1m);
+        cb_Recent1m.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cb_Recent1m.setChecked(true);
+                if(cb_Recent1m.isChecked())
+                {
+                    cb_Recent3m.setChecked(false);
+                    cb_Recent6m.setChecked(false);
+                }
+            }
+        });
+
+        cb_Recent3m = findViewById(R.id.cb_recent3m);
+        cb_Recent3m.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cb_Recent3m.setChecked(true);
+                if(cb_Recent3m.isChecked())
+                {
+                    cb_Recent1m.setChecked(false);
+                    cb_Recent6m.setChecked(false);
+                }
+            }
+        });
+
+        cb_Recent6m = findViewById(R.id.cb_recent6m);
+        cb_Recent6m.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cb_Recent6m.setChecked(true);
+                if(cb_Recent6m.isChecked())
+                {
+                    cb_Recent3m.setChecked(false);
+                    cb_Recent1m.setChecked(false);
+                }
+            }
+        });
+
+        cb_Recent1m.setChecked(true);
+        cb_Recent3m.setChecked(false);
+        cb_Recent6m.setChecked(false);
     }
 }

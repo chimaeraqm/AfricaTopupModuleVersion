@@ -18,13 +18,15 @@ public class BundleItemAdapter extends RecyclerView.Adapter<BundleItemAdapter.Bu
 
     private String[] phoneNumbers;
     private String[] fees;
+    private String[] names;
     private boolean[] checks;
 
     private onBundleItemRVClickListener onBundleItemRVClickListener;
 
-    public BundleItemAdapter(String[] phoneNumbers, String[] fees, boolean[] checks) {
+    public BundleItemAdapter(String[] phoneNumbers, String[] fees,String[] names,boolean[] checks) {
         this.phoneNumbers = phoneNumbers;
         this.fees = fees;
+        this.names = names;
         this.checks = checks;
     }
 
@@ -46,6 +48,7 @@ public class BundleItemAdapter extends RecyclerView.Adapter<BundleItemAdapter.Bu
     public void onBindViewHolder(@NonNull BundleItemHolder holder, int position) {
         holder.etPhoneNumber.setText(phoneNumbers[position]);
         holder.etFee.setText(fees[position]);
+        holder.etName.setText(names[position]);
         holder.cbSeleConfirm.setChecked(checks[position]);
     }
 
@@ -64,9 +67,10 @@ public class BundleItemAdapter extends RecyclerView.Adapter<BundleItemAdapter.Bu
 
     public static class BundleItemHolder extends RecyclerView.ViewHolder
     {
-        public CheckBox cbSeleConfirm;
+        public SmoothCheckBox cbSeleConfirm;
         public EditText etPhoneNumber;
         public EditText etFee;
+        public EditText etName;
         public Button bnDelete;
 
         public BundleItemHolder(View itemView) {
@@ -74,6 +78,7 @@ public class BundleItemAdapter extends RecyclerView.Adapter<BundleItemAdapter.Bu
             this.cbSeleConfirm = itemView.findViewById(R.id.cb_sele_confirm);
             this.etPhoneNumber = itemView.findViewById(R.id.et_phonenumber);
             this.etFee = itemView.findViewById(R.id.et_fee);
+            this.etName = itemView.findViewById(R.id.et_name);
             this.bnDelete = itemView.findViewById(R.id.bn_delete);
         }
     }

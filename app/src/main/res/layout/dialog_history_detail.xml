@@ -10,7 +10,7 @@
         android:id="@+id/textView19"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="充值详情"
         android:textColor="@color/colorOrange"
@@ -31,15 +31,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-    <EditText
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="持卡人"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView21"
+        app:layout_constraintStart_toStartOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/et_phonenumber" />
+
+    <TextView
+        android:id="@+id/et_cardholder"
+        android:layout_width="100dp"
+        android:layout_height="32dp"
+        android:background="@drawable/shape_textview3"
+        android:gravity="center"
+        android:text="zhangsan"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView34"
+        app:layout_constraintStart_toStartOf="@+id/et_phonenumber"
+        app:layout_constraintTop_toTopOf="@+id/textView34" />
+
+    <TextView
         android:id="@+id/et_phonenumber"
         android:layout_width="160dp"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/shape_textview3"
-        android:ems="10"
-        android:inputType="phone"
-        android:paddingLeft="8dp"
+        android:gravity="center"
         android:text="(243)1234567"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
@@ -59,15 +82,13 @@
         app:layout_constraintStart_toStartOf="@+id/textView21"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
-    <EditText
+    <TextView
         android:id="@+id/et_current_balance"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/shape_textview3"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:paddingLeft="8dp"
+        android:gravity="center"
         android:text="$99.99"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
@@ -130,7 +151,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_phonenumber"
+        app:layout_constraintTop_toBottomOf="@+id/et_cardholder"
         app:srcCompat="@color/colorLightGray" />
 
     <ImageView
@@ -146,15 +167,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_exrate"
         app:srcCompat="@color/colorLightGray" />
 
-    <EditText
+    <TextView
         android:id="@+id/et_dealdate"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/shape_textview3"
-        android:ems="10"
         android:gravity="center"
-        android:inputType="date"
         android:text="09/26/2018 00:00:00"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
@@ -176,7 +195,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="发送发票信息至"
         android:textColor="@color/colorOrange"

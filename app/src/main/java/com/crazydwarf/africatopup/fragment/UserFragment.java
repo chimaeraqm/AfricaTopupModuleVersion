@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.RadioButton;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.UserUtil;
@@ -19,6 +18,7 @@ import com.crazydwarf.africatopup.activity.HistoryActivity;
 import com.crazydwarf.africatopup.dialog.DepositDetailDialog;
 import com.crazydwarf.africatopup.dialog.LoginDialog;
 import com.crazydwarf.africatopup.dialog.LogupDialog;
+import com.crazydwarf.africatopup.view.SmoothCheckBox;
 
 public class UserFragment extends Fragment
 {
@@ -27,9 +27,9 @@ public class UserFragment extends Fragment
     private Button bnBundle;
     private Button bnHistory;
 
-    private RadioButton rbLocalPhone1;
-    private RadioButton rbLocalPhone2;
-    private RadioButton rbOtherPhone;
+    private SmoothCheckBox cbLocalPhone1;
+    private SmoothCheckBox cbLocalPhone2;
+    private SmoothCheckBox cbOtherPhone;
 
     @Nullable
     @Override
@@ -41,9 +41,14 @@ public class UserFragment extends Fragment
         bnBundle = view.findViewById(R.id.bn_bundle);
         bnHistory = view.findViewById(R.id.bn_history);
 
-        rbLocalPhone1 = view.findViewById(R.id.rb_localphone1);
-        rbLocalPhone2 = view.findViewById(R.id.rb_localphone2);
-        rbOtherPhone = view.findViewById(R.id.rb_otherphone);
+        cbLocalPhone1 = view.findViewById(R.id.cb_localphone1);
+        cbLocalPhone2 = view.findViewById(R.id.cb_localphone2);
+        cbOtherPhone = view.findViewById(R.id.cb_otherphone);
+
+        cbLocalPhone1.setChecked(true);
+        cbLocalPhone2.setChecked(false);
+        cbOtherPhone.setChecked(false);
+
         return view;
     }
 
@@ -100,42 +105,39 @@ public class UserFragment extends Fragment
             }
         });
 
-        rbLocalPhone1.setOnClickListener(new View.OnClickListener() {
+        cbLocalPhone1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
-                depositDetailDialog.show();
-                Window dialogWindow = depositDetailDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(getActivity(),300);
-                layoutParams.height = UserUtil.dip2px(getActivity(),360);
-                dialogWindow.setAttributes(layoutParams);
+            public void onClick(View v) {
+                cbLocalPhone1.setChecked(true);
+                if(cbLocalPhone1.isChecked())
+                {
+                    cbLocalPhone2.setChecked(false);
+                    cbOtherPhone.setChecked(false);
+                }
             }
         });
 
-        rbLocalPhone2.setOnClickListener(new View.OnClickListener() {
+        cbLocalPhone2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
-                depositDetailDialog.show();
-                Window dialogWindow = depositDetailDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(getActivity(),300);
-                layoutParams.height = UserUtil.dip2px(getActivity(),360);
-                dialogWindow.setAttributes(layoutParams);
+            public void onClick(View v) {
+                cbLocalPhone2.setChecked(true);
+                if(cbLocalPhone2.isChecked())
+                {
+                    cbLocalPhone1.setChecked(false);
+                    cbOtherPhone.setChecked(false);
+                }
             }
         });
 
-        rbOtherPhone.setOnClickListener(new View.OnClickListener() {
+        cbOtherPhone.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
-                depositDetailDialog.show();
-                Window dialogWindow = depositDetailDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(getActivity(),300);
-                layoutParams.height = UserUtil.dip2px(getActivity(),360);
-                dialogWindow.setAttributes(layoutParams);
+            public void onClick(View v) {
+                cbOtherPhone.setChecked(true);
+                if(cbOtherPhone.isChecked())
+                {
+                    cbLocalPhone1.setChecked(false);
+                    cbLocalPhone2.setChecked(false);
+                }
             }
         });
     }

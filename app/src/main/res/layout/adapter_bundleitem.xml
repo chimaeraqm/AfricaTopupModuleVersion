@@ -1,46 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <CheckBox
+    <com.crazydwarf.africatopup.view.SmoothCheckBox
         android:id="@+id/cb_sele_confirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:color_checked="@color/colorOrange" />
 
     <EditText
         android:id="@+id/et_phonenumber"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="128dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="4dp"
         android:background="@color/colorTransBlue"
         android:ems="10"
         android:hint="(243)1234567"
         android:inputType="phone"
         android:paddingStart="8dp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/cb_sele_confirm"
         app:layout_constraintStart_toEndOf="@+id/cb_sele_confirm"
         app:layout_constraintTop_toTopOf="@+id/cb_sele_confirm" />
 
     <EditText
-        android:id="@+id/et_fee"
+        android:id="@+id/et_name"
         android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorTransBlue"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:text="zhangsan"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/et_phonenumber"
+        app:layout_constraintTop_toTopOf="@+id/et_phonenumber" />
+
+    <EditText
+        android:id="@+id/et_fee"
+        android:layout_width="60dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:background="@color/colorTransOrange"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:textSize="12sp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/et_phonenumber"
-        app:layout_constraintStart_toEndOf="@+id/et_phonenumber"
-        app:layout_constraintTop_toTopOf="@+id/et_phonenumber" />
+        app:layout_constraintStart_toEndOf="@+id/et_name"
+        app:layout_constraintTop_toTopOf="@+id/et_phonenumber"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/bn_delete"
@@ -50,8 +69,10 @@
         android:layout_marginStart="8dp"
         android:text="删除"
         android:background="@drawable/shape_button1"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/et_fee"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/et_fee"
         app:layout_constraintTop_toTopOf="@+id/et_fee" />
+
 </android.support.constraint.ConstraintLayout>

@@ -55,17 +55,26 @@
         app:layout_constraintStart_toStartOf="@+id/et_username"
         app:layout_constraintTop_toBottomOf="@+id/et_username" />
 
-    <com.mixiaoxiao.smoothcompoundbutton.SmoothCheckBox
+    <com.crazydwarf.africatopup.view.SmoothCheckBox
         android:id="@+id/cb_localphone"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        app:color_checked="@color/colorOrange"
+        app:layout_constraintStart_toStartOf="@+id/et_password"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+    <TextView
+        android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         android:text="本机号码登录"
         android:textColor="@color/colorLightGray"
         android:textSize="14sp"
-        android:tint = "@color/colorOrange"
-        app:layout_constraintStart_toStartOf="@+id/et_password"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        app:layout_constraintBottom_toBottomOf="@+id/cb_localphone"
+        app:layout_constraintStart_toEndOf="@+id/cb_localphone"
+        app:layout_constraintTop_toTopOf="@+id/cb_localphone" />
 
     <Button
         android:id="@+id/bn_login"

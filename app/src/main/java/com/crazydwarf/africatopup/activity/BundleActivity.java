@@ -51,11 +51,14 @@ public class BundleActivity extends AppCompatActivity
         String[] newphones = {"(123)1234567","(123)1234567","(123)1234567","(123)1234567",
                 "(123)1234567","(123)1234567","(123)1234567","(123)1234567",
                 "(123)1234567","(123)1234567","(123)1234567","(123)1234567"};
-        String[] newfees = {"$99.99","$99.99","$99.99","$99.99",
-                "$99.99","$99.99","$99.99","$99.99",
-                "$99.99","$99.99","$99.99","$99.99"};
+        String[] newfees = {"99.99","99.99","99.99","99.99",
+                "99.99","99.99","99.99","99.99",
+                "99.99","99.99","99.99","99.99"};
+        String[] newnames = {"zhangsan","zhangsan","zhangsan","zhangsan",
+                "zhangsan","zhangsan","zhangsan","zhangsan",
+                "zhangsan","zhangsan","zhangsan","zhangsan"};
         boolean[] newchecks = {true,true,true,true,true,true,true,true,true,true,true,true};
-        BundleItemAdapter bundleItemAdapter = new BundleItemAdapter(newphones,newfees,newchecks);
+        BundleItemAdapter bundleItemAdapter = new BundleItemAdapter(newphones,newfees,newnames,newchecks);
         mRecyclerview.setAdapter(bundleItemAdapter);
 
         bnAdd = findViewById(R.id.bn_add);

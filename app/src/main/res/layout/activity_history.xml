@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activity.HistoryActivity">
 
     <com.crazydwarf.africatopup.view.SimpleToolBar
         android:id="@+id/top_menu"
@@ -77,42 +78,6 @@
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="@+id/textView9" />
 
-    <RadioGroup
-        android:id="@+id/rg_recentdates"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_datefrom">
-
-        <RadioButton
-            android:id="@+id/rb_1month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="最近1个月" />
-
-        <RadioButton
-            android:id="@+id/rb_3month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="最近3个月" />
-
-        <RadioButton
-            android:id="@+id/rb_6month"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="最近6个月" />
-    </RadioGroup>
-
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="0dp"
@@ -123,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rg_recentdates"
+        app:layout_constraintTop_toBottomOf="@+id/textView32"
         app:srcCompat="@color/colorGray" />
 
     <TextView
@@ -189,6 +154,80 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" >
 
     </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="最长可查询最近6个月的充值订单记录"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <com.crazydwarf.africatopup.view.SmoothCheckBox
+        android:id="@+id/cb_recent1m"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        app:color_checked="@color/colorOrange"
+        app:layout_constraintStart_toStartOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="最近1个月"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_recent1m"
+        app:layout_constraintStart_toEndOf="@+id/cb_recent1m"
+        app:layout_constraintTop_toTopOf="@+id/cb_recent1m" />
+
+    <com.crazydwarf.africatopup.view.SmoothCheckBox
+        android:id="@+id/cb_recent3m"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        app:color_checked="@color/colorOrange"
+        app:layout_constraintBottom_toBottomOf="@+id/textView31"
+        app:layout_constraintStart_toEndOf="@+id/textView31"
+        app:layout_constraintTop_toTopOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="最近3个月"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_recent1m"
+        app:layout_constraintStart_toEndOf="@+id/cb_recent3m"
+        app:layout_constraintTop_toTopOf="@+id/cb_recent1m" />
+
+    <com.crazydwarf.africatopup.view.SmoothCheckBox
+        android:id="@+id/cb_recent6m"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        app:color_checked="@color/colorOrange"
+        app:layout_constraintBottom_toBottomOf="@+id/textView32"
+        app:layout_constraintStart_toEndOf="@+id/textView32"
+        app:layout_constraintTop_toTopOf="@+id/textView32" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="最近6个月"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_recent1m"
+        app:layout_constraintStart_toEndOf="@+id/cb_recent6m"
+        app:layout_constraintTop_toTopOf="@+id/cb_recent1m" />
 
 
 </android.support.constraint.ConstraintLayout>
