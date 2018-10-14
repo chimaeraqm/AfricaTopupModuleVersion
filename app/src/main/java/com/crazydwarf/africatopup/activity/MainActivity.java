@@ -1,16 +1,36 @@
 package com.crazydwarf.africatopup.activity;
 
+import android.annotation.TargetApi;
+import android.app.usage.ConfigurationStats;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
+import android.os.LocaleList;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
+import android.support.v4.content.res.ConfigurationHelper;
+import android.support.v4.os.ConfigurationCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
+import com.crazydwarf.africatopup.AppLanguageUtils;
+import com.crazydwarf.africatopup.ConstantLanguages;
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.UserUtil;
+import com.crazydwarf.africatopup.dialog.CountrySelectDialog;
+import com.crazydwarf.africatopup.dialog.LanguageSelectDialog;
 import com.crazydwarf.africatopup.fragment.QueryFragment;
 import com.crazydwarf.africatopup.fragment.RechargeFragment;
 import com.crazydwarf.africatopup.fragment.UserFragment;
@@ -20,6 +40,7 @@ import com.crazydwarf.africatopup.view.SimpleToolBar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -27,6 +48,9 @@ public class MainActivity extends AppCompatActivity
     private QueryFragment mQueryFragment;
     private UserFragment mUserFragment;
     private List<Fragment> fragments = new ArrayList<>();
+    //private static int mSeleLanguage;
+
+    private static final int CHANGE_LANGUAGE_REQUEST_CODE = 1;
 
     /**
      * @param lastfragment 上次浏览的fragment
@@ -85,19 +109,31 @@ public class MainActivity extends AppCompatActivity
         toolBar.setMenuIconClickListener(new SimpleToolBar.MenuIconClickListener() {
             @Override
             public void OnClick(View view) {
-                SimpleBottomSheetDialog simpleBottomSheetDialog = new SimpleBottomSheetDialog(MainActivity.this);
-                final List<DialogListItem> items = new ArrayList<DialogListItem>();
-                items.add(new DialogListItem("中文"));
-                items.add(new DialogListItem("英语"));
-                items.add(new DialogListItem("法语"));
-                simpleBottomSheetDialog.addItems(items);
-                simpleBottomSheetDialog.setItemClick(new SimpleBottomSheetDialog.OnItemClickListener() {
+
+                LanguageSelectDialog dialog = new LanguageSelectDialog(MainActivity.this, new LanguageSelectDialog.dialogItemSelectionListener() {
                     @Override
-                    public void click(DialogListItem item) {
+                    public void onClick(View view, int position) {
 
                     }
+
+                    @Override
+                    public void onButtonConfirmClick(View view, int sele) {
+                        if(sele == 1)
+                        {
+                            Locale locale = AppLanguageUtils.getLocaleByLanguage("en");
+                            AppLanguageUtils.saveLanguageSetting(MainActivity.this,locale);
+                        }
+                        else
+                        {
+                            Locale locale = AppLanguageUtils.getLocaleByLanguage("zh");
+                            AppLanguageUtils.saveLanguageSetting(MainActivity.this,locale);
+                        }
+                        //TODO : 这里利用SharedPreferences保存当前的语言设置
+
+                        recreate();
+                    }
                 });
-                simpleBottomSheetDialog.show();
+                dialog.show();
             }
         });
         initFragments();
@@ -125,5 +161,34 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.add(R.id.view_fragment,fragments.get(index));
         }
         fragmentTransaction.show(fragments.get(index)).commitAllowingStateLoss();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase)
+    {
+         //super.attachBaseContext(attachBaseContext(newBase,ConstantLanguages.ENGLISH));
+        super.attachBaseContext(updateResources(newBase));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == CHANGE_LANGUAGE_REQUEST_CODE) {
+            recreate();
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private static Context updateResources(Context context) {
+        Resources resources = context.getResources();
+        String name = context.getPackageName() + "_LANGUAGE";
+        SharedPreferences preferences = context.getSharedPreferences(name, Context.MODE_PRIVATE);
+        String language = preferences.getString("LANGUAGE","zh");
+
+        Locale locale = AppLanguageUtils.getLocaleByLanguage(language);
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(locale);
+        configuration.setLocales(new LocaleList(locale));
+        return context.createConfigurationContext(configuration);
     }
 }

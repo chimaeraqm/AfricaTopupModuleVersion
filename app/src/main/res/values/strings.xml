@@ -4,4 +4,8 @@
     <string name="title_recharge">充值</string>
     <string name="title_expense">资费</string>
     <string name="title_user">我的</string>
+
+    <string name="app_language_pref_key" translatable="false">app_language_pref_key</string>
+    <string name="english_key" translatable="false">ENGLISH</string>
+    <string name="simplifiedchinese_key" translatable="false">SIMPLIFIED_CHINESE</string>
 </resources>

@@ -1,11 +1,19 @@
 package com.crazydwarf.africatopup;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
+import android.os.LocaleList;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.DisplayMetrics;
+
+import java.util.Locale;
 
 public class UserUtil
 {
@@ -66,4 +74,58 @@ public class UserUtil
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
+
+
+//    public static Context attachBaseContext(Context context, String abbrCountry) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//            return updateResources(context, abbrCountry);
+//        } else {
+//            return context;
+//        }
+//    }
+//
+//    @TargetApi(Build.VERSION_CODES.N)
+//    private static Context updateResources(Context context, String abbrCountry) {
+//        Resources resources = context.getResources();
+//        Locale locale = getLocaleByLanguage(abbrCountry);
+//        Configuration configuration = resources.getConfiguration();
+//        configuration.setLocale(locale);
+//        configuration.setLocales(new LocaleList(locale));
+//        return context.createConfigurationContext(configuration);
+//    }
+//
+//    private static Locale getLocaleByLanguage(String abbrCountry)
+//    {
+//        if(abbrCountry == "en")
+//        {
+//            return Locale.ENGLISH;
+//        }
+//        else if(abbrCountry == "fr")
+//        {
+//            return Locale.FRANCE;
+//        }
+//        else
+//        {
+//            return Locale.SIMPLIFIED_CHINESE;
+//        }
+//    }
+//
+//    @SuppressWarnings("deprecation")
+//    public static void changeAppLanguage(Context context, String newLanguage) {
+//        Resources resources = context.getResources();
+//        Configuration configuration = resources.getConfiguration();
+//
+//        // app locale
+//        Locale locale = getLocaleByLanguage(newLanguage);
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//            configuration.setLocale(locale);
+//        } else {
+//            configuration.locale = locale;
+//        }
+//
+//        // updateConfiguration
+//        DisplayMetrics dm = resources.getDisplayMetrics();
+//        resources.updateConfiguration(configuration, dm);
+//    }
 }

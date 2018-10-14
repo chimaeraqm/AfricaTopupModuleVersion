@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hardcode_replace">^((?!(\*|//)).)+[\u4e00-\u9fa5]</string>
+    <string name="app_name">Phone Refuel</string>
+
+    <string name="title_recharge">Recharge</string>
+    <string name="title_expense">Operator</string>
+    <string name="title_user">Me</string>
+
+    <string name="activity_bundle_title">Bulk Recharge</string>
+
+</resources>

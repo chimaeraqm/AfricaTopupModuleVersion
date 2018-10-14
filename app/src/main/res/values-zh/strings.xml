@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">手机加油站</string>
+
+    <string name="title_recharge">充值</string>
+    <string name="title_expense">资费</string>
+    <string name="title_user">我的</string>
+
+    <string name="string_bundle_recharge">批量充值</string>
+    <string name="string_recharge_details">充值详情</string>
+
+</resources>

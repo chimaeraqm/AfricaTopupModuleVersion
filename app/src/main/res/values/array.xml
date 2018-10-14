@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="select_languages">
+        <item>中文</item>
+        <item>英语</item>
+        <item>法语</item>
+    </string-array>
+
+    <integer-array name="select_languageflags">
+        <item>@drawable/china</item>
+        <item>@drawable/united_kingdom</item>
+        <item>@drawable/france</item>
+    </integer-array>
+
     <string-array name="select_countries">
         <item>埃及</item>
         <item>摩洛哥</item>
