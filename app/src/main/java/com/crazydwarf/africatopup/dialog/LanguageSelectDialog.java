@@ -1,10 +1,7 @@
 package com.crazydwarf.africatopup.dialog;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,12 +13,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.crazydwarf.africatopup.Utilities.AppLanguageUtils;
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.UserUtil;
+import com.crazydwarf.africatopup.Utilities.UserUtil;
 import com.crazydwarf.africatopup.view.LanguageItemAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class LanguageSelectDialog extends Dialog
 {
@@ -29,7 +25,8 @@ public class LanguageSelectDialog extends Dialog
     private Context mContext;
     private Button bn_Confirm;
     private Button bn_Exit;
-    private int mSeleLanguage;
+    private int mCurrentSeleLanguage;
+    private int mPostSeleLanguage;
 
     public LanguageSelectDialog(@NonNull Context context, dialogItemSelectionListener listener)
     {
@@ -52,24 +49,6 @@ public class LanguageSelectDialog extends Dialog
         String[] names = new String[namesArray.length()];
         Integer[] flags = new Integer[flagsArray.length()];
 
-        //TODO : 从SharedPreferences获取语言设置并初始化checks
-        String name = mContext.getPackageName() + "_LANGUAGE";
-        SharedPreferences preferences = mContext.getSharedPreferences(name, Context.MODE_PRIVATE);
-        String language = preferences.getString("LANGUAGE","zh");
-
-        List<Boolean> checks = new ArrayList<Boolean>();
-        if(language == "en")
-        {
-            checks.add(false);
-            checks.add(true);
-            checks.add(false);
-        }
-        else
-        {
-            checks.add(true);
-            checks.add(false);
-            checks.add(false);
-        }
 
         for(int i=0;i<namesArray.length();i++)
         {
@@ -78,17 +57,20 @@ public class LanguageSelectDialog extends Dialog
         }
         final LanguageItemAdapter languageItemAdapter = new LanguageItemAdapter(flags,names);
         mRecyclerview.setAdapter(languageItemAdapter);
-        languageItemAdapter.setChecks(checks);
+        //mPostSeleLanguage在这里获取保存的语言设置，并初始化弹出的对话框
+        String language = AppLanguageUtils.getSavedLanguage(mContext);
+        mPostSeleLanguage = AppLanguageUtils.getSelePosByLanguage(language);
+        languageItemAdapter.setmSelePos(mPostSeleLanguage);
         languageItemAdapter.notifyDataSetChanged();
 
-        //TODO: 显示RecycleView点击事件
         languageItemAdapter.setOnLanguageItemRVClickListener(new LanguageItemAdapter.onLanguageItemRVClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 if(dialogItemSelectionListener != null)
                 {
                     dialogItemSelectionListener.onClick(view,position);
-                    mSeleLanguage = position;
+                    //mCurrentSeleLanguage获取新点击的语言选项
+                    mCurrentSeleLanguage = position;
                 }
             }
         });
@@ -97,7 +79,12 @@ public class LanguageSelectDialog extends Dialog
         bn_Confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogItemSelectionListener.onButtonConfirmClick(v,mSeleLanguage);
+                //语言选择改变时
+                if(mPostSeleLanguage != mCurrentSeleLanguage)
+                {
+                    dialogItemSelectionListener.onButtonConfirmClick(v,mCurrentSeleLanguage);
+                    mPostSeleLanguage = mCurrentSeleLanguage;
+                }
                 dismiss();
             }
         });
@@ -113,12 +100,8 @@ public class LanguageSelectDialog extends Dialog
     }
 
     public interface dialogItemSelectionListener{
-        public void onClick(View view, int position);
-        public void onButtonConfirmClick(View view, int sele);
-    }
-
-    public int getmSeleLanguage() {
-        return mSeleLanguage;
+        void onClick(View view, int position);
+        void onButtonConfirmClick(View view, int sele);
     }
 
     /**

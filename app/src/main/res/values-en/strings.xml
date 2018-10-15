@@ -8,5 +8,37 @@
     <string name="title_user">Me</string>
 
     <string name="activity_bundle_title">Bulk Recharge</string>
+    <string name="string_recharge_details">Recharge Details</string>
+    <string name="string_number_inquiry">Number Inquiry</string>
+    <string name="string_phone_holder">Phone Holder</string>
+    <string name="string_recharge_amount">Recharge Amount</string>
+    <string name="string_exchange_rate_info">Exchange rate at recharge: 1 USD = 7.01 RMB</string>
+    <string name="string_order_time">Order Closed Time</string>
+    <string name="string_bind_wechat">Bind Wechat Account</string>
+    <string name="string_bind_email">Bind Email</string>
+    <string name="string_send_invoice">Send Invoice Information to</string>
+    <string name="string_user_login">LOGIN</string>
+    <string name="string_user_quick_register">Quick Register</string>
+    <string name="string_local_number">Local Number(as username)</string>
+    <string name="string_enter_username">Enter Phone Number or Username</string>
+    <string name="string_init_pw">Initial Password</string>
+    <string name="string_enter_pw">Enter Password</string>
+    <string name="string_confirm">CONFIRM</string>
+    <string name="string_login_local_number">LOGIN with Local Number</string>
+    <string name="string_login">LOGIN</string>
+    <string name="string_cancel">CANCEL</string>
+    <string name="string_register">REGISTER</string>
+    <string name="string_forget_pw">Forget Password？</string>
+    <string name="string_enter_pw_again">Enter Password Again</string>
+    <string name="string_number_quick_register">Quick Register with Local Number</string>
+    <string name="string_country">Country</string>
+    <string name="string_already_resgiter">Already Registered? Click Here to LOGIN.</string>
+    <string name="string_language_chinese">Chinese</string>
+    <string name="string_language_english">English</string>
+    <string name="string_language_french">French</string>
+
+    <string name="string_launcher_slogan">A Call Charge Inquiry and Rechage Shortcut for African Chinese.</string>
+    <string name="string_launcher_adv1">Recharge within 10 secs.</string>
+    <string name="string_launcher_adv2">Free Call Charge Bonus after Initial Registration.</string>
 
 </resources>

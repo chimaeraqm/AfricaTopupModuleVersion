@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.UserUtil;
+import com.crazydwarf.africatopup.Utilities.UserUtil;
 
 public class AddNumberDialog extends Dialog
 {

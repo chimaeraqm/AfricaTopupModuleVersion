@@ -1,2 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Téléphone Ravitaillement</string>
+
+    <string name="title_recharge">Recharge</string>
+    <string name="title_expense">Opérateur</string>
+    <string name="title_user">Moi</string>
+
+    <string name="activity_bundle_title">Recharge en vrac</string>
+    <string name="string_recharge_details">Détails de recharge</string>
+    <string name="string_number_inquiry">Demande de numéro</string>
+    <string name="string_phone_holder">Support de téléphone</string>
+    <string name="string_recharge_amount">Montant de recharge</string>
+    <string name="string_exchange_rate_info">Taux de change à la recharge: 1 USD = 7.01 RMB</string>
+    <string name="string_order_time">Commande Fermée Heure</string>
+    <string name="string_bind_wechat">Lier un compte Wechat</string>
+    <string name="string_bind_email">Bind Email</string>
+    <string name="string_send_invoice">Envoyer les informations de facture à</string>
+    <string name="string_user_login">S\'IDENTIFIER</string>
+    <string name="string_user_quick_register">Enregistrement rapide</string>
+    <string name="string_local_number">Numéro local (comme nom d\'utilisateur)</string>
+    <string name="string_enter_username">Entrer un numéro de téléphone ou un nom d\'utilisateur</string>
+    <string name="string_init_pw">Mot de passe initial</string>
+    <string name="string_enter_pw">Entrer le mot de passe</string>
+    <string name="string_confirm">CONFIRMER</string>
+    <string name="string_login_local_number">CONNEXION avec numéro local</string>
+    <string name="string_login">S\'IDENTIFIER</string>
+    <string name="string_cancel">ANNULER</string>
+    <string name="string_register">REGISTRE</string>
+    <string name="string_forget_pw">Mot de passe oublié?</string>
+    <string name="string_enter_pw_again">Entrez à nouveau le mot de passe</string>
+    <string name="string_number_quick_register">Enregistrement rapide avec numéro local</string>
+    <string name="string_country">Pays</string>
+    <string name="string_already_resgiter">Déjà enregistré? Cliquez ici pour vous identifier.</string>
+    <string name="string_language_chinese">Chinois</string>
+    <string name="string_language_english">Anglais</string>
+    <string name="string_language_french">français</string>
+
+    <string name="string_launcher_slogan">Un raccourci d’enquête sur les frais d’appel et de recharge pour les Chinois africains.</string>
+    <string name="string_launcher_adv1">Recharge dans les 10 secondes.</string>
+    <string name="string_launcher_adv2">Bonus d'appel gratuit après la première inscription.</string>
+
+</resources>

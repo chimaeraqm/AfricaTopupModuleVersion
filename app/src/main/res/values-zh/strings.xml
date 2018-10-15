@@ -8,5 +8,36 @@
 
     <string name="string_bundle_recharge">批量充值</string>
     <string name="string_recharge_details">充值详情</string>
+    <string name="string_number_inquiry">查询号码</string>
+    <string name="string_phone_holder">持卡人</string>
+    <string name="string_recharge_amount">充值金额</string>
+    <string name="string_exchange_rate_info">充值时汇率：1美元 = 7.01人民币</string>
+    <string name="string_order_time">订单成交时间</string>
+    <string name="string_bind_wechat">绑定微信号</string>
+    <string name="string_bind_email">绑定邮箱</string>
+    <string name="string_send_invoice">发送发票信息至</string>
+    <string name="string_user_login">用户登录</string>
+    <string name="string_user_quick_register">快捷注册</string>
+    <string name="string_local_number">本机号码（用户名）</string>
+    <string name="string_enter_username">输入手机号或用户名</string>
+    <string name="string_init_pw">初始密码</string>
+    <string name="string_enter_pw">输入密码</string>
+    <string name="string_confirm">确认</string>
+    <string name="string_login_local_number">本机号码登录</string>
+    <string name="string_login">登录</string>
+    <string name="string_cancel">取消</string>
+    <string name="string_register">新用户注册</string>
+    <string name="string_forget_pw">忘记密码？</string>
+    <string name="string_enter_pw_again">输入密码确认</string>
+    <string name="string_number_quick_register">本机号码快捷注册</string>
+    <string name="string_country">国家</string>
+    <string name="string_already_resgiter">已经注册？点击这里登录</string>
+    <string name="string_language_chinese">中文</string>
+    <string name="string_language_english">英语</string>
+    <string name="string_language_french">法语</string>
+
+    <string name="string_launcher_slogan">非洲华人话费查询与充值快捷通道</string>
+    <string name="string_launcher_adv1">最快10秒完成充值</string>
+    <string name="string_launcher_adv2">初次注册，赠送话费礼包</string>
 
 </resources>

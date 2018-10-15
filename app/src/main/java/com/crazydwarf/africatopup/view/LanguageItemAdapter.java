@@ -16,7 +16,6 @@ import java.util.List;
 
 public class LanguageItemAdapter extends RecyclerView.Adapter<LanguageItemAdapter.LanguageItemHolder>
 {
-    private List<Boolean> checks;
     private Integer[] flagRes;
     private String[] countries;
     private int mSelePos = 0;
@@ -26,11 +25,10 @@ public class LanguageItemAdapter extends RecyclerView.Adapter<LanguageItemAdapte
     public LanguageItemAdapter(Integer[] flagRes,String[] countries) {
         this.countries = countries;
         this.flagRes = flagRes;
-        this.checks = new ArrayList<Boolean>();
     }
 
-    public void setChecks(List<Boolean> checks) {
-        this.checks = checks;
+    public void setmSelePos(int mSelePos) {
+        this.mSelePos = mSelePos;
     }
 
     @NonNull
@@ -51,7 +49,6 @@ public class LanguageItemAdapter extends RecyclerView.Adapter<LanguageItemAdapte
     {
         if(payloads.isEmpty())
         {
-            Boolean check = checks.get(position);
             holder.cbFlag.setChecked(mSelePos == position);
             holder.imFlag.setBackgroundResource(flagRes[position]);
             holder.tvCountryName.setText(countries[position]);

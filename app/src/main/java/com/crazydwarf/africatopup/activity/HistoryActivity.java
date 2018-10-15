@@ -12,13 +12,13 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.UserUtil;
+import com.crazydwarf.africatopup.Utilities.UserUtil;
 import com.crazydwarf.africatopup.dialog.HistoryDetailDialog;
 import com.crazydwarf.africatopup.view.HistoryItemAdapter;
 import com.crazydwarf.africatopup.view.SimpleToolBar;
 import com.crazydwarf.africatopup.view.SmoothCheckBox;
 
-public class HistoryActivity extends AppCompatActivity
+public class HistoryActivity extends BaseActivity
 {
     private SmoothCheckBox cb_Recent1m;
     private SmoothCheckBox cb_Recent3m;

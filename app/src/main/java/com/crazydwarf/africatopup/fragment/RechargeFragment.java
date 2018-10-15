@@ -14,11 +14,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.UserUtil;
+import com.crazydwarf.africatopup.Utilities.UserUtil;
 import com.crazydwarf.africatopup.activity.RechargeAliActivity;
 import com.crazydwarf.africatopup.activity.RechargeWeActivity;
 import com.crazydwarf.africatopup.dialog.CountrySelectDialog;
-import com.crazydwarf.africatopup.view.SimpleToolBar;
 
 public class RechargeFragment extends Fragment
 {

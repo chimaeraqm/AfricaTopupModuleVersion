@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup;
+package com.crazydwarf.africatopup.Utilities;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -128,4 +128,6 @@ public class UserUtil
 //        DisplayMetrics dm = resources.getDisplayMetrics();
 //        resources.updateConfiguration(configuration, dm);
 //    }
+
+
 }

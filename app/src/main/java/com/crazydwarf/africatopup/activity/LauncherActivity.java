@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.view.NewActivityView;
 
-public class LauncherActivity extends AppCompatActivity
+public class LauncherActivity extends BaseActivity
 {
     private Button bnEnter;
     @Override

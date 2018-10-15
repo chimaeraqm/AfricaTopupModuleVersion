@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.view.SimpleToolBar;
 
-public class RechargeWeActivity extends AppCompatActivity
+public class RechargeWeActivity extends BaseActivity
 {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

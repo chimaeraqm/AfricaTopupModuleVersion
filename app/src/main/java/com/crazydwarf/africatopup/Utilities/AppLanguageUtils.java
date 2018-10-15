@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup;
+package com.crazydwarf.africatopup.Utilities;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -7,22 +7,28 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.LocaleList;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
 import java.util.HashMap;
 import java.util.Locale;
 
-import static android.provider.ContactsContract.CommonDataKinds.StructuredPostal.COUNTRY;
-import static java.text.AttributedCharacterIterator.Attribute.LANGUAGE;
-
 public class AppLanguageUtils
 {
+    private class ConstantLanguages
+    {
+        // 简体中文
+        public static final String SIMPLIFIED_CHINESE = "zh";
+        // 英文
+        public static final String ENGLISH = "en";
+        // 法语
+        public static final String FRANCE = "fr";
+    }
+
     private static HashMap<String, Locale> mAllLanguages = new HashMap<String, Locale>(2)
     {{
-        put(ConstantLanguages.ENGLISH, Locale.ENGLISH);
         put(ConstantLanguages.SIMPLIFIED_CHINESE, Locale.SIMPLIFIED_CHINESE);
-//        put(ConstantLanguages.FRANCE, Locale.FRANCE);
+        put(ConstantLanguages.ENGLISH, Locale.ENGLISH);
+        put(ConstantLanguages.FRANCE, Locale.FRANCE);
     }};
 
     private static boolean isSupportLanguage(String language) {
@@ -57,7 +63,6 @@ public class AppLanguageUtils
         return Locale.SIMPLIFIED_CHINESE;
     }
 
-
     public static Context attachBaseContext(Context context, String language) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             return updateResources(context, language);
@@ -66,12 +71,22 @@ public class AppLanguageUtils
         }
     }
 
-
     @TargetApi(Build.VERSION_CODES.N)
     private static Context updateResources(Context context, String language) {
         Resources resources = context.getResources();
         Locale locale = AppLanguageUtils.getLocaleByLanguage(language);
 
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(locale);
+        configuration.setLocales(new LocaleList(locale));
+        return context.createConfigurationContext(configuration);
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    public static Context updateResources(Context context) {
+        Resources resources = context.getResources();
+        String language = AppLanguageUtils.getSavedLanguage(context);
+        Locale locale = AppLanguageUtils.getLocaleByLanguage(language);
         Configuration configuration = resources.getConfiguration();
         configuration.setLocale(locale);
         configuration.setLocales(new LocaleList(locale));
@@ -127,5 +142,46 @@ public class AppLanguageUtils
         SharedPreferences preferences = context.getSharedPreferences(name, Context.MODE_PRIVATE);
         preferences.edit().putString(LANGUAGE, locale.getLanguage()).apply();
         //preferences.edit().putString(COUNTRY, locale.getCountry()).apply();
+    }
+
+    public static int getSelePosByLanguage(String abbrCountry)
+    {
+        //TODO : 直接使用abbrCountry == "en"不能给出正确判断，为何？
+        if(abbrCountry.compareTo("en") == 0)
+        {
+            return 1;
+        }
+        else if(abbrCountry.compareTo("fr") == 0)
+        {
+            return 2;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    public static String getLanguageBySelePos(int selePos)
+    {
+        if(selePos == 1)
+        {
+            return "en";
+        }
+        else if(selePos == 2)
+        {
+            return "fr";
+        }
+        else
+        {
+            return "zh";
+        }
+    }
+
+    public static String getSavedLanguage(Context context)
+    {
+        String name = context.getPackageName() + "_LANGUAGE";
+        SharedPreferences preferences = context.getSharedPreferences(name, Context.MODE_PRIVATE);
+        String language = preferences.getString("LANGUAGE","zh");
+        return language;
     }
 }

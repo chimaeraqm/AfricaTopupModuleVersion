@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.UserUtil;
+import com.crazydwarf.africatopup.Utilities.UserUtil;
 import com.crazydwarf.africatopup.view.SmoothCheckBox;
 
 public class LogupDialog extends Dialog
