@@ -48,7 +48,7 @@
         android:id="@+id/tv_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="中文"
+        android:text="@string/string_language_chinese"
         android:textColor="@color/colorWhite"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/im_flag"

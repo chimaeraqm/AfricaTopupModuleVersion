@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:mentIconSize="32dp"
         app:menuIcon="@drawable/ic_format_list_bulleted_black_32dp"
-        app:title="订单记录查询"
+        app:title="@string/string_order_record_query"
         app:titleColor="@color/colorBlack"
         app:titleSize="20sp" />
 
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="查询区间 由"
+        android:text="@string/string_query_interval_from"
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="至"
+        android:text="@string/string_query_interval_to"
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/et_datefrom"
@@ -100,7 +100,7 @@
         android:textSize="14sp"
         android:textColor="@color/colorBlack"
         android:gravity="center"
-        android:text="充值日期"
+        android:text="@string/string_recharge_date"
         app:layout_constraintStart_toStartOf="@+id/recyclerView"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -112,7 +112,7 @@
         android:gravity="center"
         android:textSize="14sp"
         android:textColor="@color/colorBlack"
-        android:text="充值金额"
+        android:text="@string/string_recharge_amount"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toTopOf="@+id/textView11" />
 
@@ -124,7 +124,7 @@
         android:gravity="center"
         android:textSize="14sp"
         android:textColor="@color/colorBlack"
-        android:text="订单号"
+        android:text="@string/string_order_no"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toTopOf="@+id/textView12"/>
 
@@ -136,7 +136,7 @@
         android:gravity="center"
         android:textSize="14sp"
         android:textColor="@color/colorBlack"
-        android:text="订单状态"
+        android:text="@string/string_order_status"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="@+id/textView13"/>
 
@@ -160,7 +160,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="最长可查询最近6个月的充值订单记录"
+        android:text="@string/string_query_tip"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -178,7 +178,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="最近1个月"
+        android:text="@string/string_query_last_1month"
         android:textColor="@color/colorBlack"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/cb_recent1m"
@@ -200,7 +200,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="最近3个月"
+        android:text="@string/string_query_last_3month"
         android:textColor="@color/colorBlack"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/cb_recent1m"
@@ -222,7 +222,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="最近6个月"
+        android:text="@string/string_query_last_6month"
         android:textColor="@color/colorBlack"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/cb_recent1m"

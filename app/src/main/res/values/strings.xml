@@ -5,7 +5,142 @@
     <string name="title_expense">资费</string>
     <string name="title_user">我的</string>
 
-    <string name="app_language_pref_key" translatable="false">app_language_pref_key</string>
-    <string name="english_key" translatable="false">ENGLISH</string>
-    <string name="simplifiedchinese_key" translatable="false">SIMPLIFIED_CHINESE</string>
+    <string name="string_bundle_recharge">批量充值</string>
+    <string name="string_recharge_details">充值详情</string>
+    <string name="string_number_inquiry">查询号码</string>
+    <string name="string_phone_holder">持卡人</string>
+    <string name="string_recharge_amount">充值金额</string>
+    <string name="string_exchange_rate_info">充值时汇率：1美元 = 7.01人民币</string>
+    <string name="string_order_time">订单成交时间</string>
+    <string name="string_bind_wechat">绑定微信号</string>
+    <string name="string_bind_email">绑定邮箱</string>
+    <string name="string_send_invoice">发送发票信息至</string>
+    <string name="string_user_login">用户登录</string>
+    <string name="string_user_quick_register">快捷注册</string>
+    <string name="string_local_number">本机号码（用户名）</string>
+    <string name="string_enter_username">输入手机号或用户名</string>
+    <string name="string_init_pw">初始密码</string>
+    <string name="string_enter_pw">输入密码</string>
+    <string name="string_confirm">确认</string>
+    <string name="string_login_local_number">本机号码登录</string>
+    <string name="string_login">登录</string>
+    <string name="string_cancel">取消</string>
+    <string name="string_register">新用户注册</string>
+    <string name="string_forget_pw">忘记密码？</string>
+    <string name="string_enter_pw_again">输入密码确认</string>
+    <string name="string_number_quick_register">本机号码快捷注册</string>
+    <string name="string_country">国家</string>
+    <string name="string_already_resgiter">已经注册？点击这里登录</string>
+    <string name="string_language_chinese">中文</string>
+    <string name="string_language_english">英语</string>
+    <string name="string_language_french">法语</string>
+
+    <string name="string_add">添加</string>
+    <string name="string_select_from_address">从通讯录选择</string>
+    <string name="string_curreny_usd">美元</string>
+    <string name="string_curreny_rmb">人民币</string>
+    <string name="string_total_recharge_amount">充值总金额</string>
+    <string name="string_wechat_pay">微信支付</string>
+    <string name="string_alipay">支付宝支付（推荐）</string>
+    <string name="string_contact_service">联系客服</string>
+    <string name="string_contact_service_tip">大批量充值或者定期充值设置？</string>
+    <string name="string_order_record_query">订单记录查询</string>
+    <string name="string_query_interval_from">查询区间 由</string>
+    <string name="string_query_interval_to">至</string>
+    <string name="string_recharge_date">充值日期</string>
+    <string name="string_order_no">订单号</string>
+    <string name="string_order_status">订单状态</string>
+    <string name="string_query_tip">最长可查询最近6个月的充值订单记录</string>
+    <string name="string_query_last_1month">最近1个月</string>
+    <string name="string_query_last_3month">最近3个月</string>
+    <string name="string_query_last_6month">最近6个月</string>
+    <string name="string_skip">跳过</string>
+
+    <string name="string_alipay_order_confirm">支付宝订单确认</string>
+    <string name="string_wechat_pay_order_confirm">微信订单确认</string>
+    <string name="string_recharge_no1">本机号码1</string>
+    <string name="string_recharge_no2">本机号码2</string>
+    <string name="string_recharge_other">其他号码</string>
+    <string name="string_recharge_op1">运营商1</string>
+    <string name="string_recharge_op2">运营商2</string>
+    <string name="string_recharge_op3">运营商3</string>
+    <string name="string_invoice_business">发票业务办理</string>
+    <string name="string_recharge_record_inquiry">充值记录查询</string>
+    <string name="string_delete">删除</string>
+    <string name="string_enter_phone_no">输入手机号</string>
+    <string name="string_enter_recharge_amount">输入充值金额</string>
+
+    <string name="string_balance_inquiry">余额查询</string>
+    <string name="string_current_balance">当前余额</string>
+    <string name="string_flow_balance">剩余流量（Mb）</string>
+    <string name="string_expiration_date">流量截止：2018/12/31</string>
+    <string name="string_display_language">显示语言</string>
+    <string name="string_operator_expense">运营商资费查询</string>
+    <string name="string_adv_placeholder">广告占位符</string>
+    <string name="string_act_placeholder">活动通知占位符</string>
+    <string name="string_add_flow">购买流量包</string>
+    <string name="string_download_qrcode">Android App下载二维码</string>
+
+
+    <string name="string_launcher_slogan">非洲华人话费查询与充值快捷通道</string>
+    <string name="string_launcher_adv1">最快10秒完成充值</string>
+    <string name="string_launcher_adv2">初次注册，赠送话费礼包</string>
+
+    <string name="string_egypt">埃及</string>
+    <string name="string_morocco">摩洛哥</string>
+    <string name="string_algeria">阿尔及利亚</string>
+    <string name="string_tunisia">突尼斯</string>
+    <string name="string_libya">利比亚</string>
+    <string name="string_gambia">冈比亚</string>
+    <string name="string_senegal">塞内加尔</string>
+    <string name="string_mauritania">毛里塔尼亚</string>
+    <string name="string_mali">马里</string>
+    <string name="string_guinea">几内亚</string>
+    <string name="string_cotedivoire">科特迪瓦</string>
+    <string name="string_burkina_faso">布基纳法索</string>
+    <string name="string_niger">尼日尔</string>
+    <string name="string_togo">多哥</string>
+    <string name="string_benin">贝宁</string>
+    <string name="string_mauritius">毛里求斯</string>
+    <string name="string_liberia">利比里亚</string>
+    <string name="string_sierra_leone">塞拉利昴</string>
+    <string name="string_ghana">加纳</string>
+    <string name="string_nigeria">尼日利亚</string>
+    <string name="string_chad">乍得</string>
+    <string name="string_central_africa">中非</string>
+    <string name="string_cameroon">喀麦隆</string>
+    <string name="string_cape_verde">佛得角</string>
+    <string name="string_sao_tome">圣多美和普林西比</string>
+    <string name="string_equatorial_guinea">赤道几内亚</string>
+    <string name="string_gabon">加蓬</string>
+    <string name="string_congo">刚果</string>
+    <string name="string_zaire">扎伊尔</string>
+    <string name="string_angola">安哥拉</string>
+    <string name="string_guinea_bissau">几内亚比绍</string>
+    <!--<string name="string_ascension">阿森松</string>-->
+    <string name="string_seychelles">塞舌尔</string>
+    <string name="string_sudan">苏丹</string>
+    <string name="string_rwanda">卢旺达</string>
+    <string name="string_ethiopia">埃塞俄比亚</string>
+    <string name="string_somalia">索马里</string>
+    <string name="string_djibouti">吉布提</string>
+    <string name="string_kenya">肯尼亚</string>
+    <string name="string_tanzania">坦桑尼亚</string>
+    <string name="string_uganda">乌干达</string>
+    <string name="string_burundi">布隆迪</string>
+    <string name="string_mozambique">莫桑比克</string>
+    <string name="string_zambia">赞比亚</string>
+    <string name="string_madagascar">马达加斯加</string>
+    <string name="string_reunion">留尼旺岛</string>
+    <string name="string_zimbabwe">津巴布韦</string>
+    <string name="string_namibia">纳米比亚</string>
+    <string name="string_malawi">马拉维</string>
+    <string name="string_lesotho">莱索托</string>
+    <string name="string_botswana">博茨瓦纳</string>
+    <string name="string_swaziland">斯威士兰</string>
+    <string name="string_comoros">科摩罗</string>
+    <string name="string_south_africa">南非</string>
+    <!--<string name="string_st_helena">圣赫勒拿</string>-->
+    <!--<string name="string_aruba">阿鲁巴岛</string>-->
+
 </resources>

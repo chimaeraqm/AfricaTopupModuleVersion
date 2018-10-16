@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="非洲华人话费查询与充值快捷通道"
+        android:text="@string/string_launcher_slogan"
         android:textColor="@color/colorBlack"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:background="@color/colorTrans"
-        android:text="跳过"
+        android:text="@string/string_skip"
         android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imb_enter" />

@@ -67,7 +67,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="删除"
+        android:text="@string/string_delete"
         android:background="@drawable/shape_button1"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/et_fee"

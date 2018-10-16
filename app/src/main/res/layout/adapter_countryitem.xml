@@ -17,7 +17,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="国家"
+        android:text="@string/string_country"
         android:textColor="@color/colorOrange"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
