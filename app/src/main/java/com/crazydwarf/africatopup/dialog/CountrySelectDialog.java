@@ -3,16 +3,21 @@ package com.crazydwarf.africatopup.dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.Utilities.UserUtil;
 import com.crazydwarf.africatopup.activity.HistoryActivity;
 import com.crazydwarf.africatopup.view.CountryItemAdapter;
 import com.crazydwarf.africatopup.view.HistoryItemAdapter;
@@ -22,22 +27,28 @@ import java.util.Locale;
 public class CountrySelectDialog extends Dialog
 {
     private dialogItemSelectionListener dialogItemSelectionListener;
+    private Context mContext;
 
     public CountrySelectDialog(@NonNull final Context context,dialogItemSelectionListener listener)
     {
         super(context, R.style.CurrentDialog);
         this.dialogItemSelectionListener = listener;
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_countries,null);
-        setContentView(view);
+        this.mContext = context;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dialog_countries);
         RecyclerView mRecyclerview = findViewById(R.id.rv_countries);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(context);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(mContext);
         mRecyclerview.setLayoutManager(mLayoutManager);
         mRecyclerview.setHasFixedSize(true);
-        mRecyclerview.addItemDecoration(new DividerItemDecoration(context,DividerItemDecoration.VERTICAL));
+        mRecyclerview.addItemDecoration(new DividerItemDecoration(mContext,DividerItemDecoration.VERTICAL));
 
-        TypedArray countryArray = context.getResources().obtainTypedArray(R.array.select_countries);
-        TypedArray codeArray = context.getResources().obtainTypedArray(R.array.select_codes);
-        final TypedArray flagsArray = context.getResources().obtainTypedArray(R.array.select_flags);
+        TypedArray countryArray = mContext.getResources().obtainTypedArray(R.array.select_countries);
+        TypedArray codeArray = mContext.getResources().obtainTypedArray(R.array.select_codes);
+        final TypedArray flagsArray = mContext.getResources().obtainTypedArray(R.array.select_flags);
         String[] countries = new String[countryArray.length()];
         Integer[] codes = new Integer[codeArray.length()];
         Integer[] flags = new Integer[flagsArray.length()];
@@ -58,10 +69,20 @@ public class CountrySelectDialog extends Dialog
                 dismiss();
             }
         });
+        setDisplayDimension();
     }
 
     public interface dialogItemSelectionListener{
         public void onClick(View view,int position);
     }
 
+    private void setDisplayDimension()
+    {
+        Window dialogWindow = getWindow();
+        WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
+        layoutParams.width = UserUtil.dip2px(mContext,240);
+        layoutParams.height = UserUtil.dip2px(mContext,400);
+        layoutParams.gravity = Gravity.BOTTOM|Gravity.CENTER;
+        dialogWindow.setAttributes(layoutParams);
+    }
 }

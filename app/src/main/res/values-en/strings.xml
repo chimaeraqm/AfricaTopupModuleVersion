@@ -12,14 +12,14 @@
     <string name="string_number_inquiry">Number Inquiry</string>
     <string name="string_phone_holder">Phone Holder</string>
     <string name="string_recharge_amount">Recharging Amount</string>
-    <string name="string_exchange_rate_info">Exchange rate at recharging: 1 USD = 7.01 RMB</string>
+    <string name="string_exchange_rate_info">Exchange rate at recharging\n1 USD = 7.01 RMB</string>
     <string name="string_order_time">Order Closed Time</string>
     <string name="string_bind_wechat">Bind Wechat Account</string>
     <string name="string_bind_email">Bind Email</string>
     <string name="string_send_invoice">Send Invoice Information to</string>
     <string name="string_user_login">LOGIN</string>
     <string name="string_user_quick_register">Quick Register</string>
-    <string name="string_local_number">Local Number(as username)</string>
+    <string name="string_local_number">Local Number\n(as username)</string>
     <string name="string_enter_username">Enter Phone Number or Username</string>
     <string name="string_init_pw">Initial Password</string>
     <string name="string_enter_pw">Enter Password</string>
@@ -30,20 +30,20 @@
     <string name="string_register">REGISTER</string>
     <string name="string_forget_pw">Forget Password？</string>
     <string name="string_enter_pw_again">Enter Password Again</string>
-    <string name="string_number_quick_register">Quick Register with Local Number</string>
+    <string name="string_number_quick_register">Quick Register\nwith Local Number</string>
     <string name="string_country">Country</string>
-    <string name="string_already_resgiter">Already Registered? Click Here to LOGIN.</string>
+    <string name="string_already_resgiter">Already Registered?\nClick Here to LOGIN.</string>
     <string name="string_language_chinese">Chinese</string>
     <string name="string_language_english">English</string>
     <string name="string_language_french">French</string>
 
     <string name="string_add">Add</string>
-    <string name="string_select_from_address">Select from Address Book</string>
+    <string name="string_select_from_address">Select from\nAddress Book</string>
     <string name="string_curreny_usd">USD</string>
     <string name="string_curreny_rmb">RMB</string>
-    <string name="string_total_recharge_amount">Total Recharging Amount</string>
+    <string name="string_total_recharge_amount">Total Recharging</string>
     <string name="string_wechat_pay">Wechat Pay</string>
-    <string name="string_alipay">Alipay(Recommended)</string>
+    <string name="string_alipay">Alipay\n(Recommended)</string>
     <string name="string_contact_service">Contact Customer Service</string>
     <string name="string_contact_service_tip">Mass Recharging or Regular Recharging Setting?</string>
     <string name="string_order_record_query">Order Record Query</string>
@@ -83,9 +83,9 @@
     <string name="string_add_flow">Add Flow Package</string>
     <string name="string_download_qrcode">Android App Download QR Code</string>
 
-    <string name="string_launcher_slogan">A Call Charge Inquiry and Recharging Shortcut for African Chinese.</string>
+    <string name="string_launcher_slogan">A Call Charge\nInquiry and Recharging\nShortcut for African Chinese.</string>
     <string name="string_launcher_adv1">Recharge within 10 secs.</string>
-    <string name="string_launcher_adv2">Free Call Charge Bonus after Initial Registration.</string>
+    <string name="string_launcher_adv2">Free Call Charge Bonus\nafter Initial Registration.</string>
 
     <string name="string_egypt">Egypt</string>
     <string name="string_morocco">Morocco</string>

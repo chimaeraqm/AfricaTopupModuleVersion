@@ -63,12 +63,6 @@ public class HistoryActivity extends BaseActivity
                 Toast.makeText(HistoryActivity.this, "打开历史充值信息详情对话框", Toast.LENGTH_SHORT).show();
                 HistoryDetailDialog historyDetailDialog = new HistoryDetailDialog(HistoryActivity.this);
                 historyDetailDialog.show();
-
-                Window dialogWindow = historyDetailDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(HistoryActivity.this,300);
-                layoutParams.height = UserUtil.dip2px(HistoryActivity.this,400);;
-                dialogWindow.setAttributes(layoutParams);
             }
         });
 

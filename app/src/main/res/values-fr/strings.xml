@@ -11,14 +11,14 @@
     <string name="string_number_inquiry">Demande de numéro</string>
     <string name="string_phone_holder">Support de téléphone</string>
     <string name="string_recharge_amount">Montant de recharge</string>
-    <string name="string_exchange_rate_info">Taux de change à la recharge: 1 USD = 7.01 RMB</string>
+    <string name="string_exchange_rate_info">Taux de change à la recharge\n1 USD = 7.01 RMB</string>
     <string name="string_order_time">Commande Fermée Heure</string>
     <string name="string_bind_wechat">Lier un compte Wechat</string>
     <string name="string_bind_email">Bind Email</string>
     <string name="string_send_invoice">Envoyer les informations de facture à</string>
     <string name="string_user_login">S\'IDENTIFIER</string>
     <string name="string_user_quick_register">Enregistrement rapide</string>
-    <string name="string_local_number">Numéro local (comme nom d\'utilisateur)</string>
+    <string name="string_local_number">Numéro local\n(comme nom d\'utilisateur)</string>
     <string name="string_enter_username">Entrer un numéro de téléphone ou un nom d\'utilisateur</string>
     <string name="string_init_pw">Mot de passe initial</string>
     <string name="string_enter_pw">Entrer le mot de passe</string>
@@ -29,18 +29,18 @@
     <string name="string_register">REGISTRE</string>
     <string name="string_forget_pw">Mot de passe oublié?</string>
     <string name="string_enter_pw_again">Entrez à nouveau le mot de passe</string>
-    <string name="string_number_quick_register">Enregistrement rapide avec numéro local</string>
+    <string name="string_number_quick_register">Enregistrement rapide\navec numéro local</string>
     <string name="string_country">Pays</string>
-    <string name="string_already_resgiter">Déjà enregistré? Cliquez ici pour vous identifier.</string>
+    <string name="string_already_resgiter">Déjà enregistré?\nCliquez ici pour vous identifier.</string>
     <string name="string_language_chinese">Chinois</string>
     <string name="string_language_english">Anglais</string>
     <string name="string_language_french">Français</string>
 
     <string name="string_add">Ajouter</string>
-    <string name="string_select_from_address">Sélectionner dans le carnet d\'adresses</string>
+    <string name="string_select_from_address">Sélectionner dans\nle carnet d\'adresses</string>
     <string name="string_curreny_usd">USD</string>
     <string name="string_curreny_rmb">RMB</string>
-    <string name="string_total_recharge_amount">Total Recharging Montant</string>
+    <string name="string_total_recharge_amount">Total Recharging</string>
     <string name="string_wechat_pay">Wechat Pay</string>
     <string name="string_alipay">Alipay(conseillé)</string>
     <string name="string_contact_service">Contactez le service clientèle</string>
@@ -51,10 +51,10 @@
     <string name="string_recharge_date">Date de recharge</string>
     <string name="string_order_no">Numéro de commande</string>
     <string name="string_order_status">Statut de la commande</string>
-    <string name="string_query_tip">Interrogation des enregistrements d'ordre au cours des 6 derniers mois</string>
-    <string name="string_query_last_1month">Le mois dernier</string>
-    <string name="string_query_last_3month">3 derniers mois</string>
-    <string name="string_query_last_6month">6 derniers mois</string>
+    <string name="string_query_tip">Interrogation des enregistrements d\'ordre au cours des 6 derniers mois</string>
+    <string name="string_query_last_1month">Le mois\ndernier</string>
+    <string name="string_query_last_3month">3 derniers\nmois</string>
+    <string name="string_query_last_6month">6 derniers\nmois</string>
     <string name="string_skip">SAUTER</string>
 
     <string name="string_alipay_order_confirm">Alipay Order Confirm</string>
@@ -84,7 +84,7 @@
 
     <string name="string_launcher_slogan">Un raccourci d’enquête sur les frais d’appel et de recharge pour les Chinois africains.</string>
     <string name="string_launcher_adv1">Recharge dans les 10 secondes.</string>
-    <string name="string_launcher_adv2">Bonus d\'appel gratuit après la première inscription.</string>
+    <string name="string_launcher_adv2">Bonus d\'appel gratuit\naprès la première inscription.</string>
 
     <string name="string_egypt">L\'Egypte</string>
     <string name="string_morocco">Maroc</string>

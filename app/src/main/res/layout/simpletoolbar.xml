@@ -42,7 +42,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/app_name"
         android:textColor="@color/colorBlack"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/im_icon"
         app:layout_constraintStart_toEndOf="@+id/im_icon"
         app:layout_constraintTop_toTopOf="@+id/im_icon"
@@ -50,8 +50,8 @@
 
     <ImageView
         android:id="@+id/im_icon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/im_back"
         app:layout_constraintStart_toEndOf="@+id/im_back"

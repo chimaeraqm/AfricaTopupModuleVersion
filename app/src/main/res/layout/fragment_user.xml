@@ -13,7 +13,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/string_balance_inquiry"
         android:textColor="@color/colorBlue"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,11 +21,12 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:text="@string/string_recharge_no1"
         android:textColor="@color/colorBlack"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/cb_localphone1"
-        app:layout_constraintEnd_toStartOf="@+id/cb_localphone2"
+        app:layout_constraintStart_toEndOf="@+id/cb_localphone1"
         app:layout_constraintTop_toTopOf="@+id/cb_localphone1" />
 
     <TextView
@@ -34,9 +35,9 @@
         android:layout_height="wrap_content"
         android:text="@string/string_recharge_no2"
         android:textColor="@color/colorBlack"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/cb_localphone2"
-        app:layout_constraintEnd_toStartOf="@+id/guideline9"
-        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/textView35"
         app:layout_constraintTop_toTopOf="@+id/cb_localphone2" />
 
     <android.support.constraint.Guideline
@@ -51,42 +52,39 @@
         android:id="@+id/cb_localphone1"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginTop="8dp"
         app:color_checked="@color/colorOrange"
-        app:layout_constraintEnd_toStartOf="@+id/textView35"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <com.crazydwarf.africatopup.view.SmoothCheckBox
         android:id="@+id/cb_localphone2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
         app:color_checked="@color/colorOrange"
-        app:layout_constraintBottom_toBottomOf="@+id/textView35"
-        app:layout_constraintEnd_toStartOf="@+id/textView36"
-        app:layout_constraintTop_toTopOf="@+id/textView35" />
+        app:layout_constraintStart_toStartOf="@+id/cb_localphone1"
+        app:layout_constraintTop_toBottomOf="@+id/cb_localphone1" />
 
     <TextView
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:text="@string/string_recharge_other"
+        android:textSize="16sp"
         android:textColor="@color/colorBlack"
         app:layout_constraintBottom_toBottomOf="@+id/cb_otherphone"
-        app:layout_constraintStart_toEndOf="@+id/cb_otherphone"
+        app:layout_constraintStart_toStartOf="@+id/textView36"
         app:layout_constraintTop_toTopOf="@+id/cb_otherphone" />
 
     <com.crazydwarf.africatopup.view.SmoothCheckBox
         android:id="@+id/cb_otherphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         app:color_checked="@color/colorOrange"
-        app:layout_constraintBottom_toBottomOf="@+id/textView36"
-        app:layout_constraintStart_toEndOf="@+id/textView36"
-        app:layout_constraintTop_toTopOf="@+id/textView36" />
+        app:layout_constraintStart_toStartOf="@+id/cb_localphone2"
+        app:layout_constraintTop_toBottomOf="@+id/cb_localphone2" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -94,11 +92,11 @@
         android:layout_height="1dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView36"
+        app:layout_constraintTop_toBottomOf="@+id/cb_otherphone"
         app:srcCompat="@color/colorGray" />
 
     <Button
@@ -113,7 +111,8 @@
         android:elevation="30dp"
         android:text="@string/string_login"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
+        android:textSize="14sp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
@@ -130,7 +129,8 @@
         android:elevation="30dp"
         android:text="@string/string_register"
         android:textColor="@color/colorOrange"
-        android:textSize="16sp"
+        android:textSize="14sp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -148,7 +148,8 @@
         android:elevation="30dp"
         android:text="@string/string_recharge_record_inquiry"
         android:textColor="@color/colorOrange"
-        android:textSize="16sp"
+        android:textSize="14sp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +167,8 @@
         android:elevation="30dp"
         android:text="@string/string_bundle_recharge"
         android:textColor="@color/colorOrange"
-        android:textSize="16sp"
+        android:textSize="14sp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -189,11 +191,14 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/string_download_qrcode"
         android:textColor="@color/colorBlue"
-        android:textSize="20sp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 

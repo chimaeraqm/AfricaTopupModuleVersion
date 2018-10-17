@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="400dp"
+    android:layout_height="432dp"
     android:background="@drawable/shape_textview2">
 
     <TextView
@@ -23,7 +23,7 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/string_number_inquiry"
         android:textColor="@color/colorWhite"
@@ -36,10 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/string_expiration_date"
+        android:text="@string/string_phone_holder"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textView21"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView21"
         app:layout_constraintTop_toBottomOf="@+id/et_phonenumber" />
 
@@ -60,7 +61,8 @@
         android:id="@+id/et_phonenumber"
         android:layout_width="160dp"
         android:layout_height="32dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/shape_textview3"
         android:gravity="center"
         android:text="(243)1234567"
@@ -68,6 +70,8 @@
         android:textSize="16sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/textView21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView21"
         app:layout_constraintTop_toTopOf="@+id/textView21" />
 
@@ -103,7 +107,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/string_exchange_rate_info"
         android:textColor="@color/colorLightGray"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/et_dealdate"
         app:layout_constraintTop_toBottomOf="@+id/et_dealdate" />
 
@@ -121,23 +125,29 @@
     <Button
         android:id="@+id/bn_sendtowechat"
         android:layout_width="120dp"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/shape_button1"
+        android:padding="8dp"
         android:text="@string/string_bind_wechat"
         android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+        app:layout_constraintTop_toBottomOf="@+id/textView27"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/bn_sendtoemail"
         android:layout_width="120dp"
-        android:layout_height="30dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/shape_button1"
         android:text="@string/string_bind_email"
         android:textColor="@color/colorBlack"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/bn_sendtowechat"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/bn_sendtowechat" />

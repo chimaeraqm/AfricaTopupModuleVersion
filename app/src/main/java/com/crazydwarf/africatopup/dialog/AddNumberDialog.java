@@ -2,6 +2,7 @@ package com.crazydwarf.africatopup.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,12 +26,17 @@ public class AddNumberDialog extends Dialog
     {
         super(context, R.style.CurrentDialog);
         this.mContext = context;
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_add_number,null);
-        bnConfirm = view.findViewById(R.id.bn_sendtowechat);
-        bnExit = view.findViewById(R.id.bn_exit);
-        bnCountry = view.findViewById(R.id.bn_country);
-        setContentView(view);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dialog_add_number);
+        bnConfirm = findViewById(R.id.bn_sendtowechat);
+        bnExit = findViewById(R.id.bn_exit);
+        bnCountry = findViewById(R.id.bn_country);
         setListener();
+        setDisplayDimension();
     }
 
     void setListener()
@@ -61,14 +67,17 @@ public class AddNumberDialog extends Dialog
                 });
                 countrySelectDialog.show();
 
-                Window dialogWindow = countrySelectDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(mContext,240);
-                layoutParams.height = UserUtil.dip2px(mContext,400);
-                layoutParams.gravity = Gravity.BOTTOM|Gravity.CENTER;
-                dialogWindow.setAttributes(layoutParams);
-
             }
         });
+    }
+
+    private void setDisplayDimension()
+    {
+        Window dialogWindow = getWindow();
+        //TODO:如果设置相对屏幕的尺寸，这里需要先获取屏幕尺寸
+        WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
+        layoutParams.width = UserUtil.dip2px(mContext,300);
+        layoutParams.height = UserUtil.dip2px(mContext,200);
+        dialogWindow.setAttributes(layoutParams);
     }
 }

@@ -11,7 +11,7 @@
         android:id="@+id/textView19"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:text="@string/string_balance_inquiry"
         android:textColor="@color/colorOrange"
@@ -24,7 +24,7 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/string_number_inquiry"
         android:textColor="@color/colorWhite"
@@ -47,6 +47,7 @@
         android:id="@+id/et_phonenumber"
         android:layout_width="160dp"
         android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/shape_button4"
         android:ems="10"
@@ -55,9 +56,11 @@
         android:paddingLeft="8dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorGray"
-        android:textStyle="italic"
         android:textSize="16sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/textView21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView21"
         app:layout_constraintTop_toTopOf="@+id/textView21" />
 
@@ -81,8 +84,13 @@
         android:id="@+id/tv_exrate3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/string_exchange_rate_info"
         android:textColor="@color/colorLightGray"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/et_current_balance"
         app:layout_constraintTop_toBottomOf="@+id/et_current_balance" />
 
@@ -116,18 +124,21 @@
     <Button
         android:id="@+id/bn_sendtowechat"
         android:layout_width="120dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/shape_button1"
         android:text="@string/string_confirm"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_expiredate" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_expiredate"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView9"
@@ -145,8 +156,13 @@
         android:id="@+id/tv_expiredate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/string_expiration_date"
         android:textColor="@color/colorLightGray"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/et_current_flow"
         app:layout_constraintTop_toBottomOf="@+id/et_current_flow" />
 
