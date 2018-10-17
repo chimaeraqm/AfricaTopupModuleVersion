@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.Utilities.UserUtil;
@@ -18,7 +19,7 @@ public class AddNumberDialog extends Dialog
 {
     private Button bnConfirm;
     private Button bnExit;
-    private Button bnCountry;
+    private ImageView bnCountry;
 
     private Context mContext;
 
@@ -77,7 +78,7 @@ public class AddNumberDialog extends Dialog
         //TODO:如果设置相对屏幕的尺寸，这里需要先获取屏幕尺寸
         WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
         layoutParams.width = UserUtil.dip2px(mContext,300);
-        layoutParams.height = UserUtil.dip2px(mContext,200);
+        layoutParams.height = UserUtil.dip2px(mContext,240);
         dialogWindow.setAttributes(layoutParams);
     }
 }
