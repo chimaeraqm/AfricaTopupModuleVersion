@@ -42,6 +42,9 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".activity.TxtDisplayActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

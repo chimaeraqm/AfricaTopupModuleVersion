@@ -1,5 +1,6 @@
 package com.crazydwarf.africatopup.fragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.Utilities.UserUtil;
 import com.crazydwarf.africatopup.activity.BundleActivity;
+import com.crazydwarf.africatopup.activity.TxtDisplayActivity;
 import com.crazydwarf.africatopup.view.CommonAdapter;
 
 public class QueryFragment extends Fragment
@@ -42,7 +45,10 @@ public class QueryFragment extends Fragment
             @Override
             public void onItemClick(View view) {
                 Toast.makeText(getActivity(), "显示运营商资费清单", Toast.LENGTH_SHORT).show();
-
+                String txt = UserUtil.readFromRaw(getActivity(),R.raw.ribbontmp);
+                Intent intent = new Intent(getActivity(), TxtDisplayActivity.class);
+                intent.putExtra("OPERATOR_INFO",txt);
+                startActivity(intent);
             }
 
             @Override
