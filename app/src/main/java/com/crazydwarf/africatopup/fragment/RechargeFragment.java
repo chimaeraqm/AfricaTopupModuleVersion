@@ -69,13 +69,6 @@ public class RechargeFragment extends Fragment
                     }
                 });
                 countrySelectDialog.show();
-
-                Window dialogWindow = countrySelectDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(getActivity(),240);
-                layoutParams.height = UserUtil.dip2px(getActivity(),400);
-                layoutParams.gravity = Gravity.BOTTOM|Gravity.CENTER;
-                dialogWindow.setAttributes(layoutParams);
             }
         });
     }

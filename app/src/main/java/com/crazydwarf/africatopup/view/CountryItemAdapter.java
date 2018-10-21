@@ -43,7 +43,7 @@ public class CountryItemAdapter extends RecyclerView.Adapter<CountryItemAdapter.
     @Override
     public void onBindViewHolder(@NonNull CountryItemHolder holder, final int position) {
         holder.tvCountryName.setText(countries[position]);
-        holder.tvCode.setText(String.format(Locale.US,"%d",codes[position]));
+        holder.tvCode.setText(String.format(Locale.US,"+%d",codes[position]));
         holder.imFlag.setBackgroundResource(flagRes[position]);
         holder.countryLayout.setOnClickListener(new View.OnClickListener() {
             @Override
