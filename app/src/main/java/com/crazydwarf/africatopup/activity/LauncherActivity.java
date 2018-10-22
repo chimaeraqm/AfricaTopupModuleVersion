@@ -40,9 +40,9 @@ public class LauncherActivity extends BaseActivity
 
             @Override
             public void onAnimationEnd(Animation animation) {
-//                Intent intent = new Intent(LauncherActivity.this,MainActivity.class);
-//                startActivity(intent);
-//                finish();
+                Intent intent = new Intent(LauncherActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
             }
 
             @Override

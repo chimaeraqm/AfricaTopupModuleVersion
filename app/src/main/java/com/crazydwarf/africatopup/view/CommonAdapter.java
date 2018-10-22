@@ -12,8 +12,9 @@ import com.crazydwarf.africatopup.R;
 
 public class CommonAdapter extends RecyclerView.Adapter<CommonAdapter.CommonViewHolder> implements View.OnClickListener,View.OnLongClickListener
 {
-    public String[] texts = null;
-    public Integer[] imageIds = null;
+    private String[] texts = null;
+    private Integer[] imageIds = null;
+
 
     private OnCommonRVItemClickListener onCommonRVItemClickListener;
 

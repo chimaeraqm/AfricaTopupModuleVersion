@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
@@ -25,7 +26,12 @@ public class QueryFragment extends Fragment
 {
     private ImageView imFlag;
     private RecyclerView mRecyclerview;
-    private int selePosition = 10;
+    private TextView tvPostCode;
+    private TypedArray operatorCodeArray;
+    private String[] operatorSeq;
+    private Integer[] ids;
+    private CommonAdapter commonAdapter;
+    private int mSelePos = 0;
 
     @Nullable
     @Override
@@ -34,6 +40,7 @@ public class QueryFragment extends Fragment
         View view = inflater.inflate(R.layout.fragment_query,container,false);
         mRecyclerview = view.findViewById(R.id.list_carriers);
         imFlag = view.findViewById(R.id.im_flag);
+        tvPostCode = view.findViewById(R.id.tv_postcode);
         return view;
     }
 
@@ -45,38 +52,25 @@ public class QueryFragment extends Fragment
     @Override
     public void onStart() {
         super.onStart();
-        //根据国家的选择刷新运营商列表
-        imFlag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CountrySelectDialog countrySelectDialog = new CountrySelectDialog(getActivity(), new CountrySelectDialog.dialogItemSelectionListener() {
-                    @Override
-                    public void onClick(View view, int position) {
-                        selePosition = position;
-                        mRecyclerview.invalidate();
-                    }
-                });
-                countrySelectDialog.show();
-            }
-        });
+
+        operatorCodeArray = getActivity().getResources().obtainTypedArray(R.array.operator_seq);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerview.setLayoutManager(mLayoutManager);
         mRecyclerview.setHasFixedSize(true);
         mRecyclerview.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
 
-        TypedArray operatorSeqArray = getActivity().getResources().obtainTypedArray(R.array.operator_seq);
-        int selres = operatorSeqArray.getResourceId(selePosition,R.array.operator_egypt_20);
-        TypedArray operatorArray = getActivity().getResources().obtainTypedArray(selres);
+        //初始化时选择第一个Egypt
+        final TypedArray operatorArray = getActivity().getResources().obtainTypedArray(R.array.operator_egypt_20);
 
-        String[] countriesSeq = new String[operatorArray.length()];
-        Integer[] ids = new Integer[operatorArray.length()];
+        operatorSeq = new String[operatorArray.length()];
+        ids = new Integer[operatorArray.length()];
         for(int i=0;i<operatorArray.length();i++)
         {
-            countriesSeq[i] = operatorArray.getString(i);
+            operatorSeq[i] = operatorArray.getString(i);
             ids[i] = R.drawable.ic_keyboard_arrow_left_black_32dp;
         }
-        CommonAdapter commonAdapter = new CommonAdapter(countriesSeq,ids);
+        commonAdapter = new CommonAdapter(operatorSeq,ids);
         mRecyclerview.setAdapter(commonAdapter);
 
         //TODO:添加Recycleview点击事件
@@ -96,5 +90,34 @@ public class QueryFragment extends Fragment
             }
         });
 
+        //根据国家的选择刷新运营商列表
+        imFlag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CountrySelectDialog countrySelectDialog = new CountrySelectDialog(getActivity(), new CountrySelectDialog.dialogItemSelectionListener() {
+                    @Override
+                    public void onClick(int position, String country, int code, int flag) {
+                        int resid = operatorCodeArray.getResourceId(position,0);
+                        TypedArray operatorArray1 = getActivity().getResources().obtainTypedArray(resid);
+                        operatorSeq = new String[operatorArray1.length()];
+                        ids = new Integer[operatorArray1.length()];
+                        for(int i=0;i<operatorArray1.length();i++)
+                        {
+                            operatorSeq[i] = operatorArray1.getString(i);
+                            ids[i] = R.drawable.ic_keyboard_arrow_left_black_32dp;
+                        }
+                        commonAdapter.setTexts(operatorSeq);
+                        commonAdapter.setImageIds(ids);
+                        mRecyclerview.setAdapter(commonAdapter);
+
+                        String postcode = String.format("+%d",code);
+                        tvPostCode.setText(postcode);
+                        imFlag.setBackgroundResource(flag);
+                        mSelePos = position;
+                    }
+                },mSelePos);
+                countrySelectDialog.show();
+            }
+        });
     }
 }

@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.Utilities.UserUtil;
@@ -20,9 +21,11 @@ public class AddNumberDialog extends Dialog
     private Button bnConfirm;
     private Button bnExit;
     private ImageView bnCountry;
+    private TextView tvPostCode;
 
     private Context mContext;
 
+    private int mSelePos = 0;
     public AddNumberDialog(@NonNull Context context)
     {
         super(context, R.style.CurrentDialog);
@@ -36,6 +39,7 @@ public class AddNumberDialog extends Dialog
         bnConfirm = findViewById(R.id.bn_sendtowechat);
         bnExit = findViewById(R.id.bn_exit);
         bnCountry = findViewById(R.id.bn_country);
+        tvPostCode = findViewById(R.id.tv_postcode);
         setListener();
         setDisplayDimension();
     }
@@ -62,10 +66,13 @@ public class AddNumberDialog extends Dialog
             public void onClick(View view) {
                 CountrySelectDialog countrySelectDialog = new CountrySelectDialog(mContext, new CountrySelectDialog.dialogItemSelectionListener() {
                     @Override
-                    public void onClick(View view, int position) {
-
+                    public void onClick(int position, String country, int code, int flag) {
+                        bnCountry.setBackgroundResource(flag);
+                        String postcode = String.format("+%d",code);
+                        tvPostCode.setText(postcode);
+                        mSelePos = position;
                     }
-                });
+                },mSelePos);
                 countrySelectDialog.show();
 
             }
