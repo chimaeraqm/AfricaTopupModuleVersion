@@ -1,36 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/actionBarSize"
     android:background="@drawable/color_gradient1"
-    android:elevation="4dp"
-    app:titleTextColor="@color/colorBlack"
-    android:fitsSystemWindows="true">
-    <!--android:theme="@style/AppTheme.AppBarOverlay"-->
-    <!--app:popupTheme="@style/AppTheme.PopupOverlay"-->
+    android:fitsSystemWindows="true"
+    android:minHeight="?attr/actionBarSize"
+    app:titleTextColor="@color/colorBlack">
+    <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
 
     <ImageView
         android:id="@+id/im_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="@+id/im_back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_format_list_bulleted_black_32dp"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toTopOf="@+id/im_back"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_format_list_bulleted_black_32dp" />
 
     <ImageView
         android:id="@+id/im_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/ic_chevron_left_black_32dp" />
 
     <TextView
@@ -50,11 +52,11 @@
 
     <ImageView
         android:id="@+id/im_icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/im_back"
         app:layout_constraintStart_toEndOf="@+id/im_back"
         app:layout_constraintTop_toTopOf="@+id/im_back"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/app_icon_round" />
 </android.support.constraint.ConstraintLayout>
