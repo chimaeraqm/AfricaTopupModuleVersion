@@ -51,7 +51,7 @@
     <string name="string_recharge_date">Date de recharge</string>
     <string name="string_order_no">Numéro de commande</string>
     <string name="string_order_status">Statut de la commande</string>
-    <string name="string_query_tip">Interrogation des enregistrements d'ordre au cours des 6 derniers mois</string>
+    <string name="string_query_tip">Interrogation des enregistrements d\'ordre au cours des 6 derniers mois</string>
     <string name="string_query_last_1month">Le mois dernier</string>
     <string name="string_query_last_3month">3 derniers mois</string>
     <string name="string_query_last_6month">6 derniers mois</string>
