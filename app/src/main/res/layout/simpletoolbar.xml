@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/color_gradient1"
-    android:fitsSystemWindows="true"
     android:minHeight="?attr/actionBarSize"
-    app:titleTextColor="@color/colorBlack">
+    app:titleTextColor="@color/colorBlack"
+    android:fitsSystemWindows="true">
     <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
 
     <ImageView

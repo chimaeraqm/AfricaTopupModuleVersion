@@ -84,37 +84,37 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        SimpleToolBar toolBar = findViewById(R.id.top_menu);
-//        setSupportActionBar(toolBar);
-//        toolBar.setMenuIconClickListener(new SimpleToolBar.MenuIconClickListener() {
-//            @Override
-//            public void OnClick(View view) {
-//
-//                LanguageSelectDialog dialog = new LanguageSelectDialog(MainActivity.this, new LanguageSelectDialog.dialogItemSelectionListener() {
-//                    @Override
-//                    public void onClick(View view, int position) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onButtonConfirmClick(View view, int sele) {
-//                        String language = AppLanguageUtils.getLanguageBySelePos(sele);
-//                        Locale locale = AppLanguageUtils.getLocaleByLanguage(language);
-//                        AppLanguageUtils.saveLanguageSetting(MainActivity.this,locale);
-//                        recreate();
-//                    }
-//                });
-//                dialog.show();
-//            }
-//        });
-//
-//        toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
-//            @Override
-//            public void OnClick() {
-//                //MainActivity点击back两次后关闭程序
-//                activityExit();
-//            }
-//        });
+        SimpleToolBar toolBar = findViewById(R.id.top_menu);
+        setSupportActionBar(toolBar);
+        toolBar.setMenuIconClickListener(new SimpleToolBar.MenuIconClickListener() {
+            @Override
+            public void OnClick(View view) {
+
+                LanguageSelectDialog dialog = new LanguageSelectDialog(MainActivity.this, new LanguageSelectDialog.dialogItemSelectionListener() {
+                    @Override
+                    public void onClick(View view, int position) {
+
+                    }
+
+                    @Override
+                    public void onButtonConfirmClick(View view, int sele) {
+                        String language = AppLanguageUtils.getLanguageBySelePos(sele);
+                        Locale locale = AppLanguageUtils.getLocaleByLanguage(language);
+                        AppLanguageUtils.saveLanguageSetting(MainActivity.this,locale);
+                        recreate();
+                    }
+                });
+                dialog.show();
+            }
+        });
+
+        toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
+            @Override
+            public void OnClick() {
+                //MainActivity点击back两次后关闭程序
+                activityExit();
+            }
+        });
         initFragments();
     }
 

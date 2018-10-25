@@ -12,11 +12,14 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
+
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+
         <item name="android:statusBarColor">@color/colorTrans</item>
+        <item name="android:navigationBarColor">@color/colorTrans</item>
 
         <item name="android:windowAnimationStyle">@style/ActivityAnimStyle</item>
-
         <item name="android:popupMenuStyle">@style/popmenuStyle</item>
         <item name="android:dropDownListViewStyle">@style/popmenuDivier</item>
         <item name="android:textAppearanceSmallPopupMenu">@style/popmeuText</item>
