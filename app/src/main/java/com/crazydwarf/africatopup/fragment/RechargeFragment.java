@@ -1,6 +1,8 @@
 package com.crazydwarf.africatopup.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.Utilities.Constants;
 import com.crazydwarf.africatopup.Utilities.UserUtil;
 import com.crazydwarf.africatopup.activity.RechargeAliActivity;
 import com.crazydwarf.africatopup.activity.RechargeWeActivity;
@@ -34,8 +37,10 @@ public class RechargeFragment extends Fragment
         View view = inflater.inflate(R.layout.fragment_recharge,container,false);
         bnRechargeAli = view.findViewById(R.id.bn_recharge_ali);
         bnRechargeWe = view.findViewById(R.id.bn_recharge_we);
+
         imFlag = view.findViewById(R.id.im_flag);
         tvPostCode = view.findViewById(R.id.tv_postcode);
+
         return view;
     }
 
@@ -47,6 +52,17 @@ public class RechargeFragment extends Fragment
     @Override
     public void onStart() {
         super.onStart();
+        /**
+         * 根据SharedPreferences中保存的选择显示对应的国家
+         */
+        SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+        int seleRes = preferences.getInt(Constants.SELECTED_COUNTRY_RES,R.drawable.flag_egypt);
+        int seleCode = preferences.getInt(Constants.SELECTED_COUNTRY_CODE,20);
+        mSelePos = preferences.getInt(Constants.SELECTED_COUNTRY_POS,0);
+        String postcode = String.format("+%d",seleCode);
+        tvPostCode.setText(postcode);
+        imFlag.setBackgroundResource(seleRes);
+
         bnRechargeAli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,5 +95,24 @@ public class RechargeFragment extends Fragment
                 countrySelectDialog.show();
             }
         });
+    }
+
+    //TODO : 用户保存数据更新后，所有页面需要同步刷新，如何降低刷新率，提高刷新速度？QueryFragment中需要做同样处理
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if(!hidden)
+        {
+            /**
+             * 根据SharedPreferences中保存的选择显示对应的国家
+             */
+            SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+            int seleRes = preferences.getInt(Constants.SELECTED_COUNTRY_RES,R.drawable.flag_egypt);
+            int seleCode = preferences.getInt(Constants.SELECTED_COUNTRY_CODE,20);
+            mSelePos = preferences.getInt(Constants.SELECTED_COUNTRY_POS,0);
+            String postcode = String.format("+%d",seleCode);
+            tvPostCode.setText(postcode);
+            imFlag.setBackgroundResource(seleRes);
+        }
     }
 }

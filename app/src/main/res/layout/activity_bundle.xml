@@ -9,7 +9,7 @@
         android:id="@+id/top_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:appIcon="@drawable/app_icon_round"
+        app:appIcon="@drawable/app_icon_rb_round"
         app:appIconShow="true"
         app:appIconSize="40dp"
         app:backIcon="@drawable/ic_chevron_left_black_32dp"

@@ -81,10 +81,11 @@
     <string name="string_add_flow">购买流量包</string>
     <string name="string_download_qrcode">Android App下载二维码</string>
 
-
     <string name="string_launcher_slogan">非洲华人话费查询与充值快捷通道</string>
     <string name="string_launcher_adv1">最快10秒完成充值</string>
     <string name="string_launcher_adv2">初次注册并充值，赠送话费礼包</string>
+
+    <string name="string_switch_country">切换国家？</string>
 
     <string name="string_egypt">埃及</string>
     <string name="string_morocco">摩洛哥</string>
