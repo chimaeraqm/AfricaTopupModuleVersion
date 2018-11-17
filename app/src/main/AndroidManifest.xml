@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/CurrentAppTheme">
         <activity
-            android:name=".activity.LauncherActivity"
+            android:name=".activity.RechargeAliActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
             android:windowSoftInputMode="adjustPan|stateHidden">
         </activity>
 
-        <activity android:name=".activity.RechargeAliActivity"
+        <activity android:name=".activity.LauncherActivity"
             android:screenOrientation="portrait">
         </activity>
 
@@ -52,24 +52,6 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <!-- alipay sdk begin -->
-
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-            android:exported="false"
-            android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
-        <activity
-            android:name="com.alipay.sdk.app.H5AuthActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
-
-        <!-- alipay sdk end -->
     </application>
 
 </manifest>
