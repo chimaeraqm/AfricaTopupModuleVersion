@@ -1,11 +1,16 @@
 package com.crazydwarf.africatopup.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -47,12 +52,24 @@ public class RechargeAliActivity extends BaseActivity
 {
     private static final String url = "sandboxOrderInfo.php";
 
+    /**
+     * 根据flag选择相关业务，SDK_PAY_FLAG支付业务，SDK_AUTH_FLAG授权业务
+     */
     private static final int SDK_PAY_FLAG = 1;
     private static final int SDK_AUTH_FLAG = 2;
 
-    public static final String APPID = "2018090561232507";
+    /**
+     * APPID 填写支付宝应用平台中的当前应用appid，使用沙箱时需切换为沙箱的appid
+     */
+    //public static final String APPID = "2018090561232507";
+    public static final String APPID = "2016091600526477";
 
-    public static final String RSA2_PRIVATE = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCmq92bAmyJaGO5oiZ66aOelDBTkQFoHJ1M72sSaFXqpParZZRIWKItD5twjz0vz6PozsZKmZauCrtbKP0AaM5gtttk7jJ8EfqRoK+PFLy40BnDjMZj8/XG+MIxt/jzyOWQPyPJzMV+Z2Lnue+HLnZ9PZ2zonjjBRP29QybUCJM+HmGyuuyibap2WNIMMwZY5I974FfNPeqCGPzcLFtVHqABnsWpOKWXbhfSkWgYxIygOv9gzWNHs0ropRV4B73VrWOy82aLFsTLSMF9E6ior2iVFA4Hd5wahgyHRTYCr3dcJpSJb99AKb84o8cw/AE1YDxYnR+lwJ0DxiwT3aMVUTdAgMBAAECggEAXwSH98DwA34BrGimq1fbMaKl0l5OgP4fJycu0XWt1XFqNthYKs5s1meZZBgk98bWWPjYztq0rk/r89JwOfWGAlj8xpONMHJHeRI0Q8u8s1ff+D2fNIh2S5Kxkwqg4MpdJVj5nCgjRybFmfnEdjqkzk18RFaRuErC0P1uzHRouZvZvLYcJNRiGvfFHmI2zfGMymZZjpfjeMihu1k3Vae41dRFkZpk/mHmd8Qopg9Vf70EO5lxM8dNGb9Eb5QVMhkfolfxfWg5cXRNh5Kb7oTlkjORRNcp06173uzI8XhNqKJsf06ag5sjTsUjjBgUsW9dwN2GMVA7wi/XeFSvLLGO+QKBgQDg5ZHKJXGxcuq1mYHTgBqZHLJAL5AWt4tfExtI2xyZJxWtOCRiiLLTKi7D0R76F9H8x9v3BolTfrHh95smb7JCEiR0Alvo7GEvhXcRLe4hudKtzDUIb8rzEYcL8Bq3izunDSLQcR7HeMZJD7xfZNNAcS1rWJOoNpNCFAVRcNNyGwKBgQC9uNX2+xcfi0CgWPiUXk03X2fKmdoeDDWo9x3SQydusOzHhnEbVs/nQ+q7h0Q79ap7G2mucx8AD6jcQT3FYtv7CNUYInUJNdhcLA8zxfaQilAHzJYrlyKDLGTr4TNUcJnpbp9LgRfOC10QFzpKdw/BdyBj/6rDl4GqLoV8UozUZwKBgQCMy4wzFrAP3JbOLBVYGLoOIyYBAwXdAvmRAwAw42QLCaoLcLtuqI/znVP7qX8QKTuAWor+Iqx0hjvM8NvD+2eI75y8uAFcWCgbvR2mtq9/k7surUqCRqKy+8UlFyNSxysIUTP7dOZFEPpqIRzYR+HtVS2PJ7wBMnGMi8Ysj0sBAwKBgQClP6iGTl/upsDsqXIi8Rx6nYvu6SEVyPa4LD36VWm0PUCP7ab49B10RzDelEw3mZwbTF45h6Y5zGn9JopiMeB/gErzkZe1JQRGDE5Vfxlq/j4E/QrT/vkdnf5tgiLOaqF0tFjlUBTm7/joOgMYtymvDk7VKuyXHpDfJVQ5XEG0AwKBgQDMKH3b+gpUZVVc77UYqtNDF3u1Mtn3Q6AuP+MZGLCreDozWUzothI2meCyJ+R4Ji85p3FOXhTVpIsR1JF/isNOTrPCAsHU3u+OYovmEx5RV+FJicuadosll6MzsiKqkJ3onEds/SMoBWJ3r89jqfNVh1tzvhDDLys7CyfezqlC0w==";
+    /**
+     * RSA2_PRIVATE 填写生成的应用私钥
+     * 应用公钥和支付宝公钥对于不同的app是相同的，对沙箱环境也是如此
+     * 使用沙箱测试时，应用私钥可以不用重新生成，只需公钥和私钥对应即可
+     */
+    public static final String RSA2_PRIVATE = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC07TxclIblEDoWKaXsipiQx0UPPZoSyPCgZUuLJHlcgrjlf02/rkyBEj8zi0XPWkgpGXACpQpsDEsodF1MO7bqFQi4ylFOm95VQmzFqujRieNWH5wGqaOpxHMzkEkAbn4fPaPFL3l+jVRPRjGi7EPgyC2imFJMcKv8UHNDgmYU3+31t74f2o8zGHVMTRpIJ/rkYr/qEK1wRnNAgtDLbNIJVClP5Ei3+l4921CzdT2p8IiRM/24G+tJeyUW1PRf35tWMPEYlyGR+7XYFgBav8Ld6xK7ktZ5LPzw4UZlNtVkrKYNQ6sg/Oyea530bE6MTT5j9b2y0UCJyKjdbZkfHKtnAgMBAAECggEAD5vf90TBFoX93Oee7vdODj+Cz7vKzRAU4mGa0NhGuBp3BSWkeYL6CrCeTz4WubraOuF87l16trOg0E6ptef48dz6saaSuSttVQG0DKGgEGPK/yUe+twryHuwTKSIB8eAjgVtWZes7aQXv/cYVSv49y2N8lcd0oZt8AioyQw47lf2L+rP+LRxXdfxhogNP6/yNAIsKdA2CRemBhsOXvw2aIce3aVYqLQCDRQp3+nKncDOqYkjykzG8sFofuwAm+mrmVVrbzzMjBtuA8hvqy59OOnHGjVGcVZNeoUb2Oi0AkpZaosQWe1arhfg1+cDwajrmfAu49sOF2+fgxnOjERVoQKBgQDfyynhtUerST/xds1tlNS98HjRl1PA0hvz3uUU883vaXqInLJ8GaxlL10/pusEklFAuK1H0Ra+fzukkCeY2Q4lIA0H2v4bRT71ykjKWnpwoalycp9AFwCmKAoIMC/PKtDibcelFv5Ak2/r+118OXu3yvM703dg23ssWTeGqzfcbwKBgQDO9s1BOe1C5J/ySj5k5uM54D8Lkr5hSOCNym4rrR+us+JZN5OtAycuWDHdyopKIyYZSOoUjuJYXko4s2OTfmJIKfWxbcM7r7chWJR1Iqy3mAjBs1ZDaDTnosfsKcYN+AIsQ7rrR8RTr5Zpcq4ft8HNdrL2UyyCBj6u1RulVIWMiQKBgA17Q66hKQwcgYmeSonLaXV3ww99OkJnZd+vEcXNWh6OEB+isO3g7g26aLeo6od/+P0ZIvcslV4sc/9Z38jJapy57Y8Hlj82ULCl2vS1tqKKWpbWaNmHiTZ5OwF7RaYJQkQhsOE1HWPufdONdPhCzj0oMLbt6kcfcbAeP8YREnBpAoGAITs5q958PUBuej33lMYJ+DIMjXQrg31rKPk3BWZP7wJNNtwYpzAZa3SX1S//UnYgWPD/PPvQVjYVntMXCwjBCStLmwivz3agZgdOFxzRNM2BonCESmCCFitqBH6UoYuP9cGOUtb8LB/Ge/oBAXDE+pOzmp+yRtJv4CyxurM+mlkCgYEAlu4hWg5/r+xwtIeKaD643V4k2SpcuUxEIl6KS1xmJKiVGB2r7D0zkWYS1Euj7Gr3sG12ZWQzZJNdbvSEq1sHs/7NCAIft92oF50kv91oYPBsyHX03vMZ7Ms+9MOD1ZrgSLFSsLbleFu+MOl53cvateU/+ZLqUOnoT5GFzjcNR5M=";
     public static final String RSA_PRIVATE = "";
 
     @SuppressLint("HandlerLeak")
@@ -95,6 +112,10 @@ public class RechargeAliActivity extends BaseActivity
         EnvUtils.setEnv(EnvUtils.EnvEnum.SANDBOX);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recharge_ali);
+
+        //动态获取权限
+        requestPermission();
+
         SimpleToolBar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
         toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
@@ -133,6 +154,14 @@ public class RechargeAliActivity extends BaseActivity
      */
     public void payV2(View v)
     {
+        /**
+         * 这里只是为了方便直接向商户展示支付宝的整个支付流程；所以此处加签过程直接放在客户端完成；
+         * 真实App里，privateKey等数据严禁放在客户端，加签过程务必要放在服务端完成；
+         * 防止商户私密数据泄露，造成不必要的资金损失，及面临各种安全风险；
+         *
+         * orderInfo 的获取必须来自服务端；
+         */
+
         boolean rsa2 = (RSA2_PRIVATE.length() > 0);
         Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, rsa2);
         String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
@@ -178,6 +207,65 @@ public class RechargeAliActivity extends BaseActivity
         payThread.start();
     }
 
+    /**
+     * 获取权限使用的 RequestCode
+     */
+    private static final int PERMISSIONS_REQUEST_CODE = 1002;
+
+    /**
+     * 检查支付宝 SDK 所需的权限，并在必要的时候动态获取。
+     * 在 targetSDK = 23 以上，READ_PHONE_STATE 和 WRITE_EXTERNAL_STORAGE 权限需要应用在运行时获取。
+     * 如果接入支付宝 SDK 的应用 targetSdk 在 23 以下，可以省略这个步骤。
+     */
+    private void requestPermission() {
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{
+                            Manifest.permission.READ_PHONE_STATE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    }, PERMISSIONS_REQUEST_CODE);
+
+        } else {
+            showToast(this, "支付宝 SDK 已有所需的权限");
+        }
+    }
+
+    /**
+     * 权限获取回调
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST_CODE: {
+
+                // 用户取消了权限弹窗
+                if (grantResults.length == 0) {
+                    showToast(this, "无法获取支付宝 SDK 所需的权限, 请到系统设置开启");
+                    return;
+                }
+
+                // 用户拒绝了某些权限
+                for (int x : grantResults) {
+                    if (x == PackageManager.PERMISSION_DENIED) {
+                        showToast(this, "无法获取支付宝 SDK 所需的权限, 请到系统设置开启");
+                        return;
+                    }
+                }
+
+                // 所需的权限均正常获取
+                showToast(this, "支付宝 SDK 所需的权限已经正常获取");
+            }
+        }
+    }
+
+    private static void showToast(Context ctx, String msg) {
+        Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
+    }
     void sendInsertRequest(final String func_name, String insert_name, String insert_pw, String insert_info)
     {
         RequestBody requestBody = new FormBody.Builder()
