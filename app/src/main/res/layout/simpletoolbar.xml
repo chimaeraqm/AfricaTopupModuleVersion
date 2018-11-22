@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/color_gradient1"
-    android:fitsSystemWindows="true"
     android:minHeight="?attr/actionBarSize"
-    app:titleTextColor="@color/colorBlack">
+    app:titleTextColor="@color/colorBlack"
+    android:fitsSystemWindows="true">
     <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
 
     <ImageView
@@ -58,5 +58,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/im_back"
         app:layout_constraintStart_toEndOf="@+id/im_back"
         app:layout_constraintTop_toTopOf="@+id/im_back"
-        app:srcCompat="@drawable/app_icon_round" />
+        app:srcCompat="@drawable/app_icon_rb_round" />
 </android.support.constraint.ConstraintLayout>

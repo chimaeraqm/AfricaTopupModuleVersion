@@ -87,6 +87,8 @@
     <string name="string_launcher_adv1">Recharge within 10 secs.</string>
     <string name="string_launcher_adv2">Free Call Bonus\nafter Initial Recharging.</string>
 
+    <string name="string_switch_country">Switch Country?</string>
+
     <string name="string_egypt">Egypt</string>
     <string name="string_morocco">Morocco</string>
     <string name="string_algeria">Algeria</string>

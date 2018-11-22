@@ -1,6 +1,8 @@
 package com.crazydwarf.africatopup.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.Utilities.Constants;
 import com.crazydwarf.africatopup.Utilities.UserUtil;
 import com.crazydwarf.africatopup.activity.BundleActivity;
 import com.crazydwarf.africatopup.activity.TxtDisplayActivity;
@@ -39,8 +42,10 @@ public class QueryFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_query,container,false);
         mRecyclerview = view.findViewById(R.id.list_carriers);
+
         imFlag = view.findViewById(R.id.im_flag);
         tvPostCode = view.findViewById(R.id.tv_postcode);
+
         return view;
     }
 
@@ -52,6 +57,16 @@ public class QueryFragment extends Fragment
     @Override
     public void onStart() {
         super.onStart();
+        /**
+         * 根据SharedPreferences中保存的选择显示对应的国家
+         */
+        SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+        int seleRes = preferences.getInt(Constants.SELECTED_COUNTRY_RES,R.drawable.flag_egypt);
+        int seleCode = preferences.getInt(Constants.SELECTED_COUNTRY_CODE,20);
+        mSelePos = preferences.getInt(Constants.SELECTED_COUNTRY_POS,0);
+        String postcode = String.format("+%d",seleCode);
+        tvPostCode.setText(postcode);
+        imFlag.setBackgroundResource(seleRes);
 
         operatorCodeArray = getActivity().getResources().obtainTypedArray(R.array.operator_seq);
 
@@ -119,5 +134,23 @@ public class QueryFragment extends Fragment
                 countrySelectDialog.show();
             }
         });
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if(!hidden)
+        {
+            /**
+             * 根据SharedPreferences中保存的选择显示对应的国家
+             */
+            SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+            int seleRes = preferences.getInt(Constants.SELECTED_COUNTRY_RES,R.drawable.flag_egypt);
+            int seleCode = preferences.getInt(Constants.SELECTED_COUNTRY_CODE,20);
+            mSelePos = preferences.getInt(Constants.SELECTED_COUNTRY_POS,0);
+            String postcode = String.format("+%d",seleCode);
+            tvPostCode.setText(postcode);
+            imFlag.setBackgroundResource(seleRes);
+        }
     }
 }

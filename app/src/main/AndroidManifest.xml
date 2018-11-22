@@ -2,16 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.crazydwarf.africatopup">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".activity.BaseApplication"
         android:allowBackup="true"
-        android:icon="@drawable/app_icon"
+        android:icon="@drawable/app_icon_rb"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/app_icon_round"
+        android:roundIcon="@drawable/app_icon_rb_round"
         android:supportsRtl="true"
         android:theme="@style/CurrentAppTheme">
         <activity
-            android:name=".activity.LauncherActivity"
+            android:name=".activity.RechargeAliActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +40,7 @@
             android:windowSoftInputMode="adjustPan|stateHidden">
         </activity>
 
-        <activity android:name=".activity.RechargeAliActivity"
+        <activity android:name=".activity.LauncherActivity"
             android:screenOrientation="portrait">
         </activity>
 
@@ -45,6 +51,7 @@
         <activity android:name=".activity.TxtDisplayActivity"
             android:screenOrientation="portrait">
         </activity>
+
     </application>
 
 </manifest>

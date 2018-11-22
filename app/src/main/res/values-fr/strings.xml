@@ -86,6 +86,8 @@
     <string name="string_launcher_adv1">Recharge dans les 10 secondes.</string>
     <string name="string_launcher_adv2">Bonus d\'appel après\nla première inscription.</string>
 
+    <string name="string_switch_country">Changer de pays?</string>
+
     <string name="string_egypt">L\'Egypte</string>
     <string name="string_morocco">Maroc</string>
     <string name="string_algeria">Algérie</string>

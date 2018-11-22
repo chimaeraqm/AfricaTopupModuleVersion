@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="240dp"
+    android:layout_height="200dp"
+    android:background="@drawable/shape_textview2">
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="@string/string_switch_country"
+        android:textColor="@color/colorOrange"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+        app:layout_constraintStart_toEndOf="@+id/imageView16"
+        app:layout_constraintTop_toTopOf="@+id/imageView16" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/im_oricounty"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_info_outline_orange_40dp" />
+
+    <ImageView
+        android:id="@+id/im_oricounty"
+        android:layout_width="64dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView15"
+        app:layout_constraintTop_toBottomOf="@+id/imageView16"
+        android:background="@drawable/flag_243"/>
+
+    <TextView
+        android:id="@+id/tv_oricountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="+243"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/im_oricounty"
+        app:layout_constraintStart_toStartOf="@+id/im_oricounty"
+        app:layout_constraintTop_toBottomOf="@+id/im_oricounty" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/tv_oricountry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/im_oricounty"
+        app:srcCompat="@drawable/ic_chevron_right_white_40dp" />
+
+    <ImageView
+        android:id="@+id/im_newcountry"
+        android:layout_width="64dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_oricountry"
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toTopOf="@+id/im_oricounty"
+        android:background="@drawable/flag_243"/>
+
+    <TextView
+        android:id="@+id/tv_newcountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+20"
+        android:textColor="@color/colorWhite"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_oricountry"
+        app:layout_constraintEnd_toEndOf="@+id/im_newcountry"
+        app:layout_constraintStart_toStartOf="@+id/im_newcountry"
+        app:layout_constraintTop_toTopOf="@+id/tv_oricountry" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <Button
+        android:id="@+id/bn_confirm"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_button1"
+        android:text="@string/string_confirm"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toBottomOf="@+id/tv_oricountry" />
+
+    <Button
+        android:id="@+id/bn_exit"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/shape_button1"
+        android:text="@string/string_cancel"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bn_confirm"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/bn_confirm" />
+
+</android.support.constraint.ConstraintLayout>

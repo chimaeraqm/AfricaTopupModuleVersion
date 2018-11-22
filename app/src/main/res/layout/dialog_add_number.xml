@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_postcode"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_postcode"
-        android:background="@drawable/flag_egypt" />
+        android:background="@drawable/flag_243" />
 
     <TextView
         android:id="@+id/tv_postcode"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="+01"
+        android:text="+243"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/bn_country"

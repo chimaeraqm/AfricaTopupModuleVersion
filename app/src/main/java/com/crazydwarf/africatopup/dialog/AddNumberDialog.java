@@ -2,6 +2,7 @@ package com.crazydwarf.africatopup.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.Gravity;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.Utilities.Constants;
 import com.crazydwarf.africatopup.Utilities.UserUtil;
 
 public class AddNumberDialog extends Dialog
@@ -38,8 +40,20 @@ public class AddNumberDialog extends Dialog
         setContentView(R.layout.dialog_add_number);
         bnConfirm = findViewById(R.id.bn_sendtowechat);
         bnExit = findViewById(R.id.bn_exit);
+
         bnCountry = findViewById(R.id.bn_country);
         tvPostCode = findViewById(R.id.tv_postcode);
+
+        /**
+         * 根据SharedPreferences中保存的选择显示对应的国家
+         */
+        SharedPreferences preferences = mContext.getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+        int seleRes = preferences.getInt(Constants.SELECTED_COUNTRY_RES,R.drawable.flag_egypt);
+        int seleCode = preferences.getInt(Constants.SELECTED_COUNTRY_CODE,20);
+        mSelePos = preferences.getInt(Constants.SELECTED_COUNTRY_POS,0);
+        String postcode = String.format("+%d",seleCode);
+        tvPostCode.setText(postcode);
+        bnCountry.setBackgroundResource(seleRes);
         setListener();
         setDisplayDimension();
     }
