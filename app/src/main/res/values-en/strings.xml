@@ -12,40 +12,40 @@
     <string name="string_number_inquiry">Number Inquiry</string>
     <string name="string_phone_holder">Phone Holder</string>
     <string name="string_recharge_amount">Recharging Amount</string>
-    <string name="string_exchange_rate_info">Exchange rate at recharging: 1 USD = 7.01 RMB</string>
-    <string name="string_order_time">Order Closed Time</string>
+    <string name="string_exchange_rate_info">Exchange rate\nUSD = 7.01 RMB</string>
+    <string name="string_order_time">Order Completed Time</string>
     <string name="string_bind_wechat">Bind Wechat Account</string>
     <string name="string_bind_email">Bind Email</string>
-    <string name="string_send_invoice">Send Invoice Information to</string>
+    <string name="string_send_invoice">Send Invoice to</string>
     <string name="string_user_login">LOGIN</string>
     <string name="string_user_quick_register">Quick Register</string>
-    <string name="string_local_number">Local Number(as username)</string>
-    <string name="string_enter_username">Enter Phone Number or Username</string>
+    <string name="string_local_number">SIM Number\n(as username)</string>
+    <string name="string_enter_username">Enter SIM Number or Username</string>
     <string name="string_init_pw">Initial Password</string>
     <string name="string_enter_pw">Enter Password</string>
     <string name="string_confirm">CONFIRM</string>
-    <string name="string_login_local_number">LOGIN with Local Number</string>
+    <string name="string_login_local_number">LOGIN with SIM Number</string>
     <string name="string_login">LOGIN</string>
     <string name="string_cancel">CANCEL</string>
     <string name="string_register">REGISTER</string>
     <string name="string_forget_pw">Forget Password？</string>
     <string name="string_enter_pw_again">Enter Password Again</string>
-    <string name="string_number_quick_register">Quick Register with Local Number</string>
+    <string name="string_number_quick_register">Quick Register\nwith SIM Number</string>
     <string name="string_country">Country</string>
-    <string name="string_already_resgiter">Already Registered? Click Here to LOGIN.</string>
+    <string name="string_already_resgiter">Already Registered?\nClick Here to LOGIN.</string>
     <string name="string_language_chinese">Chinese</string>
     <string name="string_language_english">English</string>
     <string name="string_language_french">French</string>
 
     <string name="string_add">Add</string>
-    <string name="string_select_from_address">Select from Address Book</string>
+    <string name="string_select_from_address">Select from\nAddress Book</string>
     <string name="string_curreny_usd">USD</string>
     <string name="string_curreny_rmb">RMB</string>
-    <string name="string_total_recharge_amount">Total Recharging Amount</string>
+    <string name="string_total_recharge_amount">Total Recharging</string>
     <string name="string_wechat_pay">Wechat Pay</string>
-    <string name="string_alipay">Alipay(Recommended)</string>
+    <string name="string_alipay">Alipay\n(Recommended)</string>
     <string name="string_contact_service">Contact Customer Service</string>
-    <string name="string_contact_service_tip">Mass Recharging or Regular Recharging Setting?</string>
+    <string name="string_contact_service_tip">Group Recharging or Regular Recharging Setting?</string>
     <string name="string_order_record_query">Order Record Query</string>
     <string name="string_query_interval_from">Query from</string>
     <string name="string_query_interval_to">to</string>
@@ -60,13 +60,13 @@
 
     <string name="string_alipay_order_confirm">Alipay Order Confirm</string>
     <string name="string_wechat_pay_order_confirm">Wechat Pay Order Confirm</string>
-    <string name="string_recharge_no1">Recharging Phone 1st</string>
-    <string name="string_recharge_no2">Recharging Phone 2nd</string>
+    <string name="string_recharge_no1">Recharging SIM 1</string>
+    <string name="string_recharge_no2">Recharging SIM 2</string>
     <string name="string_recharge_other">Others</string>
     <string name="string_recharge_op1">Operator1</string>
     <string name="string_recharge_op2">Operator2</string>
     <string name="string_recharge_op3">Operator3</string>
-    <string name="string_invoice_business">Invoice Business</string>
+    <string name="string_invoice_business">Invoice</string>
     <string name="string_recharge_record_inquiry">Recharging Records Inquiry</string>
     <string name="string_delete">DELETE</string>
     <string name="string_enter_phone_no">Enter Phone No.</string>
@@ -74,18 +74,18 @@
 
     <string name="string_balance_inquiry">Balance Inquiry</string>
     <string name="string_current_balance">Current Balance</string>
-    <string name="string_flow_balance">Flow Balance(Mb)</string>
+    <string name="string_flow_balance">Internet Balance(Mb) check</string>
     <string name="string_expiration_date">Expiration Date:2018/12/31</string>
     <string name="string_display_language">Display Language</string>
     <string name="string_operator_expense">Operator Expense Inquiry</string>
     <string name="string_adv_placeholder">Adv Placeholder</string>
     <string name="string_act_placeholder">Act Placeholder</string>
-    <string name="string_add_flow">Add Flow Package</string>
+    <string name="string_add_flow">Buy Internet Bundle</string>
     <string name="string_download_qrcode">Android App Download QR Code</string>
 
-    <string name="string_launcher_slogan">A Call Charge Inquiry and Recharging Shortcut for African Chinese.</string>
+    <string name="string_launcher_slogan">A Call Charge\nInquiry and Recharging\nShortcut for African Chinese.</string>
     <string name="string_launcher_adv1">Recharge within 10 secs.</string>
-    <string name="string_launcher_adv2">Free Call Charge Bonus after Initial Registration.</string>
+    <string name="string_launcher_adv2">Free Call Bonus\nafter Initial Recharging.</string>
 
     <string name="string_egypt">Egypt</string>
     <string name="string_morocco">Morocco</string>
@@ -114,8 +114,8 @@
     <string name="string_sao_tome">Sao Tome and Principe</string>
     <string name="string_equatorial_guinea">Equatorial Guinea</string>
     <string name="string_gabon">Gabon</string>
-    <string name="string_congo">Congo</string>
-    <string name="string_zaire">Zaire</string>
+    <string name="string_congo">Congo-Brazzaville</string>
+    <string name="string_zaire">Congo-Kinshasa</string>
     <string name="string_angola">Angola</string>
     <string name="string_guinea_bissau">Guinea-Bissau</string>
     <!--<string name="string_ascension">Ascension</string>-->

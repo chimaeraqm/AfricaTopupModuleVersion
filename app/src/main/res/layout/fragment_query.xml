@@ -9,13 +9,23 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
         android:text="@string/string_operator_expense"
         android:textColor="@color/colorBlue"
-        android:textSize="24dp"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/im_flag"
+        app:layout_constraintStart_toEndOf="@+id/tv_postcode"
+        app:layout_constraintTop_toTopOf="@+id/im_flag" />
+
+    <ImageView
+        android:id="@+id/im_flag"
+        android:layout_width="40dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/flag_egypt" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_carriers"
@@ -28,8 +38,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_activity_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/im_flag" />
 
     <TextView
         android:id="@+id/tv_banner_holder"
@@ -57,4 +66,16 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_banner_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_postcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="+20"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/im_flag"
+        app:layout_constraintStart_toEndOf="@+id/im_flag"
+        app:layout_constraintTop_toTopOf="@+id/im_flag" />
 </android.support.constraint.ConstraintLayout>

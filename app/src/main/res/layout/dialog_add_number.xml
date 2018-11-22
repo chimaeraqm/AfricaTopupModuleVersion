@@ -3,20 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
-    android:layout_height="200dp"
+    android:layout_height="240dp"
     android:background="@drawable/shape_textview2">
 
-    <Button
+    <ImageView
         android:id="@+id/bn_country"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:layout_height="24dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/shape_button2"
-        android:text="埃及"
-        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="@+id/tv_postcode"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_postcode" />
+        app:layout_constraintTop_toTopOf="@+id/tv_postcode"
+        android:background="@drawable/flag_egypt" />
 
     <TextView
         android:id="@+id/tv_postcode"
@@ -75,7 +73,7 @@
         android:textSize="16sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_exrate" />
 
     <TextView
         android:id="@+id/textView17"
@@ -84,7 +82,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/title_recharge"
         android:textColor="@color/colorOrange"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/bn_country"
         app:layout_constraintTop_toBottomOf="@+id/et_phonenumber" />
 
@@ -92,12 +90,11 @@
         android:id="@+id/tv_exrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:text="@string/string_exchange_rate_info"
         android:textColor="@color/colorLightGray"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView17"
-        app:layout_constraintStart_toEndOf="@+id/textView17" />
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
@@ -109,14 +106,15 @@
     <Button
         android:id="@+id/bn_sendtowechat"
         android:layout_width="132dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/shape_button1"
+        android:padding="8dp"
         android:text="@string/string_confirm"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_rechargeamount" />
@@ -128,9 +126,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/shape_button1"
+        android:padding="8dp"
         android:text="@string/string_cancel"
-        android:textColor="@color/colorWhite"
-        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/bn_sendtowechat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline3"

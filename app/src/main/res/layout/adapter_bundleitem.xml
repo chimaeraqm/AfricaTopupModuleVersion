@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -10,14 +11,14 @@
         android:layout_height="24dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
+        app:color_checked="@color/colorOrange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:color_checked="@color/colorOrange" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/et_phonenumber"
-        android:layout_width="128dp"
+        android:layout_width="120dp"
         android:layout_height="32dp"
         android:layout_marginStart="4dp"
         android:background="@color/colorTransBlue"
@@ -26,6 +27,7 @@
         android:inputType="phone"
         android:paddingStart="8dp"
         android:textSize="12sp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@+id/cb_sele_confirm"
         app:layout_constraintStart_toEndOf="@+id/cb_sele_confirm"
         app:layout_constraintTop_toTopOf="@+id/cb_sele_confirm" />
@@ -61,18 +63,19 @@
         app:layout_constraintTop_toTopOf="@+id/et_phonenumber"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/bn_delete"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <ImageView
+        android:id="@+id/im_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="@string/string_delete"
-        android:background="@drawable/shape_button1"
-        android:textSize="12sp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/et_fee"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/et_fee"
-        app:layout_constraintTop_toTopOf="@+id/et_fee" />
+        app:layout_constraintTop_toTopOf="@+id/et_fee"
+        app:srcCompat="@drawable/ic_delete_forever_black_24dp" />
 
 </android.support.constraint.ConstraintLayout>

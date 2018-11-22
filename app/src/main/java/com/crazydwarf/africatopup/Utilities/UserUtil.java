@@ -13,6 +13,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Locale;
 
 public class UserUtil
@@ -76,58 +79,32 @@ public class UserUtil
     }
 
 
-//    public static Context attachBaseContext(Context context, String abbrCountry) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//            return updateResources(context, abbrCountry);
-//        } else {
-//            return context;
-//        }
-//    }
-//
-//    @TargetApi(Build.VERSION_CODES.N)
-//    private static Context updateResources(Context context, String abbrCountry) {
-//        Resources resources = context.getResources();
-//        Locale locale = getLocaleByLanguage(abbrCountry);
-//        Configuration configuration = resources.getConfiguration();
-//        configuration.setLocale(locale);
-//        configuration.setLocales(new LocaleList(locale));
-//        return context.createConfigurationContext(configuration);
-//    }
-//
-//    private static Locale getLocaleByLanguage(String abbrCountry)
-//    {
-//        if(abbrCountry == "en")
-//        {
-//            return Locale.ENGLISH;
-//        }
-//        else if(abbrCountry == "fr")
-//        {
-//            return Locale.FRANCE;
-//        }
-//        else
-//        {
-//            return Locale.SIMPLIFIED_CHINESE;
-//        }
-//    }
-//
-//    @SuppressWarnings("deprecation")
-//    public static void changeAppLanguage(Context context, String newLanguage) {
-//        Resources resources = context.getResources();
-//        Configuration configuration = resources.getConfiguration();
-//
-//        // app locale
-//        Locale locale = getLocaleByLanguage(newLanguage);
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-//            configuration.setLocale(locale);
-//        } else {
-//            configuration.locale = locale;
-//        }
-//
-//        // updateConfiguration
-//        DisplayMetrics dm = resources.getDisplayMetrics();
-//        resources.updateConfiguration(configuration, dm);
-//    }
+    /**
+     * 从R.raw中读取txt
+     */
+    public static String readFromRaw(Context context,int resId)
+    {
+        try {
+            InputStream is = context.getResources().openRawResource(resId);
+            String text = readTextFromSDcard(is);
+            return text;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-
+    private static String readTextFromSDcard(InputStream is) throws Exception
+    {
+        InputStreamReader reader = new InputStreamReader(is);
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        StringBuffer buffer = new StringBuffer("");
+        String str;
+        while ((str = bufferedReader.readLine()) != null)
+        {
+            buffer.append(str);
+            buffer.append("\n");
+        }
+        return buffer.toString();
+    }
 }

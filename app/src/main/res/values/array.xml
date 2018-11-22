@@ -70,6 +70,7 @@
         <!--<item>@string/string_st_helena</item>-->
         <!--<item>@string/string_aruba</item>-->
     </string-array>
+
     <integer-array name="select_codes">
         <item>20</item>
         <item>212</item>
@@ -124,6 +125,62 @@
         <item>268</item>
         <item>269</item>
         <item>27</item>
+    </integer-array>
+
+    <integer-array name="operator_seq">
+        <item>@array/operator_egypt_20</item>
+        <item>@array/operator_morocco_212</item>
+        <item>@array/operator_algeria_213</item>
+        <item>@array/operator_tunisia_216</item>
+        <item>@array/operator_libya_218</item>
+        <item>@array/operator_gambia_220</item>
+        <item>@array/operator_senegal_221</item>
+        <item>@array/operator_mauritania_222</item>
+        <item>@array/operator_mali_223</item>
+        <item>@array/operator_guinea_224</item>
+        <item>@array/operator_cotedivoire_225</item>
+        <item>@array/operator_burkina_faso_226</item>
+        <item>@array/operator_niger_227</item>
+        <item>@array/operator_togo_228</item>
+        <item>@array/operator_benin_229</item>
+        <item>@array/operator_mauritius_230</item>
+        <item>@array/operator_liberia_231</item>
+        <item>@array/operator_sierra_leone_232</item>
+        <item>@array/operator_ghana_233</item>
+        <item>@array/operator_nigeria_234</item>
+        <item>@array/operator_chad_235</item>
+        <item>@array/operator_central_africa_236</item>
+        <item>@array/operator_cameroon_237</item>
+        <item>@array/operator_cape_verde_238</item>
+        <item>@array/operator_sao_tome_239</item>
+        <item>@array/operator_equatorial_guinea_240</item>
+        <item>@array/operator_gabon_241</item>
+        <item>@array/operator_congo_242</item>
+        <item>@array/operator_zaire_243</item>
+        <item>@array/operator_angola_244</item>
+        <item>@array/operator_guinea_bissau_245</item>
+        <item>@array/operator_seychelles_248</item>
+        <item>@array/operator_sudan_249</item>
+        <item>@array/operator_rwanda_250</item>
+        <item>@array/operator_ethiopia_251</item>
+        <item>@array/operator_somalia_252</item>
+        <item>@array/operator_djibouti_253</item>
+        <item>@array/operator_kenya_254</item>
+        <item>@array/operator_tanzania_255</item>
+        <item>@array/operator_uganda_256</item>
+        <item>@array/operator_burundi_257</item>
+        <item>@array/operator_mozambique_258</item>
+        <item>@array/operator_zambia_260</item>
+        <item>@array/operator_madagascar_261</item>
+        <item>@array/operator_reunion_262</item>
+        <item>@array/operator_zimbabwe_263</item>
+        <item>@array/operator_namibia_264</item>
+        <item>@array/operator_malawi_265</item>
+        <item>@array/operator_lesotho_266</item>
+        <item>@array/operator_botswana_267</item>
+        <item>@array/operator_swaziland_268</item>
+        <item>@array/operator_comoros_269</item>
+        <item>@array/operator_south_africa_27</item>
     </integer-array>
 
     <integer-array name="select_flags">
@@ -181,4 +238,339 @@
         <item>@drawable/flag_269</item>
         <item>@drawable/flag_27</item>
     </integer-array>
+
+    <string-array name="operator_egypt_20">
+        <item>Vodafone</item>
+        <item>Etisalat Misr</item>
+        <item>Orange</item>
+    </string-array>
+
+    <string-array name="operator_south_africa_27">
+        <item>Vodacom</item>
+        <item>MTN</item>
+        <item>Cell c</item>
+    </string-array>
+
+    <string-array name="operator_morocco_212">
+        <item>MT(Maroc Telecom)</item>
+        <item>Orange</item>
+        <item>Inwi</item>
+    </string-array>
+
+    <string-array name="operator_algeria_213">
+        <item>Algerie Telecom(AT)</item>
+        <item>Djezzy(OTA)</item>
+        <item>Ooredoo</item>
+    </string-array>
+
+    <string-array name="operator_tunisia_216">
+        <item>Orange</item>
+        <item>Tunisiana</item>
+        <item>Tunisie Telecom</item>
+    </string-array>
+
+    <string-array name="operator_libya_218">
+        <item>Al Madar Telecom</item>
+        <item>Libyana Mobile Phone</item>
+    </string-array>
+
+    <string-array name="operator_gambia_220">
+        <item>Africell</item>
+        <item>GAMTEL</item>
+        <item>Comium</item>
+        <item>Qcell</item>
+    </string-array>
+
+    <string-array name="operator_senegal_221">
+        <item>Orange</item>
+        <item>Expresso</item>
+        <item>Tigo</item>
+    </string-array>
+
+    <string-array name="operator_mauritania_222">
+        <item>Mattel</item>
+        <item>MAURITEL</item>
+        <item>Chinguitel</item>
+    </string-array>
+
+    <string-array name="operator_mali_223">
+        <item>Ikatel(Orange)</item>
+        <item>Malitel S.A.</item>
+    </string-array>
+
+    <string-array name="operator_guinea_224">
+        <item>Cellcom</item>
+        <item>Intercel</item>
+        <item>MTN</item>
+        <item>Orange</item>
+        <item>Sotelgui</item>
+    </string-array>
+
+    <string-array name="operator_cotedivoire_225">
+        <item>Comium</item>
+        <item>GreenN S.A</item>
+        <item>Moov</item>
+        <item>MTN</item>
+        <item>Orange</item>
+    </string-array>
+
+    <string-array name="operator_burkina_faso_226">
+        <item>Orange</item>
+        <item>Onatel</item>
+        <item>Telecel Faso</item>
+    </string-array>
+
+    <string-array name="operator_niger_227">
+        <item>Orange</item>
+        <item>Airtel</item>
+        <item>SahelCom</item>
+        <item>Moov</item>
+    </string-array>
+
+    <string-array name="operator_togo_228">
+        <item>Moov</item>
+        <item>Togo cel</item>
+    </string-array>
+
+    <string-array name="operator_benin_229">
+        <item>MTN</item>
+        <item>Bell Benin</item>
+        <item>Libercom</item>
+        <item>Globacomm</item>
+        <item>Moov</item>
+    </string-array>
+
+    <string-array name="operator_mauritius_230">
+        <item>Orange</item>
+        <item>Emtel</item>
+        <item>Mahanagar Telephone(Mokoze)</item>
+    </string-array>
+
+    <string-array name="operator_liberia_231">
+        <item>Atlantic Wireless</item>
+        <item>Orange</item>
+        <item>Novafone</item>
+        <item>Lonestar Cell</item>
+    </string-array>
+
+    <string-array name="operator_sierra_leone_232">
+        <item>Comium</item>
+        <item>Orange</item>
+        <item>Africell</item>
+        <item>SIERRATEL</item>
+    </string-array>
+
+    <string-array name="operator_ghana_233">
+        <item>Airtel</item>
+        <item>Expresso</item>
+        <item>MTN</item>
+        <item>Vodafone</item>
+        <item>Glo Ghana</item>
+        <item>Tigo</item>
+    </string-array>
+
+    <string-array name="operator_nigeria_234">
+        <item>MTN</item>
+        <item>Globacom</item>
+        <item>Airtel</item>
+        <item>9Mobile</item>
+        <item>Ntel</item>
+        <item>Multilinks(Telkom)</item>
+        <item>Visafone</item>
+        <item>ZoomMobile</item>
+        <item>Smile</item>
+    </string-array>
+
+    <string-array name="operator_chad_235">
+        <item>Airtel</item>
+        <item>Salam</item>
+        <item>Millicom</item>
+    </string-array>
+
+    <string-array name="operator_central_africa_236">
+        <item>Moov</item>
+        <item>NationLink Telecom</item>
+        <item>Orange</item>
+        <item>Telecel Centrafrique</item>
+    </string-array>
+
+    <string-array name="operator_cameroon_237">
+        <item>Orange</item>
+        <item>MTN</item>
+        <item>Camtel</item>
+    </string-array>
+
+    <string-array name="operator_cape_verde_238">
+        <item>Cabo Verde Telecom</item>
+        <item>T+ Mobile</item>
+    </string-array>
+
+    <string-array name="operator_sao_tome_239">
+        <item>CSTOME</item>
+    </string-array>
+
+    <string-array name="operator_equatorial_guinea_240">
+        <item>Orange</item>
+        <item>HiTs</item>
+    </string-array>
+
+    <string-array name="operator_gabon_241">
+        <item>Azur</item>
+        <item>Airtel</item>
+        <item>Moov</item>
+        <item>Libertis S.A.</item>
+    </string-array>
+
+    <string-array name="operator_congo_242">
+        <item>Airtel</item>
+        <item>Orange</item>
+        <item>Africell</item>
+        <item>SuperCell</item>
+        <item>Vodacom</item>
+    </string-array>
+
+    <string-array name="operator_zaire_243">
+        <item>Vodacom</item>
+        <item>Africell</item>
+        <item>Orange</item>
+        <item>Airtel</item>
+    </string-array>
+
+    <string-array name="operator_angola_244">
+        <item>Unitel</item>
+        <item>Movicel</item>
+    </string-array>
+
+    <string-array name="operator_guinea_bissau_245">
+        <item>Guinetel</item>
+        <item>MTN</item>
+        <item>Orange</item>
+    </string-array>
+
+    <string-array name="operator_seychelles_248">
+        <item>Airtel</item>
+        <item>Cable and Wireless</item>
+    </string-array>
+
+    <string-array name="operator_sudan_249">
+        <item>Canar</item>
+        <item>MTN</item>
+        <item>Sudatel</item>
+        <item>Vivacell</item>
+        <item>Zain</item>
+    </string-array>
+
+    <string-array name="operator_rwanda_250">
+        <item>MTN</item>
+        <item>Airtel</item>
+        <item>Tigo</item>
+    </string-array>
+
+    <string-array name="operator_ethiopia_251">
+        <item>Ethio Telecom(ETC)</item>
+    </string-array>
+
+    <string-array name="operator_somalia_252">
+        <item>Golis Mobile</item>
+        <item>hortel(Hormuud Telecom Somalia)</item>
+        <item>Nation Link</item>
+        <item>SOMAFONE</item>
+        <item>STC</item>
+        <item>Telecom somalia</item>
+        <item>Telesom Mobile Somalia</item>
+    </string-array>
+
+    <string-array name="operator_djibouti_253">
+        <item>Djibouti Telecom</item>
+    </string-array>
+
+    <string-array name="operator_kenya_254">
+        <item>Safaricom</item>
+        <item>Airtel</item>
+        <item>Orange</item>
+    </string-array>
+
+    <string-array name="operator_tanzania_255">
+        <item>Airtel</item>
+        <item>Benson Infomatics</item>
+        <item>Tigo</item>
+        <item>TTCL</item>
+        <item>Vodacom</item>
+        <item>ZanTel</item>
+    </string-array>
+
+    <string-array name="operator_uganda_256">
+        <item>MTN</item>
+        <item>Airtel</item>
+        <item>Africell</item>
+        <item>UTL</item>
+    </string-array>
+
+    <string-array name="operator_burundi_257">
+        <item>Africell</item>
+        <item>Econet</item>
+        <item>Onatel</item>
+        <item>Telecel-Burundi</item>
+        <item>Lacel</item>
+    </string-array>
+
+    <string-array name="operator_mozambique_258">
+        <item>MCEL</item>
+        <item>VM</item>
+        <item>Vodacom</item>
+    </string-array>
+
+    <string-array name="operator_zambia_260">
+        <item>Airtel</item>
+        <item>MTN</item>
+        <item>Zamtel</item>
+    </string-array>
+
+    <string-array name="operator_madagascar_261">
+        <item>Airtel</item>
+        <item>Orange</item>
+    </string-array>
+
+    <string-array name="operator_reunion_262">
+    </string-array>
+
+    <string-array name="operator_zimbabwe_263">
+        <item>Econet Wireless</item>
+        <item>Net.One</item>
+        <item>Telecel Zimbabwe</item>
+    </string-array>
+
+    <string-array name="operator_namibia_264">
+        <item>MTC</item>
+        <item>TN Mobile</item>
+    </string-array>
+
+    <string-array name="operator_malawi_265">
+        <item>Airtel</item>
+        <item>Telekom</item>
+    </string-array>
+
+    <string-array name="operator_lesotho_266">
+        <item>Econet-Ezi-Cel</item>
+        <item>Tele-Com</item>
+        <item>Vodacom</item>
+    </string-array>
+
+    <string-array name="operator_botswana_267">
+        <item>MTV</item>
+        <item>Orange</item>
+    </string-array>
+
+    <string-array name="operator_swaziland_268">
+        <item>MTN</item>
+        <item>SPTC</item>
+    </string-array>
+
+    <string-array name="operator_comoros_269">
+    </string-array>
+
+    <string-array name="operator_eritrea_291">
+        <item>Eritel</item>
+    </string-array>
+
 </resources>

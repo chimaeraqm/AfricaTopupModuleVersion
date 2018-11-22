@@ -69,12 +69,6 @@ public class BundleActivity extends BaseActivity
             public void onClick(View view) {
                 AddNumberDialog addNumberDialog = new AddNumberDialog(BundleActivity.this);
                 addNumberDialog.show();
-
-                Window dialogWindow = addNumberDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(BundleActivity.this,300);
-                layoutParams.height = UserUtil.dip2px(BundleActivity.this,200);
-                dialogWindow.setAttributes(layoutParams);
             }
         });
 

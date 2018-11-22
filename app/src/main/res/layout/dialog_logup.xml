@@ -79,7 +79,7 @@
         android:id="@+id/cb_localphone"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:color_checked="@color/colorOrange"
         app:layout_constraintStart_toStartOf="@+id/et_password"
         app:layout_constraintTop_toBottomOf="@+id/et_password2" />
@@ -93,6 +93,8 @@
         android:textColor="@color/colorLightGray"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/cb_localphone"
+        app:layout_constraintEnd_toEndOf="@+id/et_password2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/cb_localphone"
         app:layout_constraintTop_toTopOf="@+id/cb_localphone" />
 

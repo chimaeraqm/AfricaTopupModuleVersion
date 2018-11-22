@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.crazydwarf.africatopup.R;
 
@@ -71,7 +72,7 @@ public class BundleItemAdapter extends RecyclerView.Adapter<BundleItemAdapter.Bu
         public EditText etPhoneNumber;
         public EditText etFee;
         public EditText etName;
-        public Button bnDelete;
+        public ImageView imDelete;
 
         public BundleItemHolder(View itemView) {
             super(itemView);
@@ -79,7 +80,7 @@ public class BundleItemAdapter extends RecyclerView.Adapter<BundleItemAdapter.Bu
             this.etPhoneNumber = itemView.findViewById(R.id.et_phonenumber);
             this.etFee = itemView.findViewById(R.id.et_fee);
             this.etName = itemView.findViewById(R.id.et_name);
-            this.bnDelete = itemView.findViewById(R.id.bn_delete);
+            this.imDelete = itemView.findViewById(R.id.im_delete);
         }
     }
 

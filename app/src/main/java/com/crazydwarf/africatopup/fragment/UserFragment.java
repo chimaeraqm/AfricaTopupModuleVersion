@@ -15,6 +15,7 @@ import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.Utilities.UserUtil;
 import com.crazydwarf.africatopup.activity.BundleActivity;
 import com.crazydwarf.africatopup.activity.HistoryActivity;
+import com.crazydwarf.africatopup.dialog.DepositDetailDialog;
 import com.crazydwarf.africatopup.dialog.LoginDialog;
 import com.crazydwarf.africatopup.dialog.LogupDialog;
 import com.crazydwarf.africatopup.view.SmoothCheckBox;
@@ -64,12 +65,6 @@ public class UserFragment extends Fragment
             public void onClick(View view) {
                 LoginDialog loginDialog = new LoginDialog(getActivity());
                 loginDialog.show();
-
-                Window dialogWindow = loginDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(getActivity(),300);
-                layoutParams.height = UserUtil.dip2px(getActivity(),360);
-                dialogWindow.setAttributes(layoutParams);
             }
         });
 
@@ -79,12 +74,6 @@ public class UserFragment extends Fragment
             public void onClick(View view) {
                 LogupDialog logupDialog = new LogupDialog(getActivity());
                 logupDialog.show();
-
-                Window dialogWindow = logupDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(getActivity(),300);
-                layoutParams.height = UserUtil.dip2px(getActivity(),360);
-                dialogWindow.setAttributes(layoutParams);
             }
         });
 
@@ -112,6 +101,8 @@ public class UserFragment extends Fragment
                 {
                     cbLocalPhone2.setChecked(false);
                     cbOtherPhone.setChecked(false);
+                    DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
+                    depositDetailDialog.show();
                 }
             }
         });
@@ -124,6 +115,8 @@ public class UserFragment extends Fragment
                 {
                     cbLocalPhone1.setChecked(false);
                     cbOtherPhone.setChecked(false);
+                    DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
+                    depositDetailDialog.show();
                 }
             }
         });
@@ -136,6 +129,8 @@ public class UserFragment extends Fragment
                 {
                     cbLocalPhone1.setChecked(false);
                     cbLocalPhone2.setChecked(false);
+                    DepositDetailDialog depositDetailDialog = new DepositDetailDialog(getActivity());
+                    depositDetailDialog.show();
                 }
             }
         });

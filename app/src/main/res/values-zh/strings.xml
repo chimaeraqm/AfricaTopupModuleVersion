@@ -36,9 +36,56 @@
     <string name="string_language_english">英语</string>
     <string name="string_language_french">法语</string>
 
+    <string name="string_add">添加</string>
+    <string name="string_select_from_address">从通讯录选择</string>
+    <string name="string_curreny_usd">美元</string>
+    <string name="string_curreny_rmb">人民币</string>
+    <string name="string_total_recharge_amount">充值总金额</string>
+    <string name="string_wechat_pay">微信支付</string>
+    <string name="string_alipay">支付宝支付（推荐）</string>
+    <string name="string_contact_service">联系客服</string>
+    <string name="string_contact_service_tip">大批量充值或者定期充值设置？</string>
+    <string name="string_order_record_query">订单记录查询</string>
+    <string name="string_query_interval_from">查询区间 由</string>
+    <string name="string_query_interval_to">至</string>
+    <string name="string_recharge_date">充值日期</string>
+    <string name="string_order_no">订单号</string>
+    <string name="string_order_status">订单状态</string>
+    <string name="string_query_tip">最长可查询最近6个月的充值订单记录</string>
+    <string name="string_query_last_1month">最近1个月</string>
+    <string name="string_query_last_3month">最近3个月</string>
+    <string name="string_query_last_6month">最近6个月</string>
+    <string name="string_skip">跳过</string>
+
+    <string name="string_alipay_order_confirm">支付宝订单确认</string>
+    <string name="string_wechat_pay_order_confirm">微信订单确认</string>
+    <string name="string_recharge_no1">本机号码1</string>
+    <string name="string_recharge_no2">本机号码2</string>
+    <string name="string_recharge_other">其他号码</string>
+    <string name="string_recharge_op1">运营商1</string>
+    <string name="string_recharge_op2">运营商2</string>
+    <string name="string_recharge_op3">运营商3</string>
+    <string name="string_invoice_business">发票业务办理</string>
+    <string name="string_recharge_record_inquiry">充值记录查询</string>
+    <string name="string_delete">删除</string>
+    <string name="string_enter_phone_no">输入手机号</string>
+    <string name="string_enter_recharge_amount">输入充值金额</string>
+
+    <string name="string_balance_inquiry">余额查询</string>
+    <string name="string_current_balance">当前余额</string>
+    <string name="string_flow_balance">剩余流量（Mb）</string>
+    <string name="string_expiration_date">流量截止：2018/12/31</string>
+    <string name="string_display_language">显示语言</string>
+    <string name="string_operator_expense">运营商资费查询</string>
+    <string name="string_adv_placeholder">广告占位符</string>
+    <string name="string_act_placeholder">活动通知占位符</string>
+    <string name="string_add_flow">购买流量包</string>
+    <string name="string_download_qrcode">Android App下载二维码</string>
+
+
     <string name="string_launcher_slogan">非洲华人话费查询与充值快捷通道</string>
     <string name="string_launcher_adv1">最快10秒完成充值</string>
-    <string name="string_launcher_adv2">初次注册，赠送话费礼包</string>
+    <string name="string_launcher_adv2">初次注册并充值，赠送话费礼包</string>
 
     <string name="string_egypt">埃及</string>
     <string name="string_morocco">摩洛哥</string>
@@ -67,8 +114,8 @@
     <string name="string_sao_tome">圣多美和普林西比</string>
     <string name="string_equatorial_guinea">赤道几内亚</string>
     <string name="string_gabon">加蓬</string>
-    <string name="string_congo">刚果</string>
-    <string name="string_zaire">扎伊尔</string>
+    <string name="string_congo">刚果（布）</string>
+    <string name="string_zaire">刚果（金）</string>
     <string name="string_angola">安哥拉</string>
     <string name="string_guinea_bissau">几内亚比绍</string>
     <!--<string name="string_ascension">阿森松</string>-->

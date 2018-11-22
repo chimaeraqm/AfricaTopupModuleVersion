@@ -2,6 +2,7 @@ package com.crazydwarf.africatopup.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -30,17 +31,21 @@ public class LoginDialog extends Dialog
     {
         super(context, R.style.CurrentDialog);
         this.mContext = context;
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.dialog_login,null);
-        edUserName = view.findViewById(R.id.et_username);
-        edPassword = view.findViewById(R.id.et_password);
-        bnLogin = view.findViewById(R.id.bn_login);
-        bnLogup = view.findViewById(R.id.bn_logup);
-        tvForget = view.findViewById(R.id.tv_forgetpw);
-        cb_LocalPhone = view.findViewById(R.id.cb_localphone);
-        cb_LocalPhone.setChecked(false);
-        setContentView(view);
+    }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.dialog_login);
+        edUserName = findViewById(R.id.et_username);
+        edPassword = findViewById(R.id.et_password);
+        bnLogin = findViewById(R.id.bn_login);
+        bnLogup = findViewById(R.id.bn_logup);
+        tvForget = findViewById(R.id.tv_forgetpw);
+        cb_LocalPhone = findViewById(R.id.cb_localphone);
+        cb_LocalPhone.setChecked(false);
         setListener();
+        setDisplayDimension();
     }
 
     void setListener()
@@ -72,13 +77,6 @@ public class LoginDialog extends Dialog
                 dismiss();
                 LogupDialog logupDialog = new LogupDialog(mContext);
                 logupDialog.show();
-
-                Window dialogWindow = logupDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(mContext,300);
-                layoutParams.height = UserUtil.dip2px(mContext,360);
-                dialogWindow.setAttributes(layoutParams);
-
             }
         });
 
@@ -103,5 +101,15 @@ public class LoginDialog extends Dialog
 
             }
         });
+    }
+
+    private void setDisplayDimension()
+    {
+        Window dialogWindow = getWindow();
+        //TODO:如果设置相对屏幕的尺寸，这里需要先获取屏幕尺寸
+        WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
+        layoutParams.width = UserUtil.dip2px(mContext,300);
+        layoutParams.height = UserUtil.dip2px(mContext,360);
+        dialogWindow.setAttributes(layoutParams);
     }
 }

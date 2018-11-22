@@ -84,7 +84,7 @@
 
     <string name="string_launcher_slogan">非洲华人话费查询与充值快捷通道</string>
     <string name="string_launcher_adv1">最快10秒完成充值</string>
-    <string name="string_launcher_adv2">初次注册，赠送话费礼包</string>
+    <string name="string_launcher_adv2">初次注册并充值，赠送话费礼包</string>
 
     <string name="string_egypt">埃及</string>
     <string name="string_morocco">摩洛哥</string>
@@ -113,8 +113,8 @@
     <string name="string_sao_tome">圣多美和普林西比</string>
     <string name="string_equatorial_guinea">赤道几内亚</string>
     <string name="string_gabon">加蓬</string>
-    <string name="string_congo">刚果</string>
-    <string name="string_zaire">扎伊尔</string>
+    <string name="string_congo">刚果（布）</string>
+    <string name="string_zaire">刚果（金）</string>
     <string name="string_angola">安哥拉</string>
     <string name="string_guinea_bissau">几内亚比绍</string>
     <!--<string name="string_ascension">阿森松</string>-->

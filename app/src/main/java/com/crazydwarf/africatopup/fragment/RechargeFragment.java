@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.Utilities.UserUtil;
@@ -24,6 +25,8 @@ public class RechargeFragment extends Fragment
     private Button bnRechargeAli;
     private Button bnRechargeWe;
     private ImageView imFlag;
+    private TextView tvPostCode;
+    private int mSelePos = 0;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
@@ -32,6 +35,7 @@ public class RechargeFragment extends Fragment
         bnRechargeAli = view.findViewById(R.id.bn_recharge_ali);
         bnRechargeWe = view.findViewById(R.id.bn_recharge_we);
         imFlag = view.findViewById(R.id.im_flag);
+        tvPostCode = view.findViewById(R.id.tv_postcode);
         return view;
     }
 
@@ -62,20 +66,17 @@ public class RechargeFragment extends Fragment
         imFlag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 CountrySelectDialog countrySelectDialog = new CountrySelectDialog(getActivity(), new CountrySelectDialog.dialogItemSelectionListener() {
                     @Override
-                    public void onClick(View view, int position) {
-
+                    public void onClick(int position, String country, int code, int flag) {
+                        imFlag.setBackgroundResource(flag);
+                        String postcode = String.format("+%d",code);
+                        tvPostCode.setText(postcode);
+                        mSelePos = position;
                     }
-                });
+                },mSelePos);
                 countrySelectDialog.show();
-
-                Window dialogWindow = countrySelectDialog.getWindow();
-                WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
-                layoutParams.width = UserUtil.dip2px(getActivity(),240);
-                layoutParams.height = UserUtil.dip2px(getActivity(),400);
-                layoutParams.gravity = Gravity.BOTTOM|Gravity.CENTER;
-                dialogWindow.setAttributes(layoutParams);
             }
         });
     }
