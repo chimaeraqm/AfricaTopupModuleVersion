@@ -72,7 +72,7 @@ public class OrderInfoUtil2_0 {
 
 		keyValues.put("app_id", app_id);
 
-		keyValues.put("biz_content", "{\"timeout_express\":\"30m\",\"product_code\":\"QUICK_MSECURITY_PAY\",\"total_amount\":\"0.01\",\"subject\":\"1\",\"body\":\"我是测试数据\",\"out_trade_no\":\"" + getOutTradeNo() +  "\"}");
+		keyValues.put("biz_content", "{\"timeout_express\":\"30m\",\"product_code\":\"QUICK_MSECURITY_PAY\",\"total_amount\":\"99.99\",\"subject\":\"1\",\"body\":\"我是测试数据\",\"out_trade_no\":\"" + getOutTradeNo() +  "\"}");
 
 		keyValues.put("charset", "utf-8");
 
@@ -84,6 +84,9 @@ public class OrderInfoUtil2_0 {
 
 		keyValues.put("version", "1.0");
 
+		keyValues.put("format", "json");
+
+		keyValues.put("notify_url", "https://wx.dwarfworkshop.com/congo/alipay_sign_validate.php");
 		return keyValues;
 	}
 
