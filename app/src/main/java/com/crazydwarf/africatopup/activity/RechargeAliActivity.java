@@ -177,11 +177,36 @@ public class RechargeAliActivity extends BaseActivity
 
         String privateKey = rsa2 ? RSA2_PRIVATE : RSA_PRIVATE;
         String sign = OrderInfoUtil2_0.getSign(params, privateKey, rsa2);
-        final String orderInfo1 = orderParam + "&" + sign;
-        Log.i("orderInfo", ori_OrderInfo);//打印一下看看对不对
-        String header = "alipay_sdk=alipay-sdk-php-20180705&;";
-        final String orderInfo = ori_OrderInfo.substring(header.length()-1);
 
+        String orderInfo1 = orderParam + "&" + sign;
+        Log.i("orderInfo", ori_OrderInfo);//打印一下看看对不对
+
+        String header = "alipay_sdk=alipay-sdk-php-20180705&;";
+        String orderInfo = ori_OrderInfo.substring(header.length()-1);
+
+        String ori_OrderInfo_signpart = ori_OrderInfo.substring(ori_OrderInfo.indexOf("sign="),ori_OrderInfo.length());
+        //ori_OrderInfo_signpart = ori_OrderInfo_signpart.substring(0,ori_OrderInfo_signpart.indexOf("%3D"));
+
+        String orderInfo1_part = orderInfo1.substring(orderInfo1.indexOf("charset="),orderInfo1.length());
+        orderInfo1_part = orderInfo1_part.substring(0,orderInfo1_part.indexOf("&"));
+
+        final String newOrderInfo = orderInfo1;
+/*
+        String orderInfo1_signpart = orderInfo1.substring(orderInfo1.indexOf("&sign="),orderInfo1.length());
+        String ori_OrderInfo_signpart = ori_OrderInfo.substring(ori_OrderInfo.indexOf("&sign="),ori_OrderInfo.length());
+        orderInfo = ori_OrderInfo.replace(ori_OrderInfo_signpart,orderInfo1_signpart);
+
+        String substring = orderInfo.substring(orderInfo.indexOf("out_trade_no"));
+        substring = substring.substring(0,substring.indexOf("%22%2C"));
+        String substringtail = substring.substring(substring.length()-4,substring.length());
+        String newsubstringtail = String.format("-%s",substringtail);
+        String newsubstring = substring.replace(substringtail,newsubstringtail);
+        orderInfo = orderInfo.replace(substring,newsubstring);
+        orderInfo = orderInfo.replace("15441962676413","1544196267-6413");
+        orderInfo = orderInfo.replace("%2220181207%22","%2299.99%22");
+        orderInfo = orderInfo.replace("%22%E8%AF%9D%E8%B4%B9%E5%85%85%E5%80%BC%22","%221%22");
+*/
+        final String orderInfo2 = orderInfo;
         Runnable payRunnable = new Runnable()
         {
             @Override
@@ -199,7 +224,7 @@ public class RechargeAliActivity extends BaseActivity
                     }*/
 
                     PayTask alipay = new PayTask(RechargeAliActivity.this);
-                    Map<String, String> result = alipay.payV2(orderInfo, true);
+                    Map<String, String> result = alipay.payV2(newOrderInfo, true);
 
 
                     Log.i("msp", result.toString());
