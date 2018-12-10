@@ -166,40 +166,29 @@ public class RechargeAliActivity extends BaseActivity
          * orderInfo 的获取必须来自服务端；
          */
 
-        sendOrderRequest("supersmashbros","20181207");
+        sendOrderRequest("supersmashbros","99.99");
     }
 
     private void payProcess(final String ori_OrderInfo)
     {
+//本地生成orderinfo
+/*
         boolean rsa2 = (RSA2_PRIVATE.length() > 0);
         Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, rsa2);
         String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
-
         String privateKey = rsa2 ? RSA2_PRIVATE : RSA_PRIVATE;
         String sign = OrderInfoUtil2_0.getSign(params, privateKey, rsa2);
         final String orderInfo1 = orderParam + "&" + sign;
         Log.i("orderInfo", ori_OrderInfo);//打印一下看看对不对
-        String header = "alipay_sdk=alipay-sdk-php-20180705&;";
-        final String orderInfo = ori_OrderInfo.substring(header.length()-1);
+*/
 
         Runnable payRunnable = new Runnable()
         {
             @Override
             public void run() {
-                URL url = null;
                 try {
-                    /*url = new URL("sandboxOrderInfo.php");
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    String orderInfo = "";
-                    String len;
-
-                    while ((len = br.readLine()) != null) {
-                        orderInfo += len;
-                    }*/
-
                     PayTask alipay = new PayTask(RechargeAliActivity.this);
-                    Map<String, String> result = alipay.payV2(orderInfo, true);
+                    Map<String, String> result = alipay.payV2(ori_OrderInfo, true);
 
 
                     Log.i("msp", result.toString());
