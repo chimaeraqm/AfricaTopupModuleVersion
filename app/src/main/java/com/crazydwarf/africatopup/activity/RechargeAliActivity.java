@@ -3,7 +3,6 @@ package com.crazydwarf.africatopup.activity;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,11 +18,11 @@ import android.widget.Toast;
 
 import com.alipay.sdk.app.EnvUtils;
 import com.alipay.sdk.app.PayTask;
-import com.crazydwarf.africatopup.AlipayUtil.OrderInfoUtil2_0;
 import com.crazydwarf.africatopup.AlipayUtil.PayResult;
 import com.crazydwarf.africatopup.Objects.User;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.view.SimpleToolBar;
+import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -31,11 +30,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -166,65 +161,30 @@ public class RechargeAliActivity extends BaseActivity
          * orderInfo 的获取必须来自服务端；
          */
 
-        sendOrderRequest("supersmashbros","20181207");
+        sendOrderRequest("supersmashbros","99.99");
     }
 
     private void payProcess(final String ori_OrderInfo)
     {
+//本地生成orderinfo
+/*
         boolean rsa2 = (RSA2_PRIVATE.length() > 0);
         Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, rsa2);
         String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
-
         String privateKey = rsa2 ? RSA2_PRIVATE : RSA_PRIVATE;
         String sign = OrderInfoUtil2_0.getSign(params, privateKey, rsa2);
 
         String orderInfo1 = orderParam + "&" + sign;
         Log.i("orderInfo", ori_OrderInfo);//打印一下看看对不对
-
-        String header = "alipay_sdk=alipay-sdk-php-20180705&;";
-        String orderInfo = ori_OrderInfo.substring(header.length()-1);
-
-        String ori_OrderInfo_signpart = ori_OrderInfo.substring(ori_OrderInfo.indexOf("sign="),ori_OrderInfo.length());
-        //ori_OrderInfo_signpart = ori_OrderInfo_signpart.substring(0,ori_OrderInfo_signpart.indexOf("%3D"));
-
-        String orderInfo1_part = orderInfo1.substring(orderInfo1.indexOf("charset="),orderInfo1.length());
-        orderInfo1_part = orderInfo1_part.substring(0,orderInfo1_part.indexOf("&"));
-
-        final String newOrderInfo = orderInfo1;
-/*
-        String orderInfo1_signpart = orderInfo1.substring(orderInfo1.indexOf("&sign="),orderInfo1.length());
-        String ori_OrderInfo_signpart = ori_OrderInfo.substring(ori_OrderInfo.indexOf("&sign="),ori_OrderInfo.length());
-        orderInfo = ori_OrderInfo.replace(ori_OrderInfo_signpart,orderInfo1_signpart);
-
-        String substring = orderInfo.substring(orderInfo.indexOf("out_trade_no"));
-        substring = substring.substring(0,substring.indexOf("%22%2C"));
-        String substringtail = substring.substring(substring.length()-4,substring.length());
-        String newsubstringtail = String.format("-%s",substringtail);
-        String newsubstring = substring.replace(substringtail,newsubstringtail);
-        orderInfo = orderInfo.replace(substring,newsubstring);
-        orderInfo = orderInfo.replace("15441962676413","1544196267-6413");
-        orderInfo = orderInfo.replace("%2220181207%22","%2299.99%22");
-        orderInfo = orderInfo.replace("%22%E8%AF%9D%E8%B4%B9%E5%85%85%E5%80%BC%22","%221%22");
 */
-        final String orderInfo2 = orderInfo;
+
         Runnable payRunnable = new Runnable()
         {
             @Override
             public void run() {
-                URL url = null;
                 try {
-                    /*url = new URL("sandboxOrderInfo.php");
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    String orderInfo = "";
-                    String len;
-
-                    while ((len = br.readLine()) != null) {
-                        orderInfo += len;
-                    }*/
-
                     PayTask alipay = new PayTask(RechargeAliActivity.this);
-                    Map<String, String> result = alipay.payV2(newOrderInfo, true);
+                    Map<String, String> result = alipay.payV2(ori_OrderInfo, true);
 
 
                     Log.i("msp", result.toString());

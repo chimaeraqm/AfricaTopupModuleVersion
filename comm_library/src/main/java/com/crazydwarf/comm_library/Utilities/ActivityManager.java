@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.Utilities;
+package com.crazydwarf.comm_library.Utilities;
 
 import android.app.Activity;
 

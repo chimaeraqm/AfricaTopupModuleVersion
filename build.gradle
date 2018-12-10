@@ -1,7 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+
+    /**
+     * true 每个业务Module可以单独开发
+     * false 每个业务Module以lib的方式运行
+     * 修改之后需要Sync方可生效
+     */
+    ext {
+        isModule = false
+    }
+
     repositories {
         google()
         jcenter()

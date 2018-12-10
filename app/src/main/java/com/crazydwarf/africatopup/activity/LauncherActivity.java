@@ -3,7 +3,6 @@ package com.crazydwarf.africatopup.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -11,6 +10,7 @@ import android.widget.Button;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.view.NewActivityView;
+import com.crazydwarf.comm_library.activity.BaseActivity;
 
 public class LauncherActivity extends BaseActivity
 {

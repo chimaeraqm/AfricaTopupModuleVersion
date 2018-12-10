@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.Utilities.UserUtil;
+import com.crazydwarf.comm_library.Utilities.UserUtil;
 
 public class SwitchCountryConfirmDialog extends Dialog
 {

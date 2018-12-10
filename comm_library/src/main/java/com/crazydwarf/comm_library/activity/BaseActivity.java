@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.activity;
+package com.crazydwarf.comm_library.activity;
 
 import android.content.Context;
 import android.os.Build;
@@ -6,12 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 
-import com.crazydwarf.africatopup.Utilities.ActivityManager;
-import com.crazydwarf.africatopup.Utilities.AppLanguageUtils;
-import com.crazydwarf.africatopup.Utilities.UserUtil;
+import com.crazydwarf.comm_library.Utilities.ActivityManager;
+import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
+import com.crazydwarf.comm_library.Utilities.UserUtil;
 
 public class BaseActivity extends AppCompatActivity
 {

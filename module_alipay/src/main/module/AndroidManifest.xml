@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.crazydwarf.chimaeraqm.module_alipay">
+
+
+    <application>
+        <activity
+            android:name="com.crazydwarf.module_alipay.AlipayModuleActivity"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+</manifest>

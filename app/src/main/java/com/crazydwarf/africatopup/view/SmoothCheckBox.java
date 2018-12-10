@@ -16,7 +16,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Checkable;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.Utilities.UserUtil;
+import com.crazydwarf.comm_library.Utilities.UserUtil;
 
 public class SmoothCheckBox extends View implements Checkable
 {

@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,8 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.Utilities.Constants;
-import com.crazydwarf.africatopup.Utilities.UserUtil;
+import com.crazydwarf.comm_library.Utilities.Constants;
+import com.crazydwarf.comm_library.Utilities.UserUtil;
 
 public class AddNumberDialog extends Dialog
 {

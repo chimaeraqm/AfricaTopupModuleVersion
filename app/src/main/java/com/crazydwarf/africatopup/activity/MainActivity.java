@@ -1,24 +1,23 @@
 package com.crazydwarf.africatopup.activity;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.crazydwarf.africatopup.Utilities.ActivityManager;
-import com.crazydwarf.africatopup.Utilities.AppLanguageUtils;
+import com.crazydwarf.comm_library.Utilities.ActivityManager;
+import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.dialog.LanguageSelectDialog;
 import com.crazydwarf.africatopup.fragment.QueryFragment;
 import com.crazydwarf.africatopup.fragment.RechargeFragment;
 import com.crazydwarf.africatopup.fragment.UserFragment;
 import com.crazydwarf.africatopup.view.SimpleToolBar;
+import com.crazydwarf.comm_library.activity.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

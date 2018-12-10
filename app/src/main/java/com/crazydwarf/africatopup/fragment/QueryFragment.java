@@ -18,9 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.Utilities.Constants;
-import com.crazydwarf.africatopup.Utilities.UserUtil;
-import com.crazydwarf.africatopup.activity.BundleActivity;
+import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.africatopup.activity.TxtDisplayActivity;
 import com.crazydwarf.africatopup.dialog.CountrySelectDialog;
 import com.crazydwarf.africatopup.view.CommonAdapter;
@@ -93,7 +91,7 @@ public class QueryFragment extends Fragment
             @Override
             public void onItemClick(View view) {
                 Toast.makeText(getActivity(), "显示运营商资费清单", Toast.LENGTH_SHORT).show();
-                String txt = UserUtil.readFromRaw(getActivity(),R.raw.ribbontmp);
+                String txt = /*UserUtil.readFromRaw(getActivity(),R.raw.ribbontmp)*/"This is a test text for TxtDisplayActivity.";
                 Intent intent = new Intent(getActivity(), TxtDisplayActivity.class);
                 intent.putExtra("OPERATOR_INFO",txt);
                 startActivity(intent);

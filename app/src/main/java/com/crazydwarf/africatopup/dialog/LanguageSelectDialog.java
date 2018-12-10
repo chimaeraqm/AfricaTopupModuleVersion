@@ -13,9 +13,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.crazydwarf.africatopup.Utilities.AppLanguageUtils;
+import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.Utilities.UserUtil;
+import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.africatopup.view.LanguageItemAdapter;
 
 

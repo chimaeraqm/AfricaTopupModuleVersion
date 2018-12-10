@@ -74,7 +74,7 @@ public class AppLanguageUtils
     @TargetApi(Build.VERSION_CODES.N)
     private static Context updateResources(Context context, String language) {
         Resources resources = context.getResources();
-        Locale locale = AppLanguageUtils.getLocaleByLanguage(language);
+        Locale locale = com.crazydwarf.comm_library.Utilities.AppLanguageUtils.getLocaleByLanguage(language);
 
         Configuration configuration = resources.getConfiguration();
         configuration.setLocale(locale);
@@ -85,8 +85,8 @@ public class AppLanguageUtils
     @TargetApi(Build.VERSION_CODES.N)
     public static Context updateResources(Context context) {
         Resources resources = context.getResources();
-        String language = AppLanguageUtils.getSavedLanguage(context);
-        Locale locale = AppLanguageUtils.getLocaleByLanguage(language);
+        String language = com.crazydwarf.comm_library.Utilities.AppLanguageUtils.getSavedLanguage(context);
+        Locale locale = com.crazydwarf.comm_library.Utilities.AppLanguageUtils.getLocaleByLanguage(language);
         Configuration configuration = resources.getConfiguration();
         configuration.setLocale(locale);
         configuration.setLocales(new LocaleList(locale));
