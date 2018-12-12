@@ -3,10 +3,19 @@
     package="com.crazydwarf.chimaeraqm.module_alipay">
 
 
-    <application>
+    <application
+        android:name="com.crazydwarf.comm_library.activity.BaseApplication"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@style/CurrentAppTheme">
         <activity
-            android:name="com.crazydwarf.module_alipay.AlipayModuleActivity"
+            android:name="com.crazydwarf.module_alipay.RechargeAliActivity"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -15,9 +15,9 @@ import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.Utilities.Constants;
-import com.crazydwarf.africatopup.activity.RechargeAliActivity;
 import com.crazydwarf.africatopup.activity.RechargeWeActivity;
 import com.crazydwarf.africatopup.dialog.CountrySelectDialog;
+import com.crazydwarf.module_alipay.RechargeAliActivity;
 
 public class RechargeFragment extends Fragment
 {

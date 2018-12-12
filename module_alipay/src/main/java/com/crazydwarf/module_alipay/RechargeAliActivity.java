@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.activity;
+package com.crazydwarf.module_alipay;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -18,10 +18,10 @@ import android.widget.Toast;
 
 import com.alipay.sdk.app.EnvUtils;
 import com.alipay.sdk.app.PayTask;
-import com.crazydwarf.africatopup.AlipayUtil.PayResult;
-import com.crazydwarf.africatopup.Objects.User;
-import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.view.SimpleToolBar;
+import com.crazydwarf.chimaeraqm.module_alipay.R;
+import com.crazydwarf.comm_library.Objects.User;
+import com.crazydwarf.comm_library.view.SimpleToolBar;
+import com.crazydwarf.module_alipay.AlipayUtil.PayResult;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;

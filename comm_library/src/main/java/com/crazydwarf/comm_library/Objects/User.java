@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.Objects;
+package com.crazydwarf.comm_library.Objects;
 
 public class User
 {

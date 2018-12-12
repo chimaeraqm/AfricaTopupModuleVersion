@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.AlipayUtil;
+package com.crazydwarf.module_alipay.AlipayUtil;
 
 public final class Base64 {
 

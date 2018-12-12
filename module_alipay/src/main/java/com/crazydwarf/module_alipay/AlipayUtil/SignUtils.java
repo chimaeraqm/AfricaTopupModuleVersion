@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.AlipayUtil;
+package com.crazydwarf.module_alipay.AlipayUtil;
 
 import java.security.KeyFactory;
 import java.security.PrivateKey;
