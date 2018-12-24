@@ -31,9 +31,18 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -111,6 +120,9 @@ public class RechargeAliActivity extends BaseActivity
         EnvUtils.setEnv(EnvUtils.EnvEnum.SANDBOX);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recharge_ali);
+
+        //test for sending encoded md5 request string
+        sendOrderRequestMD5("supersmashbros","99.99");
 
         //动态获取权限
         requestPermission();
@@ -261,6 +273,7 @@ public class RechargeAliActivity extends BaseActivity
     private static void showToast(Context ctx, String msg) {
         Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
     }
+
     void sendInsertRequest(final String func_name, String insert_name, String insert_pw, String insert_info)
     {
         RequestBody requestBody = new FormBody.Builder()
@@ -349,11 +362,10 @@ public class RechargeAliActivity extends BaseActivity
         });
     }
 
-    void sendOrderRequest(final String request_uid, String request_price)
-    {
+    void sendOrderRequest(final String request_uid, String request_price) {
         RequestBody requestBody = new FormBody.Builder()
-                .add("uid",request_uid)
-                .add("price",request_price)
+                .add("uid", request_uid)
+                .add("price", request_price)
                 .build();
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder()
@@ -364,13 +376,10 @@ public class RechargeAliActivity extends BaseActivity
         Call call = okHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
-            public void onFailure(Call call, IOException e)
-            {
-                runOnUiThread(new Runnable()
-                {
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(new Runnable() {
                     @Override
-                    public void run()
-                    {
+                    public void run() {
                         Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -399,5 +408,121 @@ public class RechargeAliActivity extends BaseActivity
 //                }
             }
         });
+    }
+
+    void sendOrderRequestMD5(final String request_uid, String request_price)
+{
+    String key = "c4c4c4c4c4c4c4c4c4c4c4c4";
+    String secret = "282828282828282828282828";
+
+    Date date = new Date();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String sim = dateFormat.format(date);
+
+    //sorted for alphabeta in treemap according to key
+    Map<String, String> keyValues = new TreeMap<String, String>(
+            new Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    return o1.compareTo(o2);
+                }
+            }
+    );
+    keyValues.put("uid", request_uid);
+    keyValues.put("price", request_price);
+    keyValues.put("key", key);
+    keyValues.put("timestamp", sim);
+    keyValues.put("secret",secret);
+
+    String keyValues_str = getMapToString(keyValues);
+
+    String keyValues_str_md5 = EncoderByMd5(keyValues_str);
+
+    RequestBody requestBody = new FormBody.Builder()
+            .add("uid",request_uid)
+            .add("price",request_price)
+            .build();
+    OkHttpClient okHttpClient = new OkHttpClient();
+    Request request = new Request.Builder()
+            .url(ORDER_REQUEST_URL)
+            .post(requestBody)
+            .build();
+
+    Call call = okHttpClient.newCall(request);
+    call.enqueue(new Callback() {
+        @Override
+        public void onFailure(Call call, IOException e)
+        {
+            runOnUiThread(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
+                }
+            });
+            e.printStackTrace();
+        }
+
+        @Override
+        public void onResponse(Call call, Response response) throws IOException
+        {
+            String str = response.body().string();
+            payProcess(str);
+        }
+    });
+}
+
+    //MD5 加密
+    private static String EncoderByMd5(String str)
+    {
+        try{
+            MessageDigest md5 = MessageDigest.getInstance("md5");//返回实现指定摘要算法的 MessageDigest 对象。
+            md5.update(str.getBytes());//先将字符串转换成byte数组，再用byte 数组更新摘要
+            byte[] nStr = md5.digest();//哈希计算，即加密
+            return bytes2Hex(nStr);//加密的结果是byte数组，将byte数组转换成字符串
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.getStackTrace();
+        }
+        return null;
+    }
+
+    //将加密的byte转换成String
+    private static String bytes2Hex(byte[] bts) {
+        String des = "";
+        String tmp = null;
+
+        for (int i = 0; i < bts.length; i++) {
+            tmp = (Integer.toHexString(bts[i] & 0xFF));
+            if (tmp.length() == 1) {
+                des += "0";
+            }
+            des += tmp;
+        }
+        return des;
+    }
+
+    //convert values in map to String
+    private static String getMapToString(Map<String,String> map)
+    {
+        Set<String> keySet = map.keySet();
+        //将set集合转换为数组
+        String[] keyArray = keySet.toArray(new String[keySet.size()]);
+        //给数组排序(升序)
+        Arrays.sort(keyArray);
+        //因为String拼接效率会很低的，所以转用StringBuilder。博主会在这篇博文发后不久，会更新一篇String与StringBuilder开发时的抉择的博文。
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < keyArray.length; i++) {
+            // 参数值为空，则不参与签名 这个方法trim()是去空格
+            if (map.get(keyArray[i]).trim().length() > 0) {
+                sb.append(keyArray[i]).append("=").append(map.get(keyArray[i]).trim());
+            }
+            if(i != keyArray.length-1){
+                sb.append("&");
+            }
+        }
+        return sb.toString();
     }
 }
