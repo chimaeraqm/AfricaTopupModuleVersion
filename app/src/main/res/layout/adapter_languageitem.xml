@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline10"
         app:layout_constraintTop_toTopOf="@+id/cb_flag" />
 
-    <com.crazydwarf.africatopup.view.SmoothCheckBox
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/cb_flag"
         android:layout_width="24dp"
         android:layout_height="24dp"

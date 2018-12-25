@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
-import com.crazydwarf.africatopup.view.SmoothCheckBox;
+import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
 public class LoginDialog extends Dialog
 {

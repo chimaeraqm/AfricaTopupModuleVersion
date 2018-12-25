@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chimaeraqm.module_wechatpay" >
+    <application>
+        <activity
+            android:name=".WechatpayModuleActivity"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
+</manifest>

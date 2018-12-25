@@ -48,7 +48,7 @@
         app:layout_constraintGuide_begin="20dp"
         app:layout_constraintGuide_percent="0.5"/>
 
-    <com.crazydwarf.africatopup.view.SmoothCheckBox
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/cb_localphone1"
         android:layout_width="24dp"
         android:layout_height="24dp"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toStartOf="@+id/textView15"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-    <com.crazydwarf.africatopup.view.SmoothCheckBox
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/cb_localphone2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
         app:layout_constraintStart_toStartOf="@+id/textView36"
         app:layout_constraintTop_toTopOf="@+id/cb_otherphone" />
 
-    <com.crazydwarf.africatopup.view.SmoothCheckBox
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/cb_otherphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

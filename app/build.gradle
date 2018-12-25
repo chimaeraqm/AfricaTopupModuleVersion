@@ -25,8 +25,12 @@ android {
 
 dependencies {
     implementation project(':comm_library')
-    if(!Boolean.valueOf(rootProject.ext.isModule))
+    if(!Boolean.valueOf(rootProject.ext.isModule_Alipay))
     {
         implementation project(':module_alipay')
+    }
+    if(!Boolean.valueOf(rootProject.ext.isModule_Wechatpay))
+    {
+        implementation project(':module_wechatpay')
     }
 }

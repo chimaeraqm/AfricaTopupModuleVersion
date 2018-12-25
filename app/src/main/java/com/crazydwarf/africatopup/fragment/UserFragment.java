@@ -15,7 +15,7 @@ import com.crazydwarf.africatopup.activity.HistoryActivity;
 import com.crazydwarf.africatopup.dialog.DepositDetailDialog;
 import com.crazydwarf.africatopup.dialog.LoginDialog;
 import com.crazydwarf.africatopup.dialog.LogupDialog;
-import com.crazydwarf.africatopup.view.SmoothCheckBox;
+import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
 public class UserFragment extends Fragment
 {

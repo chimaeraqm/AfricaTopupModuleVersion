@@ -1,4 +1,4 @@
-if (Boolean.valueOf(rootProject.ext.isModule_Alipay)) {
+if (Boolean.valueOf(rootProject.ext.isModule_Wechatpay)) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -28,7 +28,7 @@ android {
 
     sourceSets{
         main{
-            if (Boolean.valueOf(rootProject.ext.isModule_Alipay)) {
+            if (Boolean.valueOf(rootProject.ext.isModule_Wechatpay)) {
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
@@ -39,9 +39,10 @@ android {
             }
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':comm_library')
+    api project(path: ':comm_library')
 }

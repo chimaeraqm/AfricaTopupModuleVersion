@@ -1,7 +1,6 @@
 package com.crazydwarf.africatopup.view;
 
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
 import java.util.ArrayList;
 import java.util.List;

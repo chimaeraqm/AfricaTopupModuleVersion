@@ -1,14 +1,13 @@
-package com.crazydwarf.africatopup.activity;
+package com.chimaeraqm.module_wechatpay;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 
-import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.view.SimpleToolBar;
+import com.crazydwarf.chimaeraqm.module_wechatpay.R;
 import com.crazydwarf.comm_library.activity.BaseActivity;
+import com.crazydwarf.comm_library.view.SimpleToolBar;
 
 public class RechargeWeActivity extends BaseActivity
 {
@@ -29,8 +28,8 @@ public class RechargeWeActivity extends BaseActivity
         bnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RechargeWeActivity.this,HistoryActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(RechargeWeActivity.this,HistoryActivity.class);
+//                startActivity(intent);
             }
         });
 

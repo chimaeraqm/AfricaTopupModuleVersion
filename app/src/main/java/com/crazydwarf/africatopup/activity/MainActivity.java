@@ -16,8 +16,8 @@ import com.crazydwarf.africatopup.dialog.LanguageSelectDialog;
 import com.crazydwarf.africatopup.fragment.QueryFragment;
 import com.crazydwarf.africatopup.fragment.RechargeFragment;
 import com.crazydwarf.africatopup.fragment.UserFragment;
-import com.crazydwarf.africatopup.view.SimpleToolBar;
 import com.crazydwarf.comm_library.activity.BaseActivity;
+import com.crazydwarf.comm_library.view.SimpleToolBar;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -164,7 +164,7 @@
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-    <com.crazydwarf.africatopup.view.SmoothCheckBox
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/cb_recent1m"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -185,7 +185,7 @@
         app:layout_constraintStart_toEndOf="@+id/cb_recent1m"
         app:layout_constraintTop_toTopOf="@+id/cb_recent1m" />
 
-    <com.crazydwarf.africatopup.view.SmoothCheckBox
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/cb_recent3m"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -207,7 +207,7 @@
         app:layout_constraintStart_toEndOf="@+id/cb_recent3m"
         app:layout_constraintTop_toTopOf="@+id/cb_recent1m" />
 
-    <com.crazydwarf.africatopup.view.SmoothCheckBox
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/cb_recent6m"
         android:layout_width="20dp"
         android:layout_height="20dp"

@@ -8,7 +8,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.view.SimpleToolBar;
+import com.crazydwarf.comm_library.view.SimpleToolBar;
 
 public class TxtDisplayActivity extends AppCompatActivity
 {

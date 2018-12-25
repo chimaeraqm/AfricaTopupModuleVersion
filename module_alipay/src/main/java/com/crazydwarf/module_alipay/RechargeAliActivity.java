@@ -119,7 +119,7 @@ public class RechargeAliActivity extends BaseActivity
         //用于alipay沙箱支付测试
         EnvUtils.setEnv(EnvUtils.EnvEnum.SANDBOX);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recharge_ali);
+        setContentView(R.layout.activity_recharge_ali_recreate);
 
         //test for sending encoded md5 request string
         sendOrderRequestMD5("supersmashbros","99.99");
@@ -432,11 +432,16 @@ public class RechargeAliActivity extends BaseActivity
     keyValues.put("price", request_price);
     keyValues.put("key", key);
     keyValues.put("timestamp", sim);
-    keyValues.put("secret",secret);
 
-    String keyValues_str = getMapToString(keyValues);
+    //getMapToString中包含数组排序的操作
+    StringBuilder keyValues_sb = getMapToString(keyValues);
 
-    String keyValues_str_md5 = EncoderByMd5(keyValues_str);
+    StringBuilder keyValues_add_secret_sb = keyValues_sb.append(secret);
+    String keyValues_add_secret_str = keyValues_add_secret_sb.toString();
+    StringBuilder keyValues_md5_sb = EncoderByMd5(keyValues_add_secret_str);
+    StringBuilder request_url_sb = keyValues_md5_sb.insert(0,"/");
+    request_url_sb.insert(0,ORDER_REQUEST_URL);
+    String request_url_str = request_url_sb.toString();
 
     RequestBody requestBody = new FormBody.Builder()
             .add("uid",request_uid)
@@ -474,13 +479,17 @@ public class RechargeAliActivity extends BaseActivity
 }
 
     //MD5 加密
-    private static String EncoderByMd5(String str)
+    private static StringBuilder EncoderByMd5(String str)
     {
         try{
-            MessageDigest md5 = MessageDigest.getInstance("md5");//返回实现指定摘要算法的 MessageDigest 对象。
-            md5.update(str.getBytes());//先将字符串转换成byte数组，再用byte 数组更新摘要
-            byte[] nStr = md5.digest();//哈希计算，即加密
-            return bytes2Hex(nStr);//加密的结果是byte数组，将byte数组转换成字符串
+            //返回实现指定摘要算法的MessageDigest对象
+            MessageDigest md5 = MessageDigest.getInstance("md5");
+            //先将字符串转换成byte数组，再用byte数组更新摘要
+            md5.update(str.getBytes());
+            //哈希计算，即加密
+            byte[] nStr = md5.digest();
+            //加密的结果是byte数组，将byte数组转换成StringBuilder
+            return bytes2Hex(nStr);
         }
         catch (NoSuchAlgorithmException e)
         {
@@ -489,30 +498,34 @@ public class RechargeAliActivity extends BaseActivity
         return null;
     }
 
-    //将加密的byte转换成String
-    private static String bytes2Hex(byte[] bts) {
-        String des = "";
+    //将加密的byte转换成StringBuilder
+    private static StringBuilder bytes2Hex(byte[] bts) {
+        StringBuilder des = new StringBuilder();
         String tmp = null;
 
-        for (int i = 0; i < bts.length; i++) {
+        for (int i = 0; i < bts.length; i++)
+        {
             tmp = (Integer.toHexString(bts[i] & 0xFF));
-            if (tmp.length() == 1) {
-                des += "0";
+            if (tmp.length() == 1)
+            {
+//                des += "0";
+                des.append("0");
             }
-            des += tmp;
+//            des += tmp;
+            des.append(tmp);
         }
         return des;
     }
 
     //convert values in map to String
-    private static String getMapToString(Map<String,String> map)
+    private static StringBuilder getMapToString(Map<String,String> map)
     {
         Set<String> keySet = map.keySet();
         //将set集合转换为数组
         String[] keyArray = keySet.toArray(new String[keySet.size()]);
         //给数组排序(升序)
         Arrays.sort(keyArray);
-        //因为String拼接效率会很低的，所以转用StringBuilder。博主会在这篇博文发后不久，会更新一篇String与StringBuilder开发时的抉择的博文。
+        //因为String拼接效率会很低的，所以转用StringBuilder
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < keyArray.length; i++) {
             // 参数值为空，则不参与签名 这个方法trim()是去空格
@@ -523,6 +536,7 @@ public class RechargeAliActivity extends BaseActivity
                 sb.append("&");
             }
         }
-        return sb.toString();
+        sb.append("&");
+        return sb;
     }
 }

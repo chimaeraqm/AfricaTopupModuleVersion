@@ -11,9 +11,9 @@ import android.widget.Toast;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.dialog.HistoryDetailDialog;
 import com.crazydwarf.africatopup.view.HistoryItemAdapter;
-import com.crazydwarf.africatopup.view.SimpleToolBar;
-import com.crazydwarf.africatopup.view.SmoothCheckBox;
 import com.crazydwarf.comm_library.activity.BaseActivity;
+import com.crazydwarf.comm_library.view.SimpleToolBar;
+import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
 public class HistoryActivity extends BaseActivity
 {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.crazydwarf.africatopup.view.SmoothCheckBox
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/cb_sele_confirm"
         android:layout_width="24dp"
         android:layout_height="24dp"
