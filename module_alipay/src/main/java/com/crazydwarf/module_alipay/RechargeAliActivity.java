@@ -21,6 +21,7 @@ import com.alipay.sdk.app.PayTask;
 import com.crazydwarf.chimaeraqm.module_alipay.R;
 import com.crazydwarf.comm_library.Objects.User;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
+import com.crazydwarf.module_alipay.AlipayUtil.OrderInfoUtil2_0;
 import com.crazydwarf.module_alipay.AlipayUtil.PayResult;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.google.gson.Gson;
@@ -178,18 +179,24 @@ public class RechargeAliActivity extends BaseActivity
 
     private void payProcess(final String ori_OrderInfo)
     {
-//本地生成orderinfo
-/*
-        boolean rsa2 = (RSA2_PRIVATE.length() > 0);
-        Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, rsa2);
-        String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
-        String privateKey = rsa2 ? RSA2_PRIVATE : RSA_PRIVATE;
-        String sign = OrderInfoUtil2_0.getSign(params, privateKey, rsa2);
 
-        String orderInfo1 = orderParam + "&" + sign;
-        Log.i("orderInfo", ori_OrderInfo);//打印一下看看对不对
-*/
+        //本地生成orderinfo
+//        boolean rsa2 = (RSA2_PRIVATE.length() > 0);
+//        Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, rsa2);
+//        String orderParam = OrderInfoUtil2_0.buildOrderParam(params);
+//        String privateKey = rsa2 ? RSA2_PRIVATE : RSA_PRIVATE;
+//        String sign = OrderInfoUtil2_0.getSign(params, privateKey, rsa2);
+//
+//        final String orderInfo1 = orderParam + "&" + sign;
+//        Log.i("orderInfo", ori_OrderInfo);//打印一下看看对不对
 
+        //server发来的orderinfo 会比本地生成的多下面一段，这一段不能删，会影响alipay验签
+        String checkString = "alipay_sdk=alipay-sdk-php-20180705&";
+
+//        int pos = ori_OrderInfo.indexOf(checkString);
+//        if(pos > -1)
+//            ori_OrderInfo = ori_OrderInfo.substring(pos+checkString.length(),ori_OrderInfo.length());
+//        final String res_OrderInfo = ori_OrderInfo;
         Runnable payRunnable = new Runnable()
         {
             @Override
@@ -411,75 +418,77 @@ public class RechargeAliActivity extends BaseActivity
     }
 
     void sendOrderRequestMD5(final String request_uid, String request_price)
-{
-    String key = "c4c4c4c4c4c4c4c4c4c4c4c4";
-    String secret = "282828282828282828282828";
+    {
+        String key = "c4c4c4c4c4c4c4c4c4c4c4c4";
+        String secret = "282828282828282828282828";
 
-    Date date = new Date();
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    String sim = dateFormat.format(date);
+        Date date = new Date();
+        long timestamp = System.currentTimeMillis()/1000;
+        String timestamp_str = String.valueOf(timestamp);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String sim = dateFormat.format(date);
 
-    //sorted for alphabeta in treemap according to key
-    Map<String, String> keyValues = new TreeMap<String, String>(
-            new Comparator<String>() {
-                @Override
-                public int compare(String o1, String o2) {
-                    return o1.compareTo(o2);
+        //sorted for alphabeta in treemap according to key
+        Map<String, String> keyValues = new TreeMap<String, String>(
+                new Comparator<String>() {
+                    @Override
+                    public int compare(String o1, String o2) {
+                        return o1.compareTo(o2);
+                    }
                 }
-            }
-    );
-    keyValues.put("uid", request_uid);
-    keyValues.put("price", request_price);
-    keyValues.put("key", key);
-    keyValues.put("timestamp", sim);
+        );
+        keyValues.put("uid", request_uid);
+        keyValues.put("price", request_price);
+        keyValues.put("key", key);
+        keyValues.put("timestamp", timestamp_str);
 
-    //getMapToString中包含数组排序的操作
-    StringBuilder keyValues_sb = getMapToString(keyValues);
+        //getMapToString中包含数组排序的操作
+        StringBuilder keyValues_sb = getMapToString(keyValues);
 
-    StringBuilder keyValues_add_secret_sb = keyValues_sb.append(secret);
-    String keyValues_add_secret_str = keyValues_add_secret_sb.toString();
-    StringBuilder keyValues_md5_sb = EncoderByMd5(keyValues_add_secret_str);
-    StringBuilder request_url_sb = keyValues_md5_sb.insert(0,"/");
-    request_url_sb.insert(0,ORDER_REQUEST_URL);
-    String request_url_str = request_url_sb.toString();
+        StringBuilder keyValues_add_secret_sb = keyValues_sb.append(secret);
+        String keyValues_add_secret_str = keyValues_add_secret_sb.toString();
+        String keyValues_md5_str = EncoderByMd5(keyValues_add_secret_str);
 
-    RequestBody requestBody = new FormBody.Builder()
-            .add("uid",request_uid)
-            .add("price",request_price)
-            .build();
-    OkHttpClient okHttpClient = new OkHttpClient();
-    Request request = new Request.Builder()
-            .url(ORDER_REQUEST_URL)
-            .post(requestBody)
-            .build();
+        RequestBody requestBody = new FormBody.Builder()
+                .add("uid",request_uid)
+                .add("price",request_price)
+                .add("key",key)
+                .add("timestamp",timestamp_str)
+                .add("sign",keyValues_md5_str)
+                .build();
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(ORDER_REQUEST_URL)
+                .post(requestBody)
+                .build();
 
-    Call call = okHttpClient.newCall(request);
-    call.enqueue(new Callback() {
-        @Override
-        public void onFailure(Call call, IOException e)
-        {
-            runOnUiThread(new Runnable()
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e)
             {
-                @Override
-                public void run()
+                runOnUiThread(new Runnable()
                 {
-                    Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
-                }
-            });
-            e.printStackTrace();
-        }
+                    @Override
+                    public void run()
+                    {
+                        Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                e.printStackTrace();
+            }
 
-        @Override
-        public void onResponse(Call call, Response response) throws IOException
-        {
-            String str = response.body().string();
-            payProcess(str);
-        }
-    });
-}
+            @Override
+            public void onResponse(Call call, Response response) throws IOException
+            {
+                String str = response.body().string();
+                payProcess(str);
+            }
+        });
+    }
 
     //MD5 加密
-    private static StringBuilder EncoderByMd5(String str)
+    private static String EncoderByMd5(String str)
     {
         try{
             //返回实现指定摘要算法的MessageDigest对象
@@ -498,9 +507,9 @@ public class RechargeAliActivity extends BaseActivity
         return null;
     }
 
-    //将加密的byte转换成StringBuilder
-    private static StringBuilder bytes2Hex(byte[] bts) {
-        StringBuilder des = new StringBuilder();
+    //将加密的byte转换成String
+    private static String bytes2Hex(byte[] bts) {
+        String des = "";
         String tmp = null;
 
         for (int i = 0; i < bts.length; i++)
@@ -508,11 +517,9 @@ public class RechargeAliActivity extends BaseActivity
             tmp = (Integer.toHexString(bts[i] & 0xFF));
             if (tmp.length() == 1)
             {
-//                des += "0";
-                des.append("0");
+                des += "0";
             }
-//            des += tmp;
-            des.append(tmp);
+            des += tmp;
         }
         return des;
     }
@@ -536,7 +543,6 @@ public class RechargeAliActivity extends BaseActivity
                 sb.append("&");
             }
         }
-        sb.append("&");
         return sb;
     }
 }
