@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PhoneFixProject</string>
+
+
+    <string name="title_list">机型</string>
+    <string name="title_feequery">查询</string>
+    <string name="title_user">我的</string>
+</resources>

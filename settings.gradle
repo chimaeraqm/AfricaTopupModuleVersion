@@ -1,1 +1,1 @@
-include ':app', ':module_alipay', ':comm_library'
+include ':app', ':module_alipay', ':comm_library', ':module_wechatpay', ':phonefixproject'

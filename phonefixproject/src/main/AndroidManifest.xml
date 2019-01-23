@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chimaeraqm.phonefixproject" >
+<application>
+    <activity
+        android:name=".MainActivity"
+        android:screenOrientation="portrait">
+    </activity>
+</application>
+</manifest>

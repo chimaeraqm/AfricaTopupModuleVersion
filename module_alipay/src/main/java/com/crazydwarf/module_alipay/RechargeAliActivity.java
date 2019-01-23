@@ -123,7 +123,7 @@ public class RechargeAliActivity extends BaseActivity
         setContentView(R.layout.activity_recharge_ali_recreate);
 
         //test for sending encoded md5 request string
-        sendOrderRequestMD5("supersmashbros","99.99");
+        //sendOrderRequestMD5("supersmashbros","99.99");
 
         //动态获取权限
         requestPermission();

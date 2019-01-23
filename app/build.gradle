@@ -33,4 +33,8 @@ dependencies {
     {
         implementation project(':module_wechatpay')
     }
+    if(!Boolean.valueOf(rootProject.ext.isModule_Phonefix))
+    {
+        implementation project(':phonefixproject')
+    }
 }
