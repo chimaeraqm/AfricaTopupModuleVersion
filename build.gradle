@@ -10,6 +10,9 @@ buildscript {
     ext {
         isModule_Alipay = true
         isModule_Wechatpay = true
+
+
+        isModule_Phonefix = true
     }
 
     repositories {

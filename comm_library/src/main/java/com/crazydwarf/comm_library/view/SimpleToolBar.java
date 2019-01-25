@@ -29,6 +29,8 @@ public class SimpleToolBar extends Toolbar
     /**
      * related setting params
      */
+    private Drawable mBackground;
+
     private String mTitle;
     private int mTitleSize;
     private int mTitleColor;
@@ -67,6 +69,8 @@ public class SimpleToolBar extends Toolbar
         setWillNotDraw(false);
         this.mContext = context;
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SimpleToolBar);
+        mBackground = typedArray.getDrawable(R.styleable.SimpleToolBar_viewBackground);
+
         mTitle = typedArray.getString(R.styleable.SimpleToolBar_title);
         mTitleSize = typedArray.getDimensionPixelSize(R.styleable.SimpleToolBar_titleSize,0);
         mTitleColor = typedArray.getColor(R.styleable.SimpleToolBar_titleColor, Color.WHITE);
@@ -92,6 +96,9 @@ public class SimpleToolBar extends Toolbar
     private void initView()
     {
         LayoutInflater.from(mContext).inflate(R.layout.simpletoolbar,this,true);
+
+        setBackground(mBackground);
+
         mTextView_Title = findViewById(R.id.tv_title);
         mTextView_Title.setText(mTitle);
         mTextView_Title.setTextSize(TypedValue.COMPLEX_UNIT_PX ,mTitleSize);
@@ -198,6 +205,10 @@ public class SimpleToolBar extends Toolbar
         float top = mImageView_AppIcon.getPaddingTop() + (availableHeight - sideLength) / 2f;
 
         return new RectF(left, top, left + sideLength, top + sideLength);
+    }
+
+    public void setmBackground(Drawable mBackground) {
+        this.mBackground = mBackground;
     }
 
     public void setmTextView_Title(TextView mTextView_Title) {

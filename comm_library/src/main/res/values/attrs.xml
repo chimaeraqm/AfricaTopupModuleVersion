@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="SimpleToolBar">
+
+        <attr name="viewBackground" format="reference"/>
+
         <attr name="title" format="string"/>
         <attr name="titleSize" format="dimension"/>
         <attr name="titleColor" format="color"/>
