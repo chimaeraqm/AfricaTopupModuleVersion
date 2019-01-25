@@ -118,12 +118,12 @@ public class RechargeAliActivity extends BaseActivity
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         //用于alipay沙箱支付测试
-        EnvUtils.setEnv(EnvUtils.EnvEnum.SANDBOX);
+        //EnvUtils.setEnv(EnvUtils.EnvEnum.SANDBOX);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recharge_ali_recreate);
 
         //test for sending encoded md5 request string
-        sendOrderRequestMD5("supersmashbros","99.99");
+        sendOrderRequestMD5("supersmashbros","0.01");
 
         //动态获取权限
         requestPermission();
@@ -174,7 +174,7 @@ public class RechargeAliActivity extends BaseActivity
          * orderInfo 的获取必须来自服务端；
          */
 
-        sendOrderRequest("supersmashbros","99.99");
+        sendOrderRequest("supersmashbros","0.01");
     }
 
     private void payProcess(final String ori_OrderInfo)
