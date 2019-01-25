@@ -43,15 +43,21 @@ public class ListFragment extends Fragment
         //初始化时选择第一个Egypt
         final TypedArray operatorArray = getActivity().getResources().obtainTypedArray(R.array.operator_egypt_20);
 
-        String[] phonetypes = {"HUAWEI Mate20 X","HUAWEI Mate20 Pro","HUAWEI Mate20 Pro(UD)","HUAWEI Mate20",
-                "HUAWEI Mate10 Pro","HUAWEI P20 Pro","HUAWEI P20",
-                "HUAWEI Mate20 X","HUAWEI Mate20 Pro","HUAWEI Mate20 Pro(UD)","HUAWEI Mate20",
-                "HUAWEI Mate10 Pro","HUAWEI P20 Pro","HUAWEI P20",};
-        Integer[] ids = {R.drawable.hw_mate20_x,R.drawable.hw_mate20_pro,R.drawable.hw_mate20_pro_ud,R.drawable.hw_mate20,
-                R.drawable.hw_mate10,R.drawable.hw_p20_pro,R.drawable.hw_p20,
-                R.drawable.hw_mate20_x,R.drawable.hw_mate20_pro,R.drawable.hw_mate20_pro_ud,R.drawable.hw_mate20,
-                R.drawable.hw_mate10,R.drawable.hw_p20_pro,R.drawable.hw_p20,};
-        TypesAdapter typesAdapter = new TypesAdapter(phonetypes,ids,200,R.color.colorTrans);
+        String[] phonetypes = {"价位6000元以上机型","价位6000元及以上机型","价位6000元及以上机型",
+                "价位5000~6000元机型", "价位5000~6000元机型",
+                "价位4000~5000元机型","价位4000~5000元机型",
+                "价位3000~4000元机型","价位3000~4000元机型",
+                "价位2000~3000元机型","价位2000~3000元机型","价位2000~3000元机型",
+                "价位1000~2000元机型",
+                "价位1000元以下机型",};
+        Integer[] ids = {R.drawable.huawei_mate20_pro,R.drawable.huawei_mate20_pro_ud,R.drawable.huawei_mate20_pro,
+                R.drawable.huawei_mate20, R.drawable.huawei_p20_pro,
+                R.drawable.huawei_p20,R.drawable.huawei_mate10_pro,
+                R.drawable.huawei_nova4,R.drawable.huawei_nova3,
+                R.drawable.huawei_nova3i, R.drawable.huawei_cx9p, R.drawable.huawei_cxmax,
+                R.drawable.huawei_cx9,
+                R.drawable.huawei_cx8e};
+        TypesAdapter typesAdapter = new TypesAdapter(phonetypes,ids,200,R.color.colorBlue);
         mRecyclerview.setAdapter(typesAdapter);
     }
 }

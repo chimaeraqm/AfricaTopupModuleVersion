@@ -6,8 +6,11 @@
     <application
         android:name="com.crazydwarf.comm_library.activity.BaseApplication"
         android:allowBackup="true"
-        android:label="@string/app_name"
-        android:theme="@style/CurrentAppTheme">
+        android:label="@string/phonefix_app_name"
+        android:theme="@style/CurrentAppTheme"
+        android:icon="@drawable/app_icon_rb"
+        android:roundIcon="@drawable/app_icon_rb_round"
+        android:supportsRtl="true">
         <activity
             android:name="com.chimaeraqm.phonefixproject.MainActivity"
             android:screenOrientation="portrait">

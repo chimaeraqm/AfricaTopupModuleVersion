@@ -1,6 +1,7 @@
 package com.chimaeraqm.phonefixproject.fragments;
 
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -40,15 +41,14 @@ public class FeeQueryFragment extends Fragment
         mRecyclerview.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
 
         //初始化时选择第一个Egypt
-        String[] phonetypes = {"HUAWEI Mate20 Pro系列","HUAWEI Mate20系列","HUAWEI P20系列",
-                "iPhone Xs Max系列","iPhone Xs系列","iPhone Xr系列","iPhone X系列",
-                "iPhone 8系列","iPhone 7系列"};
-        Integer[] ids = new Integer[9];
+        String[] phonetypes = {"价位6000元以上机型","价位5000~6000元机型","价位4000~5000元机型",
+                "价位3000~4000元机型","价位2000~3000元机型","价位1000~2000元机型","价位1000元以下机型"};
+        Integer[] ids = new Integer[7];
         for(int i=0;i<phonetypes.length;i++)
         {
             ids[i] = R.color.colorWhite;
         }
-        TypesAdapter typesAdapter = new TypesAdapter(phonetypes,ids,80,R.color.colorBlack);
+        TypesAdapter typesAdapter = new TypesAdapter(phonetypes,ids,60, Color.BLACK);
         mRecyclerview.setAdapter(typesAdapter);
     }
 }

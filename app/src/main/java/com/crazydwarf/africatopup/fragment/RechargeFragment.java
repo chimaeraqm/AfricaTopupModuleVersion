@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.chimaeraqm.module_wechatpay.RechargeWeActivity;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.africatopup.dialog.CountrySelectDialog;

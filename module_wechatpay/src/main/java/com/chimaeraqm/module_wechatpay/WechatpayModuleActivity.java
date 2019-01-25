@@ -4,7 +4,6 @@ package com.chimaeraqm.module_wechatpay;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.crazydwarf.chimaeraqm.module_wechatpay.R;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 
 public class WechatpayModuleActivity extends BaseActivity

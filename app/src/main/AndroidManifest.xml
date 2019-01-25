@@ -26,9 +26,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.crazydwarf.module_alipay.RechargeAliActivity"
-            android:screenOrientation="portrait">
-        </activity>
 
         <activity android:name=".activity.BundleActivity"
             android:screenOrientation="portrait"
@@ -44,7 +41,11 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.RechargeWeActivity"
+        <activity android:name="com.chimaeraqm.module_wechatpay.RechargeWeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name="com.crazydwarf.module_alipay.RechargeAliActivity"
             android:screenOrientation="portrait">
         </activity>
 

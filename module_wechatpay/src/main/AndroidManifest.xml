@@ -2,7 +2,7 @@
     package="com.chimaeraqm.module_wechatpay" >
     <application>
         <activity
-            android:name=".WechatpayModuleActivity"
+            android:name="com.crazydwarf.module_wechatpay.RechargeWeActivity"
             android:screenOrientation="portrait">
         </activity>
     </application>

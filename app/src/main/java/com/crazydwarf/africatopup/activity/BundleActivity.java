@@ -10,11 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.chimaeraqm.module_wechatpay.RechargeWeActivity;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.dialog.AddNumberDialog;
 import com.crazydwarf.africatopup.view.BundleItemAdapter;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
+import com.crazydwarf.module_alipay.RechargeAliActivity;
 
 public class BundleActivity extends BaseActivity
 {

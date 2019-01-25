@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">PhoneFixProject</string>
-
+    <string name="phonefix_app_name">手机维修铺</string>
 
     <string name="title_list">机型</string>
     <string name="title_feequery">查询</string>

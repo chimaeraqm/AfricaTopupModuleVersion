@@ -22,7 +22,7 @@
         app:menuIconShow="false"
         app:menuIcon = "@drawable/ic_format_list_bulleted_black_32dp"
         app:mentIconSize = "32dp"
-        app:title="CellPhoneRepair"
+        app:title="@string/phonefix_app_name"
         app:titleColor="@color/colorBlack"
         app:titleSize="20sp"/>
 

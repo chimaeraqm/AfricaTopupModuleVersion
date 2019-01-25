@@ -1,5 +1,6 @@
 package com.chimaeraqm.phonefixproject.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -45,7 +46,7 @@ public class UserFragment extends Fragment
         {
             ids[i] = R.color.colorWhite;
         }
-        TypesAdapter typesAdapter = new TypesAdapter(phonetypes,ids,80,R.color.colorBlack);
+        TypesAdapter typesAdapter = new TypesAdapter(phonetypes,ids,60, Color.BLACK);
         mRecyclerview.setAdapter(typesAdapter);
     }
 }

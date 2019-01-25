@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
 import java.util.List;
 
