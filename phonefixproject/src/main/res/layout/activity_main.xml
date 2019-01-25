@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlack"
     tools:context=".MainActivity">
 
 
@@ -12,6 +11,7 @@
         android:id="@+id/top_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:viewBackground="@color/colorWhite"
         app:appIcon="@drawable/app_icon_rb_round"
         app:appIconShow="true"
         app:appIconSize="36dp"
@@ -30,6 +30,7 @@
         android:id="@+id/view_fragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

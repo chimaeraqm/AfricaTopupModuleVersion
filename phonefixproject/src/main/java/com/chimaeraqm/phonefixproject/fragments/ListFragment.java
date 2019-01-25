@@ -43,14 +43,15 @@ public class ListFragment extends Fragment
         //初始化时选择第一个Egypt
         final TypedArray operatorArray = getActivity().getResources().obtainTypedArray(R.array.operator_egypt_20);
 
-        String[] phonetypes = new String[20];
-        Integer[] ids = new Integer[20];
-        for(int i=0;i<phonetypes.length;i++)
-        {
-            phonetypes[i] = operatorArray.getString(i);
-            ids[i] = R.drawable.drawerheader_w800;
-        }
-        TypesAdapter typesAdapter = new TypesAdapter(phonetypes,ids);
+        String[] phonetypes = {"HUAWEI Mate20 X","HUAWEI Mate20 Pro","HUAWEI Mate20 Pro(UD)","HUAWEI Mate20",
+                "HUAWEI Mate10 Pro","HUAWEI P20 Pro","HUAWEI P20",
+                "HUAWEI Mate20 X","HUAWEI Mate20 Pro","HUAWEI Mate20 Pro(UD)","HUAWEI Mate20",
+                "HUAWEI Mate10 Pro","HUAWEI P20 Pro","HUAWEI P20",};
+        Integer[] ids = {R.drawable.hw_mate20_x,R.drawable.hw_mate20_pro,R.drawable.hw_mate20_pro_ud,R.drawable.hw_mate20,
+                R.drawable.hw_mate10,R.drawable.hw_p20_pro,R.drawable.hw_p20,
+                R.drawable.hw_mate20_x,R.drawable.hw_mate20_pro,R.drawable.hw_mate20_pro_ud,R.drawable.hw_mate20,
+                R.drawable.hw_mate10,R.drawable.hw_p20_pro,R.drawable.hw_p20,};
+        TypesAdapter typesAdapter = new TypesAdapter(phonetypes,ids,200,R.color.colorTrans);
         mRecyclerview.setAdapter(typesAdapter);
     }
 }
