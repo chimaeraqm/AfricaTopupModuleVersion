@@ -11,10 +11,10 @@ import android.widget.Button;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.activity.BundleActivity;
-import com.crazydwarf.africatopup.activity.HistoryActivity;
 import com.crazydwarf.africatopup.dialog.DepositDetailDialog;
 import com.crazydwarf.africatopup.dialog.LoginDialog;
 import com.crazydwarf.africatopup.dialog.LogupDialog;
+import com.crazydwarf.comm_library.activity.HistoryActivity;
 import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
 public class UserFragment extends Fragment
