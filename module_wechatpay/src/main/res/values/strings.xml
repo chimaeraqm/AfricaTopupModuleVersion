@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">module_wechatpay</string>
+
+    <string name="errcode_success">发送成功</string>
+    <string name="errcode_cancel">发送取消</string>
+    <string name="errcode_deny">发送被拒绝</string>
+    <string name="errcode_unsupported">不支持错误</string>
+    <string name="errcode_unknown">发送返回</string>
+
+    <string name="send_text_default">这段文字发送自微信SDK示例程序</string>
+
 </resources>
