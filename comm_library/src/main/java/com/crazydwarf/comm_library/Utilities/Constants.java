@@ -13,8 +13,11 @@ public interface Constants
     String SELECTED_COUNTRY_RES = "selected_country_res";
     String SELECTED_COUNTRY_CODE = "selected_country_code";
 
-    public static final String WECHAT_APP_ID = "wxd930ea5d5a258f4f";
+    /**
+     * 获取权限使用的 RequestCode
+     */
+    public static final int PERMISSIONS_REQUEST_CODE = 1002;
 
-    public static final int WECHAT_PERMISSIONS_REQUEST_STORAGE = 1;
+    public final static int REQUEST_READ_PHONE_STATE = 1;
 
 }

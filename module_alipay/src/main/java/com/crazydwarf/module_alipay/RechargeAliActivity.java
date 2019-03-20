@@ -21,6 +21,8 @@ import com.alipay.sdk.app.EnvUtils;
 import com.alipay.sdk.app.PayTask;
 import com.crazydwarf.chimaeraqm.module_alipay.R;
 import com.crazydwarf.comm_library.Objects.User;
+import com.crazydwarf.comm_library.Utilities.Constants;
+import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.comm_library.activity.HistoryActivity;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
 import com.crazydwarf.module_alipay.AlipayUtil.OrderInfoUtil2_0;
@@ -128,7 +130,7 @@ public class RechargeAliActivity extends BaseActivity
         //sendOrderRequestMD5("supersmashbros","0.01");
 
         //动态获取权限
-        requestPermission();
+        UserUtil.requestPermission(this);
 
         SimpleToolBar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
@@ -156,14 +158,16 @@ public class RechargeAliActivity extends BaseActivity
             }
         });
         //测试服务器数据库INSERT功能
-        String func_name = "INSERT";
+        /*String func_name = "INSERT";
         String insert_name = "test3";
         String insert_pw = "vfbgnhmj";
-        String insert_info = "this is a insert test message";
+        String insert_info = "this is a insert test message";*/
         //sendInsertRequest(func_name,insert_name,insert_pw,insert_info);
 
+/*
         String request_name = "test2";
         String request_func = "SELECT_ALL";
+*/
 //        sendRequest(request_func,request_name);
 
     }
@@ -180,7 +184,7 @@ public class RechargeAliActivity extends BaseActivity
          *
          * orderInfo 的获取必须来自服务端；
          */
-        showToast(this, "Pay $0.01 to Target Alipay account.");
+        UserUtil.showToast(this, "Pay $0.01 to Target Alipay account.");
 //        sendOrderRequest("supersmashbros","0.01");
         sendOrderRequestMD5("supersmashbros","0.01");
     }
@@ -229,33 +233,6 @@ public class RechargeAliActivity extends BaseActivity
         Thread payThread = new Thread(payRunnable);
         payThread.start();
     }
-    /**
-     * 获取权限使用的 RequestCode
-     */
-    private static final int PERMISSIONS_REQUEST_CODE = 1002;
-
-    /**
-     * 检查支付宝 SDK 所需的权限，并在必要的时候动态获取。
-     * 在 targetSDK = 23 以上，READ_PHONE_STATE 和 WRITE_EXTERNAL_STORAGE 权限需要应用在运行时获取。
-     * 如果接入支付宝 SDK 的应用 targetSdk 在 23 以下，可以省略这个步骤。
-     */
-    private void requestPermission() {
-        // Here, thisActivity is the current activity
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
-                != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(this,
-                    new String[]{
-                            Manifest.permission.READ_PHONE_STATE,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    }, PERMISSIONS_REQUEST_CODE);
-
-        } else {
-            showToast(this, "支付宝 SDK 已有所需的权限");
-        }
-    }
 
     /**
      * 权限获取回调
@@ -263,166 +240,26 @@ public class RechargeAliActivity extends BaseActivity
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case PERMISSIONS_REQUEST_CODE: {
+            case Constants.PERMISSIONS_REQUEST_CODE: {
 
                 // 用户取消了权限弹窗
                 if (grantResults.length == 0) {
-                    showToast(this, "无法获取支付宝 SDK 所需的权限, 请到系统设置开启");
+                    UserUtil.showToast(this, "无法获取支付宝 SDK 所需的权限, 请到系统设置开启");
                     return;
                 }
 
                 // 用户拒绝了某些权限
                 for (int x : grantResults) {
                     if (x == PackageManager.PERMISSION_DENIED) {
-                        showToast(this, "无法获取支付宝 SDK 所需的权限, 请到系统设置开启");
+                        UserUtil.showToast(this, "无法获取支付宝 SDK 所需的权限, 请到系统设置开启");
                         return;
                     }
                 }
 
                 // 所需的权限均正常获取
-                showToast(this, "支付宝 SDK 所需的权限已经正常获取");
+                UserUtil.showToast(this, "支付宝 SDK 所需的权限已经正常获取");
             }
         }
-    }
-
-    private static void showToast(Context ctx, String msg) {
-        Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
-    }
-
-    void sendInsertRequest(final String func_name, String insert_name, String insert_pw, String insert_info)
-    {
-        RequestBody requestBody = new FormBody.Builder()
-                .add("func_name",func_name)
-                .add("username",insert_name)
-                .add("password",insert_pw)
-                .add("info",insert_info)
-                .build();
-        OkHttpClient okHttpClient = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url)
-                .post(requestBody)
-                .build();
-
-        Call call = okHttpClient.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                runOnUiThread(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String str = response.body().string();
-                double a = 0;
-            }
-        });
-    }
-
-    void sendRequest(final String request_func, String request_name)
-    {
-        RequestBody requestBody = new FormBody.Builder()
-                .add("func_name",request_func)
-                .add("username",request_name)
-                .build();
-        OkHttpClient okHttpClient = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(url)
-                .post(requestBody)
-                .build();
-
-        Call call = okHttpClient.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e)
-            {
-                runOnUiThread(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String str = response.body().string();
-                JsonObject jsonObject = new JsonParser().parse(str).getAsJsonObject();
-                JsonArray jsonArray = jsonObject.getAsJsonArray("result");
-                List<User> userList = new ArrayList<>();
-                for (JsonElement user : jsonArray) {
-                    User userBean = new Gson().fromJson(user, new TypeToken<User>(){}.getType());
-                    userList.add(userBean);
-                }
-
-                for (User user : userList) {
-                    Log.i("tag", "id : " + user.getId());
-                    Log.i("tag", "username : " + user.getUsername());
-                    Log.i("tag", "password : " + user.getPassword());
-                    Log.i("tag", "info : " + user.getInfo());
-                    Log.i("tag", "addtime : " + user.getAdd_time());
-                    Log.i("tag", "————————————————————");
-                }
-            }
-        });
-    }
-
-    void sendOrderRequest(final String request_uid, String request_price) {
-        RequestBody requestBody = new FormBody.Builder()
-                .add("uid", request_uid)
-                .add("price", request_price)
-                .build();
-        OkHttpClient okHttpClient = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(ORDER_REQUEST_URL)
-                .post(requestBody)
-                .build();
-
-        Call call = okHttpClient.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String str = response.body().string();
-                payProcess(str);
-//                JsonObject jsonObject = new JsonParser().parse(str).getAsJsonObject();
-//                JsonArray jsonArray = jsonObject.getAsJsonArray("result");
-//                List<User> userList = new ArrayList<>();
-//                for (JsonElement user : jsonArray) {
-//                    User userBean = new Gson().fromJson(user, new TypeToken<User>(){}.getType());
-//                    userList.add(userBean);
-//                }
-//
-//                for (User user : userList) {
-//                    Log.i("tag", "id : " + user.getId());
-//                    Log.i("tag", "username : " + user.getUsername());
-//                    Log.i("tag", "password : " + user.getPassword());
-//                    Log.i("tag", "info : " + user.getInfo());
-//                    Log.i("tag", "addtime : " + user.getAdd_time());
-//                    Log.i("tag", "————————————————————");
-//                }
-            }
-        });
     }
 
     void sendOrderRequestMD5(final String request_uid, String request_price)
@@ -553,4 +390,128 @@ public class RechargeAliActivity extends BaseActivity
         }
         return sb;
     }
+
+    /**
+     * 后面是测试代码
+     */
+    void sendInsertRequest(final String func_name, String insert_name, String insert_pw, String insert_info)
+    {
+        RequestBody requestBody = new FormBody.Builder()
+                .add("func_name",func_name)
+                .add("username",insert_name)
+                .add("password",insert_pw)
+                .add("info",insert_info)
+                .build();
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String str = response.body().string();
+                double a = 0;
+            }
+        });
+    }
+
+    void sendRequest(final String request_func, String request_name)
+    {
+        RequestBody requestBody = new FormBody.Builder()
+                .add("func_name",request_func)
+                .add("username",request_name)
+                .build();
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e)
+            {
+                runOnUiThread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String str = response.body().string();
+                JsonObject jsonObject = new JsonParser().parse(str).getAsJsonObject();
+                JsonArray jsonArray = jsonObject.getAsJsonArray("result");
+                List<User> userList = new ArrayList<>();
+                for (JsonElement user : jsonArray) {
+                    User userBean = new Gson().fromJson(user, new TypeToken<User>(){}.getType());
+                    userList.add(userBean);
+                }
+
+                for (User user : userList) {
+                    Log.i("tag", "id : " + user.getId());
+                    Log.i("tag", "username : " + user.getUsername());
+                    Log.i("tag", "password : " + user.getPassword());
+                    Log.i("tag", "info : " + user.getInfo());
+                    Log.i("tag", "addtime : " + user.getAdd_time());
+                    Log.i("tag", "————————————————————");
+                }
+            }
+        });
+    }
+
+    void sendOrderRequest(final String request_uid, String request_price) {
+        RequestBody requestBody = new FormBody.Builder()
+                .add("uid", request_uid)
+                .add("price", request_price)
+                .build();
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(ORDER_REQUEST_URL)
+                .post(requestBody)
+                .build();
+
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(RechargeAliActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String str = response.body().string();
+                payProcess(str);
+            }
+        });
+    }
+
 }

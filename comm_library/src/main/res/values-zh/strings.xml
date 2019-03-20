@@ -33,8 +33,8 @@
     <string name="string_country">国家</string>
     <string name="string_already_resgiter">已经注册？点击这里登录</string>
     <string name="string_language_chinese">中文</string>
-    <string name="string_language_english">英语</string>
-    <string name="string_language_french">法语</string>
+    <string name="string_language_english">English</string>
+    <string name="string_language_french">Français</string>
 
     <string name="string_add">添加</string>
     <string name="string_select_from_address">从通讯录选择</string>

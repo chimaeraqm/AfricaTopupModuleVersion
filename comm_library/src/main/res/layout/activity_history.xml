@@ -20,7 +20,9 @@
         app:menuIconShow="false"
         app:title="@string/string_order_record_query"
         app:titleColor="@color/colorBlack"
-        app:titleSize="20sp" />
+        app:titleSize="20sp"
+        app:viewBackground="@color/colorOrange"
+        />
 
     <TextView
         android:id="@+id/textView7"

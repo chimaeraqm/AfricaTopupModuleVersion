@@ -11,7 +11,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class WXPayUtils {
+public class WXPayUtils
+{
+
     private IWXAPI iwxapi; //微信支付api
 
     private WXPayBuilder builder;
@@ -136,7 +138,6 @@ public class WXPayUtils {
         Random random = new Random();
         return getMessageDigest(String.valueOf(random.nextInt(10000)).getBytes());
     }
-
 
     /**
      * 获取时间戳

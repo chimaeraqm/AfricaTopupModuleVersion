@@ -23,7 +23,9 @@
         app:mentIconSize = "32dp"
         app:title="@string/app_name"
         app:titleColor="@color/colorBlack"
-        app:titleSize="20sp"/>
+        app:titleSize="20sp"
+        app:viewBackground="@color/colorOrange"
+        />
 
     <FrameLayout
         android:id="@+id/view_fragment"

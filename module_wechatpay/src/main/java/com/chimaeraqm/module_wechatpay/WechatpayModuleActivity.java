@@ -13,7 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.crazydwarf.chimaeraqm.module_wechatpay.R;
 import com.crazydwarf.comm_library.Objects.User;
+import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.comm_library.Utilities.WXPayUtils;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.google.gson.Gson;
@@ -54,7 +56,7 @@ public class WechatpayModuleActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wechatpaymodule);
-        requestPermission();
+        UserUtil.requestPermission(this);
         payV2();
         Button bn = findViewById(R.id.btn2);
         bn.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +78,7 @@ public class WechatpayModuleActivity extends BaseActivity
          *
          * orderInfo 的获取必须来自服务端；
          */
-        showToast(this, "Pay $0.02 to Target Wechat account.");
+        UserUtil.showToast(this, "Pay $0.02 to Target Wechat account.");
 //        sendOrderRequest("supersmashbros","0.01");
         sendOrderRequestMD5("devilmaycry","0.02");
     }
@@ -166,10 +168,6 @@ public class WechatpayModuleActivity extends BaseActivity
         });
     }
 
-    private static void showToast(Context ctx, String msg) {
-        Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
-    }
-
     //convert values in map to String
     private static StringBuilder getMapToString(Map<String,String> map)
     {
@@ -190,35 +188,6 @@ public class WechatpayModuleActivity extends BaseActivity
             }
         }
         return sb;
-    }
-
-    /**
-     * 获取权限使用的 RequestCode
-     */
-    private static final int PERMISSIONS_REQUEST_CODE = 1002;
-
-
-    /**
-     * 检查支付宝 SDK 所需的权限，并在必要的时候动态获取。
-     * 在 targetSDK = 23 以上，READ_PHONE_STATE 和 WRITE_EXTERNAL_STORAGE 权限需要应用在运行时获取。
-     * 如果接入支付宝 SDK 的应用 targetSdk 在 23 以下，可以省略这个步骤。
-     */
-    private void requestPermission() {
-        // Here, thisActivity is the current activity
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
-                != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(this,
-                    new String[]{
-                            Manifest.permission.READ_PHONE_STATE,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    }, PERMISSIONS_REQUEST_CODE);
-
-        } else {
-            showToast(this, "Wechat SDK 已有所需的权限");
-        }
     }
 
     private String genTimeStampStr() {

@@ -20,7 +20,9 @@
         app:menuIconShow="false"
         app:title="@string/string_wechat_pay_order_confirm"
         app:titleColor="@color/colorBlack"
-        app:titleSize="20sp" />
+        app:titleSize="20sp"
+        app:viewBackground="@color/colorOrange"
+        />
 
     <TextView
         android:id="@+id/textView5"
@@ -134,7 +136,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_rechargeamount" />
 
     <Button
-        android:id="@+id/bn_recharge_ali"
+        android:id="@+id/bn_recharge_wx"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -157,9 +159,9 @@
         android:text="@string/string_invoice_business"
         android:textSize="14sp"
         android:textColor="@color/colorBlack"
-        app:layout_constraintEnd_toEndOf="@+id/bn_recharge_ali"
-        app:layout_constraintStart_toStartOf="@+id/bn_recharge_ali"
-        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_ali" />
+        app:layout_constraintEnd_toEndOf="@+id/bn_recharge_wx"
+        app:layout_constraintStart_toStartOf="@+id/bn_recharge_wx"
+        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_wx" />
 
     <Button
         android:id="@+id/bn_history"

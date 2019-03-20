@@ -160,18 +160,6 @@
         app:layout_constraintTop_toBottomOf="@+id/et_extranumber"
         app:srcCompat="@color/colorGray" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_ali"
-        app:srcCompat="@color/colorGray" />
-
     <EditText
         android:id="@+id/et_rechargeamount"
         android:layout_width="120dp"
@@ -245,7 +233,6 @@
         android:id="@+id/bn_recharge_we"
         android:layout_width="160dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:background="@drawable/shape_button3"
         android:padding="8dp"
@@ -253,8 +240,6 @@
         android:textColor="@color/colorWhite"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/bn_recharge_ali"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/bn_recharge_ali" />
 
@@ -263,16 +248,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/shape_button1"
         android:padding="8dp"
         android:text="@string/string_add_flow"
         android:textColor="@color/colorBlack"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/bn_recharge_ali"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_we" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -288,7 +273,7 @@
         android:text="@string/string_adv_placeholder"
         android:textSize="16sp"
         android:textColor="@color/colorWhite"
-        android:background="@color/colorBlue"
+        android:background="@color/colorOrange"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

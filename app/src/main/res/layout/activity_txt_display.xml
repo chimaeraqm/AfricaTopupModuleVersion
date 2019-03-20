@@ -20,7 +20,9 @@
         app:menuIconShow="false"
         app:title="@string/string_operator_expense"
         app:titleColor="@color/colorBlack"
-        app:titleSize="20sp" />
+        app:titleSize="20sp"
+        app:viewBackground="@color/colorOrange"
+        />
 
     <ScrollView
         android:layout_width="0dp"

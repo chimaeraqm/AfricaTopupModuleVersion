@@ -33,9 +33,9 @@
     <string name="string_number_quick_register">Quick Register\nwith SIM Number</string>
     <string name="string_country">Country</string>
     <string name="string_already_resgiter">Already Registered?\nClick Here to LOGIN.</string>
-    <string name="string_language_chinese">Chinese</string>
+    <string name="string_language_chinese">中文</string>
     <string name="string_language_english">English</string>
-    <string name="string_language_french">French</string>
+    <string name="string_language_french">Français</string>
 
     <string name="string_add">Add</string>
     <string name="string_select_from_address">Select from\nAddress Book</string>

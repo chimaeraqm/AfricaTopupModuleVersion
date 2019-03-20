@@ -32,8 +32,8 @@
     <string name="string_number_quick_register">Enregistrement rapide\navec votre numéro</string>
     <string name="string_country">Pays</string>
     <string name="string_already_resgiter">Déjà enregistré?\nCliquez ici pour se conneter.</string>
-    <string name="string_language_chinese">Chinois</string>
-    <string name="string_language_english">Anglais</string>
+    <string name="string_language_chinese">中文</string>
+    <string name="string_language_english">English</string>
     <string name="string_language_french">Français</string>
 
     <string name="string_add">Ajouter</string>

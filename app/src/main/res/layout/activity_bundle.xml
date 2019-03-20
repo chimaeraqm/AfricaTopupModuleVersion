@@ -19,7 +19,9 @@
         app:menuIconShow="false"
         app:title="@string/string_bundle_recharge"
         app:titleColor="@color/colorBlack"
-        app:titleSize="20sp" />
+        app:titleSize="20sp"
+        app:viewBackground="@color/colorOrange"
+        />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline8"
@@ -192,7 +194,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_ali"
+        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_wx"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:color/darker_gray" />
 
