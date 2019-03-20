@@ -19,6 +19,22 @@ android {
 
     }
 
+    signingConfigs {
+        release {
+
+            storeFile file("E:/jks_for_apps/normal.keystore")
+            storePassword "cad08cad"
+            keyAlias "normal"
+            keyPassword "cad08cad"
+        }
+        debug {
+            storeFile file("E:/jks_for_apps/normal.keystore")
+            storePassword "cad08cad"
+            keyAlias "normal"
+            keyPassword "cad08cad"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -45,5 +61,4 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(path: ':comm_library')
-    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
 }

@@ -12,4 +12,9 @@ public interface Constants
     String SELECTED_COUNTRY_POS = "selected_country_pos";
     String SELECTED_COUNTRY_RES = "selected_country_res";
     String SELECTED_COUNTRY_CODE = "selected_country_code";
+
+    public static final String WECHAT_APP_ID = "wxd930ea5d5a258f4f";
+
+    public static final int WECHAT_PERMISSIONS_REQUEST_STORAGE = 1;
+
 }

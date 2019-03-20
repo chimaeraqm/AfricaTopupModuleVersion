@@ -2,8 +2,21 @@
     package="com.chimaeraqm.module_wechatpay" >
     <application>
         <activity
-            android:name="com.crazydwarf.module_wechatpay.RechargeWeActivity"
+            android:name="com.chimaeraqm.module_wechatpay.RechargeWeActivity"
             android:screenOrientation="portrait">
         </activity>
+
+        <activity
+            android:name="com.chimaeraqm.module_wechatpay.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="wxb4737b9a4e5b24b4"/>
+            </intent-filter>
+
+        </activity>
+
     </application>
 </manifest>

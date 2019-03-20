@@ -1,15 +1,20 @@
 package com.chimaeraqm.module_wechatpay;
 
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
-import com.crazydwarf.chimaeraqm.module_wechatpay.R;
 import com.crazydwarf.comm_library.Objects.User;
+import com.crazydwarf.comm_library.Utilities.WXPayUtils;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -46,35 +51,15 @@ public class WechatpayModuleActivity extends BaseActivity
     private static final String ORDER_REQUEST_URL = "https://wx.dwarfworkshop.com/congo/wxAppPay.php";
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wechatpaymodule);
+        requestPermission();
         payV2();
-
-        //在服务端签名
-        findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
+        Button bn = findViewById(R.id.btn2);
+        bn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //假装请求了服务器 获取到了所有的数据,注意参数不能少
-                WXPayUtils.WXPayBuilder builder = new WXPayUtils.WXPayBuilder();
-                builder.setAppId("123")
-                        .setPartnerId("56465")
-                        .setPrepayId("41515")
-                        .setPackageValue("5153")
-                        .setNonceStr("5645")
-                        .setTimeStamp("56512")
-                        .setSign("54615")
-                        .build().toWXPayNotSign(WechatpayModuleActivity.this);
-            }
-        });
-
-        //在客户端签名
-        findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                payV2();
-
             }
         });
     }
@@ -100,14 +85,19 @@ public class WechatpayModuleActivity extends BaseActivity
     {
         String request_appid = "wxb4737b9a4e5b24b4";
         String request_mch_id = "1527548721";
-        String request_notify_url = "https://wx.dwarfworkshop.com/congo/alipay_sign_validate.php";
-        String request_key = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASC";
+        String request_notify_url = "https://wx.dwarfworkshop.com/congo/wxAppPay_Validate.php";
+        final String request_key = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASC";
+        String request_total_fee = "2";
+        String request_out_trade_no = genTimeStampStr();
+//        String request_key = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASC";
 
         RequestBody requestBody = new FormBody.Builder()
                 .add("appid",request_appid)
                 .add("mch_id",request_mch_id)
                 .add("notify_url",request_notify_url)
                 .add("key",request_key)
+                .add("total_fee",request_total_fee)
+                .add("out_trade_no",request_out_trade_no)
                 .build();
 
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -140,18 +130,35 @@ public class WechatpayModuleActivity extends BaseActivity
                 //向服务端请求并得到反馈信息，获取了appid、partnerId、prepayId
                 try{
                     JSONObject jsonObject = new JSONObject(str);
+
+                    //showToast(MainActivity.this, str);
+
                     String response_appid = jsonObject.getString("appid");
                     String response_partnerid = jsonObject.getString("partnerid");
                     String response_prepayid = jsonObject.getString("prepayid");
                     String response_package = jsonObject.getString("package");
+                    String response_timestamp = jsonObject.getString("timestamp");
+                    String response_noncestr = jsonObject.getString("noncestr");
+                    //String response_key = jsonObject.getString("sandbox_key");
                     String response_sign = jsonObject.getString("sign");
                     WXPayUtils.WXPayBuilder builder = new WXPayUtils.WXPayBuilder();
+                    /*builder.setAppId(response_appid)
+                            .setPartnerId(response_partnerid)
+                            .setPrepayId(response_prepayid)
+                            .setPackageValue(response_package)
+                            .setTimeStamp(response_timestamp)
+                            .setNonceStr(response_noncestr)
+                            .build()
+                            .toWXPayAndSign(MainActivity.this,response_appid,response_key);*/
                     builder.setAppId(response_appid)
                             .setPartnerId(response_partnerid)
                             .setPrepayId(response_prepayid)
                             .setPackageValue(response_package)
+                            .setTimeStamp(response_timestamp)
+                            .setNonceStr(response_noncestr)
+                            .setSign(response_sign)
                             .build()
-                            .toWXPayAndSign(WechatpayModuleActivity.this,response_appid,response_sign);
+                            .toWXPayNotSign(WechatpayModuleActivity.this);
                 } catch (JSONException e){
                     e.printStackTrace();
                 }
@@ -183,5 +190,39 @@ public class WechatpayModuleActivity extends BaseActivity
             }
         }
         return sb;
+    }
+
+    /**
+     * 获取权限使用的 RequestCode
+     */
+    private static final int PERMISSIONS_REQUEST_CODE = 1002;
+
+
+    /**
+     * 检查支付宝 SDK 所需的权限，并在必要的时候动态获取。
+     * 在 targetSDK = 23 以上，READ_PHONE_STATE 和 WRITE_EXTERNAL_STORAGE 权限需要应用在运行时获取。
+     * 如果接入支付宝 SDK 的应用 targetSdk 在 23 以下，可以省略这个步骤。
+     */
+    private void requestPermission() {
+        // Here, thisActivity is the current activity
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED
+                || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{
+                            Manifest.permission.READ_PHONE_STATE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    }, PERMISSIONS_REQUEST_CODE);
+
+        } else {
+            showToast(this, "Wechat SDK 已有所需的权限");
+        }
+    }
+
+    private String genTimeStampStr() {
+        String rtn = String.format("%s%d","devilmaycry",System.currentTimeMillis() / 1000);
+        return rtn;
     }
 }
