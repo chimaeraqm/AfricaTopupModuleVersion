@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.chimaeraqm.module_wechatpay.RechargeWeActivity;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.Utilities.Constants;
-import com.crazydwarf.africatopup.dialog.CountrySelectDialog;
+import com.crazydwarf.comm_library.dialogs.CountrySelectDialog;
 import com.crazydwarf.module_alipay.RechargeAliActivity;
 
 public class RechargeFragment extends Fragment

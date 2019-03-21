@@ -1,4 +1,4 @@
-package com.crazydwarf.comm_library.Utilities;
+package com.chimaeraqm.module_wechatpay;
 
 import android.content.Context;
 

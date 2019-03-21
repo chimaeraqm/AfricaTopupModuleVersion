@@ -8,8 +8,8 @@ buildscript {
      * 修改之后需要Sync方可生效
      */
     ext {
-        isModule_Alipay = true
-        isModule_Wechatpay = true
+        isModule_Alipay = false
+        isModule_Wechatpay = false
 
 
         isModule_Phonefix = true

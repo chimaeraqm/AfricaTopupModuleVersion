@@ -1,20 +1,11 @@
-package com.crazydwarf.africatopup.view;
+package com.crazydwarf.comm_library.view;
 
-import android.animation.ValueAnimator;
-import android.app.Dialog;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Window;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.LinearLayout;
-
-import com.crazydwarf.africatopup.R;
+import com.crazydwarf.chimaeraqm.comm_library.R;
 
 public class NewActivityView extends LinearLayout
 {

@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.dialog;
+package com.crazydwarf.comm_library.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.crazydwarf.africatopup.R;
+import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 
 public class SwitchCountryConfirmDialog extends Dialog

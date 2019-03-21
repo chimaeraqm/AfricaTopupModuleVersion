@@ -1,44 +1,22 @@
 package com.chimaeraqm.module_wechatpay;
 
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.crazydwarf.chimaeraqm.module_wechatpay.R;
-import com.crazydwarf.comm_library.Objects.User;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
-import com.crazydwarf.comm_library.Utilities.WXPayUtils;
 import com.crazydwarf.comm_library.activity.BaseActivity;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;

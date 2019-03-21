@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.view;
+package com.crazydwarf.comm_library.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.crazydwarf.africatopup.R;
+import com.crazydwarf.chimaeraqm.comm_library.R;
 
 import java.util.Locale;
 

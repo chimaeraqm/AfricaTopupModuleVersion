@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.view;
+package com.crazydwarf.comm_library.Objects;
 
 public class DialogListItem
 {

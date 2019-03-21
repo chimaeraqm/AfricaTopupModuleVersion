@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.view;
+package com.crazydwarf.comm_library.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.crazydwarf.africatopup.R;
+import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LanguageItemAdapter extends RecyclerView.Adapter<LanguageItemAdapter.LanguageItemHolder>

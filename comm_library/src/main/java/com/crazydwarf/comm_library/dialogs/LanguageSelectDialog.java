@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.dialog;
+package com.crazydwarf.comm_library.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -13,10 +13,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
-import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
-import com.crazydwarf.africatopup.view.LanguageItemAdapter;
+import com.crazydwarf.comm_library.adapters.LanguageItemAdapter;
 
 
 public class LanguageSelectDialog extends Dialog

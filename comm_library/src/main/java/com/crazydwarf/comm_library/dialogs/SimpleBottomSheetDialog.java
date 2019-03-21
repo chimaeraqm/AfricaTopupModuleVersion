@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.view;
+package com.crazydwarf.comm_library.dialogs;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -16,7 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.crazydwarf.africatopup.R;
+import com.crazydwarf.chimaeraqm.comm_library.R;
+import com.crazydwarf.comm_library.Objects.DialogListItem;
 
 import java.util.ArrayList;
 import java.util.Collections;

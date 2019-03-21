@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.dialogs.HistoryDetailDialog;
-import com.crazydwarf.comm_library.view.HistoryItemAdapter;
+import com.crazydwarf.comm_library.adapters.HistoryItemAdapter;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
 import com.crazydwarf.comm_library.view.SmoothCheckBox;
 

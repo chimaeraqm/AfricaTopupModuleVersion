@@ -1,4 +1,4 @@
-package com.crazydwarf.africatopup.dialog;
+package com.crazydwarf.comm_library.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -14,10 +14,10 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.crazydwarf.africatopup.R;
+import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
-import com.crazydwarf.africatopup.view.CountryItemAdapter;
+import com.crazydwarf.comm_library.adapters.CountryItemAdapter;
 
 
 public class CountrySelectDialog extends Dialog
@@ -110,7 +110,7 @@ public class CountrySelectDialog extends Dialog
     }
 
     public interface dialogItemSelectionListener{
-        public void onClick(int position,String country,int code,int flag);
+        public void onClick(int position, String country, int code, int flag);
     }
 
     private void setDisplayDimension()

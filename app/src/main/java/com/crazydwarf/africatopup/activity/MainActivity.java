@@ -12,11 +12,11 @@ import android.widget.Toast;
 import com.crazydwarf.comm_library.Utilities.ActivityManager;
 import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.dialog.LanguageSelectDialog;
 import com.crazydwarf.africatopup.fragment.QueryFragment;
 import com.crazydwarf.africatopup.fragment.RechargeFragment;
 import com.crazydwarf.africatopup.fragment.UserFragment;
 import com.crazydwarf.comm_library.activity.BaseActivity;
+import com.crazydwarf.comm_library.dialogs.LanguageSelectDialog;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
 
 import java.util.ArrayList;

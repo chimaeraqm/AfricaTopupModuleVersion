@@ -2,7 +2,7 @@ package com.chimaeraqm.module_wechatpay;
 
 public interface WxConstants
 {
-    String WECHAT_APP_ID = "wxd930ea5d5a258f4f";
+    String WECHAT_APP_ID = "wxb4737b9a4e5b24b4";
 
     String ORDER_REQUEST_URL = "https://wx.dwarfworkshop.com/congo/wxAppPay.php";
 

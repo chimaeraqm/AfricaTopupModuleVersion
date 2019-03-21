@@ -20,8 +20,8 @@ import android.widget.Toast;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.africatopup.activity.TxtDisplayActivity;
-import com.crazydwarf.africatopup.dialog.CountrySelectDialog;
 import com.crazydwarf.africatopup.view.CommonAdapter;
+import com.crazydwarf.comm_library.dialogs.CountrySelectDialog;
 
 public class QueryFragment extends Fragment
 {

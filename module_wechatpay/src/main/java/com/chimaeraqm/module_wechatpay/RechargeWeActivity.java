@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.crazydwarf.chimaeraqm.module_wechatpay.R;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
-import com.crazydwarf.comm_library.Utilities.WXPayUtils;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.activity.HistoryActivity;
 import com.crazydwarf.comm_library.view.SimpleToolBar;

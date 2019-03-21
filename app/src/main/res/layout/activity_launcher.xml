@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-    <com.crazydwarf.africatopup.view.NewActivityView
+    <com.crazydwarf.comm_library.view.NewActivityView
         android:id="@+id/insert_dialog"
         layout="@layout/view_new_activity"
         android:layout_width="wrap_content"
