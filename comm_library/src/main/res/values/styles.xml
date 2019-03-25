@@ -24,6 +24,7 @@
         <item name="android:dropDownListViewStyle">@style/popmenuDivier</item>
         <item name="android:textAppearanceSmallPopupMenu">@style/popmeuText</item>
         <item name="android:textAppearanceLargePopupMenu">@style/popmeuText</item>
+        <item name="android:fontFamily">@font/helvetica_lt_43_light_extended</item>
     </style>
 
     <style name="ActivityAnimStyle">

@@ -59,6 +59,7 @@
 
     <string name="string_alipay_order_confirm">支付宝订单确认</string>
     <string name="string_wechat_pay_order_confirm">微信订单确认</string>
+    <string name="string_order_confirm">订单确认</string>
     <string name="string_recharge_no1">本机号码1</string>
     <string name="string_recharge_no2">本机号码2</string>
     <string name="string_recharge_other">其他号码</string>
@@ -79,7 +80,7 @@
     <string name="string_operator_expense">运营商资费查询</string>
     <string name="string_adv_placeholder">广告占位符</string>
     <string name="string_act_placeholder">活动通知占位符</string>
-    <string name="string_add_flow">购买流量包</string>
+    <string name="string_add_flow">充流量</string>
     <string name="string_download_qrcode">Android App下载二维码</string>
 
     <string name="string_launcher_slogan">非洲华人话费查询与充值快捷通道</string>

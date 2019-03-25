@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.crazydwarf.africatopup.fragment.NewRechargeFragment;
 import com.crazydwarf.comm_library.Utilities.ActivityManager;
 import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.africatopup.R;
@@ -25,7 +26,8 @@ import java.util.Locale;
 
 public class MainActivity extends BaseActivity
 {
-    private RechargeFragment mRechargeFragment;
+//    private RechargeFragment mRechargeFragment;
+    private NewRechargeFragment mRechargeFragment;
     private QueryFragment mQueryFragment;
     private UserFragment mUserFragment;
     private List<Fragment> fragments = new ArrayList<>();
@@ -119,7 +121,8 @@ public class MainActivity extends BaseActivity
 
     void initFragments()
     {
-        mRechargeFragment = new RechargeFragment();
+//        mRechargeFragment = new RechargeFragment();
+        mRechargeFragment = new NewRechargeFragment();
         mQueryFragment = new QueryFragment();
         mUserFragment = new UserFragment();
         fragments.add(mRechargeFragment);

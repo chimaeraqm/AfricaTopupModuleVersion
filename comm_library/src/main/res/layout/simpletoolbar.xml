@@ -15,11 +15,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:contentDescription="TODO"
+        android:background="@drawable/ic_format_list_bulleted_black_32dp"
         app:layout_constraintBottom_toBottomOf="@+id/im_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/im_back"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_format_list_bulleted_black_32dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/im_back"
@@ -28,11 +28,11 @@
         android:layout_marginBottom="12dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/ic_chevron_left_black_32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_chevron_left_black_32dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -44,7 +44,7 @@
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/im_icon"
-        app:layout_constraintStart_toEndOf="@+id/im_icon"
+        app:layout_constraintStart_toEndOf="@+id/im_back"
         app:layout_constraintTop_toTopOf="@+id/im_icon"
         app:layout_constraintVertical_bias="0.517" />
 
@@ -54,7 +54,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/im_back"
-        app:layout_constraintStart_toEndOf="@+id/im_back"
+        app:layout_constraintStart_toEndOf="@+id/tv_title"
         app:layout_constraintTop_toTopOf="@+id/im_back"
         app:srcCompat="@drawable/app_icon_rb_round" />
 </android.support.constraint.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
@@ -103,6 +104,10 @@ public class SimpleToolBar extends Toolbar
         mTextView_Title.setText(mTitle);
         mTextView_Title.setTextSize(TypedValue.COMPLEX_UNIT_PX ,mTitleSize);
         mTextView_Title.setTextColor(mTitleColor);
+/*
+        Typeface typeface_LT73 = Typeface.createFromAsset(mContext.getAssets(), "fonts/Helvetica LT 73 Bold Extended.ttf");
+        mTextView_Title.setTypeface(typeface_LT73);
+*/
 
         mImageView_AppIcon = findViewById(R.id.im_icon);
         if(mAppIconShow)

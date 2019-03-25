@@ -49,11 +49,11 @@
         android:paddingLeft="8dp"
         android:textSize="16sp"
         android:textColor="@color/colorBlack"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_value"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        app:layout_constraintStart_toEndOf="@+id/tv_value"
+        app:layout_constraintTop_toTopOf="@+id/tv_value" />
 
     <TextView
         android:id="@+id/textView8"
@@ -63,8 +63,8 @@
         android:text="@string/string_recharge_no2"
         android:textColor="@color/colorBlack"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintStart_toStartOf="@+id/tv_value"
+        app:layout_constraintTop_toBottomOf="@+id/tv_value" />
 
     <EditText
         android:id="@+id/et_number2"
@@ -99,8 +99,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:color_checked="@color/colorOrange"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintStart_toStartOf="@+id/tv_purchaseway"
+        app:layout_constraintTop_toBottomOf="@+id/tv_purchaseway" />
 
     <TextView
         android:id="@+id/textView2"
@@ -121,7 +121,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:color_checked="@color/colorOrange"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="@+id/tv_purchaseway"
         app:layout_constraintTop_toBottomOf="@+id/cb_recharge_100" />
 
     <TextView

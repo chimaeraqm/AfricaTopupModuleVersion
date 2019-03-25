@@ -60,6 +60,7 @@
 
     <string name="string_alipay_order_confirm">Alipay Order Confirm</string>
     <string name="string_wechat_pay_order_confirm">Wechat Pay Order Confirm</string>
+    <string name="string_order_confirm">Order Confirm</string>
     <string name="string_recharge_no1">Recharging SIM 1</string>
     <string name="string_recharge_no2">Recharging SIM 2</string>
     <string name="string_recharge_other">Others</string>
@@ -80,7 +81,7 @@
     <string name="string_operator_expense">Operator Expense Inquiry</string>
     <string name="string_adv_placeholder">Adv Placeholder</string>
     <string name="string_act_placeholder">Act Placeholder</string>
-    <string name="string_add_flow">Buy Internet Bundle</string>
+    <string name="string_add_flow">Add Flow</string>
     <string name="string_download_qrcode">Android App Download QR Code</string>
 
     <string name="string_launcher_slogan">A Call Charge\nInquiry and Recharging\nShortcut for African Chinese.</string>

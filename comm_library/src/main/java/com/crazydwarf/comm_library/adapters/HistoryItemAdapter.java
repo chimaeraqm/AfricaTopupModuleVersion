@@ -1,4 +1,4 @@
-package com.crazydwarf.comm_library.view;
+package com.crazydwarf.comm_library.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

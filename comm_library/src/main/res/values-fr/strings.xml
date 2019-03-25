@@ -57,8 +57,9 @@
     <string name="string_query_last_6month">Les 6\nderniers mois</string>
     <string name="string_skip">PASSER</string>
 
-    <string name="string_alipay_order_confirm">Alipay Commande confirmée</string>
-    <string name="string_wechat_pay_order_confirm">Wechat commande Cconfirmée</string>
+    <string name="string_alipay_order_confirm">Alipay Commande Confirmée</string>
+    <string name="string_wechat_pay_order_confirm">Wechat Commande Confirmée</string>
+    <string name="string_order_confirm">Commande Confirmée</string>
     <string name="string_recharge_no1">Recharger carte SIM 1</string>
     <string name="string_recharge_no2">Recharger carte SIM 2</string>
     <string name="string_recharge_other">Autres carte SIM</string>
@@ -79,7 +80,7 @@
     <string name="string_operator_expense">Verification consommation de l\'opérateur</string>
     <string name="string_adv_placeholder">Espace publicitaire</string>
     <string name="string_act_placeholder">Espace publicitaire</string>
-    <string name="string_add_flow">Achat forfait de l\'internet</string>
+    <string name="string_add_flow">##Achat forfait de l\'internet</string>
     <string name="string_download_qrcode">Télécharger le code QR pour Android</string>
 
     <string name="string_launcher_slogan">Un raccourci de verification sur les frais d’appel internet et de recharge pour les Chinois africains.</string>
