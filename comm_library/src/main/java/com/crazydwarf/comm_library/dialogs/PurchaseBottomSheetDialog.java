@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -70,6 +71,14 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog/* implements Vi
             public void onClick(View v) {
                 PurchaseWayBottomSheetDialog purchaseWayBottomSheetDialog = new PurchaseWayBottomSheetDialog(mContext);
                 purchaseWayBottomSheetDialog.show();
+            }
+        });
+
+        ImageButton bn_exit = findViewById(R.id.bn_exit);
+        bn_exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
             }
         });
     }

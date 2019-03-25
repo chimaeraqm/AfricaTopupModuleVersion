@@ -81,7 +81,7 @@ public class QueryFragment extends Fragment
         for(int i=0;i<operatorArray.length();i++)
         {
             operatorSeq[i] = operatorArray.getString(i);
-            ids[i] = R.drawable.ic_keyboard_arrow_left_black_32dp;
+            ids[i] = R.drawable.ic_keyboard_arrow_left_gray_32dp;
         }
         commonAdapter = new CommonAdapter(operatorSeq,ids);
         mRecyclerview.setAdapter(commonAdapter);
@@ -117,7 +117,7 @@ public class QueryFragment extends Fragment
                         for(int i=0;i<operatorArray1.length();i++)
                         {
                             operatorSeq[i] = operatorArray1.getString(i);
-                            ids[i] = R.drawable.ic_keyboard_arrow_left_black_32dp;
+                            ids[i] = R.drawable.ic_keyboard_arrow_left_gray_32dp;
                         }
                         commonAdapter.setTexts(operatorSeq);
                         commonAdapter.setImageIds(ids);

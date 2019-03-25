@@ -68,7 +68,7 @@
     <string name="string_invoice_business">发票业务办理</string>
     <string name="string_recharge_record_inquiry">充值记录查询</string>
     <string name="string_delete">删除</string>
-    <string name="string_enter_phone_no">输入手机号</string>
+    <string name="string_enter_phone_no">请输入手机号</string>
     <string name="string_enter_recharge_amount">输入充值金额</string>
 
     <string name="string_balance_inquiry">余额查询</string>

@@ -5,18 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
+    <com.crazydwarf.comm_library.view.MaterialEditText
         android:id="@+id/et_phonenumber"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:ems="10"
         android:inputType="phone"
+        android:textSize="24sp"
+        android:hint="@string/string_enter_phone_no"
+        android:letterSpacing="0.1"
+        android:paddingLeft="8dp"
+
         app:layout_constraintEnd_toStartOf="@+id/ib_used_account"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:met_maxCharacters="11"
+        app:met_minCharacters="11"
+        app:met_hideUnderline="true"
+        app:met_primaryColor="@color/colorBlue"
+        />
 
     <ImageButton
         android:id="@+id/ib_used_account"
@@ -46,7 +56,6 @@
         android:text="@string/string_recharge_amount"
         android:textColor="@color/colorBlack"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_account_info" />
 
@@ -197,7 +206,6 @@
         android:text="@string/string_more_recharge"
         android:textSize="18sp"
         android:textColor="@color/colorBlack"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button10" />
 
