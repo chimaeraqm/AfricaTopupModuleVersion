@@ -57,6 +57,7 @@ public class SimpleToolBar extends Toolbar
     private Paint mMenuIconbgPaint = new Paint();
     private Paint mBackIconbgPaint = new Paint();
 
+
     public SimpleToolBar(Context context) {
         this(context,null);
     }
@@ -104,10 +105,6 @@ public class SimpleToolBar extends Toolbar
         mTextView_Title.setText(mTitle);
         mTextView_Title.setTextSize(TypedValue.COMPLEX_UNIT_PX ,mTitleSize);
         mTextView_Title.setTextColor(mTitleColor);
-/*
-        Typeface typeface_LT73 = Typeface.createFromAsset(mContext.getAssets(), "fonts/Helvetica LT 73 Bold Extended.ttf");
-        mTextView_Title.setTypeface(typeface_LT73);
-*/
 
         mImageView_AppIcon = findViewById(R.id.im_icon);
         if(mAppIconShow)
