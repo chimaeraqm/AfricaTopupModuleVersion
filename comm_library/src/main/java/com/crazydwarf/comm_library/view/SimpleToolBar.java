@@ -2,12 +2,17 @@ package com.crazydwarf.comm_library.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -57,7 +62,6 @@ public class SimpleToolBar extends Toolbar
     private Paint mMenuIconbgPaint = new Paint();
     private Paint mBackIconbgPaint = new Paint();
 
-
     public SimpleToolBar(Context context) {
         this(context,null);
     }
@@ -90,6 +94,7 @@ public class SimpleToolBar extends Toolbar
 
         mBackgroundBlur = typedArray.getBoolean(R.styleable.SimpleToolBar_backgroundBlur,false);
         mBackgroundBlurRatio = typedArray.getFloat(R.styleable.SimpleToolBar_backgroundBlurRatio,0f);
+
         typedArray.recycle();
         initView();
         paintSetup();
@@ -183,7 +188,8 @@ public class SimpleToolBar extends Toolbar
     }
 
     @Override
-    protected void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas)
+    {
         super.onDraw(canvas);
     }
 

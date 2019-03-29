@@ -19,7 +19,7 @@ public class WaveView extends View
 {
     private Context mContext;
 
-    private static final float DEFAULT_AMPLITUDE_RATIO = 0.075f;
+    private static final float DEFAULT_AMPLITUDE_RATIO = 0.5f;
     private static final float DEFAULT_WATER_LEVEL_RATIO = 0.5f;
     private static final float DEFAULT_WAVE_LENGTH_RATIO = 1.0f;
     private static final float DEFAULT_WAVE_SHIFT_RATIO = 0.0f;

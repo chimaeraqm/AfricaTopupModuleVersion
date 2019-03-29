@@ -21,6 +21,8 @@
 
         <attr name="backgroundBlur" format="boolean"/>
         <attr name="backgroundBlurRatio" format="float"/>
+
+        <attr name="waveShiftRatio" format="float" />
     </declare-styleable>
 
     <declare-styleable name="SmoothCheckBox">

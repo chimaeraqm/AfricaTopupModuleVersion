@@ -8,7 +8,7 @@
     tools:context=".activity.MainActivity">
 
 
-    <!--<com.crazydwarf.comm_library.view.SimpleToolBar
+    <com.crazydwarf.comm_library.view.SimpleToolBar
         android:id="@+id/top_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,23 +17,23 @@
         app:appIconSize="36dp"
         app:backIcon="@drawable/ic_chevron_left_white_32dp"
         app:backIconSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menuIcon = "@drawable/ic_format_list_bulleted_white_32dp"
-        app:mentIconSize = "32dp"
+        app:mentIconSize="32dp"
+        app:menuIcon="@drawable/ic_format_list_bulleted_white_32dp"
         app:title="@string/app_name"
         app:titleColor="@color/colorWhite"
         app:titleSize="20sp"
-        app:viewBackground="@color/colorBlue"
-        />-->
+        app:viewBackground="@color/colorBlue" />
 
     <com.crazydwarf.comm_library.view.WaveView
         android:id="@+id/waveview"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/top_menu" />
 
     <FrameLayout
         android:id="@+id/view_fragment"
@@ -56,7 +56,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_fragment"
         app:menu="@menu/navigation" />
     <!--android:background="?android:attr/windowBackground"-->
 

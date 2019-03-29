@@ -28,6 +28,18 @@ public class WaveViewHelper
         }
     }
 
+    /*public WaveViewHelper(SimpleToolBar mSimpleToolbar) {
+        this.mSimpleToolbar = mSimpleToolbar;
+        initAnimation();
+    }
+
+    public void start() {
+        //mWaveView.setShowWave(true);
+        if (mAnimatorSet != null) {
+            mAnimatorSet.start();
+        }
+    }*/
+
     private void initAnimation() {
         List<Animator> animators = new ArrayList<>();
 

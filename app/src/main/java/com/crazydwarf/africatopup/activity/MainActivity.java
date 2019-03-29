@@ -87,7 +87,8 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*SimpleToolBar toolBar = findViewById(R.id.top_menu);
+        SimpleToolBar toolBar = findViewById(R.id.top_menu);
+
         setSupportActionBar(toolBar);
         toolBar.setMenuIconClickListener(new SimpleToolBar.MenuIconClickListener() {
             @Override
@@ -117,7 +118,7 @@ public class MainActivity extends BaseActivity
                 //MainActivity点击back两次后关闭程序
                 activityExit();
             }
-        });*/
+        });
 
         WaveView waveView = findViewById(R.id.waveview);
         WaveViewHelper mWaveHelper = new WaveViewHelper(waveView);
