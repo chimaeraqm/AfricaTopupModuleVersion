@@ -19,7 +19,7 @@ public class WaveView extends View
 {
     private Context mContext;
 
-    private static final float DEFAULT_AMPLITUDE_RATIO = 0.5f;
+    private static final float DEFAULT_AMPLITUDE_RATIO = 0.1f;
     private static final float DEFAULT_WATER_LEVEL_RATIO = 0.5f;
     private static final float DEFAULT_WAVE_LENGTH_RATIO = 1.0f;
     private static final float DEFAULT_WAVE_SHIFT_RATIO = 0.0f;
@@ -62,7 +62,7 @@ public class WaveView extends View
     public WaveView(Context context) {
         super(context);
         mContext = context;
-        init();
+        //init();
     }
 
     public WaveView(Context context, AttributeSet attrs) {
@@ -101,7 +101,7 @@ public class WaveView extends View
 
 
         typedArray.recycle();*/
-        mShowWave = true;
+        //mShowWave = true;
 
     }
 
@@ -211,7 +211,7 @@ public class WaveView extends View
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        createShader();
+        createShader1();
     }
 
     /**
@@ -258,6 +258,14 @@ public class WaveView extends View
         }
 
         // use the bitamp to create the shader
+        mWaveShader = new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP);
+        mViewPaint.setShader(mWaveShader);
+    }
+
+    private void createShader1() {
+        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawColor(ContextCompat.getColor(mContext,R.color.colorBlue));
         mWaveShader = new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP);
         mViewPaint.setShader(mWaveShader);
     }

@@ -8,7 +8,7 @@
     tools:context=".activity.MainActivity">
 
 
-    <!--<com.crazydwarf.comm_library.view.SimpleToolBar
+    <com.crazydwarf.comm_library.view.SimpleToolBar
         android:id="@+id/top_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,15 +25,15 @@
         app:title="@string/app_name"
         app:titleColor="@color/colorWhite"
         app:titleSize="20sp"
-        app:viewBackground="@color/colorBlue" />-->
+        app:viewBackground="@color/colorTrans" />
 
-    <com.crazydwarf.comm_library.view.WaveViewNew
+    <!--<com.crazydwarf.comm_library.view.BitmapView
         android:id="@+id/waveview"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
     <FrameLayout
         android:id="@+id/view_fragment"
@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/waveview">
+        app:layout_constraintTop_toBottomOf="@+id/top_menu">
 
     </FrameLayout>
 

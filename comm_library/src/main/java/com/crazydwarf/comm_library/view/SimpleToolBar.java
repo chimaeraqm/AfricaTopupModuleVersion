@@ -8,6 +8,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.Typeface;
@@ -61,6 +64,22 @@ public class SimpleToolBar extends Toolbar
     private Paint mAppIconbgPaint = new Paint();
     private Paint mMenuIconbgPaint = new Paint();
     private Paint mBackIconbgPaint = new Paint();
+
+    private Path firstPath;
+    private Path secondPath;
+    private Paint backgroundPaint;
+    private Paint firstWavePaint;
+    private int firstWaveColor;
+    private Paint secondWavePaint;
+    private int secondWaveColor;
+
+    private Canvas bitmapCanvas;
+    private BitmapShader bitmapShader;
+
+    private int wave_Height;
+    private int wave_Width;
+    private float wave_Angle;
+    private int wave_Amlitude;
 
     public SimpleToolBar(Context context) {
         this(context,null);
@@ -165,6 +184,11 @@ public class SimpleToolBar extends Toolbar
         {
             mImageView_MenuIcon.setVisibility(INVISIBLE);
         }
+
+        firstPath = new Path();
+        secondPath = new Path();
+        wave_Angle = 0;
+        wave_Amlitude = 20;
     }
 
     private void paintSetup()
@@ -184,13 +208,69 @@ public class SimpleToolBar extends Toolbar
         mBackIconbgPaint.setAntiAlias(true);
         mBackIconbgPaint.setColor(Color.WHITE);
 
-        invalidate();
+        backgroundPaint = new Paint();
+        backgroundPaint.setAntiAlias(true);
+
+        firstWaveColor = ContextCompat.getColor(mContext, R.color.colorBlue);
+        firstWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        firstWavePaint.setAntiAlias(true);
+        firstWavePaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        firstWavePaint.setColor(firstWaveColor);
+        firstWavePaint.setStyle(Paint.Style.FILL);
+        firstWavePaint.setStrokeWidth(10);
+
+        secondWaveColor = ContextCompat.getColor(mContext, R.color.colorTransBlue);
+        secondWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        secondWavePaint.setAntiAlias(true);
+        secondWavePaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        secondWavePaint.setStyle(Paint.Style.FILL);
+        secondWavePaint.setColor(secondWaveColor);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        bitmapCanvas = new Canvas(bitmap);
+        bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        backgroundPaint.setShader(bitmapShader);
+        wave_Height = getHeight();
+        wave_Width = getWidth();
     }
 
     @Override
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
+        firstPath.reset();
+        secondPath.reset();
+
+        firstPath.moveTo(0,0);
+        secondPath.moveTo(0,0);
+
+        int index = 0;
+        while (index <= wave_Width)
+        {
+            float endY = (float) (Math.sin((float) index / (float) wave_Width * 2f * Math.PI +wave_Angle) * (float) wave_Amlitude + wave_Height - wave_Amlitude);
+            firstPath.lineTo(index, endY);
+            float endY1 = (float) (Math.sin((float) index / (float) wave_Width * 2f * Math.PI +wave_Angle+90) * (float) wave_Amlitude + wave_Height - wave_Amlitude);
+            secondPath.lineTo(index, endY1);
+            index++;
+        }
+
+        firstPath.lineTo(index-1,0);
+        firstPath.close();
+
+        secondPath.lineTo(index-1,0);
+        secondPath.close();
+
+        Paint paint = new Paint();
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        bitmapCanvas.drawPaint(paint);
+
+        bitmapCanvas.drawPath(firstPath, firstWavePaint);
+        bitmapCanvas.drawPath(secondPath, secondWavePaint);
+        canvas.drawRect(0,0,getWidth(),getHeight(),backgroundPaint);
     }
 
     @Override
@@ -296,5 +376,14 @@ public class SimpleToolBar extends Toolbar
 
     public interface AppIconClickListener{
         void OnClick();
+    }
+
+    public float getWave_Angle() {
+        return wave_Angle;
+    }
+
+    public void setWave_Angle(float wave_Angle) {
+        this.wave_Angle = wave_Angle;
+        invalidate();
     }
 }

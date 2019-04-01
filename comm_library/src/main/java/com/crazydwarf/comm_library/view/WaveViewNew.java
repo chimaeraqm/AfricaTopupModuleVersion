@@ -3,6 +3,7 @@ package com.crazydwarf.comm_library.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -32,10 +33,8 @@ public class WaveViewNew extends View
     private int secondWaveColor;
     private Path firstPath;
     private Path secondPath;
-    private Bitmap bitmap;
-    private Canvas bitmapCanvas;
 
-    private int wave_Speed;
+    private float wave_Speed;
 
     private int wave_Amlitude;
 
@@ -46,7 +45,7 @@ public class WaveViewNew extends View
      */
     private int wave_Width;
     private int wave_Height;
-    private int wave_Angle;
+    private float wave_Angle;
 
     private static final float palstance = 0.5F;
 
@@ -58,6 +57,9 @@ public class WaveViewNew extends View
 
     private WaveHandler waveHandler;
     private WaveThread waveThread;
+
+    private Canvas bitmapCanvas;
+    private BitmapShader bitmapShader;
 
     public WaveViewNew(Context context) {
         super(context);
@@ -73,17 +75,16 @@ public class WaveViewNew extends View
     {
         wave_Angle = 360;
         wave_Loop = true;
-        wave_Level = 0;
         Context context = getContext();
 
         //TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.WaveView);
 
         backgroundColor = ContextCompat.getColor(context, R.color.colorGray);
         firstWaveColor = ContextCompat.getColor(context, R.color.colorBlue);
-        secondWaveColor = ContextCompat.getColor(context, R.color.colorOrange);
+        secondWaveColor = ContextCompat.getColor(context, R.color.colorTransBlue);
         wave_Level = 0;
-        wave_Speed = 1;
-        wave_Amlitude = 10;
+        wave_Speed = 0.02f;
+        wave_Amlitude = 20;
 
 /*
         backgroundColor = typedArray.getColor(R.styleable.WaveView_backgroundColor, Color.parseColor("#44EEEEEE"));
@@ -99,28 +100,24 @@ public class WaveViewNew extends View
         waveThread = new WaveThread();
         waveHandler = new WaveHandler();
 
-        backgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        backgroundPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        backgroundPaint.setColor(backgroundColor);
+        backgroundPaint = new Paint();
         backgroundPaint.setAntiAlias(true);
 
         firstWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         firstWavePaint.setAntiAlias(true);
         firstWavePaint.setFlags(Paint.ANTI_ALIAS_FLAG);
         firstWavePaint.setColor(firstWaveColor);
-        firstWavePaint.setStyle(Paint.Style.STROKE);
+        firstWavePaint.setStyle(Paint.Style.FILL);
         firstWavePaint.setStrokeWidth(10);
-        firstWavePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP));
 
         secondWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         secondWavePaint.setAntiAlias(true);
         secondWavePaint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        secondWavePaint.setStyle(Paint.Style.FILL);
         secondWavePaint.setColor(secondWaveColor);
-        secondWavePaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP));
 
         firstPath = new Path();
         secondPath = new Path();
-
         waveThread.start();
     }
 
@@ -131,73 +128,54 @@ public class WaveViewNew extends View
     }
 
     @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        bitmapCanvas = new Canvas(bitmap);
+        bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        backgroundPaint.setShader(bitmapShader);
+
+        wave_Level = getHeight()/2;
+        wave_Height = getHeight();
+        wave_Width = getWidth();
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        wave_Width = getWidth();
-        wave_Height = getHeight();
-        bitmap = Bitmap.createBitmap(wave_Width, wave_Height, Bitmap.Config.ARGB_8888);
-        bitmapCanvas = new Canvas(bitmap);
-//        firstPath.reset();
-//        firstPath.moveTo(0,0);
-//        firstPath.lineTo(0, wave_Height);
-//        firstPath.lineTo(wave_Width, wave_Height);
-//        firstPath.lineTo(0, wave_Height);
-//        firstPath.lineTo(0,0);
-//
-//        canvas.drawPath(firstPath, firstWavePaint);
-
-        //canvas.drawLine(0,wave_Height,wave_Width, 0,firstWavePaint);
-        bitmapCanvas.drawLine(0,wave_Height,wave_Width,0,firstWavePaint);
-        Paint mPaint = new Paint();
-        canvas.drawBitmap(bitmap, 0, 0, mPaint);
-
-
-//        BitmapShader shader = new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP);
-//        Paint mViewPaint = new Paint();
-//        mViewPaint.setAntiAlias(true);
-//        mViewPaint.setShader(shader);
-//        canvas.drawRect(0, 0, getWidth(), getHeight(), mViewPaint);
-
-
-        /*bitmapCanvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
+        //bitmapCanvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
 
         firstPath.reset();
         secondPath.reset();
-        float waterLine = (wave_LevelMax - wave_Level) * wave_Height * 0.01F;
-        firstPath.moveTo(0,0);
-        firstPath.lineTo(0, waterLine);
-        secondPath.moveTo(0, waterLine);
 
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 0;
-        int y2 = 0;
-        for (int i = 0; i < wave_Width; i++)
+        firstPath.moveTo(0,0);
+        secondPath.moveTo(0,0);
+
+
+        int index = 0;
+        while (index <= wave_Width)
         {
-            x1 = i;
-            x2 = i;
-            y1 = (int) (wave_Amlitude * Math.sin((i * palstance + wave_Angle) * Math.PI / 180) + waterLine);
-            y2 = (int) (wave_Amlitude * Math.sin((i * palstance + wave_Angle - 90) * Math.PI / 180) + waterLine);
-            //firstPath.quadTo(x1, y1, x1 + 1, y1);
-            secondPath.quadTo(x2, y2, x2 + 1, y2);
+            float endY = (float) (Math.sin((float) index / (float) wave_Width * 2f * Math.PI +wave_Angle) * (float) wave_Amlitude + wave_Height - wave_Amlitude);
+            firstPath.lineTo(index, endY);
+            float endY1 = (float) (Math.sin((float) index / (float) wave_Width * 2f * Math.PI +wave_Angle+90) * (float) wave_Amlitude + wave_Height - wave_Amlitude);
+            secondPath.lineTo(index, endY1);
+            index++;
         }
-        firstPath.lineTo(wave_Width, waterLine);
-//        firstPath.lineTo(0, wave_Height);
-        firstPath.lineTo(wave_Width,0);
+
+        firstPath.lineTo(index-1,0);
         firstPath.close();
 
-        secondPath.lineTo(wave_Width, wave_Height);
-        secondPath.lineTo(0, wave_Height);
+        secondPath.lineTo(index-1,0);
         secondPath.close();
 
+        Paint paint = new Paint();
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        bitmapCanvas.drawPaint(paint);
+
         bitmapCanvas.drawPath(firstPath, firstWavePaint);
-        BitmapShader shader = new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP);
-        Paint mViewPaint = new Paint();
-        mViewPaint.setAntiAlias(true);
-        mViewPaint.setShader(shader);
-        //bitmapCanvas.drawPath(secondPath, secondWavePaint);
-        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
-        canvas.drawBitmap(bitmap, 0, 0, mViewPaint);*/
+        bitmapCanvas.drawPath(secondPath, secondWavePaint);
+        //canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
+        canvas.drawRect(0,0,getWidth(),getHeight(),backgroundPaint);
     }
 
     private final class WaveThread extends Thread {
@@ -237,5 +215,14 @@ public class WaveViewNew extends View
             waveHandler.removeMessages(wave_LevelStart);
             waveHandler = null;
         }
+    }
+
+    public float getWave_Angle() {
+        return wave_Angle;
+    }
+
+    public void setWave_Angle(float wave_Angle) {
+        this.wave_Angle = wave_Angle;
+        invalidate();
     }
 }

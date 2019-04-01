@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/CurrentAppTheme">
         <activity
-            android:name=".activity.LauncherActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,9 +37,9 @@
             android:windowSoftInputMode="adjustPan|stateHidden">
         </activity>
 
-        <activity android:name=".activity.MainActivity"
+        <!--<activity android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
-        </activity>
+        </activity>-->
 
         <activity android:name="com.chimaeraqm.module_wechatpay.RechargeWeActivity"
             android:screenOrientation="portrait">
