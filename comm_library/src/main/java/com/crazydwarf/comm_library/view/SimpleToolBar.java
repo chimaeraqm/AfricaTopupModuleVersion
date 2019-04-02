@@ -15,6 +15,9 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
@@ -76,10 +79,16 @@ public class SimpleToolBar extends Toolbar
     private Canvas bitmapCanvas;
     private BitmapShader bitmapShader;
 
-    private int wave_Height;
-    private int wave_Width;
+    private int mWave_Height;
+    private int mWave_Width;
+    private int mWave_Amlitude;
+    private float mWave_Speed;
     private float wave_Angle;
-    private int wave_Amlitude;
+
+    private SimpleToolBarThread simpleToolBarThread;
+    private SimpleToolBarHandler simpleToolBarHandler;
+    private boolean mLoop = true;
+    private static final int MESSAGE_START_WAVE = 2001;
 
     public SimpleToolBar(Context context) {
         this(context,null);
@@ -113,6 +122,12 @@ public class SimpleToolBar extends Toolbar
 
         mBackgroundBlur = typedArray.getBoolean(R.styleable.SimpleToolBar_backgroundBlur,false);
         mBackgroundBlurRatio = typedArray.getFloat(R.styleable.SimpleToolBar_backgroundBlurRatio,0f);
+
+        mWave_Amlitude = typedArray.getInteger(R.styleable.SimpleToolBar_wave_Amlitude,0);
+        mWave_Speed = typedArray.getFloat(R.styleable.SimpleToolBar_wave_Speed,0);
+
+        firstWaveColor = typedArray.getColor(R.styleable.SimpleToolBar_firstWaveColor,ContextCompat.getColor(mContext,R.color.colorBlue));
+        secondWaveColor = typedArray.getColor(R.styleable.SimpleToolBar_secondWaveColor,ContextCompat.getColor(mContext,R.color.colorTransBlue));
 
         typedArray.recycle();
         initView();
@@ -187,8 +202,12 @@ public class SimpleToolBar extends Toolbar
 
         firstPath = new Path();
         secondPath = new Path();
+
         wave_Angle = 0;
-        wave_Amlitude = 20;
+
+        simpleToolBarThread = new SimpleToolBarThread();
+        simpleToolBarHandler = new SimpleToolBarHandler();
+        simpleToolBarThread.start();
     }
 
     private void paintSetup()
@@ -211,7 +230,6 @@ public class SimpleToolBar extends Toolbar
         backgroundPaint = new Paint();
         backgroundPaint.setAntiAlias(true);
 
-        firstWaveColor = ContextCompat.getColor(mContext, R.color.colorBlue);
         firstWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         firstWavePaint.setAntiAlias(true);
         firstWavePaint.setFlags(Paint.ANTI_ALIAS_FLAG);
@@ -219,7 +237,6 @@ public class SimpleToolBar extends Toolbar
         firstWavePaint.setStyle(Paint.Style.FILL);
         firstWavePaint.setStrokeWidth(10);
 
-        secondWaveColor = ContextCompat.getColor(mContext, R.color.colorTransBlue);
         secondWavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         secondWavePaint.setAntiAlias(true);
         secondWavePaint.setFlags(Paint.ANTI_ALIAS_FLAG);
@@ -234,8 +251,9 @@ public class SimpleToolBar extends Toolbar
         bitmapCanvas = new Canvas(bitmap);
         bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         backgroundPaint.setShader(bitmapShader);
-        wave_Height = getHeight();
-        wave_Width = getWidth();
+
+        mWave_Width = getWidth();
+        mWave_Height = getHeight();
     }
 
     @Override
@@ -249,11 +267,11 @@ public class SimpleToolBar extends Toolbar
         secondPath.moveTo(0,0);
 
         int index = 0;
-        while (index <= wave_Width)
+        while (index <= mWave_Width)
         {
-            float endY = (float) (Math.sin((float) index / (float) wave_Width * 2f * Math.PI +wave_Angle) * (float) wave_Amlitude + wave_Height - wave_Amlitude);
+            float endY = (float) (Math.sin((float) index / (float) mWave_Width * 2f * Math.PI +wave_Angle) * (float) mWave_Amlitude + mWave_Height - mWave_Amlitude);
             firstPath.lineTo(index, endY);
-            float endY1 = (float) (Math.sin((float) index / (float) wave_Width * 2f * Math.PI +wave_Angle+90) * (float) wave_Amlitude + wave_Height - wave_Amlitude);
+            float endY1 = (float) (Math.sin((float) index / (float) mWave_Width * 2f * Math.PI +wave_Angle+90) * (float) mWave_Amlitude + mWave_Height - mWave_Amlitude);
             secondPath.lineTo(index, endY1);
             index++;
         }
@@ -386,4 +404,44 @@ public class SimpleToolBar extends Toolbar
         this.wave_Angle = wave_Angle;
         invalidate();
     }
+
+    private final class SimpleToolBarThread extends Thread {
+        @Override
+        public void run() {
+            super.run();
+            while (mLoop) {
+                wave_Angle = wave_Angle - 1 * mWave_Speed;
+                if (wave_Angle == 0) {
+                    wave_Angle = 360;
+                }
+                simpleToolBarHandler.sendEmptyMessage(MESSAGE_START_WAVE);
+                SystemClock.sleep(10);
+            }
+        }
+    }
+
+    private final class SimpleToolBarHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (MESSAGE_START_WAVE == msg.what) {
+                invalidate();
+            }
+        }
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mLoop = false;
+        if (simpleToolBarThread != null) {
+            simpleToolBarThread.interrupt();
+            simpleToolBarThread = null;
+        }
+        if (simpleToolBarHandler != null) {
+            simpleToolBarHandler.removeMessages(MESSAGE_START_WAVE);
+            simpleToolBarHandler = null;
+        }
+    }
+
 }

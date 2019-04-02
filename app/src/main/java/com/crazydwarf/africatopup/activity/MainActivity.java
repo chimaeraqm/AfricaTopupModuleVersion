@@ -18,13 +18,8 @@ import com.crazydwarf.africatopup.fragment.RechargeFragment;
 import com.crazydwarf.africatopup.fragment.UserFragment;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.LanguageSelectDialog;
-import com.crazydwarf.comm_library.view.BitmapView;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
 import com.crazydwarf.comm_library.view.SimpleToolBarHelper;
-import com.crazydwarf.comm_library.view.WaveView;
-import com.crazydwarf.comm_library.view.WaveViewHelper;
-import com.crazydwarf.comm_library.view.WaveViewNew;
-import com.crazydwarf.comm_library.view.WaveViewNewHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,16 +118,6 @@ public class MainActivity extends BaseActivity
                 activityExit();
             }
         });
-
-        SimpleToolBarHelper simpleToolBarHelper = new SimpleToolBarHelper(toolBar);
-        simpleToolBarHelper.start();
-//        WaveView waveView = findViewById(R.id.waveview);
-//        WaveViewHelper mWaveHelper = new WaveViewHelper(waveView);
-//        mWaveHelper.start();
-
-//        BitmapView waveViewNew = findViewById(R.id.waveview);
-//        WaveViewNewHelper mWaveHelper = new WaveViewNewHelper(waveViewNew);
-//        mWaveHelper.start();
 
         initFragments();
     }

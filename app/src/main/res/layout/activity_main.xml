@@ -25,15 +25,9 @@
         app:title="@string/app_name"
         app:titleColor="@color/colorWhite"
         app:titleSize="20sp"
+        app:wave_Amlitude="20"
+        app:wave_Speed="0.02"
         app:viewBackground="@color/colorTrans" />
-
-    <!--<com.crazydwarf.comm_library.view.BitmapView
-        android:id="@+id/waveview"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
 
     <FrameLayout
         android:id="@+id/view_fragment"
