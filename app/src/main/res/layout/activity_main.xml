@@ -8,7 +8,7 @@
     tools:context=".activity.MainActivity">
 
 
-    <com.crazydwarf.comm_library.view.SimpleToolBar
+    <com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar
         android:id="@+id/top_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

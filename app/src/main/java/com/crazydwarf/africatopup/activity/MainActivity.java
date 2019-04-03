@@ -10,16 +10,14 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.crazydwarf.africatopup.fragment.NewRechargeFragment;
+import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
 import com.crazydwarf.comm_library.Utilities.ActivityManager;
 import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.fragment.QueryFragment;
-import com.crazydwarf.africatopup.fragment.RechargeFragment;
 import com.crazydwarf.africatopup.fragment.UserFragment;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.LanguageSelectDialog;
-import com.crazydwarf.comm_library.view.SimpleToolBar;
-import com.crazydwarf.comm_library.view.SimpleToolBarHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,9 +85,10 @@ public class MainActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SimpleToolBar toolBar = findViewById(R.id.top_menu);
+//        SimpleToolBar toolBar = findViewById(R.id.top_menu);
+        WaveToolbar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
-        toolBar.setMenuIconClickListener(new SimpleToolBar.MenuIconClickListener() {
+        toolBar.setMenuIconClickListener(new WaveToolbar.MenuIconClickListener() {
             @Override
             public void OnClick(View view) {
 
@@ -111,7 +110,7 @@ public class MainActivity extends BaseActivity
             }
         });
 
-        toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
+        toolBar.setBackIconClickListener(new WaveToolbar.BackIconClickListener() {
             @Override
             public void OnClick() {
                 //MainActivity点击back两次后关闭程序

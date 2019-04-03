@@ -41,6 +41,8 @@ android {
 
 dependencies {
     implementation project(':comm_library')
+//    implementation project(':wavetoolbar')
+    implementation 'com.github.chimaeraqm:WaveToolbar:v0.3'
     if(!Boolean.valueOf(rootProject.ext.isModule_Alipay))
     {
         implementation project(':module_alipay')
@@ -49,8 +51,8 @@ dependencies {
     {
         implementation project(':module_wechatpay')
     }
-    if(!Boolean.valueOf(rootProject.ext.isModule_Phonefix))
-    {
-        implementation project(':phonefixproject')
-    }
+//    if(!Boolean.valueOf(rootProject.ext.isModule_Phonefix))
+//    {
+//        implementation project(':phonefixproject')
+//    }
 }

@@ -26,7 +26,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':wavetoolbar')
 
     api files('libs/alipaySdk-15.5.7-20181023110930-noUtdid.aar')
 
