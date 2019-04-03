@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/bn_recharge_20"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -104,22 +104,22 @@
         app:layout_constraintTop_toTopOf="@+id/bn_recharge_10" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/bn_recharge_30"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:background="@drawable/shape_button5"
         android:text="@string/string_recharge_30"
         android:textColor="@color/colorBlue"
         android:textStyle="bold"
-        android:background="@drawable/shape_button5"
-        app:layout_constraintBottom_toBottomOf="@+id/button5"
+        app:layout_constraintBottom_toBottomOf="@+id/bn_recharge_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/button5" />
+        app:layout_constraintTop_toTopOf="@+id/bn_recharge_20" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/bn_recharge_50"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -135,7 +135,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bn_recharge_10" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/bn_recharge_100"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -144,29 +144,29 @@
         android:textColor="@color/colorBlue"
         android:textStyle="bold"
         android:background="@drawable/shape_button5"
-        app:layout_constraintBottom_toBottomOf="@+id/button7"
+        app:layout_constraintBottom_toBottomOf="@+id/bn_recharge_50"
         app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
-        app:layout_constraintTop_toTopOf="@+id/button7" />
+        app:layout_constraintTop_toTopOf="@+id/bn_recharge_50" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/bn_recharge_200"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:background="@drawable/shape_button5"
         android:text="@string/string_recharge_200"
         android:textColor="@color/colorBlue"
         android:textStyle="bold"
-        android:background="@drawable/shape_button5"
-        app:layout_constraintBottom_toBottomOf="@+id/button8"
+        app:layout_constraintBottom_toBottomOf="@+id/bn_recharge_100"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/button8" />
+        app:layout_constraintTop_toTopOf="@+id/bn_recharge_100" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/bn_recharge_300"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -179,23 +179,23 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_50" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/bn_recharge_500"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:background="@drawable/shape_button5"
         android:text="@string/string_recharge_500"
         android:textColor="@color/colorBlue"
         android:textStyle="bold"
-        android:background="@drawable/shape_button5"
-        app:layout_constraintBottom_toBottomOf="@+id/button10"
+        app:layout_constraintBottom_toBottomOf="@+id/bn_recharge_300"
         app:layout_constraintEnd_toStartOf="@+id/guideline15"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
-        app:layout_constraintTop_toTopOf="@+id/button10" />
+        app:layout_constraintTop_toTopOf="@+id/bn_recharge_300" />
 
     <TextView
         android:id="@+id/textView42"
@@ -207,7 +207,7 @@
         android:textSize="18sp"
         android:textColor="@color/colorBlack"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10" />
+        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_300" />
 
     <Button
         android:id="@+id/bn_addflow"

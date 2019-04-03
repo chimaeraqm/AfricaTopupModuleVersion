@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.chimaeraqm.module_wechatpay.RechargeWeActivity;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.view.BundleItemAdapter;
+import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.AddNumberDialog;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
@@ -29,9 +30,9 @@ public class BundleActivity extends BaseActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bundle);
-        SimpleToolBar toolBar = findViewById(R.id.top_menu);
+        WaveToolbar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
-        toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
+        toolBar.setBackIconClickListener(new WaveToolbar.BackIconClickListener() {
             @Override
             public void OnClick() {
                 finish();

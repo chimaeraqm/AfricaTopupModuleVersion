@@ -1,31 +1,24 @@
 package com.crazydwarf.module_alipay;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.alipay.sdk.app.EnvUtils;
 import com.alipay.sdk.app.PayTask;
 import com.crazydwarf.chimaeraqm.module_alipay.R;
 import com.crazydwarf.comm_library.Objects.User;
 import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
-import com.crazydwarf.comm_library.activity.HistoryActivity;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
-import com.crazydwarf.module_alipay.AlipayUtil.OrderInfoUtil2_0;
 import com.crazydwarf.module_alipay.AlipayUtil.PayResult;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.google.gson.Gson;
@@ -43,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -142,13 +134,13 @@ public class RechargeAliActivity extends BaseActivity
         });
 
         Button bnHistory = findViewById(R.id.bn_history);
-        bnHistory.setOnClickListener(new View.OnClickListener() {
+        /*bnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RechargeAliActivity.this,HistoryActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         Button bnComfirm = findViewById(R.id.bn_recharge_ali);
         bnComfirm.setOnClickListener(new View.OnClickListener() {

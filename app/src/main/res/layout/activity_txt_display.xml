@@ -6,23 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.crazydwarf.comm_library.view.SimpleToolBar
+    <com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar
         android:id="@+id/top_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:appIcon="@drawable/app_icon_rb_round"
-        app:appIconShow="true"
-        app:appIconSize="40dp"
-        app:backIcon="@drawable/ic_chevron_left_black_32dp"
+        app:appIconShow="false"
+        app:backIcon="@drawable/ic_chevron_left_white_32dp"
         app:backIconSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menuIconShow="false"
         app:title="@string/string_operator_expense"
-        app:titleColor="@color/colorBlack"
+        app:titleColor="@color/colorWhite"
         app:titleSize="20sp"
-        app:viewBackground="@color/colorOrange"
-        />
+        app:wave_Amlitude="20"
+        app:wave_Speed="0.02" />
 
     <ScrollView
         android:layout_width="0dp"

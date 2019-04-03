@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.crazydwarf.chimaeraqm.module_wechatpay.R;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.comm_library.activity.BaseActivity;
-import com.crazydwarf.comm_library.activity.HistoryActivity;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
 
 import org.json.JSONException;
@@ -46,13 +45,13 @@ public class RechargeWeActivity extends BaseActivity
         });
 
         Button bnHistory = findViewById(R.id.bn_history);
-        bnHistory.setOnClickListener(new View.OnClickListener() {
+        /*bnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(RechargeWeActivity.this,HistoryActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
         Button bnReWx = findViewById(R.id.bn_recharge_wx);
         bnReWx.setOnClickListener(new View.OnClickListener() {

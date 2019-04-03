@@ -8,9 +8,11 @@ import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
+import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
 
-public class TxtDisplayActivity extends AppCompatActivity
+public class TxtDisplayActivity extends BaseActivity
 {
     private TextView tvInfo;
 
@@ -18,8 +20,8 @@ public class TxtDisplayActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_txt_display);
-        SimpleToolBar toolBar = findViewById(R.id.top_menu);
-        toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
+        WaveToolbar toolBar = findViewById(R.id.top_menu);
+        toolBar.setBackIconClickListener(new WaveToolbar.BackIconClickListener() {
             @Override
             public void OnClick() {
                 finish();

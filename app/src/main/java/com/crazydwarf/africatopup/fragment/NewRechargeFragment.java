@@ -23,10 +23,74 @@ public class NewRechargeFragment extends Fragment
         bn_recharge_10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity());
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),10f);
                 dialog.show();
             }
         });
+
+        Button bn_recharge_20 = view.findViewById(R.id.bn_recharge_20);
+        bn_recharge_20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),20f);
+                dialog.show();
+            }
+        });
+
+        Button bn_recharge_30 = view.findViewById(R.id.bn_recharge_30);
+        bn_recharge_30.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),30f);
+                dialog.show();
+            }
+        });
+
+        Button bn_recharge_50 = view.findViewById(R.id.bn_recharge_50);
+        bn_recharge_50.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),50f);
+                dialog.show();
+            }
+        });
+
+        Button bn_recharge_100 = view.findViewById(R.id.bn_recharge_100);
+        bn_recharge_100.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),100f);
+                dialog.show();
+            }
+        });
+
+        Button bn_recharge_200 = view.findViewById(R.id.bn_recharge_200);
+        bn_recharge_200.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),200f);
+                dialog.show();
+            }
+        });
+
+        Button bn_recharge_300 = view.findViewById(R.id.bn_recharge_300);
+        bn_recharge_300.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),300f);
+                dialog.show();
+            }
+        });
+
+        Button bn_recharge_500 = view.findViewById(R.id.bn_recharge_500);
+        bn_recharge_500.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),500f);
+                dialog.show();
+            }
+        });
+
         return view;
     }
 

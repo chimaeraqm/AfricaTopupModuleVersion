@@ -11,7 +11,7 @@ import android.widget.Button;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.activity.BundleActivity;
-import com.crazydwarf.comm_library.activity.HistoryActivity;
+import com.crazydwarf.africatopup.activity.HistoryActivity;
 import com.crazydwarf.comm_library.dialogs.DepositDetailDialog;
 import com.crazydwarf.comm_library.dialogs.LoginDialog;
 import com.crazydwarf.comm_library.dialogs.LogupDialog;

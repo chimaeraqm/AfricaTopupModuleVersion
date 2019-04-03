@@ -1,4 +1,4 @@
-package com.crazydwarf.comm_library.activity;
+package com.crazydwarf.africatopup.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,7 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.crazydwarf.chimaeraqm.comm_library.R;
+import com.crazydwarf.africatopup.R;
+import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
+import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.HistoryDetailDialog;
 import com.crazydwarf.comm_library.adapters.HistoryItemAdapter;
 import com.crazydwarf.comm_library.view.SimpleToolBar;
@@ -24,9 +26,9 @@ public class HistoryActivity extends BaseActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        SimpleToolBar toolBar = findViewById(R.id.top_menu);
+        WaveToolbar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
-        toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
+        toolBar.setBackIconClickListener(new WaveToolbar.BackIconClickListener() {
             @Override
             public void OnClick() {
                 finish();

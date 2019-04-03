@@ -1,6 +1,7 @@
 package com.crazydwarf.comm_library.dialogs;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -31,12 +32,14 @@ import java.util.List;
 
 public class PurchaseBottomSheetDialog extends BottomSheetDialog/* implements View.OnClickListener*/
 {
-    private Context mContext;
+//    private Context mContext;
     private View contentView;
+    private float mAmount;
 
-    public PurchaseBottomSheetDialog(@NonNull Context context) {
+    public PurchaseBottomSheetDialog(@NonNull Context context,float amount) {
         super(context);
-        this.mContext = context;
+        this.mAmount = amount;
+//        this.mContext = context;
     }
 
     @Override
@@ -46,7 +49,7 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog/* implements Vi
     }
 
     private void init() {
-        contentView = View.inflate(mContext, R.layout.dialog_bottomsheet_purchase, null);
+        contentView = View.inflate(getContext(), R.layout.dialog_bottomsheet_purchase, null);
         setContentView(contentView);
         BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from((View) contentView.getParent());
         int dialogHeight = getWindowHeight();
@@ -56,12 +59,10 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog/* implements Vi
         BottomSheetBehavior.BottomSheetCallback bottomSheetCallback = new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                double a = 0;
             }
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                double a = 0;
             }
         };
 
@@ -69,7 +70,7 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog/* implements Vi
         bn_purchaseway.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseWayBottomSheetDialog purchaseWayBottomSheetDialog = new PurchaseWayBottomSheetDialog(mContext);
+                PurchaseWayBottomSheetDialog purchaseWayBottomSheetDialog = new PurchaseWayBottomSheetDialog(getContext());
                 purchaseWayBottomSheetDialog.show();
             }
         });
@@ -81,20 +82,22 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog/* implements Vi
                 dismiss();
             }
         });
+
+        TextView tvValue = findViewById(R.id.tv_value);
+        String tvValueStr = String.format("%.2f",mAmount);
+        tvValue.setText(tvValueStr);
+
+        Button bn_Confirm = findViewById(R.id.bn_confirm);
+        bn_Confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
     }
 
-
-    /*@Override
-    public void onClick(View v) {
-        switch (v.)
-        {
-            case R.id.bn_purchaseway:
-                break;
-        }
-    }*/
-
     private int getWindowHeight() {
-        Resources res = mContext.getResources();
+        Resources res = getContext().getResources();
         DisplayMetrics displayMetrics = res.getDisplayMetrics();
         return displayMetrics.heightPixels;
     }

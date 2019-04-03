@@ -17,12 +17,12 @@ import com.crazydwarf.chimaeraqm.comm_library.R;
 
 public class PurchaseWayBottomSheetDialog extends BottomSheetDialog
 {
-    private Context mContext;
+//    private Context mContext;
     private View contentView;
 
     public PurchaseWayBottomSheetDialog(@NonNull Context context) {
         super(context);
-        this.mContext = context;
+//        this.mContext = context;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class PurchaseWayBottomSheetDialog extends BottomSheetDialog
     }
 
     private void init() {
-        contentView = View.inflate(mContext, R.layout.dialog_bottomsheet_purchaseway, null);
+        contentView = View.inflate(getContext(), R.layout.dialog_bottomsheet_purchaseway, null);
         setContentView(contentView);
         BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from((View) contentView.getParent());
         int dialogHeight = getWindowHeight();
@@ -49,7 +49,7 @@ public class PurchaseWayBottomSheetDialog extends BottomSheetDialog
     }
 
     private int getWindowHeight() {
-        Resources res = mContext.getResources();
+        Resources res = getContext().getResources();
         DisplayMetrics displayMetrics = res.getDisplayMetrics();
         return displayMetrics.heightPixels;
     }
