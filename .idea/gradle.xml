@@ -12,8 +12,6 @@
             <option value="$PROJECT_DIR$/comm_library" />
             <option value="$PROJECT_DIR$/module_alipay" />
             <option value="$PROJECT_DIR$/module_wechatpay" />
-            <option value="$PROJECT_DIR$/phonefixproject" />
-            <option value="$PROJECT_DIR$/wavetoolbar" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

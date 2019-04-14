@@ -18,12 +18,12 @@ android {
             keyAlias "normal"
             keyPassword "cad08cad"
         }
-        /*debug {
+        debug {
             storeFile file("E:/jks_for_apps/normal.keystore")
             storePassword "cad08cad"
             keyAlias "normal"
             keyPassword "cad08cad"
-        }*/
+        }
     }
 
     buildTypes {

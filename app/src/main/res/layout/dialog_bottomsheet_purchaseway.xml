@@ -48,17 +48,16 @@
         android:id="@+id/bn_alipay"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="@string/string_alipay"
         android:background="@color/colorTrans"
-        android:drawableLeft="@drawable/ic_account_circle_blue_32dp"
+        android:drawableLeft="@drawable/alipay_64_64"
+        android:text="@string/string_alipay"
         app:layout_constraintEnd_toStartOf="@+id/im_alipay_check"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <ImageView
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/im_alipay_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,18 +75,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="256dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/string_wechat_pay"
         android:background="@color/colorTrans"
-        android:drawableLeft="@drawable/ic_account_circle_blue_32dp"
+        android:drawableLeft="@drawable/wxpay_64_64"
+        android:text="@string/string_wechat_pay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/im_wxpay_check"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bn_alipay" />
 
-    <ImageView
+    <com.crazydwarf.comm_library.view.SmoothCheckBox
         android:id="@+id/im_wxpay_check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

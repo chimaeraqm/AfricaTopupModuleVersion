@@ -1,4 +1,4 @@
-package com.crazydwarf.comm_library.dialogs;
+package com.crazydwarf.africatopup.dialogs;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -9,20 +9,21 @@ import android.support.design.widget.BottomSheetDialog;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.crazydwarf.chimaeraqm.comm_library.R;
+import com.crazydwarf.africatopup.R;
+import com.crazydwarf.comm_library.view.SmoothCheckBox;
+
 
 public class PurchaseWayBottomSheetDialog extends BottomSheetDialog
 {
-//    private Context mContext;
     private View contentView;
+    private SmoothCheckBox cb_alipay_check;
+    private SmoothCheckBox cb_wxpay_check;
 
     public PurchaseWayBottomSheetDialog(@NonNull Context context) {
         super(context);
-//        this.mContext = context;
     }
 
     @Override
@@ -46,6 +47,34 @@ public class PurchaseWayBottomSheetDialog extends BottomSheetDialog
                 dismiss();
             }
         });
+
+        //TODO : PurchaseBottomSheetDialog与此dialog切换时需记住上次选择的支付方式
+        cb_alipay_check = findViewById(R.id.im_alipay_check);
+        cb_alipay_check.setChecked(true);
+        cb_alipay_check.setClickable(false);
+
+        cb_wxpay_check = findViewById(R.id.im_wxpay_check);
+        cb_wxpay_check.setChecked(false);
+        cb_wxpay_check.setClickable(false);
+
+        Button bn_alipay = findViewById(R.id.bn_alipay);
+        bn_alipay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cb_alipay_check.setChecked(true,true);
+                cb_wxpay_check.setChecked(false);
+            }
+        });
+
+        Button bn_wxpay = findViewById(R.id.bn_wxpay);
+        bn_wxpay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cb_alipay_check.setChecked(false);
+                cb_wxpay_check.setChecked(true,true);
+            }
+        });
+
     }
 
     private int getWindowHeight() {

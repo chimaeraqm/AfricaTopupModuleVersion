@@ -22,13 +22,23 @@ public class SmoothCheckBox extends View implements Checkable
 {
     private static final String KEY_INSTANCE_STATE = "InstanceState";
 
-    private static final int COLOR_TICK = Color.WHITE;
-    private static final int COLOR_UNCHECKED = Color.WHITE;
-    private static final int COLOR_CHECKED = Color.parseColor("#FB4846");
-    private static final int COLOR_FLOOR_UNCHECKED = Color.parseColor("#DFDFDF");
+    //TODO : 以后要改进，对勾颜色和底色随系统主色变化
+    //TODO : 第一次init的时候有bug，默认执行动画，且动画持续时间与设置时间不符
+    /**
+     * SmoothCheckBox_duration 动画持续时间 DEF_ANIM_DURATION 默认动画持续时间
+     * SmoothCheckBox_stroke_width 未选中时边框宽度 默认为1
+     * SmoothCheckBox_color_tick 对勾画笔颜色 COLOR_TICK 默认对勾颜色（蓝色）
+     * SmoothCheckBox_color_checked 选中时填充颜色 COLOR_CHECKED 默认为透明
+     * SmoothCheckBox_color_unchecked 未选中时填充颜色 COLOR_UNCHECKED 默认为透明
+     * SmoothCheckBox_color_unchecked_stroke 未选中时边框颜色 COLOR_FLOOR_UNCHECKED 默认为透明
+     */
+    private static final int COLOR_TICK = Color.parseColor("#296fc7");
+    private static final int COLOR_UNCHECKED = Color.parseColor("#00000000");
+    private static final int COLOR_CHECKED = Color.parseColor("#00000000");
+    private static final int COLOR_FLOOR_UNCHECKED = Color.parseColor("#00000000");
 
     private static final int DEF_DRAW_SIZE = 25;
-    private static final int DEF_ANIM_DURATION = 300;
+    private static final int DEF_ANIM_DURATION = 100;
 
     private Paint mPaint, mTickPaint, mFloorPaint;
     private Point[] mTickPoints;
@@ -81,7 +91,7 @@ public class SmoothCheckBox extends View implements Checkable
         mTickPaint.setColor(tickColor);
 
         mFloorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mFloorPaint.setStyle(Paint.Style.FILL);
+        mFloorPaint.setStyle(Paint.Style.STROKE);
         mFloorPaint.setColor(mFloorColor);
 
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -309,7 +319,7 @@ public class SmoothCheckBox extends View implements Checkable
 
     private void startCheckedAnimation() {
         ValueAnimator animator = ValueAnimator.ofFloat(1.0f, 0f);
-        animator.setDuration(mAnimDuration / 3 * 2);
+        animator.setDuration(mAnimDuration);
         animator.setInterpolator(new LinearInterpolator());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override

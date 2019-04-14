@@ -110,6 +110,16 @@
         app:layout_constraintStart_toEndOf="@+id/tv_purchaseway"
         app:layout_constraintTop_toTopOf="@+id/tv_purchaseway" />
 
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/string_exchange_rate_info"
+        app:layout_constraintEnd_toEndOf="@+id/tv_purchaseway"
+        app:layout_constraintStart_toStartOf="@+id/tv_purchaseway"
+        app:layout_constraintTop_toBottomOf="@+id/tv_purchaseway" />
+
     <Button
         android:id="@+id/bn_confirm"
         android:layout_width="0dp"
@@ -137,5 +147,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_title"
         app:srcCompat="@drawable/ic_close_gray_24dp" />
+
+    <TextView
+        android:id="@+id/tv_exchange_rate_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="$1 : RMB 7.01"
+        android:textColor="@color/colorRed"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/textView43"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView43"
+        app:layout_constraintTop_toTopOf="@+id/textView43" />
 
 </android.support.constraint.ConstraintLayout>

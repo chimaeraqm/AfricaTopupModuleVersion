@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.Utilities.ActivityManager;
 import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
@@ -42,5 +43,11 @@ public class BaseActivity extends AppCompatActivity
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(AppLanguageUtils.updateResources(newBase));
+    }
+
+    //TODO ：activity进出动画设置有问题，影响支付回调体验
+    @Override
+    public void finish() {
+        super.finish();
     }
 }

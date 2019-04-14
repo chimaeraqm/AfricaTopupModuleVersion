@@ -11,6 +11,8 @@ import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 import android.widget.Toast;
 
+import com.crazydwarf.comm_library.activity.BaseApplication;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -50,12 +52,16 @@ public class UserUtil
                     }, Constants.PERMISSIONS_REQUEST_CODE);
 
         } else {
-            showToast(activity, "已有所需的权限");
+            showToastShort("已有所需的权限");
         }
     }
 
-    public static void showToast(Context ctx, String msg) {
-        Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
+    public static void showToastShort(String msg) {
+        Toast.makeText(BaseApplication.getApplication(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void showToastLong(String msg) {
+        Toast.makeText(BaseApplication.getApplication(), msg, Toast.LENGTH_LONG).show();
     }
 
     /**

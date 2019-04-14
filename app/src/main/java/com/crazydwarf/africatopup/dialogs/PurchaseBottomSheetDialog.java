@@ -1,4 +1,4 @@
-package com.crazydwarf.comm_library.dialogs;
+package com.crazydwarf.africatopup.dialogs;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,39 +7,49 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.crazydwarf.chimaeraqm.comm_library.R;
-import com.crazydwarf.comm_library.Objects.DialogListItem;
+import com.crazydwarf.africatopup.R;
+import com.crazydwarf.comm_library.Listener.DialogListener;
+import com.crazydwarf.comm_library.Utilities.UserUtil;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.io.IOException;
 
-public class PurchaseBottomSheetDialog extends BottomSheetDialog/* implements View.OnClickListener*/
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+public class PurchaseBottomSheetDialog extends BottomSheetDialog
 {
-//    private Context mContext;
     private View contentView;
     private float mAmount;
+    private float mRate = 0.0f;
+    private static final String EXCHANGE_RATE_REQUEST_URL = "https://wx.dwarfworkshop.com/congo/OpenExchangeRateRequest.php";
 
-    public PurchaseBottomSheetDialog(@NonNull Context context,float amount) {
+    /**
+     * tv_exchange_rate_info显示的内容会在线程中刷新，故作为公共变量
+     */
+    private TextView tv_exchange_rate_info;
+
+    /**
+     * add interface mDialogListner to grab purchase process confirmed or not
+     */
+    private DialogListener mDialogListner;
+
+    //TODO : 现在暂时采取每次充值窗口打开时更新一次汇率，且刷新在线程中，有滞后，以后要改成定时刷新，先完成汇率确认再进入支付界面
+    public PurchaseBottomSheetDialog(@NonNull Context context,float amount,DialogListener dialogListener) {
         super(context);
         this.mAmount = amount;
-//        this.mContext = context;
+        this.mDialogListner = dialogListener;
+        mDialogListner.getPurchaseRequestFromDialog(false,mRate);
     }
 
     @Override
@@ -87,13 +97,40 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog/* implements Vi
         String tvValueStr = String.format("%.2f",mAmount);
         tvValue.setText(tvValueStr);
 
+        //TODO : 点击确认支付后，返回支付process开始确认和当前汇率
         Button bn_Confirm = findViewById(R.id.bn_confirm);
         bn_Confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mDialogListner.getPurchaseRequestFromDialog(true,mRate);
+                dismiss();
             }
         });
 
+        tv_exchange_rate_info = findViewById(R.id.tv_exchange_rate_info);
+
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(EXCHANGE_RATE_REQUEST_URL)
+                .build();
+
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e)
+            {
+                UserUtil.showToastShort("汇率更新失败");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException
+            {
+                String rate_response = response.body().string();
+                String str_exchange_rate_info = String.format("$ 1.0 = RMB %s",rate_response);
+                tv_exchange_rate_info.setText(str_exchange_rate_info);
+                mRate = Float.valueOf(rate_response);
+            }
+        });
     }
 
     private int getWindowHeight() {

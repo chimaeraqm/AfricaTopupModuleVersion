@@ -1,29 +1,52 @@
 package com.crazydwarf.africatopup.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.provider.BlockedNumberContract;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.chimaeraqm.module_wechatpay.WechatpayModuleActivity;
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.comm_library.dialogs.PurchaseBottomSheetDialog;
+import com.crazydwarf.africatopup.dialogs.PurchaseBottomSheetDialog;
+import com.crazydwarf.comm_library.Listener.DialogListener;
+import com.crazydwarf.module_alipay.RechargeAliActivity;
 
 public class NewRechargeFragment extends Fragment
 {
+    private static final int RESULT_OK = 0;
+    private float mRequestPrice;
+
+    //TODO : 将支付金额设为选择金额的1/1000，实际上线后取消该设置
+    private float mMulti = 0.001f;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
     {
+
         final View view = inflater.inflate(R.layout.fragment_recharge_new,container,false);
+
+        //TODO : 金额选择需要做的更灵活，自定义一个button包含一个type和int属性，分别代表充值的种类和金额
         Button bn_recharge_10 = view.findViewById(R.id.bn_recharge_10);
         bn_recharge_10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),10f);
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 10f, new DialogListener() {
+                    @Override
+                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                        if(res){
+                            //TODO : 选择的是美元，支付的是RMB
+                            mRequestPrice = 10 * mMulti * rate;
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
+
+                            Intent intent = new Intent(getContext(),RechargeAliActivity.class);
+                            intent.putExtra("REQUEST_PRICE",strRequestPrice);
+                            startActivity(intent);
+                        }
+                    }
+                });
                 dialog.show();
             }
         });
@@ -32,7 +55,19 @@ public class NewRechargeFragment extends Fragment
         bn_recharge_20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),20f);
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 20f, new DialogListener() {
+                    @Override
+                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                        if(res){
+                            mRequestPrice = 20 * mMulti * rate;
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
+
+                            Intent intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            intent.putExtra("REQUEST_PRICE",strRequestPrice);
+                            startActivity(intent);
+                        }
+                    }
+                });
                 dialog.show();
             }
         });
@@ -41,7 +76,19 @@ public class NewRechargeFragment extends Fragment
         bn_recharge_30.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),30f);
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 30f, new DialogListener() {
+                    @Override
+                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                        if(res) {
+                            mRequestPrice = 30 * mMulti * rate;
+                            String strRequestPrice = String.format("%.2f", mRequestPrice);
+
+                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
+                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            startActivity(intent);
+                        }
+                    }
+                });
                 dialog.show();
             }
         });
@@ -50,7 +97,19 @@ public class NewRechargeFragment extends Fragment
         bn_recharge_50.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),50f);
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 50f, new DialogListener() {
+                    @Override
+                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                        if(res) {
+                            mRequestPrice = 50 * mMulti * rate;
+                            String strRequestPrice = String.format("%.2f", mRequestPrice);
+
+                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
+                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            startActivity(intent);
+                        }
+                    }
+                });
                 dialog.show();
             }
         });
@@ -59,7 +118,19 @@ public class NewRechargeFragment extends Fragment
         bn_recharge_100.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),100f);
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 100f, new DialogListener() {
+                    @Override
+                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                        if(res) {
+                            mRequestPrice = 100 * mMulti * rate;
+                            String strRequestPrice = String.format("%.2f", mRequestPrice);
+
+                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
+                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            startActivity(intent);
+                        }
+                    }
+                });
                 dialog.show();
             }
         });
@@ -68,7 +139,19 @@ public class NewRechargeFragment extends Fragment
         bn_recharge_200.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),200f);
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 200f, new DialogListener() {
+                    @Override
+                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                        if(res) {
+                            mRequestPrice = 200 * mMulti * rate;
+                            String strRequestPrice = String.format("%.2f", mRequestPrice);
+
+                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
+                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            startActivity(intent);
+                        }
+                    }
+                });
                 dialog.show();
             }
         });
@@ -77,7 +160,19 @@ public class NewRechargeFragment extends Fragment
         bn_recharge_300.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),300f);
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 300f, new DialogListener() {
+                    @Override
+                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                        if(res) {
+                            mRequestPrice = 300 * mMulti * rate;
+                            String strRequestPrice = String.format("%.2f", mRequestPrice);
+
+                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
+                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            startActivity(intent);
+                        }
+                    }
+                });
                 dialog.show();
             }
         });
@@ -86,7 +181,19 @@ public class NewRechargeFragment extends Fragment
         bn_recharge_500.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(),500f);
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 500f, new DialogListener() {
+                    @Override
+                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                        if(res) {
+                            mRequestPrice = 500 * mMulti * rate;
+                            String strRequestPrice = String.format("%.2f", mRequestPrice);
+
+                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
+                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            startActivity(intent);
+                        }
+                    }
+                });
                 dialog.show();
             }
         });

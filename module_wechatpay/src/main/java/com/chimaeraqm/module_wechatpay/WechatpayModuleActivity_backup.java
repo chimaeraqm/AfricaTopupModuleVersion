@@ -26,23 +26,15 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class WechatpayModuleActivity extends BaseActivity
+public class WechatpayModuleActivity_backup extends BaseActivity
 {
     private static final String ORDER_REQUEST_URL = "https://wx.dwarfworkshop.com/congo/wxAppPay.php";
-
-    private static final String REQUEST_APPID = "wxb4737b9a4e5b24b4";
-    private static final String REQUEST_MCHID = "1527548721";
-    private static final String REQUEST_NOTIFY_URL = "https://wx.dwarfworkshop.com/congo/wxAppPay_Validate.php";
-    private static final String REQUEST_KEY = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASC";
-
-    public String mRequestPrice = "0.0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wechatpaymodule);
-        mRequestPrice = this.getIntent().getStringExtra("REQUEST_PRICE");
-        //TODO : app gradle中修改签名文件，现在能调起微信支付但是支付失败
+        UserUtil.requestPermission(this);
         payV2();
     }
 
@@ -58,22 +50,26 @@ public class WechatpayModuleActivity extends BaseActivity
          *
          * orderInfo 的获取必须来自服务端；
          */
-        String tip = String.format("Pay $%s to Target Alipay account.",mRequestPrice);
-        UserUtil.showToastLong(tip);
-        sendOrderRequestMD5("devilmaycry",mRequestPrice);
+        UserUtil.showToastLong("Pay $0.02 to Target Wechat account.");
+//        sendOrderRequest("supersmashbros","0.01");
+        sendOrderRequestMD5("devilmaycry","0.02");
     }
 
     void sendOrderRequestMD5(final String request_uid, String request_price)
     {
+        String request_appid = "wxb4737b9a4e5b24b4";
+        String request_mch_id = "1527548721";
+        String request_notify_url = "https://wx.dwarfworkshop.com/congo/wxAppPay_Validate.php";
+        final String request_key = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASC";
         String request_total_fee = "2";
         String request_out_trade_no = genTimeStampStr();
 //        String request_key = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASC";
 
         RequestBody requestBody = new FormBody.Builder()
-                .add("appid",REQUEST_APPID)
-                .add("mch_id",REQUEST_MCHID)
-                .add("notify_url",REQUEST_NOTIFY_URL)
-                .add("key",REQUEST_KEY)
+                .add("appid",request_appid)
+                .add("mch_id",request_mch_id)
+                .add("notify_url",request_notify_url)
+                .add("key",request_key)
                 .add("total_fee",request_total_fee)
                 .add("out_trade_no",request_out_trade_no)
                 .build();
@@ -95,7 +91,7 @@ public class WechatpayModuleActivity extends BaseActivity
                     @Override
                     public void run()
                     {
-                        Toast.makeText(WechatpayModuleActivity.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(WechatpayModuleActivity_backup.this, "fail to connect to sever", Toast.LENGTH_SHORT).show();
                     }
                 });
                 e.printStackTrace();
@@ -120,6 +116,14 @@ public class WechatpayModuleActivity extends BaseActivity
                     //String response_key = jsonObject.getString("sandbox_key");
                     String response_sign = jsonObject.getString("sign");
                     WXPayUtils.WXPayBuilder builder = new WXPayUtils.WXPayBuilder();
+                    /*builder.setAppId(response_appid)
+                            .setPartnerId(response_partnerid)
+                            .setPrepayId(response_prepayid)
+                            .setPackageValue(response_package)
+                            .setTimeStamp(response_timestamp)
+                            .setNonceStr(response_noncestr)
+                            .build()
+                            .toWXPayAndSign(MainActivity.this,response_appid,response_key);*/
                     builder.setAppId(response_appid)
                             .setPartnerId(response_partnerid)
                             .setPrepayId(response_prepayid)
@@ -128,7 +132,7 @@ public class WechatpayModuleActivity extends BaseActivity
                             .setNonceStr(response_noncestr)
                             .setSign(response_sign)
                             .build()
-                            .toWXPayNotSign(WechatpayModuleActivity.this);
+                            .toWXPayNotSign(WechatpayModuleActivity_backup.this);
                 } catch (JSONException e){
                     e.printStackTrace();
                 }
