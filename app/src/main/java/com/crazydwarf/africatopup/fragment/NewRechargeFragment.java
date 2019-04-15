@@ -35,13 +35,18 @@ public class NewRechargeFragment extends Fragment
             public void onClick(View v) {
                 PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 10f, new DialogListener() {
                     @Override
-                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                    public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res){
                             //TODO : 选择的是美元，支付的是RMB
                             mRequestPrice = 10 * mMulti * rate;
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
-
-                            Intent intent = new Intent(getContext(),RechargeAliActivity.class);
+                            Intent intent;
+                            if(payment_method == 1){
+                                intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            }
+                            else{
+                                intent = new Intent(getContext(),RechargeAliActivity.class);
+                            }
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
@@ -57,14 +62,20 @@ public class NewRechargeFragment extends Fragment
             public void onClick(View v) {
                 PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 20f, new DialogListener() {
                     @Override
-                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                    public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res){
                             mRequestPrice = 20 * mMulti * rate;
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
-
-                            Intent intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            Intent intent;
+                            if(payment_method == 1){
+                                intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            }
+                            else{
+                                intent = new Intent(getContext(),RechargeAliActivity.class);
+                            }
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
+
                         }
                     }
                 });
@@ -78,13 +89,19 @@ public class NewRechargeFragment extends Fragment
             public void onClick(View v) {
                 PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 30f, new DialogListener() {
                     @Override
-                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                    public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
                             mRequestPrice = 30 * mMulti * rate;
                             String strRequestPrice = String.format("%.2f", mRequestPrice);
 
-                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
-                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            Intent intent;
+                            if(payment_method == 1){
+                                intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            }
+                            else{
+                                intent = new Intent(getContext(),RechargeAliActivity.class);
+                            }
+                            intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
                     }
@@ -99,13 +116,19 @@ public class NewRechargeFragment extends Fragment
             public void onClick(View v) {
                 PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 50f, new DialogListener() {
                     @Override
-                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                    public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
                             mRequestPrice = 50 * mMulti * rate;
                             String strRequestPrice = String.format("%.2f", mRequestPrice);
 
-                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
-                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            Intent intent;
+                            if(payment_method == 1){
+                                intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            }
+                            else{
+                                intent = new Intent(getContext(),RechargeAliActivity.class);
+                            }
+                            intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
                     }
@@ -120,13 +143,19 @@ public class NewRechargeFragment extends Fragment
             public void onClick(View v) {
                 PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 100f, new DialogListener() {
                     @Override
-                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                    public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
                             mRequestPrice = 100 * mMulti * rate;
                             String strRequestPrice = String.format("%.2f", mRequestPrice);
 
-                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
-                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            Intent intent;
+                            if(payment_method == 1){
+                                intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            }
+                            else{
+                                intent = new Intent(getContext(),RechargeAliActivity.class);
+                            }
+                            intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
                     }
@@ -141,13 +170,19 @@ public class NewRechargeFragment extends Fragment
             public void onClick(View v) {
                 PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 200f, new DialogListener() {
                     @Override
-                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                    public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
                             mRequestPrice = 200 * mMulti * rate;
                             String strRequestPrice = String.format("%.2f", mRequestPrice);
 
-                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
-                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            Intent intent;
+                            if(payment_method == 1){
+                                intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            }
+                            else{
+                                intent = new Intent(getContext(),RechargeAliActivity.class);
+                            }
+                            intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
                     }
@@ -162,13 +197,19 @@ public class NewRechargeFragment extends Fragment
             public void onClick(View v) {
                 PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 300f, new DialogListener() {
                     @Override
-                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                    public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
                             mRequestPrice = 300 * mMulti * rate;
                             String strRequestPrice = String.format("%.2f", mRequestPrice);
 
-                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
-                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            Intent intent;
+                            if(payment_method == 1){
+                                intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            }
+                            else{
+                                intent = new Intent(getContext(),RechargeAliActivity.class);
+                            }
+                            intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
                     }
@@ -183,13 +224,19 @@ public class NewRechargeFragment extends Fragment
             public void onClick(View v) {
                 PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 500f, new DialogListener() {
                     @Override
-                    public void getPurchaseRequestFromDialog(boolean res,float rate) {
+                    public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
                             mRequestPrice = 500 * mMulti * rate;
                             String strRequestPrice = String.format("%.2f", mRequestPrice);
 
-                            Intent intent = new Intent(getContext(), RechargeAliActivity.class);
-                            intent.putExtra("REQUEST_PRICE", strRequestPrice);
+                            Intent intent;
+                            if(payment_method == 1){
+                                intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                            }
+                            else{
+                                intent = new Intent(getContext(),RechargeAliActivity.class);
+                            }
+                            intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
                     }

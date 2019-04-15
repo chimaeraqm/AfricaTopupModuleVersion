@@ -58,14 +58,14 @@ public class WechatpayModuleActivity extends BaseActivity
          *
          * orderInfo 的获取必须来自服务端；
          */
-        String tip = String.format("Pay $%s to Target Alipay account.",mRequestPrice);
+        String tip = String.format("Pay $%s to Target wxpay account.",mRequestPrice);
         UserUtil.showToastLong(tip);
         sendOrderRequestMD5("devilmaycry",mRequestPrice);
     }
 
     void sendOrderRequestMD5(final String request_uid, String request_price)
     {
-        String request_total_fee = "2";
+        String request_total_fee = mRequestPrice;
         String request_out_trade_no = genTimeStampStr();
 //        String request_key = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASC";
 

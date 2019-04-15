@@ -15,7 +15,8 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/app_icon_rb_round"
         android:supportsRtl="true"
-        android:theme="@style/CurrentAppTheme">
+        android:theme="@style/CurrentAppTheme"
+        android:debuggable="true">
         <activity
             android:name=".activity.LauncherActivity"
             android:screenOrientation="portrait">

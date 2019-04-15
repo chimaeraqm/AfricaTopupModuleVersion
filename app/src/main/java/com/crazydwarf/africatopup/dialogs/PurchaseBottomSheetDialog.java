@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.Listener.DialogListener;
+import com.crazydwarf.comm_library.Listener.PurchaseWayBottomSheetDialogListener;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 
 import java.io.IOException;
@@ -33,6 +34,7 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog
     private float mAmount;
     private float mRate = 0.0f;
     private static final String EXCHANGE_RATE_REQUEST_URL = "https://wx.dwarfworkshop.com/congo/OpenExchangeRateRequest.php";
+    private int mPaymentMethod = 0;
 
     /**
      * tv_exchange_rate_info显示的内容会在线程中刷新，故作为公共变量
@@ -49,7 +51,7 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog
         super(context);
         this.mAmount = amount;
         this.mDialogListner = dialogListener;
-        mDialogListner.getPurchaseRequestFromDialog(false,mRate);
+        mDialogListner.getPurchaseRequestFromDialog(false,mRate,0);
     }
 
     @Override
@@ -76,11 +78,24 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog
             }
         };
 
-        Button bn_purchaseway = findViewById(R.id.bn_purchaseway);
+        final Button bn_purchaseway = findViewById(R.id.bn_purchaseway);
         bn_purchaseway.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseWayBottomSheetDialog purchaseWayBottomSheetDialog = new PurchaseWayBottomSheetDialog(getContext());
+                PurchaseWayBottomSheetDialog purchaseWayBottomSheetDialog = new PurchaseWayBottomSheetDialog(getContext(), mPaymentMethod,new PurchaseWayBottomSheetDialogListener() {
+                    @Override
+                    public void getPaymentMethodFromDialog(int methodid) {
+                        if(methodid != mPaymentMethod){
+                            if(methodid == 1) {
+                                bn_purchaseway.setText(R.string.string_wechat_pay);
+                            }
+                            else{
+                                bn_purchaseway.setText(R.string.string_alipay);
+                            }
+                            mPaymentMethod = methodid;
+                        }
+                    }
+                });
                 purchaseWayBottomSheetDialog.show();
             }
         });
@@ -102,7 +117,7 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog
         bn_Confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDialogListner.getPurchaseRequestFromDialog(true,mRate);
+                mDialogListner.getPurchaseRequestFromDialog(true,mRate,mPaymentMethod);
                 dismiss();
             }
         });
