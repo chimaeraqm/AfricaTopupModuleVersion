@@ -35,7 +35,7 @@ public class WechatpayModuleActivity extends BaseActivity
     private static final String REQUEST_NOTIFY_URL = "https://wx.dwarfworkshop.com/congo/wxAppPay_Validate.php";
     private static final String REQUEST_KEY = "MIIEvwIBADANBgkqhkiG9w0BAQEFAASC";
 
-    public String mRequestPrice = "0.0";
+    public String mRequestPrice = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

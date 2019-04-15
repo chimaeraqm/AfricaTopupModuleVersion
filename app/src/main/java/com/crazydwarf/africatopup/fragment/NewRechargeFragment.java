@@ -38,15 +38,19 @@ public class NewRechargeFragment extends Fragment
                     public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res){
                             //TODO : 选择的是美元，支付的是RMB
-                            mRequestPrice = 10 * mMulti * rate;
-                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             Intent intent;
                             if(payment_method == 1){
                                 intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                                /**
+                                 * wxpay会转换成单位 分
+                                 */
+                                mRequestPrice = 10 * mMulti * rate * 100;
                             }
                             else{
                                 intent = new Intent(getContext(),RechargeAliActivity.class);
+                                mRequestPrice = 10 * mMulti * rate;
                             }
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
@@ -64,15 +68,19 @@ public class NewRechargeFragment extends Fragment
                     @Override
                     public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res){
-                            mRequestPrice = 20 * mMulti * rate;
-                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             Intent intent;
                             if(payment_method == 1){
                                 intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                                /**
+                                 * wxpay会转换成单位 分
+                                 */
+                                mRequestPrice = 20 * mMulti * rate * 100;
                             }
                             else{
                                 intent = new Intent(getContext(),RechargeAliActivity.class);
+                                mRequestPrice = 20 * mMulti * rate;
                             }
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
 
@@ -91,16 +99,19 @@ public class NewRechargeFragment extends Fragment
                     @Override
                     public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
-                            mRequestPrice = 30 * mMulti * rate;
-                            String strRequestPrice = String.format("%.2f", mRequestPrice);
-
                             Intent intent;
                             if(payment_method == 1){
                                 intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                                /**
+                                 * wxpay会转换成单位 分
+                                 */
+                                mRequestPrice = 30 * mMulti * rate * 100;
                             }
                             else{
                                 intent = new Intent(getContext(),RechargeAliActivity.class);
+                                mRequestPrice = 30 * mMulti * rate;
                             }
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
@@ -118,16 +129,19 @@ public class NewRechargeFragment extends Fragment
                     @Override
                     public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
-                            mRequestPrice = 50 * mMulti * rate;
-                            String strRequestPrice = String.format("%.2f", mRequestPrice);
-
                             Intent intent;
                             if(payment_method == 1){
                                 intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                                /**
+                                 * wxpay会转换成单位 分
+                                 */
+                                mRequestPrice = 50 * mMulti * rate * 100;
                             }
                             else{
                                 intent = new Intent(getContext(),RechargeAliActivity.class);
+                                mRequestPrice = 50 * mMulti * rate;
                             }
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
@@ -145,16 +159,19 @@ public class NewRechargeFragment extends Fragment
                     @Override
                     public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
-                            mRequestPrice = 100 * mMulti * rate;
-                            String strRequestPrice = String.format("%.2f", mRequestPrice);
-
                             Intent intent;
                             if(payment_method == 1){
                                 intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                                /**
+                                 * wxpay会转换成单位 分
+                                 */
+                                mRequestPrice = 100 * mMulti * rate * 100;
                             }
                             else{
                                 intent = new Intent(getContext(),RechargeAliActivity.class);
+                                mRequestPrice = 100 * mMulti * rate;
                             }
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
@@ -172,16 +189,19 @@ public class NewRechargeFragment extends Fragment
                     @Override
                     public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
-                            mRequestPrice = 200 * mMulti * rate;
-                            String strRequestPrice = String.format("%.2f", mRequestPrice);
-
                             Intent intent;
                             if(payment_method == 1){
                                 intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                                /**
+                                 * wxpay会转换成单位 分
+                                 */
+                                mRequestPrice = 200 * mMulti * rate * 100;
                             }
                             else{
                                 intent = new Intent(getContext(),RechargeAliActivity.class);
+                                mRequestPrice = 200 * mMulti * rate;
                             }
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
@@ -199,16 +219,19 @@ public class NewRechargeFragment extends Fragment
                     @Override
                     public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
-                            mRequestPrice = 300 * mMulti * rate;
-                            String strRequestPrice = String.format("%.2f", mRequestPrice);
-
                             Intent intent;
                             if(payment_method == 1){
                                 intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                                /**
+                                 * wxpay会转换成单位 分
+                                 */
+                                mRequestPrice = 300 * mMulti * rate * 100;
                             }
                             else{
                                 intent = new Intent(getContext(),RechargeAliActivity.class);
+                                mRequestPrice = 300 * mMulti * rate;
                             }
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }
@@ -226,16 +249,19 @@ public class NewRechargeFragment extends Fragment
                     @Override
                     public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res) {
-                            mRequestPrice = 500 * mMulti * rate;
-                            String strRequestPrice = String.format("%.2f", mRequestPrice);
-
                             Intent intent;
                             if(payment_method == 1){
                                 intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                                /**
+                                 * wxpay会转换成单位 分
+                                 */
+                                mRequestPrice = 500 * mMulti * rate * 100;
                             }
                             else{
                                 intent = new Intent(getContext(),RechargeAliActivity.class);
+                                mRequestPrice = 500 * mMulti * rate;
                             }
+                            String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
                         }

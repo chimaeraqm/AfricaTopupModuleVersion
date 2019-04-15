@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:mentIconSize="32dp"
-        app:menuIcon="@drawable/ic_format_list_bulleted_white_32dp"
+        app:menuIcon="@drawable/flag_egypt"
         app:title="@string/app_name"
         app:titleColor="@color/colorWhite"
         app:titleSize="20sp"

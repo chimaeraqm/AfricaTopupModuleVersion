@@ -18,7 +18,6 @@ import com.crazydwarf.chimaeraqm.module_alipay.R;
 import com.crazydwarf.comm_library.Objects.User;
 import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
-import com.crazydwarf.comm_library.view.SimpleToolBar;
 import com.crazydwarf.module_alipay.AlipayUtil.PayResult;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.google.gson.Gson;

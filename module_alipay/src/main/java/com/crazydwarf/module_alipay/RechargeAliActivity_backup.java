@@ -18,7 +18,6 @@ import com.crazydwarf.comm_library.Objects.User;
 import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.comm_library.activity.BaseActivity;
-import com.crazydwarf.comm_library.view.SimpleToolBar;
 import com.crazydwarf.module_alipay.AlipayUtil.PayResult;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -123,14 +122,14 @@ public class RechargeAliActivity_backup extends BaseActivity
         //动态获取权限
         UserUtil.requestPermission(this);
 
-        SimpleToolBar toolBar = findViewById(R.id.top_menu);
+        /*SimpleToolBar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
         toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
             @Override
             public void OnClick() {
                 finish();
             }
-        });
+        });*/
 
         Button bnHistory = findViewById(R.id.bn_history);
         /*bnHistory.setOnClickListener(new View.OnClickListener() {

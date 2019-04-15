@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.crazydwarf.chimaeraqm.module_wechatpay.R;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.comm_library.activity.BaseActivity;
-import com.crazydwarf.comm_library.view.SimpleToolBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,14 +34,14 @@ public class RechargeWeActivity extends BaseActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recharge_we);
-        SimpleToolBar toolBar = findViewById(R.id.top_menu);
+        /*SimpleToolBar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
         toolBar.setBackIconClickListener(new SimpleToolBar.BackIconClickListener() {
             @Override
             public void OnClick() {
                 finish();
             }
-        });
+        });*/
 
         Button bnHistory = findViewById(R.id.bn_history);
         /*bnHistory.setOnClickListener(new View.OnClickListener() {

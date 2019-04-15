@@ -42,7 +42,7 @@ android {
 dependencies {
     implementation project(':comm_library')
 //    implementation project(':wavetoolbar')
-    implementation 'com.github.chimaeraqm:WaveToolbar:v0.3'
+    implementation 'com.github.chimaeraqm:WaveToolbar:v0.4'
     if(!Boolean.valueOf(rootProject.ext.isModule_Alipay))
     {
         implementation project(':module_alipay')

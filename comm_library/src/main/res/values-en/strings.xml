@@ -12,7 +12,7 @@
     <string name="string_number_inquiry">Number Inquiry</string>
     <string name="string_phone_holder">Phone Holder</string>
     <string name="string_recharge_amount">Recharging Amount</string>
-    <string name="string_exchange_rate_info">Exchange rate\nUSD = 7.01 RMB</string>
+    <string name="string_exchange_rate_info">Exchange rate</string>
     <string name="string_order_time">Order Completed Time</string>
     <string name="string_bind_wechat">Bind Wechat Account</string>
     <string name="string_bind_email">Bind Email</string>
@@ -146,5 +146,20 @@
     <string name="string_south_africa">South Africa</string>
     <!--<string name="string_st_helena">St. Helena</string>-->
     <!--<string name="string_aruba">Aruba</string>-->
+
+    <string name="string_recharge_10">$10</string>
+    <string name="string_recharge_20">$20</string>
+    <string name="string_recharge_30">$30</string>
+    <string name="string_recharge_50">$50</string>
+    <string name="string_recharge_100">$100</string>
+    <string name="string_recharge_200">$200</string>
+    <string name="string_recharge_300">$300</string>
+    <string name="string_recharge_500">$500</string>
+
+    <string name="string_more_recharge">More Recharge Types</string>
+    <string name="string_account_info">AfricaCell(Default)</string>
+    <string name="string_payment_confirm">Confirm</string>
+    <string name="string_payment_way">Payment Way</string>
+    <string name="string_choose_payment_way">Choose a payment way</string>
 
 </resources>

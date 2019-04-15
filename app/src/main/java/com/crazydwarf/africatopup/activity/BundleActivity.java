@@ -16,7 +16,6 @@ import com.crazydwarf.africatopup.view.BundleItemAdapter;
 import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.AddNumberDialog;
-import com.crazydwarf.comm_library.view.SimpleToolBar;
 import com.crazydwarf.module_alipay.RechargeAliActivity;
 
 public class BundleActivity extends BaseActivity

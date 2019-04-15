@@ -11,7 +11,7 @@
     <string name="string_number_inquiry">查询号码</string>
     <string name="string_phone_holder">持卡人</string>
     <string name="string_recharge_amount">充值金额</string>
-    <string name="string_exchange_rate_info">充值时汇率：1美元 = 7.01人民币</string>
+    <string name="string_exchange_rate_info">充值汇率</string>
     <string name="string_order_time">订单成交时间</string>
     <string name="string_bind_wechat">绑定微信号</string>
     <string name="string_bind_email">绑定邮箱</string>
@@ -145,5 +145,20 @@
     <string name="string_south_africa">南非</string>
     <!--<string name="string_st_helena">圣赫勒拿</string>-->
     <!--<string name="string_aruba">阿鲁巴岛</string>-->
+
+    <string name="string_recharge_10">$10</string>
+    <string name="string_recharge_20">$20</string>
+    <string name="string_recharge_30">$30</string>
+    <string name="string_recharge_50">$50</string>
+    <string name="string_recharge_100">$100</string>
+    <string name="string_recharge_200">$200</string>
+    <string name="string_recharge_300">$300</string>
+    <string name="string_recharge_500">$500</string>
+
+    <string name="string_more_recharge">更多充值</string>
+    <string name="string_account_info">AfricaCell（默认号码）</string>
+    <string name="string_payment_confirm">确认支付</string>
+    <string name="string_payment_way">付款方式</string>
+    <string name="string_choose_payment_way">选择付款方式</string>
 
 </resources>

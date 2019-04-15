@@ -13,7 +13,6 @@ import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.HistoryDetailDialog;
 import com.crazydwarf.comm_library.adapters.HistoryItemAdapter;
-import com.crazydwarf.comm_library.view.SimpleToolBar;
 import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
 public class HistoryActivity extends BaseActivity

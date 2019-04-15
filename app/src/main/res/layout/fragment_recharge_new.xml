@@ -15,7 +15,6 @@
         android:inputType="phone"
         android:textSize="24sp"
         android:hint="@string/string_enter_phone_no"
-        android:letterSpacing="0.1"
         android:paddingLeft="8dp"
 
         app:layout_constraintEnd_toStartOf="@+id/ib_used_account"
