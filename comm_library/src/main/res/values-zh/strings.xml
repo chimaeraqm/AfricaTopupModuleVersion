@@ -2,8 +2,15 @@
 <resources>
     <string name="app_name">手机加油站</string>
 
-    <string name="title_recharge">充值</string>
-    <string name="title_expense">资费</string>
+    <string name="title_recharge">话费充值</string>
+    <string name="title_flowre">流量包</string>
+    <string name="title_tv_net">电视网络</string>
+    <string name="title_air_ticket">机票购买</string>
+    <string name="title_discount">特惠资讯</string>
+    <string name="title_more">更多...</string>
+
+    <string name="title_main">首页</string>
+    <string name="title_live">生活</string>
     <string name="title_user">我的</string>
 
     <string name="string_bundle_recharge">批量充值</string>

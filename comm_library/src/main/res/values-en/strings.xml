@@ -3,8 +3,15 @@
     <string name="hardcode_replace">^((?!(\*|//)).)+[\u4e00-\u9fa5]</string>
     <string name="app_name">Phone Refuel</string>
 
-    <string name="title_recharge">Recharge</string>
-    <string name="title_expense">Operator</string>
+    <string name="title_recharge">Phone\nRecharge</string>
+    <string name="title_flowre">Flow\nPackage</string>
+    <string name="title_tv_net">TV net</string>
+    <string name="title_air_ticket">Tickets</string>
+    <string name="title_discount">Discount</string>
+    <string name="title_more">More...</string>
+
+    <string name="title_main">Main</string>
+    <string name="title_live">Living</string>
     <string name="title_user">Me</string>
 
     <string name="string_bundle_recharge">Bulk Recharging</string>

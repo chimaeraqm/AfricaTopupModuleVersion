@@ -15,7 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.crazydwarf.africatopup.fragment.LivingFragment;
+import com.crazydwarf.africatopup.fragment.MainFragment;
 import com.crazydwarf.africatopup.fragment.NewRechargeFragment;
+import com.crazydwarf.africatopup.fragment.NewUserFragment;
 import com.crazydwarf.africatopup.view.CommonAdapter;
 import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
 import com.crazydwarf.comm_library.Utilities.ActivityManager;
@@ -34,10 +37,13 @@ import java.util.Locale;
 
 public class MainActivity extends BaseActivity
 {
-//    private RechargeFragment mRechargeFragment;
     private NewRechargeFragment mRechargeFragment;
     private QueryFragment mQueryFragment;
     private UserFragment mUserFragment;
+    private NewUserFragment mNewUserFragment;
+
+    private MainFragment mMainFragment;
+    private LivingFragment mLivingFragment;
     private List<Fragment> fragments = new ArrayList<>();
     private long exitTime = 0;
 
@@ -147,14 +153,22 @@ public class MainActivity extends BaseActivity
 
     void initFragments()
     {
-//        mRechargeFragment = new RechargeFragment();
+        mMainFragment = new MainFragment();
+        mLivingFragment = new LivingFragment();
+        mNewUserFragment = new NewUserFragment();
+/*
         mRechargeFragment = new NewRechargeFragment();
         mQueryFragment = new QueryFragment();
-        mUserFragment = new UserFragment();
+        mUserFragment = new UserFragment();*/
+/*
         fragments.add(mRechargeFragment);
         fragments.add(mQueryFragment);
-        fragments.add(mUserFragment);
-        getSupportFragmentManager().beginTransaction().replace(R.id.view_fragment,mRechargeFragment).show(mRechargeFragment).commit();
+*/
+        fragments.add(mMainFragment);
+        fragments.add(mLivingFragment);
+        fragments.add(mNewUserFragment);
+//        getSupportFragmentManager().beginTransaction().replace(R.id.view_fragment,mRechargeFragment).show(mRechargeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.view_fragment,mMainFragment).show(mMainFragment).commit();
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

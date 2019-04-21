@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightGray"
+    android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorTrans">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:showDividers="beginning|middle"
+            android:divider="@drawable/divider_custom"
+            android:dividerPadding="8dp"
+            android:paddingTop="16dp">
+            <Button
+                android:id="@+id/bn_setup_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/icon_discount_96"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
+                android:gravity="start|center_vertical"
+                android:drawablePadding="16dp"
+                android:paddingStart="8dp"
+                android:text="账号设置" />
+
+            <Button
+                android:id="@+id/bn_setup_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/icon_discount_96"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="16dp"
+                android:paddingStart="8dp"
+                android:text="支付设置" />
+
+            <Button
+                android:id="@+id/bn_setup_language"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/icon_discount_96"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="16dp"
+                android:paddingStart="8dp"
+                android:text="语言设置" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:showDividers="beginning|middle"
+            android:divider="@drawable/divider_custom"
+            android:dividerPadding="8dp"
+            android:layout_marginTop="16dp">
+            <Button
+                android:id="@+id/bn_setup_csservice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/icon_discount_96"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="16dp"
+                android:paddingStart="8dp"
+                android:text="我的客服" />
+
+            <Button
+                android:id="@+id/bn_setup_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/icon_discount_96"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="16dp"
+                android:paddingStart="8dp"
+                android:text="关于..." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:showDividers="beginning|middle"
+            android:divider="@drawable/divider_custom"
+            android:dividerPadding="8dp"
+            android:layout_marginTop="16dp">
+            <Button
+                android:id="@+id/bn_setup_switchaccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/icon_discount_96"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="16dp"
+                android:paddingStart="8dp"
+                android:text="切换账号登录" />
+
+            <Button
+                android:id="@+id/bn_setup_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableStart="@drawable/icon_discount_96"
+                android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
+                android:gravity="left|center_vertical"
+                android:drawablePadding="16dp"
+                android:paddingStart="8dp"
+                android:text="退出登录" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

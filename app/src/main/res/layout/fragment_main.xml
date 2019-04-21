@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/bn_recharger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorTransWhite"
+        android:drawablePadding="6dp"
+        android:drawableTop="@drawable/icon_recharge_96"
+        android:paddingVertical="4dp"
+        android:text="@string/title_recharge"
+        android:textStyle=""
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bn_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransWhite"
+        android:drawablePadding="6dp"
+        android:drawableTop="@drawable/icon_flow_96"
+        android:paddingVertical="4dp"
+        android:text="@string/title_flowre"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/bn_recharger" />
+
+    <Button
+        android:id="@+id/bn_tvnet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransWhite"
+        android:drawablePadding="6dp"
+        android:drawableTop="@drawable/icon_tv_96"
+        android:paddingVertical="4dp"
+        android:text="@string/title_tv_net"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintStart_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="@+id/bn_flow" />
+
+    <Button
+        android:id="@+id/bn_air_tickets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorTransWhite"
+        android:drawablePadding="6dp"
+        android:drawableTop="@drawable/icon_plane_96"
+        android:paddingVertical="4dp"
+        android:text="@string/title_air_ticket"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bn_recharger" />
+
+    <Button
+        android:id="@+id/bn_discount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransWhite"
+        android:drawablePadding="6dp"
+        android:drawableTop="@drawable/icon_discount_96"
+        android:paddingVertical="4dp"
+        android:text="@string/title_discount"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/bn_air_tickets" />
+
+    <Button
+        android:id="@+id/bn_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransWhite"
+        android:drawablePadding="6dp"
+        android:drawableTop="@drawable/icon_more_96"
+        android:paddingVertical="4dp"
+        android:text="@string/title_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline17"
+        app:layout_constraintTop_toTopOf="@+id/bn_discount" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="87dp"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="79dp"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="192dp"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bn_more">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bn_adv1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorBlue"
+                android:text="优惠活动位"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/bn_adv2"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorBlue"
+                android:text="优惠活动位1"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/bn_adv3"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorBlue"
+                android:text="合作商广告位"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/bn_adv4"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorBlue"
+                android:text="合作商广告位1"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/bn_adv5"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorBlue"
+                android:text="系统广告位"
+                android:textColor="@color/colorWhite" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
