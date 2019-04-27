@@ -22,6 +22,7 @@ public class LoginActivity extends BaseActivity
     private EditText _passwordText;
     private Button _loginButton;
     private TextView _signupLink;
+    private Button _withoutLoginButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class LoginActivity extends BaseActivity
         _passwordText = findViewById(R.id.input_password);
         _loginButton = findViewById(R.id.btn_login);
         _signupLink = findViewById(R.id.link_signup);
+        _withoutLoginButton = findViewById(R.id.btn_withoutlogin);
 
         _loginButton.setOnClickListener(new View.OnClickListener() {
 
@@ -49,15 +51,26 @@ public class LoginActivity extends BaseActivity
                 startActivityForResult(intent, REQUEST_SIGNUP);
             }
         });
+        _withoutLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                withoutLogin();
+            }
+        });
+    }
+
+    public void withoutLogin()
+    {
+        onLoginSuccess();
     }
 
     public void login() {
         Log.d(TAG, "Login");
 
-        /*if (!validate()) {
+        if (!validate()) {
             onLoginFailed();
             return;
-        }*/
+        }
 
         _loginButton.setEnabled(false);
 
@@ -76,6 +89,7 @@ public class LoginActivity extends BaseActivity
                     @Override
                     public void run() {
                         // On complete call either onLoginSuccess or onLoginFailed
+                        _loginButton.setEnabled(true);
                         onLoginSuccess();
                         // onLoginFailed();
                         progressDialog.dismiss();
@@ -103,7 +117,6 @@ public class LoginActivity extends BaseActivity
     }
 
     public void onLoginSuccess() {
-        _loginButton.setEnabled(true);
         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
         startActivity(intent);
         finish();

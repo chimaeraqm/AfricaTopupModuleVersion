@@ -4,18 +4,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorTrans">
 
     <ImageView
         android:id="@+id/im_launch_icon"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:background="@drawable/app_icon_round"
-        android:transitionName="transit_launch_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/tv_launch_appname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:transitionName="transit_launch_icon"
+        android:text="African Living"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintEnd_toEndOf="@+id/im_launch_icon"
+        app:layout_constraintStart_toStartOf="@+id/im_launch_icon"
+        app:layout_constraintTop_toBottomOf="@+id/im_launch_icon" />
 
 </android.support.constraint.ConstraintLayout>

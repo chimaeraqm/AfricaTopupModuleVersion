@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">手机加油站</string>
+    <string name="app_name">非洲生活网</string>
 
     <string name="title_recharge">话费充值</string>
     <string name="title_flowre">流量包</string>
@@ -167,5 +167,12 @@
     <string name="string_payment_confirm">确认支付</string>
     <string name="string_payment_way">付款方式</string>
     <string name="string_choose_payment_way">选择付款方式</string>
+    <string name="string_customize">自定义</string>
+    <string name="string_or">或</string>
+    <string name="string_enter">直接进入</string>
+
+    <string name="placeholder_string_discount">优惠活动</string>
+    <string name="placeholder_string_sysadv">合作商广告</string>
+    <string name="placeholder_string_shopadv">应用广告</string>
 
 </resources>

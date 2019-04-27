@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hardcode_replace">^((?!(\*|//)).)+[\u4e00-\u9fa5]</string>
-    <string name="app_name">Phone Refuel</string>
+    <string name="app_name">African Living</string>
 
     <string name="title_recharge">Phone\nRecharge</string>
     <string name="title_flowre">Flow\nPackage</string>
@@ -168,5 +167,12 @@
     <string name="string_payment_confirm">Confirm</string>
     <string name="string_payment_way">Payment Way</string>
     <string name="string_choose_payment_way">Choose a payment way</string>
+    <string name="string_customize">Customize</string>
+    <string name="string_or">or</string>
+    <string name="string_enter">Enter without Login</string>
+
+    <string name="placeholder_string_discount">Promotions</string>
+    <string name="placeholder_string_sysadv">Partner advertising</string>
+    <string name="placeholder_string_shopadv">App advertising</string>
 
 </resources>

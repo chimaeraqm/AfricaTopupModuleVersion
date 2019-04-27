@@ -196,28 +196,80 @@
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/bn_recharge_300" />
 
-    <TextView
-        android:id="@+id/textView42"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/bn_recharge_define"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/string_more_recharge"
-        android:textSize="18sp"
-        android:textColor="@color/colorBlack"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bn_recharge_300" />
+        android:background="@drawable/color_state_bn_bg"
+        android:text="@string/string_recharge_500"
+        android:textColor="@drawable/color_state_bn_text"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/bn_recharge_300"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="@+id/bn_recharge_300" />
 
     <Button
-        android:id="@+id/bn_addflow"
+        android:id="@+id/bn_recharge_"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/color_state_bn_bg"
+        android:text="@string/string_recharge_500"
+        android:textColor="@drawable/color_state_bn_text"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/bn_recharge_300"
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="@+id/bn_recharge_300" />
+
+    <Button
+        android:id="@+id/bn_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:padding="4dp"
-        android:drawableTop="@drawable/ic_phonelink_ring_blue_32dp"
-        android:text="@string/string_add_flow"
+        android:layout_marginBottom="16dp"
         android:background="@color/colorTransWhite"
-        app:layout_constraintStart_toStartOf="@+id/textView42"
-        app:layout_constraintTop_toBottomOf="@+id/textView42" />
+        android:drawablePadding="6dp"
+        android:drawableTop="@drawable/icon_recharge_history"
+        android:paddingVertical="4dp"
+        android:text="@string/string_recharge_details"
+        android:textStyle=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bn_bundle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransWhite"
+        android:drawablePadding="6dp"
+        android:drawableTop="@drawable/icon_recharge_bundle"
+        android:paddingVertical="4dp"
+        android:text="@string/string_bundle_recharge"
+        android:textStyle=""
+        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintTop_toTopOf="@+id/bn_history" />
+
+    <Button
+        android:id="@+id/bn_operatorinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@color/colorTransWhite"
+        android:drawablePadding="6dp"
+        android:drawableTop="@drawable/icon_recharge_operatorinfo"
+        android:paddingVertical="4dp"
+        android:text="@string/string_operator_expense"
+        android:textStyle=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="@+id/bn_bundle" />
 
 </android.support.constraint.ConstraintLayout>

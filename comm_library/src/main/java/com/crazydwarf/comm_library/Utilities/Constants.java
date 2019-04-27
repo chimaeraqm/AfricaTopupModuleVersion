@@ -20,4 +20,12 @@ public interface Constants
 
     public final static int REQUEST_READ_PHONE_STATE = 1;
 
+    public static final String USERS_DATA_URL = "https://wx.dwarfworkshop.com/congo/user.php";
+
+    public static final String DEFAULT_CHARSET = "UTF-8";
+
+    public enum KEY_STATUS{
+        RESULT_STATUS_FAILED,
+        RESULT_STATUS_SUCCESS
+    }
 }

@@ -130,8 +130,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/colorBlue"
-                android:text="优惠活动位"
+                android:background="@drawable/bg_custom_nebula"
+                android:text="@string/placeholder_string_sysadv"
                 android:textColor="@color/colorWhite" />
 
             <Button
@@ -139,8 +139,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/colorBlue"
-                android:text="优惠活动位1"
+                android:background="@drawable/bg_custom_strange"
+                android:text="@string/placeholder_string_discount"
                 android:textColor="@color/colorWhite" />
 
             <Button
@@ -148,8 +148,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/colorBlue"
-                android:text="合作商广告位"
+                android:background="@drawable/bg_custom_nebula"
+                android:text="@string/placeholder_string_discount"
                 android:textColor="@color/colorWhite" />
 
             <Button
@@ -157,8 +157,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/colorBlue"
-                android:text="合作商广告位1"
+                android:background="@drawable/bg_custom_strange"
+                android:text="@string/placeholder_string_shopadv"
                 android:textColor="@color/colorWhite" />
 
             <Button
@@ -166,8 +166,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/colorBlue"
-                android:text="系统广告位"
+                android:background="@drawable/bg_custom_nebula"
+                android:text="@string/placeholder_string_shopadv"
                 android:textColor="@color/colorWhite" />
 
         </LinearLayout>

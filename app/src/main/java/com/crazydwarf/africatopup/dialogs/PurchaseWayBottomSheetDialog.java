@@ -21,8 +21,18 @@ import com.crazydwarf.comm_library.view.SmoothCheckBox;
 public class PurchaseWayBottomSheetDialog extends BottomSheetDialog
 {
     private View contentView;
+
+    /**
+     * corresponding to paymentMethod is as followed:
+     * alipay = 0;
+     * wxpay = 1;
+     * orange money(ompay) = 2;
+     * m pese(mppay) = 3;
+     */
     private SmoothCheckBox cb_alipay_check;
     private SmoothCheckBox cb_wxpay_check;
+    private SmoothCheckBox cb_ompay_check;
+    private SmoothCheckBox cb_mppay_check;
     private int mPaymentMethod;
     /**
      * add interface mDialogListner to get payment method
@@ -59,17 +69,33 @@ public class PurchaseWayBottomSheetDialog extends BottomSheetDialog
         });
 
         //TODO : PurchaseBottomSheetDialog与此dialog切换时需记住上次选择的支付方式
-        boolean isAlipay = true;
-        if(mPaymentMethod == 1){
-            isAlipay = false;
+        boolean isAlipay = false;
+        boolean isWxpay = false;
+        boolean isOmpay = false;
+        boolean isMppay = false;
+
+        if(mPaymentMethod == 0){
+            isAlipay = true;
         }
+        else if(mPaymentMethod == 1){
+            isWxpay = true;
+        }
+
         cb_alipay_check = findViewById(R.id.im_alipay_check);
         cb_alipay_check.setChecked(isAlipay);
         cb_alipay_check.setClickable(false);
 
         cb_wxpay_check = findViewById(R.id.im_wxpay_check);
-        cb_wxpay_check.setChecked(!isAlipay);
+        cb_wxpay_check.setChecked(isWxpay);
         cb_wxpay_check.setClickable(false);
+
+        cb_ompay_check = findViewById(R.id.im_ompay_check);
+        cb_ompay_check.setChecked(isOmpay);
+        cb_ompay_check.setClickable(false);
+
+        cb_mppay_check = findViewById(R.id.im_mppay_check);
+        cb_mppay_check.setChecked(isMppay);
+        cb_mppay_check.setClickable(false);
 
         Button bn_alipay = findViewById(R.id.bn_alipay);
         bn_alipay.setOnClickListener(new View.OnClickListener() {

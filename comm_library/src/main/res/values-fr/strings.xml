@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Téléphone Ravitaillement</string>
+    <string name="app_name">Vie Africaine</string>
 
     <string name="title_recharge">Recharge</string>
     <string name="title_expense">Opérateur</string>
@@ -160,5 +160,12 @@
     <string name="string_payment_confirm">Confirmer</string>
     <string name="string_payment_way">Manière de paiement</string>
     <string name="string_choose_payment_way">Choisissez un moyen de paiement</string>
+    <string name="string_customize">Personnaliser</string>
+    <string name="string_or">ou</string>
+    <string name="string_enter">Entrer sans Connexion</string>
+
+    <string name="placeholder_string_discount">Les promotions</string>
+    <string name="placeholder_string_sysadv">Publicité partenaire</string>
+    <string name="placeholder_string_shopadv">Publicité sur les applications</string>
 
 </resources>

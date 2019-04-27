@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
+import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -141,7 +142,7 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog
             public void onResponse(Call call, Response response) throws IOException
             {
                 String rate_response = response.body().string();
-                String str_exchange_rate_info = String.format("$ 1.0 = RMB %s",rate_response);
+                String str_exchange_rate_info = String.format("%s 1.0 = %s %s", R.string.string_curreny_usd,R.string.string_curreny_rmb,rate_response);
                 tv_exchange_rate_info.setText(str_exchange_rate_info);
                 mRate = Float.valueOf(rate_response);
             }

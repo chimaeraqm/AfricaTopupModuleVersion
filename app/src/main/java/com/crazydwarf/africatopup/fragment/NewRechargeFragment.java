@@ -11,6 +11,9 @@ import android.widget.Button;
 
 import com.chimaeraqm.module_wechatpay.WechatpayModuleActivity;
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.activity.BundleActivity;
+import com.crazydwarf.africatopup.activity.HistoryActivity;
+import com.crazydwarf.africatopup.activity.TxtDisplayActivity;
 import com.crazydwarf.africatopup.dialogs.PurchaseBottomSheetDialog;
 import com.crazydwarf.comm_library.Listener.DialogListener;
 import com.crazydwarf.module_alipay.RechargeAliActivity;
@@ -268,6 +271,33 @@ public class NewRechargeFragment extends Fragment
                     }
                 });
                 dialog.show();
+            }
+        });
+
+        Button bn_history = view.findViewById(R.id.bn_history);
+        bn_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), HistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button bn_bundle = view.findViewById(R.id.bn_bundle);
+        bn_bundle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BundleActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button bn_operatorinfo = view.findViewById(R.id.bn_operatorinfo);
+        bn_operatorinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), TxtDisplayActivity.class);
+                startActivity(intent);
             }
         });
 

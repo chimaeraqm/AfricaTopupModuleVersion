@@ -18,7 +18,7 @@
         android:theme="@style/CurrentAppTheme"
         android:debuggable="true">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.LauncherActivityNew"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,11 +38,9 @@
             android:windowSoftInputMode="adjustPan|stateHidden">
         </activity>
 
-<!--
         <activity android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
         </activity>
--->
 
         <activity android:name="com.chimaeraqm.module_wechatpay.WechatpayModuleActivity"
             android:screenOrientation="portrait">
