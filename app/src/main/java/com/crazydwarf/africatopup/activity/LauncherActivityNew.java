@@ -15,7 +15,7 @@ import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.view.NewActivityView;
 
-//TODO : 从LauncherActivityNew到LoginActivity，以及跳转到Signup的界面和动画有待完善
+//TODO : 从LauncherActivityNew到LoginActivityNew，以及跳转到Signup的界面和动画有待完善
 public class LauncherActivityNew extends BaseActivity
 {
     @Override
@@ -37,8 +37,8 @@ public class LauncherActivityNew extends BaseActivity
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(LauncherActivityNew.this, im_launch_icon, "transit_launch_icon");
-                Intent intent = new Intent(LauncherActivityNew.this, LoginActivity.class);
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(LauncherActivityNew.this, tv_launch_appname, "transit_launch_icon");
+                Intent intent = new Intent(LauncherActivityNew.this, LoginActivityNew.class);
                 startActivity(intent,activityOptionsCompat.toBundle());
                 finish();
             }

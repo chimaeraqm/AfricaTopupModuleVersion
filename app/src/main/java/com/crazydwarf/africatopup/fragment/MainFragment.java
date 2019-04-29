@@ -1,5 +1,6 @@
 package com.crazydwarf.africatopup.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.activity.RechargeActivity;
 
 public class MainFragment extends Fragment implements View.OnClickListener
 {
@@ -24,6 +26,14 @@ public class MainFragment extends Fragment implements View.OnClickListener
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main,container,false);
         bn_recharge = view.findViewById(R.id.bn_recharger);
+        bn_recharge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),RechargeActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
         bn_flow = view.findViewById(R.id.bn_flow);
         bn_tv_net = view.findViewById(R.id.bn_tvnet);
         bn_air_tickets = view.findViewById(R.id.bn_air_tickets);
@@ -36,6 +46,8 @@ public class MainFragment extends Fragment implements View.OnClickListener
     public void onClick(View view) {
         switch (getId()) {
             case R.id.bn_recharger:
+                Intent intent = new Intent(getActivity(),RechargeActivity.class);
+                startActivity(intent);
                 break;
             case R.id.bn_flow:
                 break;

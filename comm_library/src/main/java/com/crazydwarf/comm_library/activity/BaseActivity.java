@@ -12,7 +12,9 @@ import com.crazydwarf.comm_library.Utilities.ActivityManager;
 import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 
-public class BaseActivity extends AppCompatActivity
+import me.yokeyword.fragmentation.SupportActivity;
+
+public class BaseActivity extends SupportActivity
 {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

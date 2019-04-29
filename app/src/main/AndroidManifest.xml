@@ -54,7 +54,7 @@
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".activity.LoginActivity"
+        <activity android:name=".activity.LoginActivityNew"
             android:screenOrientation="portrait">
         </activity>
 
@@ -62,6 +62,9 @@
             android:screenOrientation="portrait">
         </activity>
 
+        <activity android:name=".activity.RechargeActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

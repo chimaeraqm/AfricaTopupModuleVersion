@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.chimaeraqm.module_wechatpay.RechargeWeActivity;
 import com.chimaeraqm.module_wechatpay.WechatpayModuleActivity;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.dialogs.PurchaseBottomSheetDialog;

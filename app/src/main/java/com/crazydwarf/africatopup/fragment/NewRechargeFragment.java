@@ -18,17 +18,33 @@ import com.crazydwarf.africatopup.dialogs.PurchaseBottomSheetDialog;
 import com.crazydwarf.comm_library.Listener.DialogListener;
 import com.crazydwarf.module_alipay.RechargeAliActivity;
 
-public class NewRechargeFragment extends Fragment
+import me.yokeyword.fragmentation.SupportFragment;
+
+public class NewRechargeFragment extends SupportFragment
 {
     private static final int RESULT_OK = 0;
     private float mRequestPrice;
 
     //TODO : 将支付金额设为选择金额的1/1000，实际上线后取消该设置
     private float mMulti = 0.001f;
+
+    public static NewRechargeFragment newInstance()
+    {
+        Bundle args = new Bundle();
+
+        NewRechargeFragment fragment = new NewRechargeFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
     {
-
         final View view = inflater.inflate(R.layout.fragment_recharge_new,container,false);
 
         //TODO : 金额选择需要做的更灵活，自定义一个button包含一个type和int属性，分别代表充值的种类和金额
@@ -278,8 +294,7 @@ public class NewRechargeFragment extends Fragment
         bn_history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), HistoryActivity.class);
-                startActivity(intent);
+                start(HistoryFragment.newInstance());
             }
         });
 
@@ -287,8 +302,7 @@ public class NewRechargeFragment extends Fragment
         bn_bundle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), BundleActivity.class);
-                startActivity(intent);
+                start(BundleFragment.newInstance());
             }
         });
 
@@ -296,8 +310,7 @@ public class NewRechargeFragment extends Fragment
         bn_operatorinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), TxtDisplayActivity.class);
-                startActivity(intent);
+                start(TxtDisplayFragment.newInstance());
             }
         });
 

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.KeyCharacterMap;
@@ -57,6 +58,45 @@ public class UserUtil
         }
     }
 
+    /**
+     *
+     * @param context
+     * @param msg
+     * @param longCheck 判断显示时间为Toast.LENGTH_SHORT还是Toast.LENGTH_LONG，兼容后两种方法
+     */
+    public static void showToast(Context context,String msg,boolean longCheck)
+    {
+        Toast toast = null;
+        try {
+            if(toast != null)
+            {
+                toast.setText(msg);
+            }
+            else {
+                if(longCheck)
+                {
+                    toast = Toast.makeText(context, msg, Toast.LENGTH_LONG);
+                }
+                else
+                {
+                    toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
+                }
+            }
+            toast.show();
+        } catch (Exception e) {
+            //解决在子线程中调用Toast的异常情况处理
+            Looper.prepare();
+            if(longCheck)
+            {
+                Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+            }
+            else
+            {
+                Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+            }
+            Looper.loop();
+        }
+    }
     public static void showToastShort(String msg) {
         Toast.makeText(BaseApplication.getApplication(), msg, Toast.LENGTH_SHORT).show();
     }

@@ -15,10 +15,20 @@ import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.Utilities.Base64;
-import com.crazydwarf.comm_library.Utilities.LOGIN;
+import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.comm_library.Utilities.SharedPreferencesUtils;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.comm_library.activity.BaseActivity;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class LoginActivityNew extends BaseActivity implements View.OnClickListener,CompoundButton.OnCheckedChangeListener
 {
@@ -250,6 +260,7 @@ public class LoginActivityNew extends BaseActivity implements View.OnClickListen
      */
     private void login()
     {
+
         Log.i("_emailText",_emailText.getText().toString());
         if(TextUtils.isEmpty(_emailText.getText().toString()))
         {
@@ -261,44 +272,72 @@ public class LoginActivityNew extends BaseActivity implements View.OnClickListen
             return;
         }
 
+        final String name = _emailText.getText().toString().trim();
+        String password = _passwordText.getText().toString();
+        final String encode_psw = UserUtil.getMessageDigest(password.getBytes());
+        final String uid = "cccccccccc";
+
+
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivityNew.this);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
-        Thread loginRunnable = new Thread(){
-            @Override
-            public void run() {
-                super.run();
-                setLoginBtnClickable(false);
-                String pwSign = UserUtil.getMessageDigest(_passwordText.getText().toString().getBytes()).toUpperCase();
-                new LOGIN(_emailText.getText().toString(), pwSign,new LOGIN.SuccessCallback(){
+        // TODO: add different login failed status here
+        new android.os.Handler().postDelayed(
+                new Runnable() {
                     @Override
-                    public void onSuccess(String token){
-                        //Config.cachedToken(LoginActivityNew.this,token);
-                        //Config.cachedPhoneNum(LoginActivityNew.this,_emailText.getText().toString());
-                        progressDialog.dismiss();
+                    public void run() {
+                        // On complete call either onSignupSuccess or onSignupFailed
+                        // depending on success
+                        RequestBody requestBody = new FormBody.Builder()
+                                .add("username",name)
+                                .add("pwd",encode_psw)
+                                .add("uid",uid)
+                                .build();
+                        OkHttpClient okHttpClient = new OkHttpClient();
+                        Request request = new Request.Builder()
+                                .url(Constants.USERS_DATA_URL)
+                                .post(requestBody)
+                                .build();
 
-                        loadCheckBoxState();//记录下当前用户记住密码和自动登录的状态;
-                        Intent i = new Intent(LoginActivityNew.this,MainActivity.class);
-                        //i.putExtra(Config.KEY_TOKEN,token);
-                        //i.putExtra(Config.KEY_PHONE_NUM, _emailText.getText().toString());
-                        startActivity(i);
-                        finish();
-                    }
-                }, new LOGIN.FailCallback()
-                {
-                    @Override
-                    public void onFail(){
-                        setLoginBtnClickable(true);  //这里解放登录按钮，设置为可以点击
+                        Call call = okHttpClient.newCall(request);
+                        call.enqueue(new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e)
+                            {
+                                onLoginFailed();
+                            }
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException
+                            {
+                                String res = response.body().toString();
+                                if(res == "SUCCESS")
+                                {
+                                    onLoginSuccess();
+                                }
+                                else
+                                {
+                                    onLoginFailed();
+                                }
+                            }
+                        });
                         progressDialog.dismiss();
-                        Toast.makeText(LoginActivityNew.this,"Login failed",Toast.LENGTH_LONG).show();
                     }
-                });
+                }, 3000);
+    }
 
-            }
-        };
-        loginRunnable.start();
+    public void onLoginSuccess()
+    {
+        loadCheckBoxState();//记录下当前用户记住密码和自动登录的状态;
+        Intent intent = new Intent(LoginActivityNew.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public void onLoginFailed()
+    {
+        UserUtil.showToast(getBaseContext(), "Login failed",true);
     }
 
     /**
@@ -367,10 +406,10 @@ public class LoginActivityNew extends BaseActivity implements View.OnClickListen
         }
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         // disable going back to the MainActivity
         moveTaskToBack(true);
-    }
+    }*/
 
 }

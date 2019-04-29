@@ -110,11 +110,11 @@ public class LoginActivity extends BaseActivity
         }
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         // disable going back to the MainActivity
         moveTaskToBack(true);
-    }
+    }*/
 
     public void onLoginSuccess() {
         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
