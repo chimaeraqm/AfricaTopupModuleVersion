@@ -19,8 +19,9 @@ import com.crazydwarf.comm_library.dialogs.HistoryDetailDialog;
 import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
 import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
-public class HistoryFragment extends SupportFragment
+public class HistoryFragment extends SwipeBackFragment
 {
     private SmoothCheckBox cb_Recent1m;
     private SmoothCheckBox cb_Recent3m;

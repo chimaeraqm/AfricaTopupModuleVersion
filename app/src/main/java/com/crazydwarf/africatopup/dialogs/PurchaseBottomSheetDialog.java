@@ -16,10 +16,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.chimaeraqm.module_wechatpay.WXPayUtils;
+import com.chimaeraqm.module_wechatpay.WechatpayModuleActivity;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.comm_library.Listener.DialogListener;
 import com.crazydwarf.comm_library.Listener.PurchaseWayBottomSheetDialogListener;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -141,10 +146,20 @@ public class PurchaseBottomSheetDialog extends BottomSheetDialog
             @Override
             public void onResponse(Call call, Response response) throws IOException
             {
-                String rate_response = response.body().string();
-                String str_exchange_rate_info = String.format("%s 1.0 = %s %s", R.string.string_curreny_usd,R.string.string_curreny_rmb,rate_response);
-                tv_exchange_rate_info.setText(str_exchange_rate_info);
-                mRate = Float.valueOf(rate_response);
+                String str = response.body().string();
+                //TODO : 向服务端请求并得到反馈信息，获取了id,rate,time,rate_CDF，现在仅对rate美元汇率做处理，rate_CDF备用
+                try{
+                    JSONObject jsonObject = new JSONObject(str);
+                    String rate_response = jsonObject.getString("rate");
+                    String rateCDF_response = jsonObject.getString("rate_CDF");
+                    String dollar = getContext().getResources().getString(R.string.string_curreny_usd);
+                    String rmb = getContext().getResources().getString(R.string.string_curreny_rmb);
+                    String str_exchange_rate_info = String.format("%s 1.0 = %s %s", dollar,rmb,rate_response);
+                    tv_exchange_rate_info.setText(str_exchange_rate_info);
+                    mRate = Float.valueOf(rate_response);
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
             }
         });
     }

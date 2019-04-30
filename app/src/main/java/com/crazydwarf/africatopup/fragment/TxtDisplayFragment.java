@@ -15,8 +15,9 @@ import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 
 import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
-public class TxtDisplayFragment extends SupportFragment
+public class TxtDisplayFragment extends SwipeBackFragment
 {
     private TextView tvInfo;
 

@@ -64,15 +64,15 @@ public class CountryItemAdapter extends RecyclerView.Adapter<CountryItemAdapter.
         //选中的country高亮显示
         if(position == mSelePos)
         {
-            holder.tvCountryName.setTextColor(ContextCompat.getColor(mContext,R.color.colorBlack));
-            holder.tvCode.setTextColor(ContextCompat.getColor(mContext,R.color.colorBlack));
-            holder.countryLayout.setBackgroundColor(ContextCompat.getColor(mContext,R.color.colorOrange));
+            holder.tvCountryName.setTextColor(ContextCompat.getColor(mContext,R.color.colorWhite));
+            holder.tvCode.setTextColor(ContextCompat.getColor(mContext,R.color.colorWhite));
+            holder.countryLayout.setBackgroundColor(ContextCompat.getColor(mContext,R.color.colorBlue));
         }
         else
         {
             //TODO : 这里不重新设置若干条目会显示异常，需检查？
-            holder.tvCountryName.setTextColor(ContextCompat.getColor(mContext,R.color.colorOrange));
-            holder.tvCode.setTextColor(ContextCompat.getColor(mContext,R.color.colorWhite));
+            holder.tvCountryName.setTextColor(ContextCompat.getColor(mContext,R.color.colorBlack));
+            holder.tvCode.setTextColor(ContextCompat.getColor(mContext,R.color.colorBlack));
             holder.countryLayout.setBackgroundColor(ContextCompat.getColor(mContext,R.color.colorTrans));
         }
     }

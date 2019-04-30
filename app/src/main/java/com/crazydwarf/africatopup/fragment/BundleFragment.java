@@ -24,8 +24,9 @@ import com.crazydwarf.comm_library.dialogs.AddNumberDialog;
 import com.crazydwarf.module_alipay.RechargeAliActivity;
 
 import me.yokeyword.fragmentation.SupportFragment;
+import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
-public class BundleFragment extends SupportFragment
+public class BundleFragment extends SwipeBackFragment
 {
     private Button bnAdd;
     private Button bnListPick;
@@ -36,7 +37,6 @@ public class BundleFragment extends SupportFragment
     public static BundleFragment newInstance()
     {
         Bundle args = new Bundle();
-
         BundleFragment fragment = new BundleFragment();
         fragment.setArguments(args);
         return fragment;

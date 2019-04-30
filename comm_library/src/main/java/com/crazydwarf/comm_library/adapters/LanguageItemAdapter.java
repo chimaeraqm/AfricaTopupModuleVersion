@@ -89,7 +89,7 @@ public class LanguageItemAdapter extends RecyclerView.Adapter<LanguageItemAdapte
         public TextView tvCountryName;
         public LanguageItemHolder(View itemView) {
             super(itemView);
-            this.cbFlag = itemView.findViewById(R.id.cb_flag);
+            //this.cbFlag = itemView.findViewById(R.id.cb_flag);
             this.imFlag = itemView.findViewById(R.id.im_flag);
             this.tvCountryName = itemView.findViewById(R.id.tv_country);
         }

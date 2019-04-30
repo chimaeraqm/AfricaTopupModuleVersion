@@ -160,6 +160,7 @@
     <string name="string_recharge_200">$200</string>
     <string name="string_recharge_300">$300</string>
     <string name="string_recharge_500">$500</string>
+    <string name="string_recharge_others">其他金额</string>
 
     <string name="string_more_recharge">更多充值</string>
     <string name="string_account_info">AfricaCell（默认号码）</string>
@@ -174,6 +175,11 @@
     <string name="string_tologin">已经注册？点击这里登录</string>
     <string name="string_auto_login">自动登录</string>
     <string name="string_remember_pw">记住密码</string>
+    <string name="string_account_setup">账号设置</string>
+    <string name="string_payment_setup">支付设置</string>
+    <string name="string_about">关于...</string>
+    <string name="string_switch_account">切换账号登录</string>
+    <string name="string_logout">退出登录</string>
 
     <string name="placeholder_string_discount">优惠活动</string>
     <string name="placeholder_string_sysadv">合作商广告</string>

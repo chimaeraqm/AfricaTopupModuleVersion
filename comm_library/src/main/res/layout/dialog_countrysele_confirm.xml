@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="@string/string_switch_country"
-        android:textColor="@color/colorOrange"
+        android:textColor="@color/colorBlue"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView16"
         app:layout_constraintStart_toEndOf="@+id/imageView16"
@@ -22,10 +22,10 @@
         android:id="@+id/imageView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/im_oricounty"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_info_outline_orange_40dp" />
+        app:srcCompat="@drawable/ic_info_outline_blue_40dp" />
 
     <ImageView
         android:id="@+id/im_oricounty"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="+243"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/im_oricounty"
         app:layout_constraintStart_toStartOf="@+id/im_oricounty"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/im_oricounty"
-        app:srcCompat="@drawable/ic_chevron_right_white_40dp" />
+        app:srcCompat="@drawable/ic_chevron_right_blue_40dp" />
 
     <ImageView
         android:id="@+id/im_newcountry"
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+20"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_oricountry"
         app:layout_constraintEnd_toEndOf="@+id/im_newcountry"
@@ -93,24 +93,24 @@
         android:id="@+id/bn_confirm"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/shape_button1"
-        android:text="@string/string_confirm"
-        android:textColor="@color/colorBlack"
-        android:textSize="14sp"
+        android:background="@drawable/shape_button2"
         android:padding="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintTop_toBottomOf="@+id/tv_oricountry" />
+        android:text="@string/string_confirm"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13" />
 
     <Button
         android:id="@+id/bn_exit"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:background="@drawable/shape_button1"
+        android:background="@drawable/shape_button2"
         android:text="@string/string_cancel"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:textSize="14sp"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/bn_confirm"

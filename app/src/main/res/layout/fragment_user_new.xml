@@ -9,14 +9,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorTrans">
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:orientation="vertical"
-            android:showDividers="beginning|middle"
+            android:showDividers="middle"
             android:divider="@drawable/divider_custom"
             android:dividerPadding="8dp"
             android:paddingTop="16dp">
@@ -24,37 +23,37 @@
                 android:id="@+id/bn_setup_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/colorTrans"
                 android:drawableStart="@drawable/icon_discount_96"
                 android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
                 android:gravity="start|center_vertical"
                 android:drawablePadding="16dp"
                 android:paddingStart="8dp"
-                android:text="账号设置" />
+                android:text="@string/string_account_setup" />
 
             <Button
                 android:id="@+id/bn_setup_pay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/colorTrans"
                 android:drawableStart="@drawable/icon_discount_96"
                 android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
                 android:gravity="left|center_vertical"
                 android:drawablePadding="16dp"
                 android:paddingStart="8dp"
-                android:text="支付设置" />
+                android:text="@string/string_payment_setup" />
 
             <Button
                 android:id="@+id/bn_setup_language"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/colorTrans"
                 android:drawableStart="@drawable/icon_discount_96"
                 android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
                 android:gravity="left|center_vertical"
                 android:drawablePadding="16dp"
                 android:paddingStart="8dp"
-                android:text="语言设置" />
+                android:text="@string/string_display_language" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,7 +61,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:orientation="vertical"
-            android:showDividers="beginning|middle"
+            android:showDividers="middle"
             android:divider="@drawable/divider_custom"
             android:dividerPadding="8dp"
             android:layout_marginTop="16dp">
@@ -70,25 +69,25 @@
                 android:id="@+id/bn_setup_csservice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/colorTrans"
                 android:drawableStart="@drawable/icon_discount_96"
                 android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
                 android:gravity="left|center_vertical"
                 android:drawablePadding="16dp"
                 android:paddingStart="8dp"
-                android:text="我的客服" />
+                android:text="@string/string_contact_service" />
 
             <Button
                 android:id="@+id/bn_setup_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/colorTrans"
                 android:drawableStart="@drawable/icon_discount_96"
                 android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
                 android:gravity="left|center_vertical"
                 android:drawablePadding="16dp"
                 android:paddingStart="8dp"
-                android:text="关于..." />
+                android:text="@string/string_about" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,7 +95,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
             android:orientation="vertical"
-            android:showDividers="beginning|middle"
+            android:showDividers="middle"
             android:divider="@drawable/divider_custom"
             android:dividerPadding="8dp"
             android:layout_marginTop="16dp">
@@ -104,25 +103,25 @@
                 android:id="@+id/bn_setup_switchaccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/colorTrans"
                 android:drawableStart="@drawable/icon_discount_96"
                 android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
                 android:gravity="left|center_vertical"
                 android:drawablePadding="16dp"
                 android:paddingStart="8dp"
-                android:text="切换账号登录" />
+                android:text="@string/string_switch_account" />
 
             <Button
                 android:id="@+id/bn_setup_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorWhite"
+                android:background="@color/colorTrans"
                 android:drawableStart="@drawable/icon_discount_96"
                 android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
                 android:gravity="left|center_vertical"
                 android:drawablePadding="16dp"
                 android:paddingStart="8dp"
-                android:text="退出登录" />
+                android:text="@string/string_logout" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

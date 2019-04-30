@@ -17,6 +17,7 @@ import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.comm_library.adapters.LanguageItemAdapter;
+import com.crazydwarf.comm_library.adapters.LanguageItemAdapterNew;
 
 
 public class LanguageSelectDialog extends Dialog
@@ -55,7 +56,7 @@ public class LanguageSelectDialog extends Dialog
             names[i] = namesArray.getString(i);
             flags[i] = flagsArray.getResourceId(i,0);
         }
-        final LanguageItemAdapter languageItemAdapter = new LanguageItemAdapter(flags,names);
+        final LanguageItemAdapterNew languageItemAdapter = new LanguageItemAdapterNew(mContext,flags,names);
         mRecyclerview.setAdapter(languageItemAdapter);
         //mPostSeleLanguage在这里获取保存的语言设置，并初始化弹出的对话框
         String language = AppLanguageUtils.getSavedLanguage(mContext);
@@ -63,7 +64,8 @@ public class LanguageSelectDialog extends Dialog
         languageItemAdapter.setmSelePos(mPostSeleLanguage);
         languageItemAdapter.notifyDataSetChanged();
 
-        languageItemAdapter.setOnLanguageItemRVClickListener(new LanguageItemAdapter.onLanguageItemRVClickListener() {
+
+        languageItemAdapter.setOnLanguageItemRVClickListener(new LanguageItemAdapterNew.onLanguageItemRVClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 if(dialogItemSelectionListener != null)
