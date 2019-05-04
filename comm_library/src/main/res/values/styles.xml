@@ -19,7 +19,7 @@
         <item name="android:statusBarColor">@color/colorTrans</item>
         <item name="android:navigationBarColor">@color/colorTrans</item>
 
-        <item name="android:windowAnimationStyle">@style/ActivityAnimStyle</item>
+        <!--<item name="android:windowAnimationStyle">@style/ActivityAnimStyle</item>-->
         <item name="android:popupMenuStyle">@style/popmenuStyle</item>
         <item name="android:dropDownListViewStyle">@style/popmenuDivier</item>
         <item name="android:textAppearanceSmallPopupMenu">@style/popmeuText</item>
@@ -28,10 +28,10 @@
     </style>
 
     <style name="ActivityAnimStyle" parent="@android:style/Animation.Translucent">
-        <item name="android:activityOpenEnterAnimation">@anim/in_from_left</item>
-        <item name="android:activityOpenExitAnimation">@anim/out_to_right</item>
-        <item name="android:activityCloseEnterAnimation">@anim/in_from_right</item>
-        <item name="android:activityCloseExitAnimation">@anim/out_to_left</item>
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
     </style>
 
     <style name="popmenuStyle" parent="@android:style/Widget.PopupMenu">

@@ -55,6 +55,7 @@ public class SignupActivity extends BaseActivity
             public void onClick(View v) {
                 // Finish the registration screen and return to the Login activity
                 finish();
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
             }
         });
     }

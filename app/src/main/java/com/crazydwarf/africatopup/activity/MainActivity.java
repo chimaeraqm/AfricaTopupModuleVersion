@@ -1,7 +1,5 @@
 package com.crazydwarf.africatopup.activity;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
@@ -10,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -19,27 +16,21 @@ import com.crazydwarf.africatopup.fragment.LivingFragment;
 import com.crazydwarf.africatopup.fragment.MainFragment;
 import com.crazydwarf.africatopup.fragment.NewRechargeFragment;
 import com.crazydwarf.africatopup.fragment.NewUserFragment;
-import com.crazydwarf.africatopup.view.CommonAdapter;
 import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
 import com.crazydwarf.comm_library.Utilities.ActivityManager;
-import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.fragment.QueryFragment;
-import com.crazydwarf.africatopup.fragment.UserFragment;
-import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.CountrySelectDialog;
-import com.crazydwarf.comm_library.dialogs.LanguageSelectDialog;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+//veeria
 
 public class MainActivity extends BaseActivity
 {
     private NewRechargeFragment mRechargeFragment;
     private QueryFragment mQueryFragment;
-    private UserFragment mUserFragment;
+//    private UserFragment mUserFragment;
     private NewUserFragment mNewUserFragment;
 
     private MainFragment mMainFragment;
@@ -191,5 +182,8 @@ public class MainActivity extends BaseActivity
         } else {
             ActivityManager.getInstance().finishAllActivity();
         }
+    }
+
+    private class UserFragment {
     }
 }

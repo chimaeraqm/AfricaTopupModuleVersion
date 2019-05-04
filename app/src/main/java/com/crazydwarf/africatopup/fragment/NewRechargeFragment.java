@@ -11,11 +11,9 @@ import android.widget.Button;
 
 import com.chimaeraqm.module_wechatpay.WechatpayModuleActivity;
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.africatopup.activity.BundleActivity;
-import com.crazydwarf.africatopup.activity.HistoryActivity;
-import com.crazydwarf.africatopup.activity.TxtDisplayActivity;
 import com.crazydwarf.africatopup.dialogs.PurchaseBottomSheetDialog;
 import com.crazydwarf.comm_library.Listener.DialogListener;
+import com.crazydwarf.comm_library.dialogs.DefineValueDialog;
 import com.crazydwarf.module_alipay.RechargeAliActivity;
 
 import me.yokeyword.fragmentation.SupportFragment;
@@ -48,6 +46,7 @@ public class NewRechargeFragment extends SupportFragment
         final View view = inflater.inflate(R.layout.fragment_recharge_new,container,false);
 
         //TODO : 金额选择需要做的更灵活，自定义一个button包含一个type和int属性，分别代表充值的种类和金额
+        //TODO : 现在的支付流程分别写在alipay和wxpay对应的空activity里，需要将支付逻辑和界面分开
         Button bn_recharge_10 = view.findViewById(R.id.bn_recharge_10);
         bn_recharge_10.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +71,7 @@ public class NewRechargeFragment extends SupportFragment
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                         }
                     }
                 });
@@ -102,7 +102,7 @@ public class NewRechargeFragment extends SupportFragment
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
-
+                            getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                         }
                     }
                 });
@@ -133,6 +133,7 @@ public class NewRechargeFragment extends SupportFragment
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                         }
                     }
                 });
@@ -163,6 +164,7 @@ public class NewRechargeFragment extends SupportFragment
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                         }
                     }
                 });
@@ -193,6 +195,7 @@ public class NewRechargeFragment extends SupportFragment
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                         }
                     }
                 });
@@ -223,6 +226,7 @@ public class NewRechargeFragment extends SupportFragment
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                         }
                     }
                 });
@@ -253,6 +257,7 @@ public class NewRechargeFragment extends SupportFragment
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                         }
                     }
                 });
@@ -283,10 +288,25 @@ public class NewRechargeFragment extends SupportFragment
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                         }
                     }
                 });
                 dialog.show();
+            }
+        });
+
+        Button bn_recharge_define = view.findViewById(R.id.bn_recharge_define);
+        bn_recharge_define.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DefineValueDialog defineValueDialog = new DefineValueDialog(getContext(), new DefineValueDialog.dialogItemSelectionListener() {
+                    @Override
+                    public void onButtonConfirmClick(View view, int sele) {
+                        double a = 0;
+                    }
+                });
+                defineValueDialog.show();
             }
         });
 
@@ -310,7 +330,7 @@ public class NewRechargeFragment extends SupportFragment
         bn_operatorinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                start(TxtDisplayFragment.newInstance());
+                start(QueryFragment.newInstance());
             }
         });
 

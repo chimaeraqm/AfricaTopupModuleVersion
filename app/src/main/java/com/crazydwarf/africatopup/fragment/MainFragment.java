@@ -31,6 +31,7 @@ public class MainFragment extends Fragment implements View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),RechargeActivity.class);
                 startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 getActivity().finish();
             }
         });

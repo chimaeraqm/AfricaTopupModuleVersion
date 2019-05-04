@@ -16,7 +16,6 @@ import android.widget.Button;
 import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
-import com.crazydwarf.comm_library.adapters.LanguageItemAdapter;
 import com.crazydwarf.comm_library.adapters.LanguageItemAdapterNew;
 
 
@@ -62,7 +61,6 @@ public class LanguageSelectDialog extends Dialog
         String language = AppLanguageUtils.getSavedLanguage(mContext);
         mPostSeleLanguage = AppLanguageUtils.getSelePosByLanguage(language);
         languageItemAdapter.setmSelePos(mPostSeleLanguage);
-        languageItemAdapter.notifyDataSetChanged();
 
 
         languageItemAdapter.setOnLanguageItemRVClickListener(new LanguageItemAdapterNew.onLanguageItemRVClickListener() {
@@ -73,6 +71,7 @@ public class LanguageSelectDialog extends Dialog
                     dialogItemSelectionListener.onClick(view,position);
                     //mCurrentSeleLanguage获取新点击的语言选项
                     mCurrentSeleLanguage = position;
+                    languageItemAdapter.setmSelePos(mCurrentSeleLanguage);
                 }
             }
         });

@@ -12,11 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crazydwarf.chimaeraqm.comm_library.R;
-import com.crazydwarf.comm_library.view.SmoothCheckBox;
 
-import java.util.List;
-
-public class LanguageItemAdapterNew extends RecyclerView.Adapter<LanguageItemAdapterNew.LanguageItemHolder>
+public class LanguageItemAdapterNew extends RecyclerView.Adapter<LanguageItemAdapterNew.LanguageItemHolderNew>
 {
     private Context mContext;
     private Integer[] flagRes;
@@ -33,13 +30,14 @@ public class LanguageItemAdapterNew extends RecyclerView.Adapter<LanguageItemAda
 
     public void setmSelePos(int mSelePos) {
         this.mSelePos = mSelePos;
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public LanguageItemAdapterNew.LanguageItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public LanguageItemHolderNew onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_languageitem,parent,false);
-        LanguageItemAdapterNew.LanguageItemHolder languageItemHolder = new LanguageItemAdapterNew.LanguageItemHolder(view);
+        LanguageItemAdapterNew.LanguageItemHolderNew languageItemHolder = new LanguageItemAdapterNew.LanguageItemHolderNew(view);
         return languageItemHolder;
     }
 
@@ -49,7 +47,7 @@ public class LanguageItemAdapterNew extends RecyclerView.Adapter<LanguageItemAda
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final LanguageItemHolder holder, final int position)
+    public void onBindViewHolder(@NonNull final LanguageItemHolderNew holder, final int position)
     {
         holder.imFlag.setBackgroundResource(flagRes[position]);
         holder.tvCountryName.setText(countries[position]);
@@ -63,7 +61,12 @@ public class LanguageItemAdapterNew extends RecyclerView.Adapter<LanguageItemAda
                 }
             }
         });
-        //选中的country高亮显示
+        initItemBgColor(holder,position);
+    }
+
+
+    void initItemBgColor(@NonNull final LanguageItemHolderNew holder,final int position)
+    {
         if(position == mSelePos)
         {
             holder.tvCountryName.setTextColor(ContextCompat.getColor(mContext,R.color.colorWhite));
@@ -76,18 +79,17 @@ public class LanguageItemAdapterNew extends RecyclerView.Adapter<LanguageItemAda
             holder.languageLayout.setBackgroundColor(ContextCompat.getColor(mContext,R.color.colorTrans));
         }
     }
-
     @Override
     public int getItemCount() {
         return countries.length;
     }
 
-    public static class LanguageItemHolder extends RecyclerView.ViewHolder
+    public static class LanguageItemHolderNew extends RecyclerView.ViewHolder
     {
         public ImageView imFlag;
         public TextView tvCountryName;
         public ConstraintLayout languageLayout;
-        public LanguageItemHolder(View itemView) {
+        public LanguageItemHolderNew(View itemView) {
             super(itemView);
             this.imFlag = itemView.findViewById(R.id.im_flag);
             this.tvCountryName = itemView.findViewById(R.id.tv_country);

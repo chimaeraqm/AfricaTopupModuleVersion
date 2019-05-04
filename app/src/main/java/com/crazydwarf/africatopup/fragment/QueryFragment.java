@@ -1,10 +1,8 @@
 package com.crazydwarf.africatopup.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DividerItemDecoration;
@@ -13,26 +11,28 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.comm_library.Utilities.Constants;
-import com.crazydwarf.africatopup.activity.TxtDisplayActivity;
 import com.crazydwarf.africatopup.view.CommonAdapter;
-import com.crazydwarf.comm_library.dialogs.CountrySelectDialog;
+import com.crazydwarf.comm_library.Utilities.Constants;
 
-public class QueryFragment extends Fragment
+import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
+
+public class QueryFragment extends SwipeBackFragment
 {
-    private ImageView imFlag;
     private RecyclerView mRecyclerview;
-    private TextView tvPostCode;
-    private TypedArray operatorCodeArray;
     private String[] operatorSeq;
     private Integer[] ids;
     private CommonAdapter commonAdapter;
     private int mSelePos = 0;
+
+    public static QueryFragment newInstance()
+    {
+        Bundle args = new Bundle();
+        QueryFragment fragment = new QueryFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
@@ -40,10 +40,6 @@ public class QueryFragment extends Fragment
     {
         View view = inflater.inflate(R.layout.fragment_query,container,false);
         mRecyclerview = view.findViewById(R.id.list_carriers);
-
-        imFlag = view.findViewById(R.id.im_flag);
-        tvPostCode = view.findViewById(R.id.tv_postcode);
-
         return view;
     }
 
@@ -55,18 +51,11 @@ public class QueryFragment extends Fragment
     @Override
     public void onStart() {
         super.onStart();
-        /**
-         * 根据SharedPreferences中保存的选择显示对应的国家
-         */
         SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+        //TODO ：这里需要根据SharedPreferences保存的选中国家，找到对应的运营商列表，然后显示，暂时没有这个过程，默认显示埃及的运营商信息
         int seleRes = preferences.getInt(Constants.SELECTED_COUNTRY_RES,R.drawable.flag_egypt);
         int seleCode = preferences.getInt(Constants.SELECTED_COUNTRY_CODE,20);
         mSelePos = preferences.getInt(Constants.SELECTED_COUNTRY_POS,0);
-        String postcode = String.format("+%d",seleCode);
-        tvPostCode.setText(postcode);
-        imFlag.setBackgroundResource(seleRes);
-
-        operatorCodeArray = getActivity().getResources().obtainTypedArray(R.array.operator_seq);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerview.setLayoutManager(mLayoutManager);
@@ -89,66 +78,17 @@ public class QueryFragment extends Fragment
         //TODO:添加Recycleview点击事件
         commonAdapter.setOnCommonRVItemClickListener(new CommonAdapter.OnCommonRVItemClickListener() {
             @Override
-            public void onItemClick(View view) {
-                Toast.makeText(getActivity(), "显示运营商资费清单", Toast.LENGTH_SHORT).show();
-                String txt = /*UserUtil.readFromRaw(getActivity(),R.raw.ribbontmp)*/"This is a test text for TxtDisplayActivity.";
-                Intent intent = new Intent(getActivity(), TxtDisplayActivity.class);
-                intent.putExtra("OPERATOR_INFO",txt);
-                startActivity(intent);
+            public void onItemClick(View view,int position) {
+                String operator_txt = operatorSeq[position];
+
+                String _txt = String.format("This is a info text for Operator %s",operator_txt);
+                start(TxtDisplayFragment.newInstance(_txt));
             }
 
             @Override
-            public void onItemLongClick(View view) {
+            public void onItemLongClick(View view,int position) {
 
             }
         });
-
-        //根据国家的选择刷新运营商列表
-        imFlag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CountrySelectDialog countrySelectDialog = new CountrySelectDialog(getActivity(), new CountrySelectDialog.dialogItemSelectionListener() {
-                    @Override
-                    public void onClick(int position, String country, int code, int flag) {
-                        int resid = operatorCodeArray.getResourceId(position,0);
-                        TypedArray operatorArray1 = getActivity().getResources().obtainTypedArray(resid);
-                        operatorSeq = new String[operatorArray1.length()];
-                        ids = new Integer[operatorArray1.length()];
-                        for(int i=0;i<operatorArray1.length();i++)
-                        {
-                            operatorSeq[i] = operatorArray1.getString(i);
-                            ids[i] = R.drawable.ic_keyboard_arrow_left_gray_32dp;
-                        }
-                        commonAdapter.setTexts(operatorSeq);
-                        commonAdapter.setImageIds(ids);
-                        mRecyclerview.setAdapter(commonAdapter);
-
-                        String postcode = String.format("+%d",code);
-                        tvPostCode.setText(postcode);
-                        imFlag.setBackgroundResource(flag);
-                        mSelePos = position;
-                    }
-                },mSelePos);
-                countrySelectDialog.show();
-            }
-        });
-    }
-
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if(!hidden)
-        {
-            /**
-             * 根据SharedPreferences中保存的选择显示对应的国家
-             */
-            SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
-            int seleRes = preferences.getInt(Constants.SELECTED_COUNTRY_RES,R.drawable.flag_egypt);
-            int seleCode = preferences.getInt(Constants.SELECTED_COUNTRY_CODE,20);
-            mSelePos = preferences.getInt(Constants.SELECTED_COUNTRY_POS,0);
-            String postcode = String.format("+%d",seleCode);
-            tvPostCode.setText(postcode);
-            imFlag.setBackgroundResource(seleRes);
-        }
     }
 }

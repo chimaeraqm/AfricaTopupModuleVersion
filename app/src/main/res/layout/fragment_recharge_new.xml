@@ -212,22 +212,6 @@
         app:layout_constraintTop_toTopOf="@+id/bn_recharge_300" />
 
     <Button
-        android:id="@+id/bn_recharge_"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/color_state_bn_bg"
-        android:text="@string/string_recharge_500"
-        android:textColor="@drawable/color_state_bn_text"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/bn_recharge_300"
-        app:layout_constraintEnd_toStartOf="@+id/guideline15"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline14"
-        app:layout_constraintTop_toTopOf="@+id/bn_recharge_300" />
-
-    <Button
         android:id="@+id/bn_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

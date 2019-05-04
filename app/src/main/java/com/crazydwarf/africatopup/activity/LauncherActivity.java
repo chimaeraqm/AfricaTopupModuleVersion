@@ -28,6 +28,7 @@ public class LauncherActivity extends BaseActivity
             public void onClick(View view) {
                 Intent intent = new Intent(LauncherActivity.this,MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
             }
         });
 
@@ -44,6 +45,7 @@ public class LauncherActivity extends BaseActivity
             public void onAnimationEnd(Animation animation) {
                 Intent intent = new Intent(LauncherActivity.this,MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 finish();
             }
 

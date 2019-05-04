@@ -2,20 +2,23 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="200dp"
+    android:layout_width="match_parent"
     android:layout_height="180dp"
     android:background="@drawable/shape_textview2">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_languages"
         android:layout_width="0dp"
-        android:layout_height="128dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bn_confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:itemlist="@layout/adapter_languageitem"
-        tools:layoutManager="GridLayoutManager">
+        app:layout_constraintVertical_bias="0.0"
+        tools:layoutManager="GridLayoutManager"
+        tools:listitem="@layout/adapter_languageitem">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -26,15 +29,13 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/shape_button2"
         android:text="@string/string_confirm"
-        android:textSize="14sp"
         android:textColor="@color/colorWhite"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_languages" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/bn_exit"
@@ -44,8 +45,8 @@
         android:layout_marginStart="8dp"
         android:background="@drawable/shape_button2"
         android:text="@string/string_cancel"
-        android:textSize="14sp"
         android:textColor="@color/colorWhite"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/bn_confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
@@ -56,7 +57,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp"
         app:layout_constraintGuide_percent="0.5" />
 
 </android.support.constraint.ConstraintLayout>

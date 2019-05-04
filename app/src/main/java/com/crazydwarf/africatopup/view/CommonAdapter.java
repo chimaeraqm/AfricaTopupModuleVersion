@@ -1,6 +1,7 @@
 package com.crazydwarf.africatopup.view;
 
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
 
-public class CommonAdapter extends RecyclerView.Adapter<CommonAdapter.CommonViewHolder> implements View.OnClickListener,View.OnLongClickListener
+public class CommonAdapter extends RecyclerView.Adapter<CommonAdapter.CommonViewHolder>
 {
     private String[] texts = null;
     private Integer[] imageIds = null;
@@ -40,15 +41,33 @@ public class CommonAdapter extends RecyclerView.Adapter<CommonAdapter.CommonView
     public CommonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_common,parent,false);
         CommonViewHolder commonViewHolder = new CommonViewHolder(view);
-        view.setOnClickListener(this);
-        view.setOnLongClickListener(this);
         return commonViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CommonViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CommonViewHolder holder, final int position) {
         holder.common_tv.setText(texts[position]);
         holder.common_im.setImageResource(imageIds[position]);
+        holder.languageLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(onCommonRVItemClickListener != null)
+                {
+                    onCommonRVItemClickListener.onItemClick(view,position);
+                }
+            }
+        });
+        holder.languageLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                if(onCommonRVItemClickListener != null)
+                {
+                    onCommonRVItemClickListener.onItemLongClick(view,position);
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -56,38 +75,22 @@ public class CommonAdapter extends RecyclerView.Adapter<CommonAdapter.CommonView
         return texts.length;
     }
 
-    @Override
-    public void onClick(View v) {
-        if(onCommonRVItemClickListener != null)
-        {
-            onCommonRVItemClickListener.onItemClick(v);
-        }
-
-    }
-
-    @Override
-    public boolean onLongClick(View v) {
-        if(onCommonRVItemClickListener != null)
-        {
-            onCommonRVItemClickListener.onItemLongClick(v);
-            return true;
-        }
-        return false;
-    }
-
     public static class CommonViewHolder extends RecyclerView.ViewHolder
     {
         public ImageView common_im;
         public TextView common_tv;
+        public ConstraintLayout languageLayout;
+
         public CommonViewHolder(View itemView) {
             super(itemView);
             common_im = itemView.findViewById(R.id.im_common);
             common_tv = itemView.findViewById(R.id.tv_common);
+            languageLayout = itemView.findViewById(R.id.commonitem_layout);
         }
     }
 
     public static interface OnCommonRVItemClickListener{
-        void onItemClick(View view);
-        void onItemLongClick(View view);
+        void onItemClick(View view,int position);
+        void onItemLongClick(View view,int position);
     }
 }

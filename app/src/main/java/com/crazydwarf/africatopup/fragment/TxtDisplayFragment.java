@@ -21,12 +21,14 @@ public class TxtDisplayFragment extends SwipeBackFragment
 {
     private TextView tvInfo;
 
-    public static TxtDisplayFragment newInstance()
-    {
-        Bundle args = new Bundle();
+    private static final String TXT_INFO = "txt_info";
 
+    public static TxtDisplayFragment newInstance(String txt)
+    {
+        Bundle bundle = new Bundle();
+        bundle.putString(TXT_INFO,txt);
         TxtDisplayFragment fragment = new TxtDisplayFragment();
-        fragment.setArguments(args);
+        fragment.setArguments(bundle);
         return fragment;
     }
 
@@ -40,9 +42,16 @@ public class TxtDisplayFragment extends SwipeBackFragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_txt_display,container,false);
+        Bundle bundle = this.getArguments();
+        String _txt = bundle.getString(TXT_INFO);
         tvInfo = view.findViewById(R.id.tv_info);
-        tvInfo.setText("this is the info text");
+        tvInfo.setText(_txt);
         tvInfo.setMovementMethod(ScrollingMovementMethod.getInstance());
         return view;
+    }
+
+    @Override
+    public boolean onBackPressedSupport() {
+        return super.onBackPressedSupport();
     }
 }

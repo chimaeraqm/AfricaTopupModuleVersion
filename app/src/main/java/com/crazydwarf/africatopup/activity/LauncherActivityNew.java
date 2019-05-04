@@ -3,6 +3,7 @@ package com.crazydwarf.africatopup.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.view.View;
 import android.view.animation.Animation;
@@ -18,6 +19,12 @@ import com.crazydwarf.comm_library.view.NewActivityView;
 //TODO : 从LauncherActivityNew到LoginActivityNew，以及跳转到Signup的界面和动画有待完善
 public class LauncherActivityNew extends BaseActivity
 {
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        overridePendingTransition(0,0);
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +44,11 @@ public class LauncherActivityNew extends BaseActivity
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(LauncherActivityNew.this, tv_launch_appname, "transit_launch_icon");
+//                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(LauncherActivityNew.this, tv_launch_appname, "transit_launch_icon");
                 Intent intent = new Intent(LauncherActivityNew.this, LoginActivityNew.class);
-                startActivity(intent,activityOptionsCompat.toBundle());
+                startActivity(intent);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+//                startActivity(intent,activityOptionsCompat.toBundle());
                 finish();
             }
 
@@ -48,6 +57,5 @@ public class LauncherActivityNew extends BaseActivity
 
             }
         });
-
     }
 }

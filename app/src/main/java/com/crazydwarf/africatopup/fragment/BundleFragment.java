@@ -116,6 +116,7 @@ public class BundleFragment extends SwipeBackFragment
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
                             startActivity(intent);
+                            getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         }
                     }
                 });

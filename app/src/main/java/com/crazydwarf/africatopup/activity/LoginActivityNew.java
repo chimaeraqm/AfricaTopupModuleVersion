@@ -67,6 +67,7 @@ public class LoginActivityNew extends BaseActivity implements View.OnClickListen
                 // Start the Signup activity
                 Intent intent = new Intent(LoginActivityNew.this, SignupActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
             }
         });
         _withoutLoginButton.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +75,7 @@ public class LoginActivityNew extends BaseActivity implements View.OnClickListen
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivityNew.this,MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 finish();
             }
         });
@@ -332,6 +334,7 @@ public class LoginActivityNew extends BaseActivity implements View.OnClickListen
         loadCheckBoxState();//记录下当前用户记住密码和自动登录的状态;
         Intent intent = new Intent(LoginActivityNew.this,MainActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
         finish();
     }
 
