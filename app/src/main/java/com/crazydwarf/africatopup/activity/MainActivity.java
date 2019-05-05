@@ -1,5 +1,7 @@
 package com.crazydwarf.africatopup.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
@@ -20,6 +22,7 @@ import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
 import com.crazydwarf.comm_library.Utilities.ActivityManager;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.fragment.QueryFragment;
+import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.CountrySelectDialog;
 import java.util.ArrayList;
@@ -91,12 +94,17 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final WaveToolbar toolBar = findViewById(R.id.top_menu);
+        setSupportActionBar(toolBar);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+        final int flag_res = sharedPreferences.getInt(Constants.SELECTED_COUNTRY_RES,0);
+        Drawable menuicon = ContextCompat.getDrawable(getBaseContext(),flag_res);
+        toolBar.setmMenuIcon(menuicon);
 
         //TODO : 初始化选择国家队列，可以在启动时完成
         final TypedArray flagsArray = MainActivity.this.getResources().obtainTypedArray(com.crazydwarf.chimaeraqm.comm_library.R.array.select_flags);
 
-        final WaveToolbar toolBar = findViewById(R.id.top_menu);
-        setSupportActionBar(toolBar);
         toolBar.setMenuIconClickListener(new WaveToolbar.MenuIconClickListener() {
             @Override
             public void OnClick(View view) {
@@ -112,22 +120,6 @@ public class MainActivity extends BaseActivity
                     }
                 },mSelePos);
                 countrySelectDialog.show();
-
-                /*LanguageSelectDialog dialog = new LanguageSelectDialog(MainActivity.this, new LanguageSelectDialog.dialogItemSelectionListener() {
-                    @Override
-                    public void onClick(View view, int position) {
-
-                    }
-
-                    @Override
-                    public void onButtonConfirmClick(View view, int sele) {
-                        String language = AppLanguageUtils.getLanguageBySelePos(sele);
-                        Locale locale = AppLanguageUtils.getLocaleByLanguage(language);
-                        AppLanguageUtils.saveLanguageSetting(MainActivity.this,locale);
-                        recreate();
-                    }
-                });
-                dialog.show();*/
             }
         });
 

@@ -1,6 +1,8 @@
 package com.crazydwarf.africatopup.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.View;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.fragment.NewRechargeFragment;
 import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
+import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.CountrySelectDialog;
 
@@ -25,17 +28,20 @@ public class RechargeActivity extends BaseActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recharge);
-
-        //TODO : 初始化选择国家队列，可以在启动时完成
-        final TypedArray flagsArray = RechargeActivity.this.getResources().obtainTypedArray(com.crazydwarf.chimaeraqm.comm_library.R.array.select_flags);
-
         final WaveToolbar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
+
+        //TODO : 根据SharedPreferences中保存的选中国家信息，显示对应的国旗，充值界面不再提供国家切换；当sharedPreferences为null时可能出错
+        SharedPreferences sharedPreferences = getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+        final int flag_res = sharedPreferences.getInt(Constants.SELECTED_COUNTRY_RES,0);
+        Drawable menuicon = ContextCompat.getDrawable(getBaseContext(),flag_res);
+        toolBar.setmMenuIcon(menuicon);
+
+        /*final TypedArray flagsArray = RechargeActivity.this.getResources().obtainTypedArray(com.crazydwarf.chimaeraqm.comm_library.R.array.select_flags);
         toolBar.setMenuIconClickListener(new WaveToolbar.MenuIconClickListener() {
             @Override
             public void OnClick(View view) {
 
-                //TODO : menu显示为国旗，用于切换当前使用的国家，语言切换转移到用户设置界面
                 CountrySelectDialog countrySelectDialog = new CountrySelectDialog(RechargeActivity.this, new CountrySelectDialog.dialogItemSelectionListener() {
                     @Override
                     public void onClick(int position, String country, int code, int flag) {
@@ -47,7 +53,7 @@ public class RechargeActivity extends BaseActivity
                 },mSelePos);
                 countrySelectDialog.show();
             }
-        });
+        });*/
 
         toolBar.setBackIconClickListener(new WaveToolbar.BackIconClickListener() {
             @Override

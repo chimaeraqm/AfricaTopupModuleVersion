@@ -20,6 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:menuIconShow="false"
         app:mentIconSize="32dp"
         app:menuIcon="@drawable/flag_egypt"
         app:title="@string/title_recharge"

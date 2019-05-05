@@ -11,10 +11,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.crazydwarf.africatopup.R;
-import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
-import com.crazydwarf.comm_library.activity.BaseActivity;
-
-import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
 public class TxtDisplayFragment extends SwipeBackFragment
