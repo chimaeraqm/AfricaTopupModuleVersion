@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="180dp"
-    android:background="@drawable/shape_textview2">
+    android:background="@color/colorWhite">
 
     <Button
         android:id="@+id/bn_confirm"
@@ -43,7 +43,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <com.crazydwarf.comm_library.view.MaterialEditText
+    <EditText
         android:id="@+id/et_definevalue"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -51,18 +51,20 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:inputType="number"
-        android:textSize="80sp"
-        android:hint="___"
+        android:background="@color/colorGray"
         android:gravity="center"
-
+        android:hint="0000"
+        android:inputType="number"
+        android:maxEms="4"
+        android:maxLines="1"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorLightGray"
+        android:textSize="60sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bn_confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:met_hideUnderline="true"
-        app:met_maxCharacters="3"
-        app:met_minCharacters="1"
-        app:met_primaryColor="@color/colorBlue"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>

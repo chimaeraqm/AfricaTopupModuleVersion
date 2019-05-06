@@ -302,8 +302,31 @@ public class NewRechargeFragment extends SupportFragment
             public void onClick(View view) {
                 DefineValueDialog defineValueDialog = new DefineValueDialog(getContext(), new DefineValueDialog.dialogItemSelectionListener() {
                     @Override
-                    public void onButtonConfirmClick(View view, int sele) {
-                        double a = 0;
+                    public void onButtonConfirmClick(View view, final int value) {
+                        PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), (float)value, new DialogListener() {
+                            @Override
+                            public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
+                                if(res) {
+                                    Intent intent;
+                                    if(payment_method == 1){
+                                        intent = new Intent(getContext(),WechatpayModuleActivity.class);
+                                        /**
+                                         * wxpay会转换成单位 分
+                                         */
+                                        mRequestPrice = value * mMulti * rate * 100;
+                                    }
+                                    else{
+                                        intent = new Intent(getContext(),RechargeAliActivity.class);
+                                        mRequestPrice = value * mMulti * rate;
+                                    }
+                                    String strRequestPrice = String.format("%.2f",mRequestPrice);
+                                    intent.putExtra("REQUEST_PRICE",strRequestPrice);
+                                    startActivity(intent);
+                                    getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                                }
+                            }
+                        });
+                        dialog.show();
                     }
                 });
                 defineValueDialog.show();

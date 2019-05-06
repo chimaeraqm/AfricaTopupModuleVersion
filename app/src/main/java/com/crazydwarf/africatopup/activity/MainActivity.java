@@ -97,13 +97,14 @@ public class MainActivity extends BaseActivity
         final WaveToolbar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
 
+        //TODO : 初始化选择国家队列，可以在启动时完成
+        final TypedArray flagsArray = MainActivity.this.getResources().obtainTypedArray(com.crazydwarf.chimaeraqm.comm_library.R.array.select_flags);
+
         SharedPreferences sharedPreferences = getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
-        final int flag_res = sharedPreferences.getInt(Constants.SELECTED_COUNTRY_RES,0);
+        final int flag_res = sharedPreferences.getInt(Constants.SELECTED_COUNTRY_RES,flagsArray.getResourceId(0,0));
         Drawable menuicon = ContextCompat.getDrawable(getBaseContext(),flag_res);
         toolBar.setmMenuIcon(menuicon);
 
-        //TODO : 初始化选择国家队列，可以在启动时完成
-        final TypedArray flagsArray = MainActivity.this.getResources().obtainTypedArray(com.crazydwarf.chimaeraqm.comm_library.R.array.select_flags);
 
         toolBar.setMenuIconClickListener(new WaveToolbar.MenuIconClickListener() {
             @Override

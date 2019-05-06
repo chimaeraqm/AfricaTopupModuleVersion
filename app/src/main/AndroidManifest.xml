@@ -18,7 +18,7 @@
         android:theme="@style/CurrentAppTheme"
         android:debuggable="true">
         <activity
-            android:name=".activity.TestActivity"
+            android:name=".activity.LauncherActivityNew"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.LauncherActivityNew"
+        <activity android:name=".activity.TestActivity"
             android:screenOrientation="portrait">
         </activity>
 

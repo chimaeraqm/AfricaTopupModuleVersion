@@ -55,14 +55,19 @@ public class CountrySelectDialog extends Dialog
         final TypedArray countryArray = mContext.getResources().obtainTypedArray(R.array.select_countries);
         final TypedArray codeArray = mContext.getResources().obtainTypedArray(R.array.select_codes);
         final TypedArray flagsArray = mContext.getResources().obtainTypedArray(R.array.select_flags);
+        final TypedArray operatorArray = mContext.getResources().obtainTypedArray(R.array.operator_seq);
+
         countries = new String[countryArray.length()];
         codes = new Integer[codeArray.length()];
         flags = new Integer[flagsArray.length()];
+        final Integer[] operators = new Integer[operatorArray.length()];
+
         for(int i=0;i<countryArray.length();i++)
         {
             countries[i] = countryArray.getString(i);
             codes[i] = codeArray.getInteger(i,0);
             flags[i] = flagsArray.getResourceId(i,0);
+            operators[i] = operatorArray.getResourceId(i,0);
         }
 
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(Constants.USER_PREFS,Context.MODE_PRIVATE);
@@ -80,10 +85,13 @@ public class CountrySelectDialog extends Dialog
                     final String country = countries[position];
                     final int code = codes[position];
                     final int flag = flags[position];
+                    final int operator = operators[position];
 
                     final int oriCountryFlag = flags[mSelepos];
                     final int oriCountryCode = codes[mSelepos];
                     final String oldcountry = countries[mSelepos];
+                    final int oriCountryOperator = operators[mSelepos];
+
                     SwitchCountryConfirmDialog switchCountryConfirmDialog = new SwitchCountryConfirmDialog(mContext,
                             oriCountryFlag, flag, oriCountryCode, code, new SwitchCountryConfirmDialog.dialogBnClickListener() {
                         @Override
@@ -93,6 +101,7 @@ public class CountrySelectDialog extends Dialog
                                 editor.putInt(Constants.SELECTED_COUNTRY_POS,position);
                                 editor.putInt(Constants.SELECTED_COUNTRY_RES,flag);
                                 editor.putInt(Constants.SELECTED_COUNTRY_CODE,code);
+                                editor.putInt(Constants.SELECTED_COUNTRY_OPERATOR,operator);
                                 editor.apply();
                                 dialogItemSelectionListener.onClick(position,country,code,flag);
                             }

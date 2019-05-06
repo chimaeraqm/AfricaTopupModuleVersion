@@ -51,19 +51,17 @@ public class QueryFragment extends SwipeBackFragment
     @Override
     public void onStart() {
         super.onStart();
-        SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
-        //TODO ：这里需要根据SharedPreferences保存的选中国家，找到对应的运营商列表，然后显示，暂时没有这个过程，默认显示埃及的运营商信息
-        int seleRes = preferences.getInt(Constants.SELECTED_COUNTRY_RES,R.drawable.flag_egypt);
-        int seleCode = preferences.getInt(Constants.SELECTED_COUNTRY_CODE,20);
-        mSelePos = preferences.getInt(Constants.SELECTED_COUNTRY_POS,0);
-
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerview.setLayoutManager(mLayoutManager);
         mRecyclerview.setHasFixedSize(true);
         mRecyclerview.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
 
-        //初始化时选择第一个Egypt
-        final TypedArray operatorArray = getActivity().getResources().obtainTypedArray(R.array.operator_egypt_20);
+        SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+        //TODO ：这里需要根据SharedPreferences保存的选中国家，找到对应的运营商列表，然后显示，暂时没有这个过程，默认显示埃及的运营商信息
+        TypedArray operatorSeqArray = getActivity().getResources().obtainTypedArray(R.array.operator_seq);
+        int defaultOperator = operatorSeqArray.getIndex(0);
+        int seleOperator = preferences.getInt(Constants.SELECTED_COUNTRY_OPERATOR,defaultOperator);
+        TypedArray operatorArray = getActivity().getResources().obtainTypedArray(seleOperator);
 
         operatorSeq = new String[operatorArray.length()];
         ids = new Integer[operatorArray.length()];

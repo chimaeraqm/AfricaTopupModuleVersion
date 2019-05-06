@@ -2,21 +2,21 @@ package com.crazydwarf.comm_library.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.crazydwarf.chimaeraqm.comm_library.R;
-import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
-import com.crazydwarf.comm_library.adapters.LanguageItemAdapterNew;
 
 
 public class DefineValueDialog extends Dialog
@@ -25,8 +25,8 @@ public class DefineValueDialog extends Dialog
     private Context mContext;
     private Button bn_Confirm;
     private Button bn_Exit;
-    private int mCurrentSeleLanguage;
-    private int mPostSeleLanguage;
+    private EditText et_DefineValue;
+    private int mValue = 0;
 
     public DefineValueDialog(@NonNull Context context, dialogItemSelectionListener listener)
     {
@@ -40,16 +40,28 @@ public class DefineValueDialog extends Dialog
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.dialog_definevalue);
 
-        /*bn_Confirm = findViewById(R.id.bn_confirm);
+        et_DefineValue = findViewById(R.id.et_definevalue);
+        et_DefineValue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                double a = 0;
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                mValue = Integer.valueOf(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        bn_Confirm = findViewById(R.id.bn_confirm);
         bn_Confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //语言选择改变时
-                if(mPostSeleLanguage != mCurrentSeleLanguage)
-                {
-                    dialogItemSelectionListener.onButtonConfirmClick(v,mCurrentSeleLanguage);
-                    mPostSeleLanguage = mCurrentSeleLanguage;
-                }
+                dialogItemSelectionListener.onButtonConfirmClick(v,mValue);
                 dismiss();
             }
         });
@@ -60,12 +72,12 @@ public class DefineValueDialog extends Dialog
             public void onClick(View v) {
                 dismiss();
             }
-        });*/
+        });
         setDisplayDimension();
     }
 
     public interface dialogItemSelectionListener{
-        void onButtonConfirmClick(View view, int sele);
+        void onButtonConfirmClick(View view, int value);
     }
 
     /**
@@ -77,7 +89,7 @@ public class DefineValueDialog extends Dialog
         //TODO:如果设置相对屏幕的尺寸，这里需要先获取屏幕尺寸
         WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes();
         layoutParams.width = UserUtil.dip2px(mContext,200);
-        layoutParams.height = UserUtil.dip2px(mContext,220);
+        layoutParams.height = UserUtil.dip2px(mContext,180);
         dialogWindow.setAttributes(layoutParams);
     }
 }

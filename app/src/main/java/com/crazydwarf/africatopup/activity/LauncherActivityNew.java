@@ -44,11 +44,11 @@ public class LauncherActivityNew extends BaseActivity
 
             @Override
             public void onAnimationEnd(Animation animation) {
-//                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(LauncherActivityNew.this, tv_launch_appname, "transit_launch_icon");
+
+                //TODO：将获取当前选择国家的过程放在这里，开一个额外的线程处理
                 Intent intent = new Intent(LauncherActivityNew.this, LoginActivityNew.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
-//                startActivity(intent,activityOptionsCompat.toBundle());
                 finish();
             }
 

@@ -32,10 +32,10 @@ public class RechargeActivity extends BaseActivity
         setSupportActionBar(toolBar);
 
         //TODO : 根据SharedPreferences中保存的选中国家信息，显示对应的国旗，充值界面不再提供国家切换；当sharedPreferences为null时可能出错
-        SharedPreferences sharedPreferences = getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
+        /*SharedPreferences sharedPreferences = getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
         final int flag_res = sharedPreferences.getInt(Constants.SELECTED_COUNTRY_RES,0);
         Drawable menuicon = ContextCompat.getDrawable(getBaseContext(),flag_res);
-        toolBar.setmMenuIcon(menuicon);
+        toolBar.setmMenuIcon(menuicon);*/
 
         /*final TypedArray flagsArray = RechargeActivity.this.getResources().obtainTypedArray(com.crazydwarf.chimaeraqm.comm_library.R.array.select_flags);
         toolBar.setMenuIconClickListener(new WaveToolbar.MenuIconClickListener() {
