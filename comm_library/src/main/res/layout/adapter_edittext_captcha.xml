@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="4dp">
+
+    <TextView
+        android:id="@+id/tv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="T"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlue"
+        android:textSize="60sp"
+        android:maxEms="1"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/im_bline"
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_back"
+        app:layout_constraintStart_toStartOf="@+id/tv_back"
+        app:layout_constraintTop_toBottomOf="@+id/tv_back"
+        app:srcCompat="@color/colorGray" />
+
+    <com.crazydwarf.comm_library.view.MaterialEditText
+        android:id="@+id/et_main"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        android:background="@color/colorTrans"
+        app:layout_constraintBottom_toTopOf="@+id/im_bline"
+        app:layout_constraintEnd_toEndOf="@+id/tv_back"
+        app:layout_constraintStart_toStartOf="@+id/tv_back"
+        app:layout_constraintTop_toTopOf="@+id/tv_back" />
+</android.support.constraint.ConstraintLayout>

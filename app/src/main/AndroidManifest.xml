@@ -18,7 +18,7 @@
         android:theme="@style/CurrentAppTheme"
         android:debuggable="true">
         <activity
-            android:name=".activity.LauncherActivityNew"
+            android:name=".activity.TestActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,15 +27,8 @@
             </intent-filter>
         </activity>
 
-
-        <activity android:name=".activity.BundleActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden">
-        </activity>
-
-        <activity android:name=".activity.HistoryActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden">
+        <activity android:name=".activity.LauncherActivityNew"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity android:name=".activity.MainActivity"
@@ -47,10 +40,6 @@
         </activity>
 
         <activity android:name="com.crazydwarf.module_alipay.RechargeAliActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity android:name=".activity.TxtDisplayActivity"
             android:screenOrientation="portrait">
         </activity>
 
