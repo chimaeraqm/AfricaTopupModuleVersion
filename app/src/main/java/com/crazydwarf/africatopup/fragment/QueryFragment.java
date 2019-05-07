@@ -59,7 +59,7 @@ public class QueryFragment extends SwipeBackFragment
         SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
         //TODO ：这里需要根据SharedPreferences保存的选中国家，找到对应的运营商列表，然后显示，暂时没有这个过程，默认显示埃及的运营商信息
         TypedArray operatorSeqArray = getActivity().getResources().obtainTypedArray(R.array.operator_seq);
-        int defaultOperator = operatorSeqArray.getIndex(0);
+        int defaultOperator = operatorSeqArray.getResourceId(0,0);
         int seleOperator = preferences.getInt(Constants.SELECTED_COUNTRY_OPERATOR,defaultOperator);
         TypedArray operatorArray = getActivity().getResources().obtainTypedArray(seleOperator);
 
