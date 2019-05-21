@@ -1,9 +1,6 @@
 package com.crazydwarf.africatopup.activity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,24 +8,23 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.fragment.FlowFragment;
 import com.crazydwarf.africatopup.fragment.NewRechargeFragment;
 import com.crazydwarf.chimaeraqm.wavetoolbar.WaveToolbar;
-import com.crazydwarf.comm_library.Utilities.Constants;
 import com.crazydwarf.comm_library.Utilities.GVariable;
 import com.crazydwarf.comm_library.activity.BaseActivity;
-import com.crazydwarf.comm_library.dialogs.CountrySelectDialog;
 
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
-public class RechargeActivity extends BaseActivity
+public class FlowActivity extends BaseActivity
 {
     private int mSelePos = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recharge);
+        setContentView(R.layout.activity_flow);
         final WaveToolbar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
 
@@ -45,15 +41,15 @@ public class RechargeActivity extends BaseActivity
         toolBar.setBackIconClickListener(new WaveToolbar.BackIconClickListener() {
             @Override
             public void OnClick() {
-                Intent intent = new Intent(RechargeActivity.this,MainActivity.class);
+                Intent intent = new Intent(FlowActivity.this,MainActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                 finish();
             }
         });
 
-        if (findFragment(NewRechargeFragment.class) == null) {
-            loadRootFragment(R.id.view_fragment, NewRechargeFragment.newInstance());
+        if (findFragment(FlowFragment.class) == null) {
+            loadRootFragment(R.id.view_fragment, FlowFragment.newInstance());
         }
     }
 

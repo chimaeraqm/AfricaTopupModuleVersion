@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.view.CommonAdapter;
 import com.crazydwarf.comm_library.Utilities.Constants;
+import com.crazydwarf.comm_library.Utilities.GVariable;
 
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
@@ -56,11 +57,7 @@ public class QueryFragment extends SwipeBackFragment
         mRecyclerview.setHasFixedSize(true);
         mRecyclerview.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
 
-        SharedPreferences preferences = getActivity().getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
-        //TODO ：这里需要根据SharedPreferences保存的选中国家，找到对应的运营商列表，然后显示，暂时没有这个过程，默认显示埃及的运营商信息
-        TypedArray operatorSeqArray = getActivity().getResources().obtainTypedArray(R.array.operator_seq);
-        int defaultOperator = operatorSeqArray.getResourceId(0,0);
-        int seleOperator = preferences.getInt(Constants.SELECTED_COUNTRY_OPERATOR,defaultOperator);
+        int seleOperator = GVariable.STORED_COUNTRY_OPERATORS;
         TypedArray operatorArray = getActivity().getResources().obtainTypedArray(seleOperator);
 
         operatorSeq = new String[operatorArray.length()];

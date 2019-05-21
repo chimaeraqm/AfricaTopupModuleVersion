@@ -27,10 +27,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.TestActivity"
-            android:screenOrientation="portrait">
-        </activity>
-
         <activity android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
         </activity>
@@ -52,6 +48,10 @@
         </activity>
 
         <activity android:name=".activity.RechargeActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".activity.FlowActivity"
             android:screenOrientation="portrait">
         </activity>
     </application>

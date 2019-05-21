@@ -19,7 +19,7 @@
     <string name="string_user_login">Se connecter</string>
     <string name="string_user_quick_register">Enregistrement rapide</string>
     <string name="string_local_number">Votre numéro</string>
-    <string name="string_enter_username">Entrer un numéro ou un nom de l\'utilisateur</string>
+    <string name="string_enter_username">Entrez le nom d\'utilisateur</string>
     <string name="string_init_pw">Mot de passe initial</string>
     <string name="string_enter_pw">Entrer le mot de passe</string>
     <string name="string_confirm">CONFIRMER</string>

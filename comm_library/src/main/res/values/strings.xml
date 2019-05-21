@@ -25,7 +25,7 @@
     <string name="string_user_login">用户登录</string>
     <string name="string_user_quick_register">快捷注册</string>
     <string name="string_local_number">本机号码（用户名）</string>
-    <string name="string_enter_username">输入手机号或用户名</string>
+    <string name="string_enter_username">输入用户名</string>
     <string name="string_init_pw">初始密码</string>
     <string name="string_enter_pw">输入密码</string>
     <string name="string_confirm">确认</string>
@@ -162,6 +162,10 @@
     <string name="string_recharge_500">$500</string>
     <string name="string_recharge_others">其他金额</string>
 
+    <string name="string_flow_50">50MB\n5元</string>
+    <string name="string_flow_500">500MB\n50元</string>
+    <string name="string_flow_others">其他流量包</string>
+
     <string name="string_more_recharge">更多充值</string>
     <string name="string_account_info">AfricaCell（默认号码）</string>
     <string name="string_payment_confirm">确认支付</string>
@@ -180,6 +184,7 @@
     <string name="string_about">关于...</string>
     <string name="string_switch_account">切换账号登录</string>
     <string name="string_logout">退出登录</string>
+    <string name="string_discount_info">登录后享充值95折</string>
 
     <string name="placeholder_string_discount">优惠活动</string>
     <string name="placeholder_string_sysadv">合作商广告</string>

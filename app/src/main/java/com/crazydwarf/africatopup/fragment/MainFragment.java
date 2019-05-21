@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.crazydwarf.africatopup.R;
+import com.crazydwarf.africatopup.activity.FlowActivity;
 import com.crazydwarf.africatopup.activity.RechargeActivity;
 
-public class MainFragment extends Fragment implements View.OnClickListener
+public class MainFragment extends Fragment
 {
     private Button bn_recharge;
     private Button bn_flow;
@@ -36,32 +37,19 @@ public class MainFragment extends Fragment implements View.OnClickListener
             }
         });
         bn_flow = view.findViewById(R.id.bn_flow);
+        bn_flow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),FlowActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                getActivity().finish();
+            }
+        });
         bn_tv_net = view.findViewById(R.id.bn_tvnet);
         bn_air_tickets = view.findViewById(R.id.bn_air_tickets);
         bn_discount = view.findViewById(R.id.bn_discount);
         bn_more = view.findViewById(R.id.bn_more);
         return view;
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (getId()) {
-            case R.id.bn_recharger:
-                Intent intent = new Intent(getActivity(),RechargeActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.bn_flow:
-                break;
-            case R.id.bn_tvnet:
-                break;
-            case R.id.bn_air_tickets:
-                break;
-            case R.id.bn_discount:
-                break;
-            case R.id.bn_more:
-                break;
-                default:
-                    break;
-        }
     }
 }

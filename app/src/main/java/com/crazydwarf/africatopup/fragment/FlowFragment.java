@@ -23,7 +23,7 @@ import com.crazydwarf.module_alipay.RechargeAliActivity;
 
 import me.yokeyword.fragmentation.SupportFragment;
 
-public class NewRechargeFragment extends SupportFragment
+public class FlowFragment extends SupportFragment
 {
     private static final int RESULT_OK = 0;
     private float mRequestPrice;
@@ -32,11 +32,11 @@ public class NewRechargeFragment extends SupportFragment
     private float mDiscount = 1.0f;
     private float mMulti = 0.001f;
 
-    public static NewRechargeFragment newInstance()
+    public static FlowFragment newInstance()
     {
         Bundle args = new Bundle();
 
-        NewRechargeFragment fragment = new NewRechargeFragment();
+        FlowFragment fragment = new FlowFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,7 +49,7 @@ public class NewRechargeFragment extends SupportFragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
     {
-        final View view = inflater.inflate(R.layout.fragment_recharge_new,container,false);
+        final View view = inflater.inflate(R.layout.fragment_flow_new,container,false);
 
         //TODO ：暂时取sim1的信息作为默认显示的信息
         TextView tv_account_info = view.findViewById(R.id.tv_account_info);
@@ -76,11 +76,11 @@ public class NewRechargeFragment extends SupportFragment
         }
         //TODO : 金额选择需要做的更灵活，自定义一个button包含一个type和int属性，分别代表充值的种类和金额
         //TODO : 现在的支付流程分别写在alipay和wxpay对应的空activity里，需要将支付逻辑和界面分开
-        Button bn_recharge_20 = view.findViewById(R.id.bn_recharge_10);
-        bn_recharge_20.setOnClickListener(new View.OnClickListener() {
+        Button bn_recharge_50 = view.findViewById(R.id.bn_recharge_10);
+        bn_recharge_50.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 20f*mDiscount, new DialogListener() {
+                PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 5f*mDiscount, new DialogListener() {
                     @Override
                     public void getPurchaseRequestFromDialog(boolean res,float rate,int payment_method) {
                         if(res){
@@ -90,11 +90,11 @@ public class NewRechargeFragment extends SupportFragment
                                 /**
                                  * wxpay会转换成单位 分
                                  */
-                                mRequestPrice = 20 * mDiscount * mMulti * rate * 100;
+                                mRequestPrice = 5 * mDiscount * mMulti * rate * 100;
                             }
                             else{
                                 intent = new Intent(getContext(),RechargeAliActivity.class);
-                                mRequestPrice = 20 * mDiscount * mMulti * rate;
+                                mRequestPrice = 5 * mDiscount * mMulti * rate;
                             }
                             String strRequestPrice = String.format("%.2f",mRequestPrice);
                             intent.putExtra("REQUEST_PRICE",strRequestPrice);
@@ -107,8 +107,8 @@ public class NewRechargeFragment extends SupportFragment
             }
         });
 
-        Button bn_recharge_50 = view.findViewById(R.id.bn_recharge_50);
-        bn_recharge_50.setOnClickListener(new View.OnClickListener() {
+        Button bn_recharge_500 = view.findViewById(R.id.bn_recharge_50);
+        bn_recharge_500.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PurchaseBottomSheetDialog dialog = new PurchaseBottomSheetDialog(getActivity(), 50f * mDiscount, new DialogListener() {
@@ -155,11 +155,11 @@ public class NewRechargeFragment extends SupportFragment
                                         /**
                                          * wxpay会转换成单位 分
                                          */
-                                        mRequestPrice = value * mDiscount * mMulti * rate * 100;
+                                        mRequestPrice = value * mDiscount * mMulti * rate * 100 * 0.1f;
                                     }
                                     else{
                                         intent = new Intent(getContext(),RechargeAliActivity.class);
-                                        mRequestPrice = value * mDiscount * mMulti * rate;
+                                        mRequestPrice = value * mDiscount * mMulti * rate * 0.1f;
                                     }
                                     String strRequestPrice = String.format("%.2f",mRequestPrice);
                                     intent.putExtra("REQUEST_PRICE",strRequestPrice);
@@ -174,6 +174,7 @@ public class NewRechargeFragment extends SupportFragment
                 defineValueDialog.show();
             }
         });
+
 
         Button bn_history = view.findViewById(R.id.bn_history);
         bn_history.setOnClickListener(new View.OnClickListener() {

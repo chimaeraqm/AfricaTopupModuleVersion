@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menuIconShow="false"
+        app:menuIconShow="true"
         app:mentIconSize="32dp"
         app:menuIcon="@drawable/flag_egypt"
         app:title="@string/title_recharge"
@@ -28,7 +28,8 @@
         app:titleSize="20sp"
         app:wave_Amlitude="20"
         app:wave_Speed="0.02"
-        app:viewBackground="@color/colorTrans" />
+        app:viewBackground="@color/colorTrans"
+        app:animationOn="false"/>
 
     <FrameLayout
         android:id="@+id/view_fragment"

@@ -16,6 +16,7 @@ import android.view.WindowManager;
 
 import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.Utilities.Constants;
+import com.crazydwarf.comm_library.Utilities.GVariable;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.comm_library.adapters.CountryItemAdapter;
 
@@ -70,9 +71,14 @@ public class CountrySelectDialog extends Dialog
             operators[i] = operatorArray.getResourceId(i,0);
         }
 
+        countryArray.recycle();
+        codeArray.recycle();
+        flagsArray.recycle();
+        operatorArray.recycle();
+
         SharedPreferences sharedPreferences = mContext.getSharedPreferences(Constants.USER_PREFS,Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
-        mSelepos = sharedPreferences.getInt(Constants.SELECTED_COUNTRY_POS,0);
+        mSelepos = GVariable.STORED_COUNTRY_POS;
         CountryItemAdapter countryItemAdapter = new CountryItemAdapter(mContext,countries,codes,flags,mSelepos);
         mRecyclerview.setAdapter(countryItemAdapter);
         //TODO: 显示RecycleView点击事件
@@ -90,7 +96,6 @@ public class CountrySelectDialog extends Dialog
                     final int oriCountryFlag = flags[mSelepos];
                     final int oriCountryCode = codes[mSelepos];
                     final String oldcountry = countries[mSelepos];
-                    final int oriCountryOperator = operators[mSelepos];
 
                     SwitchCountryConfirmDialog switchCountryConfirmDialog = new SwitchCountryConfirmDialog(mContext,
                             oriCountryFlag, flag, oriCountryCode, code, new SwitchCountryConfirmDialog.dialogBnClickListener() {
@@ -98,11 +103,7 @@ public class CountrySelectDialog extends Dialog
                         public void onClick(boolean res) {
                             if(res)
                             {
-                                editor.putInt(Constants.SELECTED_COUNTRY_POS,position);
-                                editor.putInt(Constants.SELECTED_COUNTRY_RES,flag);
-                                editor.putInt(Constants.SELECTED_COUNTRY_CODE,code);
-                                editor.putInt(Constants.SELECTED_COUNTRY_OPERATOR,operator);
-                                editor.apply();
+                                GVariable.setSelectedCountry(country,code,flag,position,operator,editor);
                                 dialogItemSelectionListener.onClick(position,country,code,flag);
                             }
                             else{

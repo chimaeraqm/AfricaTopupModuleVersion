@@ -26,7 +26,7 @@
     <string name="string_user_login">用户登录</string>
     <string name="string_user_quick_register">快捷注册</string>
     <string name="string_local_number">本机号码（用户名）</string>
-    <string name="string_enter_username">输入手机号或用户名</string>
+    <string name="string_enter_username">输入用户名</string>
     <string name="string_init_pw">初始密码</string>
     <string name="string_enter_pw">输入密码</string>
     <string name="string_confirm">确认</string>

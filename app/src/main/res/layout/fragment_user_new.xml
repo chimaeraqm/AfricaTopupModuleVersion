@@ -99,17 +99,6 @@
             android:divider="@drawable/divider_custom"
             android:dividerPadding="8dp"
             android:layout_marginTop="16dp">
-            <Button
-                android:id="@+id/bn_setup_switchaccount"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorTrans"
-                android:drawableStart="@drawable/icon_discount_96"
-                android:drawableEnd="@drawable/ic_keyboard_arrow_right_gray_32dp"
-                android:gravity="left|center_vertical"
-                android:drawablePadding="16dp"
-                android:paddingStart="8dp"
-                android:text="@string/string_switch_account" />
 
             <Button
                 android:id="@+id/bn_setup_logout"

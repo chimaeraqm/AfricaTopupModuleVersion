@@ -2,6 +2,7 @@ package com.crazydwarf.comm_library.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,6 +16,8 @@ import android.widget.Button;
 
 import com.crazydwarf.chimaeraqm.comm_library.R;
 import com.crazydwarf.comm_library.Utilities.AppLanguageUtils;
+import com.crazydwarf.comm_library.Utilities.Constants;
+import com.crazydwarf.comm_library.Utilities.GVariable;
 import com.crazydwarf.comm_library.Utilities.UserUtil;
 import com.crazydwarf.comm_library.adapters.LanguageItemAdapterNew;
 
@@ -44,17 +47,22 @@ public class LanguageSelectDialog extends Dialog
         mRecyclerview.setLayoutManager(mLayoutManager);
         mRecyclerview.setHasFixedSize(true);
         mRecyclerview.addItemDecoration(new DividerItemDecoration(mContext,DividerItemDecoration.VERTICAL));
-        TypedArray namesArray = mContext.getResources().obtainTypedArray(R.array.select_languages);
-        final TypedArray flagsArray = mContext.getResources().obtainTypedArray(R.array.select_languageflags);
-        String[] names = new String[namesArray.length()];
-        Integer[] flags = new Integer[flagsArray.length()];
 
+        final TypedArray namesArray = mContext.getResources().obtainTypedArray(R.array.select_languages);
+        final TypedArray flagsArray = mContext.getResources().obtainTypedArray(R.array.select_languageflags);
+
+        final String[] names = new String[namesArray.length()];
+        final Integer[] flags = new Integer[flagsArray.length()];
 
         for(int i=0;i<namesArray.length();i++)
         {
             names[i] = namesArray.getString(i);
             flags[i] = flagsArray.getResourceId(i,0);
         }
+
+        namesArray.recycle();
+        flagsArray.recycle();
+
         final LanguageItemAdapterNew languageItemAdapter = new LanguageItemAdapterNew(mContext,flags,names);
         mRecyclerview.setAdapter(languageItemAdapter);
         //mPostSeleLanguage在这里获取保存的语言设置，并初始化弹出的对话框
@@ -62,6 +70,8 @@ public class LanguageSelectDialog extends Dialog
         mPostSeleLanguage = AppLanguageUtils.getSelePosByLanguage(language);
         languageItemAdapter.setmSelePos(mPostSeleLanguage);
 
+        SharedPreferences sharedPreferences = mContext.getSharedPreferences(Constants.USER_PREFS,Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
 
         languageItemAdapter.setOnLanguageItemRVClickListener(new LanguageItemAdapterNew.onLanguageItemRVClickListener() {
             @Override
@@ -85,6 +95,9 @@ public class LanguageSelectDialog extends Dialog
                 {
                     dialogItemSelectionListener.onButtonConfirmClick(v,mCurrentSeleLanguage);
                     mPostSeleLanguage = mCurrentSeleLanguage;
+                    String name = names[mCurrentSeleLanguage];
+                    int flag = flags[mCurrentSeleLanguage];
+                    GVariable.setSelectedLanguage(name,flag,editor);
                 }
                 dismiss();
             }

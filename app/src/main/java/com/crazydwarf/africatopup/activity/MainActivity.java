@@ -23,6 +23,7 @@ import com.crazydwarf.comm_library.Utilities.ActivityManager;
 import com.crazydwarf.africatopup.R;
 import com.crazydwarf.africatopup.fragment.QueryFragment;
 import com.crazydwarf.comm_library.Utilities.Constants;
+import com.crazydwarf.comm_library.Utilities.GVariable;
 import com.crazydwarf.comm_library.activity.BaseActivity;
 import com.crazydwarf.comm_library.dialogs.CountrySelectDialog;
 import java.util.ArrayList;
@@ -96,13 +97,7 @@ public class MainActivity extends BaseActivity
         setContentView(R.layout.activity_main);
         final WaveToolbar toolBar = findViewById(R.id.top_menu);
         setSupportActionBar(toolBar);
-
-        //TODO : 初始化选择国家队列，可以在启动时完成
-        final TypedArray flagsArray = MainActivity.this.getResources().obtainTypedArray(com.crazydwarf.chimaeraqm.comm_library.R.array.select_flags);
-
-        SharedPreferences sharedPreferences = getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
-        final int flag_res = sharedPreferences.getInt(Constants.SELECTED_COUNTRY_RES,flagsArray.getResourceId(0,0));
-        Drawable menuicon = ContextCompat.getDrawable(getBaseContext(),flag_res);
+        Drawable menuicon = ContextCompat.getDrawable(getBaseContext(), GVariable.STORED_COUNTRY_FLAG_RES);
         toolBar.setmMenuIcon(menuicon);
 
 
@@ -114,8 +109,7 @@ public class MainActivity extends BaseActivity
                 CountrySelectDialog countrySelectDialog = new CountrySelectDialog(MainActivity.this, new CountrySelectDialog.dialogItemSelectionListener() {
                     @Override
                     public void onClick(int position, String country, int code, int flag) {
-                        int resid = flagsArray.getResourceId(position,0);
-                        Drawable menuicon = ContextCompat.getDrawable(getBaseContext(),resid);
+                        Drawable menuicon = ContextCompat.getDrawable(getBaseContext(),GVariable.STORED_COUNTRY_FLAG_RES);
                         toolBar.setmMenuIcon(menuicon);
                         mSelePos = position;
                     }

@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
@@ -217,5 +218,34 @@ public class UserUtil
         } catch (Exception e) {
             return null;
         }
+    }
+
+    //TODO : 验证国内手机号码是否合法，非洲手机号需要当地号码段
+    /**
+     * 国内手机号码段
+     * 176, 177, 178;
+     * 180, 181, 182, 183, 184, 185, 186, 187, 188, 189;
+     * 145, 147;
+     * 130, 131, 132, 133, 134, 135, 136, 137, 138, 139;
+     * 150, 151, 152, 153, 155, 156, 157, 158, 159;
+     *
+     * "13"代表前两位为数字13,
+     * "[0-9]"代表第二位可以为0-9中的一个,
+     * "[^4]" 代表除了4
+     * "\\d{8}"代表后面是可以是0～9的数字, 有8位。
+     */
+    public static boolean isMobileNumber(String mobiles) {
+        String telRegex = "^((13[0-9])|(15[^4])|(18[0-9])|(17[0-8])|(147,145))\\d{8}$";
+        return !TextUtils.isEmpty(mobiles) && mobiles.matches(telRegex);
+    }
+
+    /**
+     * 手机号码简单判断，只针对位数进行判断
+     * @param mobiles
+     * @return
+     */
+    public static boolean isSimpleMobileNumber(String mobiles){
+        String telRegex = "^\\d{11}$";
+        return !TextUtils.isEmpty(mobiles) && mobiles.matches(telRegex);
     }
 }
